@@ -1,0 +1,8 @@
+basketball,basketball,noun,sport
+cat,cat_silhouette,noun,cute
+cow,cow,noun,farm
+deer,deer_silhouette,noun,hunting
+fish,fish,noun,water
+pencil,pencil,noun,draw
+soda,soda_can,noun,drink
+tree,tree_silhouette,noun,nature

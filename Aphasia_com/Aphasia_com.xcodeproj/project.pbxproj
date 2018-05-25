@@ -1,911 +1,907 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    classes = {
-    };
-    objectVersion = 46;
-    objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
 
 /* Begin PBXBuildFile section */
-        524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
-        524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-        524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-        601EAF1720B81A87006168D6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601EAF1620B81A87006168D6 /* Enums.swift */; };
-        601F417320B7E37200C18C6B /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416820B7E37200C18C6B /* deer_silhouette.png */; };
-        601F417420B7E37200C18C6B /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416920B7E37200C18C6B /* cow.png */; };
-        601F417520B7E37200C18C6B /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416A20B7E37200C18C6B /* image placeholder.png */; };
-        601F417620B7E37200C18C6B /* tree_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416B20B7E37200C18C6B /* tree_silhouette.png */; };
-        601F417720B7E37200C18C6B /* cat_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416C20B7E37200C18C6B /* cat_silhouette.png */; };
-        601F417820B7E37200C18C6B /* basketball.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416D20B7E37200C18C6B /* basketball.png */; };
-        601F417920B7E37200C18C6B /* soda_can.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416E20B7E37200C18C6B /* soda_can.png */; };
-        601F417A20B7E37200C18C6B /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416F20B7E37200C18C6B /* pencil.png */; };
-        601F417B20B7E37200C18C6B /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F417020B7E37200C18C6B /* fish.png */; };
-        601F417C20B7E37200C18C6B /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F417220B7E37200C18C6B /* image placeholder.png */; };
-        601F417E20B7E47B00C18C6B /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = 601F417D20B7E47A00C18C6B /* images.txt */; };
-        C1E9A5DC20B8C1F7005B47AC /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5D520B8C1F6005B47AC /* apple.png */; };
-        C1E9A5DE20B8C20E005B47AC /* car_sedan.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5DD20B8C20E005B47AC /* car_sedan.png */; };
-        C1E9A5E020B8C21B005B47AC /* food_breakfast.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5DF20B8C21B005B47AC /* food_breakfast.png */; };
-        C1E9A5E420B8C22A005B47AC /* food_dinner.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E320B8C22A005B47AC /* food_dinner.png */; };
-        C1E9A5E620B8C241005B47AC /* food_lunch.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E520B8C240005B47AC /* food_lunch.png */; };
-        C1E9A5E820B8C24A005B47AC /* man_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E720B8C24A005B47AC /* man_silhouette.png */; };
-        C1E9A5EA20B8C253005B47AC /* woman_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E920B8C253005B47AC /* woman_silhouette.png */; };
-        ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */; };
-        ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D120B7BEAC003B449A /* Utility.swift */; };
-        ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */; };
-        ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */; };
-        ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */; };
-        ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */; };
-        ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */; };
-        ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */; };
-        ED9E479620AE68E800C89F5C /* Mitchie_storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9E479520AE68E800C89F5C /* Mitchie_storyboard.storyboard */; };
-        EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7206D20AD3FA700675140 /* AppDelegate.swift */; };
-        EDF7207320AD3FA700675140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207120AD3FA700675140 /* Main.storyboard */; };
-        EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207420AD3FA700675140 /* Assets.xcassets */; };
-        EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */; };
-        EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */; };
-        EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */; };
+		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
+		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		601EAF1720B81A87006168D6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601EAF1620B81A87006168D6 /* Enums.swift */; };
+		601F417320B7E37200C18C6B /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416820B7E37200C18C6B /* deer_silhouette.png */; };
+		601F417420B7E37200C18C6B /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416920B7E37200C18C6B /* cow.png */; };
+		601F417520B7E37200C18C6B /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416A20B7E37200C18C6B /* image placeholder.png */; };
+		601F417620B7E37200C18C6B /* tree_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416B20B7E37200C18C6B /* tree_silhouette.png */; };
+		601F417720B7E37200C18C6B /* cat_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416C20B7E37200C18C6B /* cat_silhouette.png */; };
+		601F417820B7E37200C18C6B /* basketball.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416D20B7E37200C18C6B /* basketball.png */; };
+		601F417920B7E37200C18C6B /* soda_can.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416E20B7E37200C18C6B /* soda_can.png */; };
+		601F417A20B7E37200C18C6B /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F416F20B7E37200C18C6B /* pencil.png */; };
+		601F417B20B7E37200C18C6B /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F417020B7E37200C18C6B /* fish.png */; };
+		601F417C20B7E37200C18C6B /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 601F417220B7E37200C18C6B /* image placeholder.png */; };
+		601F417E20B7E47B00C18C6B /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = 601F417D20B7E47A00C18C6B /* images.txt */; };
+		C1E9A5DC20B8C1F7005B47AC /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5D520B8C1F6005B47AC /* apple.png */; };
+		C1E9A5DE20B8C20E005B47AC /* car_sedan.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5DD20B8C20E005B47AC /* car_sedan.png */; };
+		C1E9A5E020B8C21B005B47AC /* food_breakfast.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5DF20B8C21B005B47AC /* food_breakfast.png */; };
+		C1E9A5E420B8C22A005B47AC /* food_dinner.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E320B8C22A005B47AC /* food_dinner.png */; };
+		C1E9A5E620B8C241005B47AC /* food_lunch.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E520B8C240005B47AC /* food_lunch.png */; };
+		C1E9A5E820B8C24A005B47AC /* man_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E720B8C24A005B47AC /* man_silhouette.png */; };
+		C1E9A5EA20B8C253005B47AC /* woman_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A5E920B8C253005B47AC /* woman_silhouette.png */; };
+		ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */; };
+		ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D120B7BEAC003B449A /* Utility.swift */; };
+		ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */; };
+		ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */; };
+		ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */; };
+		ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */; };
+		ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */; };
+		ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */; };
+		EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7206D20AD3FA700675140 /* AppDelegate.swift */; };
+		EDF7207320AD3FA700675140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207120AD3FA700675140 /* Main.storyboard */; };
+		EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207420AD3FA700675140 /* Assets.xcassets */; };
+		EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */; };
+		EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */; };
+		EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-        524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
-            remoteInfo = "SQLite iOS";
-        };
-        524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
-            remoteInfo = "SQLiteTests iOS";
-        };
-        524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
-            remoteInfo = "SQLite Mac";
-        };
-        524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
-            remoteInfo = "SQLiteTests Mac";
-        };
-        524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
-            remoteInfo = "SQLite tvOS";
-        };
-        524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = 03A65E631C6BB0F60062603F;
-            remoteInfo = "SQLiteTests tvOS";
-        };
-        524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = A121AC451CA35C79005A31D1;
-            remoteInfo = "SQLite watchOS";
-        };
-        524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 1;
-            remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
-            remoteInfo = "SQLite iOS";
-        };
-        EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = EDF7206220AD3FA700675140 /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = EDF7206920AD3FA700675140;
-            remoteInfo = Aphasia_com;
-        };
-        EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = EDF7206220AD3FA700675140 /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = EDF7206920AD3FA700675140;
-            remoteInfo = Aphasia_com;
-        };
+		524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
+		524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDF7206220AD3FA700675140 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF7206920AD3FA700675140;
+			remoteInfo = Aphasia_com;
+		};
+		EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDF7206220AD3FA700675140 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF7206920AD3FA700675140;
+			remoteInfo = Aphasia_com;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-        524D0BC220B100A100EC19E7 /* Embed Frameworks */ = {
-            isa = PBXCopyFilesBuildPhase;
-            buildActionMask = 2147483647;
-            dstPath = "";
-            dstSubfolderSpec = 10;
-            files = (
-                524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */,
-            );
-            name = "Embed Frameworks";
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		524D0BC220B100A100EC19E7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-        524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
-        601EAF1620B81A87006168D6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-        601F416820B7E37200C18C6B /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
-        601F416920B7E37200C18C6B /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
-        601F416A20B7E37200C18C6B /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
-        601F416B20B7E37200C18C6B /* tree_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree_silhouette.png; sourceTree = "<group>"; };
-        601F416C20B7E37200C18C6B /* cat_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_silhouette.png; sourceTree = "<group>"; };
-        601F416D20B7E37200C18C6B /* basketball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basketball.png; sourceTree = "<group>"; };
-        601F416E20B7E37200C18C6B /* soda_can.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soda_can.png; sourceTree = "<group>"; };
-        601F416F20B7E37200C18C6B /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
-        601F417020B7E37200C18C6B /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
-        601F417220B7E37200C18C6B /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
-        601F417D20B7E47A00C18C6B /* images.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = images.txt; path = Aphasia_com/images.txt; sourceTree = "<group>"; };
-        C1E9A5D520B8C1F6005B47AC /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
-        C1E9A5DD20B8C20E005B47AC /* car_sedan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_sedan.png; sourceTree = "<group>"; };
-        C1E9A5DF20B8C21B005B47AC /* food_breakfast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_breakfast.png; sourceTree = "<group>"; };
-        C1E9A5E320B8C22A005B47AC /* food_dinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_dinner.png; sourceTree = "<group>"; };
-        C1E9A5E520B8C240005B47AC /* food_lunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_lunch.png; sourceTree = "<group>"; };
-        C1E9A5E720B8C24A005B47AC /* man_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_silhouette.png; sourceTree = "<group>"; };
-        C1E9A5E920B8C253005B47AC /* woman_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_silhouette.png; sourceTree = "<group>"; };
-        ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database_ViewController.swift; sourceTree = "<group>"; };
-        ED4168D120B7BEAC003B449A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-        ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectViewCell.swift; sourceTree = "<group>"; };
-        ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInput_ViewController.swift; sourceTree = "<group>"; };
-        ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu_ViewController.swift; sourceTree = "<group>"; };
-        ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResult_ViewController.swift; sourceTree = "<group>"; };
-        ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResult_ViewController.swift; sourceTree = "<group>"; };
-        ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInput_ViewController.swift; sourceTree = "<group>"; };
-        ED9E479520AE68E800C89F5C /* Mitchie_storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mitchie_storyboard.storyboard; sourceTree = "<group>"; };
-        EDF7206A20AD3FA700675140 /* Aphasia_com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aphasia_com.app; sourceTree = BUILT_PRODUCTS_DIR; };
-        EDF7206D20AD3FA700675140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-        EDF7207220AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-        EDF7207420AD3FA700675140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-        EDF7207720AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-        EDF7207920AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-        EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comTests.swift; sourceTree = "<group>"; };
-        EDF7208420AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-        EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comUITests.swift; sourceTree = "<group>"; };
-        EDF7208F20AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		601EAF1620B81A87006168D6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		601F416820B7E37200C18C6B /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
+		601F416920B7E37200C18C6B /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
+		601F416A20B7E37200C18C6B /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
+		601F416B20B7E37200C18C6B /* tree_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree_silhouette.png; sourceTree = "<group>"; };
+		601F416C20B7E37200C18C6B /* cat_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_silhouette.png; sourceTree = "<group>"; };
+		601F416D20B7E37200C18C6B /* basketball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basketball.png; sourceTree = "<group>"; };
+		601F416E20B7E37200C18C6B /* soda_can.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soda_can.png; sourceTree = "<group>"; };
+		601F416F20B7E37200C18C6B /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		601F417020B7E37200C18C6B /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
+		601F417220B7E37200C18C6B /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
+		601F417D20B7E47A00C18C6B /* images.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = images.txt; path = Aphasia_com/images.txt; sourceTree = "<group>"; };
+		C1E9A5D520B8C1F6005B47AC /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
+		C1E9A5DD20B8C20E005B47AC /* car_sedan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_sedan.png; sourceTree = "<group>"; };
+		C1E9A5DF20B8C21B005B47AC /* food_breakfast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_breakfast.png; sourceTree = "<group>"; };
+		C1E9A5E320B8C22A005B47AC /* food_dinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_dinner.png; sourceTree = "<group>"; };
+		C1E9A5E520B8C240005B47AC /* food_lunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_lunch.png; sourceTree = "<group>"; };
+		C1E9A5E720B8C24A005B47AC /* man_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_silhouette.png; sourceTree = "<group>"; };
+		C1E9A5E920B8C253005B47AC /* woman_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_silhouette.png; sourceTree = "<group>"; };
+		ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database_ViewController.swift; sourceTree = "<group>"; };
+		ED4168D120B7BEAC003B449A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectViewCell.swift; sourceTree = "<group>"; };
+		ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInput_ViewController.swift; sourceTree = "<group>"; };
+		ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu_ViewController.swift; sourceTree = "<group>"; };
+		ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResult_ViewController.swift; sourceTree = "<group>"; };
+		ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResult_ViewController.swift; sourceTree = "<group>"; };
+		ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInput_ViewController.swift; sourceTree = "<group>"; };
+		EDF7206A20AD3FA700675140 /* Aphasia_com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aphasia_com.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7206D20AD3FA700675140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDF7207220AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDF7207420AD3FA700675140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDF7207720AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDF7207920AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comTests.swift; sourceTree = "<group>"; };
+		EDF7208420AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comUITests.swift; sourceTree = "<group>"; };
+		EDF7208F20AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-        EDF7206720AD3FA700675140 /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
-                524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7207B20AD3FA700675140 /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7208620AD3FA700675140 /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		EDF7206720AD3FA700675140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
+				524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7207B20AD3FA700675140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7208620AD3FA700675140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        524D0BA320B0FFB700EC19E7 /* SQLite Resources */ = {
-            isa = PBXGroup;
-            children = (
-                524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */,
-            );
-            path = "SQLite Resources";
-            sourceTree = "<group>";
-        };
-        524D0BA520B1004400EC19E7 /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                524D0BAF20B1004500EC19E7 /* SQLite.framework */,
-                524D0BB120B1004500EC19E7 /* SQLiteTests iOS.xctest */,
-                524D0BB320B1004500EC19E7 /* SQLite.framework */,
-                524D0BB520B1004500EC19E7 /* SQLiteTests Mac.xctest */,
-                524D0BB720B1004500EC19E7 /* SQLite.framework */,
-                524D0BB920B1004500EC19E7 /* SQLiteTests tvOS.xctest */,
-                524D0BBB20B1004500EC19E7 /* SQLite.framework */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        524D0BBC20B1009100EC19E7 /* Frameworks */ = {
-            isa = PBXGroup;
-            children = (
-            );
-            name = Frameworks;
-            sourceTree = "<group>";
-        };
-        601F416620B7E37200C18C6B /* Images */ = {
-            isa = PBXGroup;
-            children = (
-                601F416720B7E37200C18C6B /* Database images */,
-                601F417120B7E37200C18C6B /* UI Images */,
-            );
-            path = Images;
-            sourceTree = "<group>";
-        };
-        601F416720B7E37200C18C6B /* Database images */ = {
-            isa = PBXGroup;
-            children = (
-                C1E9A5E720B8C24A005B47AC /* man_silhouette.png */,
-                C1E9A5E520B8C240005B47AC /* food_lunch.png */,
-                C1E9A5E320B8C22A005B47AC /* food_dinner.png */,
-                C1E9A5DF20B8C21B005B47AC /* food_breakfast.png */,
-                C1E9A5DD20B8C20E005B47AC /* car_sedan.png */,
-                C1E9A5D520B8C1F6005B47AC /* apple.png */,
-                C1E9A5E920B8C253005B47AC /* woman_silhouette.png */,
-                601F416820B7E37200C18C6B /* deer_silhouette.png */,
-                601F416920B7E37200C18C6B /* cow.png */,
-                601F416A20B7E37200C18C6B /* image placeholder.png */,
-                601F416B20B7E37200C18C6B /* tree_silhouette.png */,
-                601F416C20B7E37200C18C6B /* cat_silhouette.png */,
-                601F416D20B7E37200C18C6B /* basketball.png */,
-                601F416E20B7E37200C18C6B /* soda_can.png */,
-                601F416F20B7E37200C18C6B /* pencil.png */,
-                601F417020B7E37200C18C6B /* fish.png */,
-            );
-            path = "Database images";
-            sourceTree = "<group>";
-        };
-        601F417120B7E37200C18C6B /* UI Images */ = {
-            isa = PBXGroup;
-            children = (
-                601F417220B7E37200C18C6B /* image placeholder.png */,
-            );
-            path = "UI Images";
-            sourceTree = "<group>";
-        };
-        ED4168CD20B7BEAC003B449A /* ScriptsFolder */ = {
-            isa = PBXGroup;
-            children = (
-                ED4168CE20B7BEAC003B449A /* DataBase Scripts */,
-                ED4168D020B7BEAC003B449A /* Algorithm Scripts */,
-                ED4168D220B7BEAC003B449A /* UI Scripts */,
-            );
-            path = ScriptsFolder;
-            sourceTree = "<group>";
-        };
-        ED4168CE20B7BEAC003B449A /* DataBase Scripts */ = {
-            isa = PBXGroup;
-            children = (
-                ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */,
-            );
-            path = "DataBase Scripts";
-            sourceTree = "<group>";
-        };
-        ED4168D020B7BEAC003B449A /* Algorithm Scripts */ = {
-            isa = PBXGroup;
-            children = (
-                ED4168D120B7BEAC003B449A /* Utility.swift */,
-                601EAF1620B81A87006168D6 /* Enums.swift */,
-            );
-            path = "Algorithm Scripts";
-            sourceTree = "<group>";
-        };
-        ED4168D220B7BEAC003B449A /* UI Scripts */ = {
-            isa = PBXGroup;
-            children = (
-                ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */,
-                ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
-                ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
-                ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
-                ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
-                ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
-            );
-            path = "UI Scripts";
-            sourceTree = "<group>";
-        };
-        EDF7206120AD3FA700675140 = {
-            isa = PBXGroup;
-            children = (
-                EDF7206C20AD3FA700675140 /* Aphasia_com */,
-                601F417D20B7E47A00C18C6B /* images.txt */,
-                EDF7208120AD3FA700675140 /* Aphasia_comTests */,
-                EDF7208C20AD3FA700675140 /* Aphasia_comUITests */,
-                EDF7206B20AD3FA700675140 /* Products */,
-                524D0BA320B0FFB700EC19E7 /* SQLite Resources */,
-                524D0BBC20B1009100EC19E7 /* Frameworks */,
-            );
-            sourceTree = "<group>";
-        };
-        EDF7206B20AD3FA700675140 /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                EDF7206A20AD3FA700675140 /* Aphasia_com.app */,
-                EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */,
-                EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        EDF7206C20AD3FA700675140 /* Aphasia_com */ = {
-            isa = PBXGroup;
-            children = (
-                601F416620B7E37200C18C6B /* Images */,
-                ED4168CD20B7BEAC003B449A /* ScriptsFolder */,
-                EDF7206D20AD3FA700675140 /* AppDelegate.swift */,
-                EDF7207120AD3FA700675140 /* Main.storyboard */,
-                EDF7207420AD3FA700675140 /* Assets.xcassets */,
-                EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */,
-                EDF7207920AD3FA700675140 /* Info.plist */,
-                ED9E479520AE68E800C89F5C /* Mitchie_storyboard.storyboard */,
-            );
-            path = Aphasia_com;
-            sourceTree = "<group>";
-        };
-        EDF7208120AD3FA700675140 /* Aphasia_comTests */ = {
-            isa = PBXGroup;
-            children = (
-                EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */,
-                EDF7208420AD3FA700675140 /* Info.plist */,
-            );
-            path = Aphasia_comTests;
-            sourceTree = "<group>";
-        };
-        EDF7208C20AD3FA700675140 /* Aphasia_comUITests */ = {
-            isa = PBXGroup;
-            children = (
-                EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */,
-                EDF7208F20AD3FA700675140 /* Info.plist */,
-            );
-            path = Aphasia_comUITests;
-            sourceTree = "<group>";
-        };
+		524D0BA320B0FFB700EC19E7 /* SQLite Resources */ = {
+			isa = PBXGroup;
+			children = (
+				524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */,
+			);
+			path = "SQLite Resources";
+			sourceTree = "<group>";
+		};
+		524D0BA520B1004400EC19E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				524D0BAF20B1004500EC19E7 /* SQLite.framework */,
+				524D0BB120B1004500EC19E7 /* SQLiteTests iOS.xctest */,
+				524D0BB320B1004500EC19E7 /* SQLite.framework */,
+				524D0BB520B1004500EC19E7 /* SQLiteTests Mac.xctest */,
+				524D0BB720B1004500EC19E7 /* SQLite.framework */,
+				524D0BB920B1004500EC19E7 /* SQLiteTests tvOS.xctest */,
+				524D0BBB20B1004500EC19E7 /* SQLite.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		524D0BBC20B1009100EC19E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		601F416620B7E37200C18C6B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				601F416720B7E37200C18C6B /* Database images */,
+				601F417120B7E37200C18C6B /* UI Images */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		601F416720B7E37200C18C6B /* Database images */ = {
+			isa = PBXGroup;
+			children = (
+				C1E9A5E720B8C24A005B47AC /* man_silhouette.png */,
+				C1E9A5E520B8C240005B47AC /* food_lunch.png */,
+				C1E9A5E320B8C22A005B47AC /* food_dinner.png */,
+				C1E9A5DF20B8C21B005B47AC /* food_breakfast.png */,
+				C1E9A5DD20B8C20E005B47AC /* car_sedan.png */,
+				C1E9A5D520B8C1F6005B47AC /* apple.png */,
+				C1E9A5E920B8C253005B47AC /* woman_silhouette.png */,
+				601F416820B7E37200C18C6B /* deer_silhouette.png */,
+				601F416920B7E37200C18C6B /* cow.png */,
+				601F416A20B7E37200C18C6B /* image placeholder.png */,
+				601F416B20B7E37200C18C6B /* tree_silhouette.png */,
+				601F416C20B7E37200C18C6B /* cat_silhouette.png */,
+				601F416D20B7E37200C18C6B /* basketball.png */,
+				601F416E20B7E37200C18C6B /* soda_can.png */,
+				601F416F20B7E37200C18C6B /* pencil.png */,
+				601F417020B7E37200C18C6B /* fish.png */,
+			);
+			path = "Database images";
+			sourceTree = "<group>";
+		};
+		601F417120B7E37200C18C6B /* UI Images */ = {
+			isa = PBXGroup;
+			children = (
+				601F417220B7E37200C18C6B /* image placeholder.png */,
+			);
+			path = "UI Images";
+			sourceTree = "<group>";
+		};
+		ED4168CD20B7BEAC003B449A /* ScriptsFolder */ = {
+			isa = PBXGroup;
+			children = (
+				ED4168CE20B7BEAC003B449A /* DataBase Scripts */,
+				ED4168D020B7BEAC003B449A /* Algorithm Scripts */,
+				ED4168D220B7BEAC003B449A /* UI Scripts */,
+			);
+			path = ScriptsFolder;
+			sourceTree = "<group>";
+		};
+		ED4168CE20B7BEAC003B449A /* DataBase Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */,
+			);
+			path = "DataBase Scripts";
+			sourceTree = "<group>";
+		};
+		ED4168D020B7BEAC003B449A /* Algorithm Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				ED4168D120B7BEAC003B449A /* Utility.swift */,
+				601EAF1620B81A87006168D6 /* Enums.swift */,
+			);
+			path = "Algorithm Scripts";
+			sourceTree = "<group>";
+		};
+		ED4168D220B7BEAC003B449A /* UI Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */,
+				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
+				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
+				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
+				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
+				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
+			);
+			path = "UI Scripts";
+			sourceTree = "<group>";
+		};
+		EDF7206120AD3FA700675140 = {
+			isa = PBXGroup;
+			children = (
+				EDF7206C20AD3FA700675140 /* Aphasia_com */,
+				601F417D20B7E47A00C18C6B /* images.txt */,
+				EDF7208120AD3FA700675140 /* Aphasia_comTests */,
+				EDF7208C20AD3FA700675140 /* Aphasia_comUITests */,
+				EDF7206B20AD3FA700675140 /* Products */,
+				524D0BA320B0FFB700EC19E7 /* SQLite Resources */,
+				524D0BBC20B1009100EC19E7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EDF7206B20AD3FA700675140 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7206A20AD3FA700675140 /* Aphasia_com.app */,
+				EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */,
+				EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDF7206C20AD3FA700675140 /* Aphasia_com */ = {
+			isa = PBXGroup;
+			children = (
+				601F416620B7E37200C18C6B /* Images */,
+				ED4168CD20B7BEAC003B449A /* ScriptsFolder */,
+				EDF7206D20AD3FA700675140 /* AppDelegate.swift */,
+				EDF7207120AD3FA700675140 /* Main.storyboard */,
+				EDF7207420AD3FA700675140 /* Assets.xcassets */,
+				EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */,
+				EDF7207920AD3FA700675140 /* Info.plist */,
+			);
+			path = Aphasia_com;
+			sourceTree = "<group>";
+		};
+		EDF7208120AD3FA700675140 /* Aphasia_comTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */,
+				EDF7208420AD3FA700675140 /* Info.plist */,
+			);
+			path = Aphasia_comTests;
+			sourceTree = "<group>";
+		};
+		EDF7208C20AD3FA700675140 /* Aphasia_comUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */,
+				EDF7208F20AD3FA700675140 /* Info.plist */,
+			);
+			path = Aphasia_comUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-        EDF7206920AD3FA700675140 /* Aphasia_com */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */;
-            buildPhases = (
-                EDF7206620AD3FA700675140 /* Sources */,
-                EDF7206720AD3FA700675140 /* Frameworks */,
-                EDF7206820AD3FA700675140 /* Resources */,
-                524D0BC220B100A100EC19E7 /* Embed Frameworks */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                524D0BC120B100A000EC19E7 /* PBXTargetDependency */,
-            );
-            name = Aphasia_com;
-            productName = Aphasia_com;
-            productReference = EDF7206A20AD3FA700675140 /* Aphasia_com.app */;
-            productType = "com.apple.product-type.application";
-        };
-        EDF7207D20AD3FA700675140 /* Aphasia_comTests */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */;
-            buildPhases = (
-                EDF7207A20AD3FA700675140 /* Sources */,
-                EDF7207B20AD3FA700675140 /* Frameworks */,
-                EDF7207C20AD3FA700675140 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                EDF7208020AD3FA700675140 /* PBXTargetDependency */,
-            );
-            name = Aphasia_comTests;
-            productName = Aphasia_comTests;
-            productReference = EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */;
-            productType = "com.apple.product-type.bundle.unit-test";
-        };
-        EDF7208820AD3FA700675140 /* Aphasia_comUITests */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */;
-            buildPhases = (
-                EDF7208520AD3FA700675140 /* Sources */,
-                EDF7208620AD3FA700675140 /* Frameworks */,
-                EDF7208720AD3FA700675140 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                EDF7208B20AD3FA700675140 /* PBXTargetDependency */,
-            );
-            name = Aphasia_comUITests;
-            productName = Aphasia_comUITests;
-            productReference = EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */;
-            productType = "com.apple.product-type.bundle.ui-testing";
-        };
+		EDF7206920AD3FA700675140 /* Aphasia_com */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */;
+			buildPhases = (
+				EDF7206620AD3FA700675140 /* Sources */,
+				EDF7206720AD3FA700675140 /* Frameworks */,
+				EDF7206820AD3FA700675140 /* Resources */,
+				524D0BC220B100A100EC19E7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				524D0BC120B100A000EC19E7 /* PBXTargetDependency */,
+			);
+			name = Aphasia_com;
+			productName = Aphasia_com;
+			productReference = EDF7206A20AD3FA700675140 /* Aphasia_com.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDF7207D20AD3FA700675140 /* Aphasia_comTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */;
+			buildPhases = (
+				EDF7207A20AD3FA700675140 /* Sources */,
+				EDF7207B20AD3FA700675140 /* Frameworks */,
+				EDF7207C20AD3FA700675140 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF7208020AD3FA700675140 /* PBXTargetDependency */,
+			);
+			name = Aphasia_comTests;
+			productName = Aphasia_comTests;
+			productReference = EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EDF7208820AD3FA700675140 /* Aphasia_comUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */;
+			buildPhases = (
+				EDF7208520AD3FA700675140 /* Sources */,
+				EDF7208620AD3FA700675140 /* Frameworks */,
+				EDF7208720AD3FA700675140 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF7208B20AD3FA700675140 /* PBXTargetDependency */,
+			);
+			name = Aphasia_comUITests;
+			productName = Aphasia_comUITests;
+			productReference = EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-        EDF7206220AD3FA700675140 /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                LastSwiftUpdateCheck = 0830;
-                LastUpgradeCheck = 0930;
-                ORGANIZATIONNAME = Cosc345;
-                TargetAttributes = {
-                    EDF7206920AD3FA700675140 = {
-                        CreatedOnToolsVersion = 8.3.3;
-                        DevelopmentTeam = 845CX8Y83W;
-                        LastSwiftMigration = 0930;
-                        ProvisioningStyle = Automatic;
-                    };
-                    EDF7207D20AD3FA700675140 = {
-                        CreatedOnToolsVersion = 8.3.3;
-                        LastSwiftMigration = 0930;
-                        ProvisioningStyle = Automatic;
-                        TestTargetID = EDF7206920AD3FA700675140;
-                    };
-                    EDF7208820AD3FA700675140 = {
-                        CreatedOnToolsVersion = 8.3.3;
-                        LastSwiftMigration = 0930;
-                        ProvisioningStyle = Automatic;
-                        TestTargetID = EDF7206920AD3FA700675140;
-                    };
-                };
-            };
-            buildConfigurationList = EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */;
-            compatibilityVersion = "Xcode 3.2";
-            developmentRegion = English;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
-                Base,
-            );
-            mainGroup = EDF7206120AD3FA700675140;
-            productRefGroup = EDF7206B20AD3FA700675140 /* Products */;
-            projectDirPath = "";
-            projectReferences = (
-                {
-                    ProductGroup = 524D0BA520B1004400EC19E7 /* Products */;
-                    ProjectRef = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-                },
-            );
-            projectRoot = "";
-            targets = (
-                EDF7206920AD3FA700675140 /* Aphasia_com */,
-                EDF7207D20AD3FA700675140 /* Aphasia_comTests */,
-                EDF7208820AD3FA700675140 /* Aphasia_comUITests */,
-            );
-        };
+		EDF7206220AD3FA700675140 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Cosc345;
+				TargetAttributes = {
+					EDF7206920AD3FA700675140 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 845CX8Y83W;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					EDF7207D20AD3FA700675140 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EDF7206920AD3FA700675140;
+					};
+					EDF7208820AD3FA700675140 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EDF7206920AD3FA700675140;
+					};
+				};
+			};
+			buildConfigurationList = EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF7206120AD3FA700675140;
+			productRefGroup = EDF7206B20AD3FA700675140 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 524D0BA520B1004400EC19E7 /* Products */;
+					ProjectRef = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EDF7206920AD3FA700675140 /* Aphasia_com */,
+				EDF7207D20AD3FA700675140 /* Aphasia_comTests */,
+				EDF7208820AD3FA700675140 /* Aphasia_comUITests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-        524D0BAF20B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB120B1004500EC19E7 /* SQLiteTests iOS.xctest */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.cfbundle;
-            path = "SQLiteTests iOS.xctest";
-            remoteRef = 524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB320B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB520B1004500EC19E7 /* SQLiteTests Mac.xctest */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.cfbundle;
-            path = "SQLiteTests Mac.xctest";
-            remoteRef = 524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB720B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB920B1004500EC19E7 /* SQLiteTests tvOS.xctest */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.cfbundle;
-            path = "SQLiteTests tvOS.xctest";
-            remoteRef = 524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BBB20B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
+		524D0BAF20B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB120B1004500EC19E7 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = 524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB320B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB520B1004500EC19E7 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = 524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB720B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB920B1004500EC19E7 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = 524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BBB20B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-        EDF7206820AD3FA700675140 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                601F417C20B7E37200C18C6B /* image placeholder.png in Resources */,
-                601F417B20B7E37200C18C6B /* fish.png in Resources */,
-                601F417A20B7E37200C18C6B /* pencil.png in Resources */,
-                601F417520B7E37200C18C6B /* image placeholder.png in Resources */,
-                EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
-                C1E9A5E420B8C22A005B47AC /* food_dinner.png in Resources */,
-                C1E9A5E620B8C241005B47AC /* food_lunch.png in Resources */,
-                601F417920B7E37200C18C6B /* soda_can.png in Resources */,
-                601F417320B7E37200C18C6B /* deer_silhouette.png in Resources */,
-                C1E9A5DE20B8C20E005B47AC /* car_sedan.png in Resources */,
-                601F417620B7E37200C18C6B /* tree_silhouette.png in Resources */,
-                C1E9A5E820B8C24A005B47AC /* man_silhouette.png in Resources */,
-                601F417820B7E37200C18C6B /* basketball.png in Resources */,
-                601F417720B7E37200C18C6B /* cat_silhouette.png in Resources */,
-                EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
-                601F417E20B7E47B00C18C6B /* images.txt in Resources */,
-                601F417420B7E37200C18C6B /* cow.png in Resources */,
-                EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
-                C1E9A5EA20B8C253005B47AC /* woman_silhouette.png in Resources */,
-                C1E9A5E020B8C21B005B47AC /* food_breakfast.png in Resources */,
-                C1E9A5DC20B8C1F7005B47AC /* apple.png in Resources */,
-                ED9E479620AE68E800C89F5C /* Mitchie_storyboard.storyboard in Resources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7207C20AD3FA700675140 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7208720AD3FA700675140 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		EDF7206820AD3FA700675140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				601F417C20B7E37200C18C6B /* image placeholder.png in Resources */,
+				601F417B20B7E37200C18C6B /* fish.png in Resources */,
+				601F417A20B7E37200C18C6B /* pencil.png in Resources */,
+				601F417520B7E37200C18C6B /* image placeholder.png in Resources */,
+				EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
+				C1E9A5E420B8C22A005B47AC /* food_dinner.png in Resources */,
+				C1E9A5E620B8C241005B47AC /* food_lunch.png in Resources */,
+				601F417920B7E37200C18C6B /* soda_can.png in Resources */,
+				601F417320B7E37200C18C6B /* deer_silhouette.png in Resources */,
+				C1E9A5DE20B8C20E005B47AC /* car_sedan.png in Resources */,
+				601F417620B7E37200C18C6B /* tree_silhouette.png in Resources */,
+				C1E9A5E820B8C24A005B47AC /* man_silhouette.png in Resources */,
+				601F417820B7E37200C18C6B /* basketball.png in Resources */,
+				601F417720B7E37200C18C6B /* cat_silhouette.png in Resources */,
+				EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
+				601F417E20B7E47B00C18C6B /* images.txt in Resources */,
+				601F417420B7E37200C18C6B /* cow.png in Resources */,
+				EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
+				C1E9A5EA20B8C253005B47AC /* woman_silhouette.png in Resources */,
+				C1E9A5E020B8C21B005B47AC /* food_breakfast.png in Resources */,
+				C1E9A5DC20B8C1F7005B47AC /* apple.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7207C20AD3FA700675140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7208720AD3FA700675140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-        EDF7206620AD3FA700675140 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */,
-                ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */,
-                601EAF1720B81A87006168D6 /* Enums.swift in Sources */,
-                EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */,
-                ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */,
-                ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
-                ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */,
-                ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
-                ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
-                ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7207A20AD3FA700675140 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7208520AD3FA700675140 /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		EDF7206620AD3FA700675140 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */,
+				ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */,
+				601EAF1720B81A87006168D6 /* Enums.swift in Sources */,
+				EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */,
+				ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */,
+				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
+				ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */,
+				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
+				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
+				ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7207A20AD3FA700675140 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7208520AD3FA700675140 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-        524D0BC120B100A000EC19E7 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            name = "SQLite iOS";
-            targetProxy = 524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */;
-        };
-        EDF7208020AD3FA700675140 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = EDF7206920AD3FA700675140 /* Aphasia_com */;
-            targetProxy = EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */;
-        };
-        EDF7208B20AD3FA700675140 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = EDF7206920AD3FA700675140 /* Aphasia_com */;
-            targetProxy = EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */;
-        };
+		524D0BC120B100A000EC19E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = 524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */;
+		};
+		EDF7208020AD3FA700675140 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF7206920AD3FA700675140 /* Aphasia_com */;
+			targetProxy = EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */;
+		};
+		EDF7208B20AD3FA700675140 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF7206920AD3FA700675140 /* Aphasia_com */;
+			targetProxy = EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-        EDF7207120AD3FA700675140 /* Main.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                EDF7207220AD3FA700675140 /* Base */,
-            );
-            name = Main.storyboard;
-            sourceTree = "<group>";
-        };
-        EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                EDF7207720AD3FA700675140 /* Base */,
-            );
-            name = LaunchScreen.storyboard;
-            sourceTree = "<group>";
-        };
+		EDF7207120AD3FA700675140 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF7207220AD3FA700675140 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF7207720AD3FA700675140 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-        EDF7209020AD3FA700675140 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = dwarf;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                ENABLE_TESTABILITY = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu99;
-                GCC_DYNAMIC_NO_PIC = NO;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_OPTIMIZATION_LEVEL = 0;
-                GCC_PREPROCESSOR_DEFINITIONS = (
-                    "DEBUG=1",
-                    "$(inherited)",
-                );
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-                MTL_ENABLE_DEBUG_INFO = YES;
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = iphoneos;
-                SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-                SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Debug;
-        };
-        EDF7209120AD3FA700675140 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                "CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                ENABLE_NS_ASSERTIONS = NO;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu99;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-                MTL_ENABLE_DEBUG_INFO = NO;
-                SDKROOT = iphoneos;
-                SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-                SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                VALIDATE_PRODUCT = YES;
-            };
-            name = Release;
-        };
-        EDF7209320AD3FA700675140 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = 845CX8Y83W;
-                INFOPLIST_FILE = Aphasia_com/Info.plist;
-                IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                PROVISIONING_PROFILE_SPECIFIER = "";
-                SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-                SWIFT_VERSION = 4.0;
-            };
-            name = Debug;
-        };
-        EDF7209420AD3FA700675140 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = 845CX8Y83W;
-                INFOPLIST_FILE = Aphasia_com/Info.plist;
-                IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                PROVISIONING_PROFILE_SPECIFIER = "";
-                SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-                SWIFT_VERSION = 4.0;
-            };
-            name = Release;
-        };
-        EDF7209620AD3FA700675140 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                INFOPLIST_FILE = Aphasia_comTests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comTests";
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_SWIFT3_OBJC_INFERENCE = On;
-                SWIFT_VERSION = 4.0;
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aphasia_com.app/Aphasia_com";
-            };
-            name = Debug;
-        };
-        EDF7209720AD3FA700675140 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                INFOPLIST_FILE = Aphasia_comTests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comTests";
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_SWIFT3_OBJC_INFERENCE = On;
-                SWIFT_VERSION = 4.0;
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aphasia_com.app/Aphasia_com";
-            };
-            name = Release;
-        };
-        EDF7209920AD3FA700675140 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                INFOPLIST_FILE = Aphasia_comUITests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comUITests";
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_SWIFT3_OBJC_INFERENCE = On;
-                SWIFT_VERSION = 4.0;
-                TEST_TARGET_NAME = Aphasia_com;
-            };
-            name = Debug;
-        };
-        EDF7209A20AD3FA700675140 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                INFOPLIST_FILE = Aphasia_comUITests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comUITests";
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_SWIFT3_OBJC_INFERENCE = On;
-                SWIFT_VERSION = 4.0;
-                TEST_TARGET_NAME = Aphasia_com;
-            };
-            name = Release;
-        };
+		EDF7209020AD3FA700675140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDF7209120AD3FA700675140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF7209320AD3FA700675140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 845CX8Y83W;
+				INFOPLIST_FILE = Aphasia_com/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		EDF7209420AD3FA700675140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 845CX8Y83W;
+				INFOPLIST_FILE = Aphasia_com/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		EDF7209620AD3FA700675140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Aphasia_comTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aphasia_com.app/Aphasia_com";
+			};
+			name = Debug;
+		};
+		EDF7209720AD3FA700675140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Aphasia_comTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aphasia_com.app/Aphasia_com";
+			};
+			name = Release;
+		};
+		EDF7209920AD3FA700675140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Aphasia_comUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Aphasia_com;
+			};
+			name = Debug;
+		};
+		EDF7209A20AD3FA700675140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Aphasia_comUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Aphasia_com;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-        EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209020AD3FA700675140 /* Debug */,
-                EDF7209120AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209320AD3FA700675140 /* Debug */,
-                EDF7209420AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209620AD3FA700675140 /* Debug */,
-                EDF7209720AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209920AD3FA700675140 /* Debug */,
-                EDF7209A20AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
+		EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209020AD3FA700675140 /* Debug */,
+				EDF7209120AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209320AD3FA700675140 /* Debug */,
+				EDF7209420AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209620AD3FA700675140 /* Debug */,
+				EDF7209720AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209920AD3FA700675140 /* Debug */,
+				EDF7209A20AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-    };
-    rootObject = EDF7206220AD3FA700675140 /* Project object */;
+	};
+	rootObject = EDF7206220AD3FA700675140 /* Project object */;
 }

@@ -43,7 +43,8 @@ class Utility {
         (word: String, type: String, image: UIImage, suggestions: [String]){
             let word = "word"
             let type = "type"
-            let image = UIImage(named: "placeholder.png")
+            let image = UIImage(named: "cow")
+            print("image", image)
             let suggestions = ["this", "is", "the", "suggestion"]
         
             return (word, type, image!, suggestions)

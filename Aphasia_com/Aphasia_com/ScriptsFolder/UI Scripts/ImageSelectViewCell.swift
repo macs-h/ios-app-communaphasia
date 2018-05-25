@@ -9,7 +9,7 @@
 import UIKit
 
 class SelectViewCell: UICollectionViewCell {
-    //good to manage these variables in the class but could be done with an array in the view controller
+    //good to manage these variables in the clzass but could be done with an array in the view controller
     var word: String = "car"
     var type: String = "verb" //for the type of word (noun, verb etc)
     @IBOutlet weak var imageView: UIImageView!

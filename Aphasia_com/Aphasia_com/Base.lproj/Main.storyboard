@@ -379,7 +379,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vx9-KE-FDJ">
                                 <rect key="frame" x="108" y="192" width="896" height="374"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.86848283680000005" green="0.86848283680000005" blue="0.86848283680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ipg-v6-4UV">
                                     <size key="itemSize" width="116" height="112"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -387,13 +387,22 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="edW-at-K5g" customClass="ImageTextResultViewCell" customModule="Aphasia_com" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextResultCell" id="edW-at-K5g" customClass="ImageTextResultViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="116" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="116" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFY-w1-NTL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="112"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="OFY-w1-NTL" id="Lin-B6-czb"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -419,8 +428,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="resultCollectionView" destination="vx9-KE-FDJ" id="5yU-UM-er4"/>
-                        <outlet property="resultLabel" destination="cSc-an-lAY" id="XEH-78-K1I"/>
+                        <outlet property="resultCollectionView" destination="vx9-KE-FDJ" id="pgg-N7-Pzo"/>
+                        <outlet property="resultLabel" destination="cSc-an-lAY" id="Zgf-bJ-2vE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEs-97-Vni" userLabel="First Responder" sceneMemberID="firstResponder"/>

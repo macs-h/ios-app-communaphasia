@@ -19,6 +19,7 @@ class ImageTextResultViewCell: UICollectionViewCell {
     func addData(cell: (word: String, type: String, image: UIImage , suggestions: [String])){
         self.word = cell.word
         self.type = cell.type
+        print("Image 2", cell.image)
         self.imageView.image = cell.image
         self.suggestedWords = cell.suggestions
         

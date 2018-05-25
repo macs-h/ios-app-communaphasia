@@ -20,6 +20,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         resultLabel.text = inputString //shows at bottom what was typed
+        
         // Do any additional setup after loading the view.
     }
 

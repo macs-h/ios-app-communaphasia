@@ -131,9 +131,12 @@ class Database_ViewController: UIViewController {
         
         return ""
     }
+    
+    
     @IBAction func buttonPressed(_ sender: Any) {
         do{
-            let images = try self.database.prepare(self.imageTable)
+            let images = try self.database.prepare(self.imageTable)  // gets entry out of DB.
+            
             for image in images {
                 if keywordText.text == image[self.keyword]{
                     imageView1.image = UIImage(named: image[self.link])

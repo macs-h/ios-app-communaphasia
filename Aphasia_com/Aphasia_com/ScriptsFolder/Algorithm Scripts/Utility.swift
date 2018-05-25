@@ -42,7 +42,7 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == false {  // should be false
+        if launchedBefore == true {  // should be false --------------------------------------------
             print("first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()
@@ -67,10 +67,10 @@ class Utility {
      * (by whitespaces) and returns them as an array of words.
      *
      *  - Parameters:
-     *      - inputString:	a string to be broken down into separate words.
+     *      - inputString:    a string to be broken down into separate words.
      *      - charSet:      indicates which ASCII character is used to separate the sentence into
      *                      words.
-     *  - Returns:	a 1D array of words.
+     *  - Returns:    a 1D array of words.
      */
     func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
         return inputString.components(separatedBy: charSet)
@@ -139,12 +139,15 @@ class Utility {
         }
     }
     
+    /**
+     * Populates the cells in the database table with data read in from a CSV text file.
+     */
     private func populateCells() {
         var fileText:String
         
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
         
-        //check file exists and read to string
+        // check if the file exists and read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()
             if fileExists! {

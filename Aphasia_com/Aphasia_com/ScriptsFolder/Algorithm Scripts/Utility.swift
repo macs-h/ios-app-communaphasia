@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  * This class acts as a 'helper' class containing regularly used utility functions.
@@ -38,13 +39,13 @@ class Utility {
      *
      *  - Returns: a tuple which contains the information extracted from the database.
      */
-    static func getDatabaseEntry(_ word: String, typeOfSearch: String, exclusionList:Array<String>) ->
+    static func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
         (word: String, type: String, image: UIImage, suggestions: [String]){
             let word = "word"
             let type = "type"
             let image = UIImage(named: "placeholder.png")
             let suggestions = ["this", "is", "the", "suggestion"]
         
-            return (word, type, image, suggestions)
+            return (word, type, image!, suggestions)
     }
 }

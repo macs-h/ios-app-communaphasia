@@ -20,7 +20,7 @@ class SelectViewCell: UICollectionViewCell {
     
     
     //----------max---- look how to pass a tuple as a param
-    func addData(word: String, type: UIimage, image: UIImage ,suggestions: [String]){
+    func addData(_ word: String, _ type: String, _ image: UIImage ,_ suggestions: [String]){
         self.word = word
         self.type = type
         self.imageView.image = image

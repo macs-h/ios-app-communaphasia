@@ -79,7 +79,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }else{
             //inputCollectionView
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SelectViewCell //gives the type of the custom class that was made for the cell
-            cell.addData(word: <#T##String#>, type: <#T##String#>, image: <#T##UIImage#>, suggestions: <#T##[String]#>) //using temp tuple
+            //cell.addData(word: <#T##String#>, type: <#T##String#>, image: <#T##UIImage#>, suggestions: <#T##[String]#>) //using temp tuple
             return cell
         }
  

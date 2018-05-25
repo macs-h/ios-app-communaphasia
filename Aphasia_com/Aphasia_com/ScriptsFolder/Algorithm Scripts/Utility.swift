@@ -39,7 +39,7 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == true {  // should be false
+        if launchedBefore == false {  // should be false
             print("first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()

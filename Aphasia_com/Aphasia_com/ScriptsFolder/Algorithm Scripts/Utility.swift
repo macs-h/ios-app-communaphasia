@@ -93,7 +93,7 @@ class Utility {
     func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
         (word: String, type: String, image: UIImage, suggestions: [String]) {
             // make like DB extraction.
-            var image: UIImage = UIImage(named: "cow")!
+            var image: UIImage
             var word_type: String = ""
             var suggestions: Array<String> = []
             do {
@@ -104,7 +104,7 @@ class Utility {
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: ","))
                     } else {
-                        image = UIImage(named: "fish")!
+                        image = UIImage(named: "image placeholder")!
                     }
                 }
             } catch {
@@ -137,24 +137,25 @@ class Utility {
         }
     }
     
-    
     private func populateCells() {
-        var fileText = ""
+        var fileText:String
         
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
         
-        //read to string
+        //check file exists and read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()
             if fileExists! {
                 print("URL:",fileURL!)
                 fileText = try String(contentsOf: fileURL!, encoding: .utf8)
             } else {
-                print("File does not exist, create it")
+                print("File does not exist, cannot populate database")
+                return
             }
         } catch {
             print(error.localizedDescription)
         }
+        //populate database
         if fileText != "" {
             let lines = fileText.components(separatedBy: .newlines)
             for line in lines {

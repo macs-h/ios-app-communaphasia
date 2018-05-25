@@ -2,6 +2,8 @@
 //  Utility.swift
 //  Aphasia_com
 //
+//  This class acts as a 'helper' class containing regularly used utility functions.
+//
 //  Created by Max Huang on 24/05/18.
 //  Copyright © 2018 Cosc345. All rights reserved.
 //
@@ -10,14 +12,13 @@ import Foundation
 import UIKit
 import SQLite
 
-let UTILITY = Utility()
+let UTILITY = Utility() // Setting up singleton.
 
-/**
- * This class acts as a 'helper' class containing regularly used utility functions.
- */
 class Utility {
     
     var database: Connection! // Connection to database.
+    
+    // Fields for the database.
     let CELL_TABLE = Table("cellTable")
     let ID = Expression<Int>("id")
     let IMAGE_LINK = Expression<String>("imageLink")
@@ -25,8 +26,10 @@ class Utility {
     let RELATIONSHIPS = Expression<String>("relationships")
     let TYPE = Expression<String>("type")
     
+    
     /**
-     *
+     * Init function which initialises the database, creating the cells required, and populating
+     * the cells with entries/information.
      */
     init() {
         do {
@@ -39,14 +42,12 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == true {  // should be false
+        if launchedBefore == true {  // should be false --------------------------------------------
             print("first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()
             self.populateCells()
-            //testFileManager()
-
-        }else{
+        } else {
             print("not first launch")
         }
         
@@ -60,13 +61,15 @@ class Utility {
         print(getDatabaseEntry("cat", "linear", ["1"]))
     }
     
-    
-    
 
     /**
      * A sentence processing function which takes in a string and breaks it down into tokens
      * (by whitespaces) and returns them as an array of words.
-     *  - Parameter inputString:	a string to be broken down into separate words.
+     *
+     *  - Parameters:
+     *      - inputString:	a string to be broken down into separate words.
+     *      - charSet:      indicates which ASCII character is used to separate the sentence into
+     *                      words.
      *  - Returns:	a 1D array of words.
      */
     func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
@@ -111,16 +114,15 @@ class Utility {
                 print(error)
             }
             
-//            let word = "word"
-//            let type = "type"
-//            let image = UIImage(named: "placeholder.png")
-//            let suggestions = ["this", "is", "the", "suggestion"]
-            
             print("EO getDBENtry")
+            print(wordType.noun)
+            // Should we use enums as what is returned for the word_type??
             return (word, word_type, image, suggestions)
     }
     
-    // Creates cells
+    /**
+     * Creates the cells in the database table. Only called from init().
+     */
     private func setCells() {
         let makeTable = self.CELL_TABLE.create { (table) in
             table.column(self.ID, primaryKey: true)
@@ -137,7 +139,9 @@ class Utility {
         }
     }
     
-    
+    /**
+     * Populates the cells in the database table with data read in from a CSV text file.
+     */
     private func populateCells() {
         var fileText = ""
         

@@ -1,11 +1,11 @@
 //
 //  Utility.swift
-//  Aphasia_com
+//  CommunAphasia
 //
 //  This class acts as a 'helper' class containing regularly used utility functions.
 //
-//  Created by Max Huang on 24/05/18.
-//  Copyright © 2018 Cosc345. All rights reserved.
+//  Created by RedSQ on 24/05/18.
+//  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import Foundation
@@ -96,7 +96,7 @@ class Utility {
     func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
         (word: String, type: String, image: UIImage, suggestions: [String]) {
             // make like DB extraction.
-            var image: UIImage
+            var image: UIImage = UIImage(named: "image placeholder")!
             var word_type: String = ""
             var suggestions: Array<String> = []
             do {
@@ -143,7 +143,7 @@ class Utility {
      * Populates the cells in the database table with data read in from a CSV text file.
      */
     private func populateCells() {
-        var fileText:String
+        var fileText:String = ""
         
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
         

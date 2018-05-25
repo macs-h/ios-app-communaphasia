@@ -1,11 +1,11 @@
 //
 //  Enums.swift
-//  Aphasia_com
+//  CommunAphasia
 //
 //  An enum file containing all the enum declarations.
 //
-//  Created by Max Huang on 25/05/18.
-//  Copyright © 2018 Cosc345. All rights reserved.
+//  Created by RedSQ on 25/05/18.
+//  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import Foundation

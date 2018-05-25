@@ -1,0 +1,9 @@
+basketball,basketball,sport
+cat,cat_silhouette,cute
+cow,cow,farm
+deer,deer_silhouette,hunting
+fish,fish,water
+pencil,pencil,draw
+soda,soda_can,drink
+tree,tree_silhouette,nature
+EOF

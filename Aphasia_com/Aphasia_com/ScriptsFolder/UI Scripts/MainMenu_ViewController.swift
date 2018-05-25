@@ -79,7 +79,7 @@ class MainMenu_ViewController: UIViewController {
         //read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()
-            if fileExists! {
+            if fileExists != nil  {
                 print("URL:",fileURL!)
                 fileText = try String(contentsOf: fileURL!, encoding: .utf8)
             } else {

@@ -15,6 +15,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     var inputString = String()
     var wordsToBeShown = [String]()
     var exclusionList = [String]()
+    let UTILITY = Utility()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         
         //call a function the the cell which asigns each variable with data from a function
         //which returns a tuple with data like, image, word, suggestions etc
-        cell.addData(cell.addData(UTILITY.getDatabaseEntry(wordsToBeShown[indexPath]), "temp type", exclusionList)
+        //------cell.addData(cell.addData(UTILITY.getDatabaseEntry(wordsToBeShown[indexPath], "temp type", exclusionList)))
         //idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
         return cell
     }

@@ -76,7 +76,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N7x-06-Jrl" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N7x-06-Jrl">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -183,7 +183,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9lq-fU-zMH">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9lq-fU-zMH" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -191,7 +191,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YbT-h8-dDg">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YbT-h8-dDg" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="79" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -199,7 +199,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6S7-yL-XTw">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6S7-yL-XTw" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="158.5" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -207,7 +207,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ewh-OB-y1c">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ewh-OB-y1c" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="237.5" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -215,7 +215,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="his-fL-1We">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="his-fL-1We" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="316.5" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -223,7 +223,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qNB-hO-ez8">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qNB-hO-ez8" customClass="SelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="396" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -289,7 +289,7 @@
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
             <objects>
-                <viewController id="F8O-mK-ZoV" userLabel="Text input Controller" customClass="TextInput_ViewController" sceneMemberID="viewController">
+                <viewController id="F8O-mK-ZoV" userLabel="Text input Controller" customClass="TextInput_ViewController" customModule="Aphasia_com" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iLX-ad-w1E"/>
                         <viewControllerLayoutGuide type="bottom" id="QjT-ye-DJX"/>
@@ -322,7 +322,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Touch to enter text" textAlignment="natural" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZUY-G7-5JJ">
-                                <rect key="frame" x="166" y="168" width="830" height="33"/>
+                                <rect key="frame" x="166" y="163" width="830" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -332,7 +332,7 @@
                         <color key="backgroundColor" red="0.86848283680000005" green="0.86848283680000005" blue="0.86848283680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="ZUY-G7-5JJ" id="Y0L-5N-82e"/>
+                        <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
                         <segue destination="QFY-px-uCe" kind="show" identifier="TIToResult_segue" id="9fL-cx-gPa"/>
                     </connections>
                 </viewController>
@@ -343,7 +343,7 @@
         <!--Text result controller-->
         <scene sceneID="iNj-Ia-tMN">
             <objects>
-                <viewController id="QFY-px-uCe" userLabel="Text result controller" customClass="TextResult_ViewController" sceneMemberID="viewController">
+                <viewController id="QFY-px-uCe" userLabel="Text result controller" customClass="TextResult_ViewController" customModule="Aphasia_com" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sLV-cP-z7H"/>
                         <viewControllerLayoutGuide type="bottom" id="7VH-4d-QoI"/>
@@ -461,8 +461,9 @@
         <image name="image placeholder.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gQP-Iw-auM"/>
-        <segue reference="Gxn-6G-tX4"/>
-        <segue reference="C4T-BR-EUX"/>
+        <segue reference="yRw-Wb-zg8"/>
+        <segue reference="1ob-KH-uom"/>
+        <segue reference="Tuv-aW-ka3"/>
+        <segue reference="Vq3-nG-FAk"/>
     </inferredMetricsTieBreakers>
 </document>

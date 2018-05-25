@@ -21,7 +21,7 @@ class Utility {
      *  - Parameter inputString:	a string to be broken down into separate words.
      *  - Returns:	a 1D array of words.
      */
-    static func getSentenceToWords(_ inputString: String) -> Array<String> {
+    func getSentenceToWords(_ inputString: String) -> Array<String> {
         return inputString.components(separatedBy: .whitespaces)
         
     }
@@ -39,7 +39,7 @@ class Utility {
      *
      *  - Returns: a tuple which contains the information extracted from the database.
      */
-    static func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
+    func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
         (word: String, type: String, image: UIImage, suggestions: [String]){
             let word = "word"
             let type = "type"
@@ -48,4 +48,6 @@ class Utility {
         
             return (word, type, image!, suggestions)
     }
+    
+    
 }

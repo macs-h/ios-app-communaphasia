@@ -461,7 +461,6 @@
         <image name="image placeholder.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yRw-Wb-zg8"/>
         <segue reference="1ob-KH-uom"/>
         <segue reference="Tuv-aW-ka3"/>
         <segue reference="Vq3-nG-FAk"/>

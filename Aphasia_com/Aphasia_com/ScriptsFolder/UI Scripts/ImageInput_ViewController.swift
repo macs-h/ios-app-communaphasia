@@ -14,6 +14,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
     let UTILITY = Utility()
+    let exclusionList = [String]()
+    let defaultWords = ["cow", "cat"]
+    let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     //---need to create a temp tuple to store remove cell data??
     
     //let selectCellImages: [UIImage] = [UIImage(named: "placeholder")!,]
@@ -59,7 +62,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     //gives the collection view how many cells it needs to hold
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.InputCollectionView {
-            return 2//selectCellImages.count
+            return 10//selectCellImages.count
         }else{
             //input collection View
             return 0
@@ -72,8 +75,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             //call a function the the cell whcih asigns each variable with data from a function
             //which returns a tuple with data like, image, word, suggestions etc
-            //----cell.addData(UTILITY.getDatabaseEntry())
-            
+            cell.addData(cell: UTILITY.getDatabaseEntry(defaultWords[indexPath.row], "temp type", exclusionList))
             //cell.cellImageView.image = selectCellImages[indexPath.item]
              return cell
         }else{
@@ -91,6 +93,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell = collectionView.cellForItem(at: indexPath)
             //do something with the cell
             //asign a tuple with data from a function in cell which returns its data
+            self.InputCollectionView.insertItems(at: [indexPath])
             // add a new cell to bottom table view using the tuple
             //remove cell from collection veiw and reload collection view with new cells
             //using previous cell as a suggestion

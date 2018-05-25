@@ -10,10 +10,7 @@ import UIKit
 
 class TextResult_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
- 
-    
-    
-    
+
     @IBOutlet weak var resultCollectionView: UICollectionView!
     @IBOutlet weak var resultLabel: UILabel!
     var inputString = String()

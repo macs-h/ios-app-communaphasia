@@ -15,7 +15,7 @@ import SQLite
 let UTILITY = Utility() // Setting up singleton.
 
 class Utility {
-    
+    static let sharedInstance = Utility()
     var database: Connection! // Connection to database.
     
     // Fields for the database.
@@ -31,7 +31,7 @@ class Utility {
      * Init function which initialises the database, creating the cells required, and populating
      * the cells with entries/information.
      */
-    init() {
+    private init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let fileUrl = documentDirectory.appendingPathComponent("cellTable").appendingPathExtension("sqlite3")

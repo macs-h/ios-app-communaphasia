@@ -23,8 +23,6 @@ class MainMenu_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let UTIL = Utility()
-        UTIL.utilTest()
         
         // Initilaises the databases.
 //        UTILITY.initialise()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44B0BCDB20B7C53300F75283 /* Pic_to_text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B0BCD420B7C53300F75283 /* Pic_to_text.swift */; };
 		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
 		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -116,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		44B0BCD420B7C53300F75283 /* Pic_to_text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pic_to_text.swift; sourceTree = "<group>"; };
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D120B7BEAC003B449A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		ED4168D020B7BEAC003B449A /* Algorithm Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				44B0BCD420B7C53300F75283 /* Pic_to_text.swift */,
 				ED4168D120B7BEAC003B449A /* Utility.swift */,
 			);
 			path = "Algorithm Scripts";
@@ -496,6 +499,7 @@
 				ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */,
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
 				ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */,
+				44B0BCDB20B7C53300F75283 /* Pic_to_text.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
 				ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,

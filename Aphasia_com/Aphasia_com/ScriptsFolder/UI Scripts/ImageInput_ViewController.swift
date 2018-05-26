@@ -12,8 +12,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var selectedCollectionView: UICollectionView!
     @IBOutlet weak var InputCollectionView: UICollectionView!
-    
-    let UTILITY = Utility()
     //---need to create a temp tuple to store remove cell data??
     
     //let selectCellImages: [UIImage] = [UIImage(named: "placeholder")!,]

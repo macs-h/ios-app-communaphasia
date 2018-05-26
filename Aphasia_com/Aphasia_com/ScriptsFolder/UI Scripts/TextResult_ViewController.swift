@@ -15,7 +15,6 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     var inputString = String()
     var wordsToBeShown = [String]()
     var exclusionList = [String]()
-    let UTILITY = Utility()
     
     override func viewDidLoad() {
         super.viewDidLoad()

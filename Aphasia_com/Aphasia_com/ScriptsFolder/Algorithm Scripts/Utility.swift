@@ -46,7 +46,7 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == true {  // should be false --------------------------------------------
+        if launchedBefore == false {  // should be false --------------------------------------------
             print("first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()
@@ -76,9 +76,8 @@ class Utility {
      *                      words.
      *  - Returns:    a 1D array of words.
      */
-    func getSentenceToWords(_ inputString: String) -> Array<String> {
-        return inputString.components(separatedBy: .whitespaces)
-        
+    func getSentenceToWords(_ inputString:String, _ charSet:CharacterSet) -> Array<String> {
+        return inputString.components(separatedBy: charSet)
     }
 
 
@@ -98,18 +97,85 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
-        (word: String, type: String, image: UIImage, suggestions: [String]){
-            let word = "word"
-            let type = "type"
-            let image = UIImage(named: "cow")
-            print("image", image)
-            let suggestions = ["this", "is", "the", "suggestion"]
+    func getDatabaseEntry(_ word:String, _ typeOfSearch:String, _ exclusionList:Array<String>) ->
+        (word: String, type: String, image: UIImage, suggestions: [String]) {
+            // make like DB extraction.
+            var image: UIImage = UIImage(named: "image placeholder")!
+            var word_type: String = ""
+            var suggestions: Array<String> = []
+            do {
+                let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
+                for cell in cellTable {
+                    if word == cell[self.KEYWORD] {
+                        word_type = cell[self.TYPE]
+                        image = UIImage(named: cell[self.IMAGE_LINK])!
+                        suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: ","))
+                    } else {
+                        print("-------cant find", word)
+                        image = UIImage(named: "image placeholder")!
+                    }
+                }
+            } catch {
+                print(error)
+            }
+            
+            print("EO getDBENtry")
+            //print(wordType.noun)
+            // Should we use enums as what is returned for the word_type??
+            return (word, word_type, image, suggestions)
+    }
+    
+    
+    
+    /**
+     * Removes all the words in the exclusion list from the parsed in array.
+     *
+     *  - Parameters:
+     *      - wordArray:        the array containing the processed words from the original sentence.
+     *      - exclusionList:    the list containing all the words to be excluded.
+     *
+     *  - Returns: wordArray without the excluded words.
+     */
+    func dropWords(_ wordArray:Array<String>, _ exclusionList:Array<String>) -> Array<String> {
+        return wordArray.filter { !exclusionList.contains($0) }
+    }
+    
+    
+    // ----------------------------------------------------------------------------
+    // Private functions follow.
+    // ----------------------------------------------------------------------------
+    
+    /**
+     * Creates the cells in the database table. Only called from init().
+     */
+    private func setCells() {
+        let makeTable = self.CELL_TABLE.create { (table) in
+            table.column(self.ID, primaryKey: true)
+            table.column(self.IMAGE_LINK)
+            table.column(self.KEYWORD)
+            table.column(self.TYPE)
+            table.column(self.RELATIONSHIPS)
+        }
+        do {
+            try self.database.run(makeTable)
+            print("Table created")
+        }catch{
+            print(error)
+        }
+    }
+    
+    /**
+     * Populates the cells in the database table with data read in from a CSV text file.
+     */
+    private func populateCells() {
+        var fileText:String = ""
         
+        let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
+        print("file url", fileURL)
         // check if the file exists and read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()
-            if fileExists! {
+            if fileExists != nil {
                 print("URL:",fileURL!)
                 fileText = try String(contentsOf: fileURL!, encoding: .utf8)
             } else {

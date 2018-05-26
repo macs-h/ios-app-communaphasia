@@ -21,7 +21,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         
         resultLabel.text = inputString //shows at bottom what was typed
-        wordsToBeShown = UTILITY.getSentenceToWords(inputString)
+        wordsToBeShown = Utility.sharedInstance.getSentenceToWords(inputString, .whitespaces)
         print("words to be shown", wordsToBeShown)
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
@@ -48,7 +48,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         
         //call a function the the cell which asigns each variable with data from a function
         //which returns a tuple with data like, image, word, suggestions etc
-        cell.addData(cell: UTILITY.getDatabaseEntry(wordsToBeShown[indexPath.row], "temp type", exclusionList))
+        cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(wordsToBeShown[indexPath.row], "temp type", exclusionList))
         
         //idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
         

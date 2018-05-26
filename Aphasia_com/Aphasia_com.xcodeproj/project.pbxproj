@@ -37,6 +37,16 @@
 		EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */; };
 		EDFA3AD520B8CD1900F6DBBD /* SelectedImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */; };
 		EDFA3ADD20B8DAA400F6DBBD /* ImageResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */; };
+		EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3AE120B8ED6800F6DBBD /* Enums.swift */; };
+		EDFA3AEA20B8ED9100F6DBBD /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
+		EDFA3AEB20B8EF1500F6DBBD /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
+		EDFA3AED20B8EF7700F6DBBD /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AEC20B8EF7600F6DBBD /* apple.png */; };
+		EDFA3AEF20B8EF8C00F6DBBD /* car_sedan.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AEE20B8EF8C00F6DBBD /* car_sedan.png */; };
+		EDFA3AF120B8EF9500F6DBBD /* food_breakfast.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AF020B8EF9400F6DBBD /* food_breakfast.png */; };
+		EDFA3AF320B8EF9900F6DBBD /* food_dinner.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AF220B8EF9900F6DBBD /* food_dinner.png */; };
+		EDFA3AF520B8EF9D00F6DBBD /* food_lunch.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AF420B8EF9D00F6DBBD /* food_lunch.png */; };
+		EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AF620B8EFB500F6DBBD /* man_silhouette.png */; };
+		EDFA3AF920B8EFB900F6DBBD /* woman_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AF820B8EFB900F6DBBD /* woman_silhouette.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +171,15 @@
 		EDF7208F20AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageViewCell.swift; sourceTree = "<group>"; };
 		EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResultViewCell.swift; sourceTree = "<group>"; };
+		EDFA3AE120B8ED6800F6DBBD /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		EDFA3AE920B8ED9100F6DBBD /* images.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = images.txt; sourceTree = SOURCE_ROOT; };
+		EDFA3AEC20B8EF7600F6DBBD /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
+		EDFA3AEE20B8EF8C00F6DBBD /* car_sedan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_sedan.png; sourceTree = "<group>"; };
+		EDFA3AF020B8EF9400F6DBBD /* food_breakfast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_breakfast.png; sourceTree = "<group>"; };
+		EDFA3AF220B8EF9900F6DBBD /* food_dinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_dinner.png; sourceTree = "<group>"; };
+		EDFA3AF420B8EF9D00F6DBBD /* food_lunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_lunch.png; sourceTree = "<group>"; };
+		EDFA3AF620B8EFB500F6DBBD /* man_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_silhouette.png; sourceTree = "<group>"; };
+		EDFA3AF820B8EFB900F6DBBD /* woman_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_silhouette.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,15 +250,22 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
-				ED27976120B7C7C0001AF14C /* deer_silhouette.png */,
-				ED27976220B7C7C0001AF14C /* cow.png */,
-				ED27976320B7C7C0001AF14C /* image placeholder.png */,
-				ED27976420B7C7C0001AF14C /* tree_silhouette.png */,
-				ED27976520B7C7C0001AF14C /* cat_silhouette.png */,
+				EDFA3AEC20B8EF7600F6DBBD /* apple.png */,
+				EDFA3AEE20B8EF8C00F6DBBD /* car_sedan.png */,
 				ED27976620B7C7C0001AF14C /* basketball.png */,
-				ED27976720B7C7C0001AF14C /* soda_can.png */,
-				ED27976820B7C7C0001AF14C /* pencil.png */,
+				ED27976520B7C7C0001AF14C /* cat_silhouette.png */,
+				EDFA3AF020B8EF9400F6DBBD /* food_breakfast.png */,
+				ED27976220B7C7C0001AF14C /* cow.png */,
+				ED27976120B7C7C0001AF14C /* deer_silhouette.png */,
+				EDFA3AF220B8EF9900F6DBBD /* food_dinner.png */,
 				ED27976920B7C7C0001AF14C /* fish.png */,
+				EDFA3AF620B8EFB500F6DBBD /* man_silhouette.png */,
+				ED27976320B7C7C0001AF14C /* image placeholder.png */,
+				ED27976820B7C7C0001AF14C /* pencil.png */,
+				EDFA3AF420B8EF9D00F6DBBD /* food_lunch.png */,
+				EDFA3AF820B8EFB900F6DBBD /* woman_silhouette.png */,
+				ED27976720B7C7C0001AF14C /* soda_can.png */,
+				ED27976420B7C7C0001AF14C /* tree_silhouette.png */,
 			);
 			path = "Database images";
 			sourceTree = "<group>";
@@ -273,8 +299,8 @@
 		ED4168D020B7BEAC003B449A /* Algorithm Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				EDFA3AE120B8ED6800F6DBBD /* Enums.swift */,
 				ED4168D120B7BEAC003B449A /* Utility.swift */,
-				601EAF1620B81A87006168D6 /* Enums.swift */,
 			);
 			path = "Algorithm Scripts";
 			sourceTree = "<group>";
@@ -298,8 +324,8 @@
 		EDF7206120AD3FA700675140 = {
 			isa = PBXGroup;
 			children = (
+				EDFA3AE920B8ED9100F6DBBD /* images.txt */,
 				EDF7206C20AD3FA700675140 /* Aphasia_com */,
-				601F417D20B7E47A00C18C6B /* images.txt */,
 				EDF7208120AD3FA700675140 /* Aphasia_comTests */,
 				EDF7208C20AD3FA700675140 /* Aphasia_comUITests */,
 				EDF7206B20AD3FA700675140 /* Products */,
@@ -521,18 +547,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFA3AEF20B8EF8C00F6DBBD /* car_sedan.png in Resources */,
+				EDFA3AEB20B8EF1500F6DBBD /* images.txt in Resources */,
 				ED27977520B7C7C0001AF14C /* image placeholder.png in Resources */,
 				ED27977420B7C7C0001AF14C /* fish.png in Resources */,
+				EDFA3AF920B8EFB900F6DBBD /* woman_silhouette.png in Resources */,
 				ED27977320B7C7C0001AF14C /* pencil.png in Resources */,
+				EDFA3AF520B8EF9D00F6DBBD /* food_lunch.png in Resources */,
+				EDFA3AED20B8EF7700F6DBBD /* apple.png in Resources */,
 				ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */,
 				EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
 				ED27977220B7C7C0001AF14C /* soda_can.png in Resources */,
 				ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */,
 				ED27976F20B7C7C0001AF14C /* tree_silhouette.png in Resources */,
 				ED27977120B7C7C0001AF14C /* basketball.png in Resources */,
+				EDFA3AF120B8EF9500F6DBBD /* food_breakfast.png in Resources */,
 				ED27977020B7C7C0001AF14C /* cat_silhouette.png in Resources */,
 				EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
+				EDFA3AF320B8EF9900F6DBBD /* food_dinner.png in Resources */,
 				ED27976D20B7C7C0001AF14C /* cow.png in Resources */,
+				EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */,
 				EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFA3AEA20B8ED9100F6DBBD /* images.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +600,7 @@
 				EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */,
 				ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */,
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
+				EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */,
 				ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				EDFA3ADD20B8DAA400F6DBBD /* ImageResultViewCell.swift in Sources */,

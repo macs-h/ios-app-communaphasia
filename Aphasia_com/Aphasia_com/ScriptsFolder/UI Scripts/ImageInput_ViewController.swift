@@ -15,8 +15,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     let UTILITY = Utility()
     let exclusionList = [String]()
-    let defaultWords = ["cow", "cat"]
+    var defaultWords = ["cow", "cat"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
+    var selectedWords = [String]()
     //---need to create a temp tuple to store remove cell data??
     
     //let selectCellImages: [UIImage] = [UIImage(named: "placeholder")!,]
@@ -38,9 +39,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @IBAction func DoneButton(_ sender: Any) {
-        if selectedCollectionView.numberOfItems(inSection: 0) > 0 {
+        if selectedWords.count > 0 {
             //at least one image is selected
-            performSegue(withIdentifier: "TIToResult_segue", sender: self)
+            
+            performSegue(withIdentifier: "IIToResult_segue", sender: self)
         }else{
             //show warning
         }
@@ -51,8 +53,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         
         if (segue.identifier == "IIToResult_segue")
         {
+            let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
             var resultController = segue.destination as! ImageResult_ViewController
-            
+            resultController.selectedCellsResult = finalSelectedWords
         }
     }
     
@@ -62,26 +65,26 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     //gives the collection view how many cells it needs to hold
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.InputCollectionView {
-            return 10//selectCellImages.count
+            return defaultWords.count
         }else{
             //input collection View
-            return 0
+            return selectedWords.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.InputCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SelectViewCell //gives the type of the custom class that was made for the cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageSelectViewCell //gives the type of the custom class that was made for the cell
             
             //call a function the the cell whcih asigns each variable with data from a function
             //which returns a tuple with data like, image, word, suggestions etc
-            cell.addData(cell: UTILITY.getDatabaseEntry(defaultWords[indexPath.row], "temp type", exclusionList))
+            cell.addData(cell: UTILITY.getDatabaseEntry(defaultWords[indexPath.item], "temp type", exclusionList))
             //cell.cellImageView.image = selectCellImages[indexPath.item]
              return cell
         }else{
             //inputCollectionView
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SelectViewCell //gives the type of the custom class that was made for the cell
-            //cell.addData(word: <#T##String#>, type: <#T##String#>, image: <#T##UIImage#>, suggestions: <#T##[String]#>) //using temp tuple
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! SelectedImageViewCell //gives the type of the custom class that was made for the cell
+            //cell.addData(cell.addData(cell: UTILITY.getDatabaseEntry(defaultWords[indexPath.row], "temp type", exclusionList))) //using temp tuple
             return cell
         }
  
@@ -90,12 +93,16 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.InputCollectionView {
-        let cell = collectionView.cellForItem(at: indexPath)
+            let cell = collectionView.cellForItem(at: indexPath) as! ImageSelectViewCell
             //do something with the cell
             //asign a tuple with data from a function in cell which returns its data
-            self.InputCollectionView.insertItems(at: [indexPath])
-            // add a new cell to bottom table view using the tuple
-            //remove cell from collection veiw and reload collection view with new cells
+            selectedWords.append(cell.word)
+            let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
+            selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+            let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
+            newCell.addData(cell: cell.extractData())
+            defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
+            InputCollectionView?.deleteItems(at: [indexPath])
             //using previous cell as a suggestion
         }else{
             //InputCollectionView

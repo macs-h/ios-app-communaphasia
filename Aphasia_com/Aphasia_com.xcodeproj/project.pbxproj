@@ -36,6 +36,8 @@
 		EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */; };
 		EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */; };
 		EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */; };
+		EDFA3AD520B8CD1900F6DBBD /* SelectedImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */; };
+		EDFA3ADD20B8DAA400F6DBBD /* ImageResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,8 @@
 		EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comUITests.swift; sourceTree = "<group>"; };
 		EDF7208F20AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageViewCell.swift; sourceTree = "<group>"; };
+		EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResultViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,8 @@
 				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
 				ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */,
+				EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */,
+				EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */,
 			);
 			path = "UI Scripts";
 			sourceTree = "<group>";
@@ -556,11 +562,13 @@
 				ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */,
 				ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */,
 				ED0CC2D020B7E78A00F1AFB5 /* ImageTextResultViewCell.swift in Sources */,
+				EDFA3AD520B8CD1900F6DBBD /* SelectedImageViewCell.swift in Sources */,
 				EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */,
 				ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */,
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
 				ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
+				EDFA3ADD20B8DAA400F6DBBD /* ImageResultViewCell.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
 				ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,
 			);

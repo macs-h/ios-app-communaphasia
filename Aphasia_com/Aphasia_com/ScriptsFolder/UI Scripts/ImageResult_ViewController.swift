@@ -12,6 +12,7 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
 
     @IBOutlet weak var InputImagesCollectionView: UICollectionView!
     @IBOutlet weak var resultTextLabel: UILabel!
+    var selectedCellsResult = [SelectedImageViewCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +32,13 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     
     //gives the collection view how many cells it needs to hold
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2//selectCellImages.count
+        return selectedCellsResult.count
     }
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SelectViewCell
-        
-        
-        
-     return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageResultCell", for: indexPath) as! ImageResultViewCell
+        cell.addData(cell: selectedCellsResult[indexPath.item].extractData())
+        return cell
     }
 
 }

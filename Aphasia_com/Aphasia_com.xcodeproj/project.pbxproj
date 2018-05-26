@@ -29,7 +29,6 @@
 		ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */; };
 		ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */; };
 		ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */; };
-		ED9E479620AE68E800C89F5C /* Mitchie_storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9E479520AE68E800C89F5C /* Mitchie_storyboard.storyboard */; };
 		EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7206D20AD3FA700675140 /* AppDelegate.swift */; };
 		EDF7207320AD3FA700675140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207120AD3FA700675140 /* Main.storyboard */; };
 		EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207420AD3FA700675140 /* Assets.xcassets */; };
@@ -148,7 +147,6 @@
 		ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResult_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResult_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInput_ViewController.swift; sourceTree = "<group>"; };
-		ED9E479520AE68E800C89F5C /* Mitchie_storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mitchie_storyboard.storyboard; sourceTree = "<group>"; };
 		EDF7206A20AD3FA700675140 /* Aphasia_com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aphasia_com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7206D20AD3FA700675140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF7207220AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 				EDF7207420AD3FA700675140 /* Assets.xcassets */,
 				EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */,
 				EDF7207920AD3FA700675140 /* Info.plist */,
-				ED9E479520AE68E800C89F5C /* Mitchie_storyboard.storyboard */,
 			);
 			path = Aphasia_com;
 			sourceTree = "<group>";
@@ -534,7 +531,6 @@
 				EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
 				ED27976D20B7C7C0001AF14C /* cow.png in Resources */,
 				EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
-				ED9E479620AE68E800C89F5C /* Mitchie_storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

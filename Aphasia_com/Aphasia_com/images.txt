@@ -1,0 +1,15 @@
+apple,apple,noun,food
+basketball,basketball,noun,sport
+breakfast,food_breakfast,noun,food
+cat,cat_silhouette,noun,cute
+cow,cow,noun,farm
+deer,deer_silhouette,noun,hunting
+dinner,food_dinner,noun,food
+fish,fish,noun,water
+lunch,food_lunch,noun,food
+man,man_silhouette,noun,people
+pencil,pencil,noun,draw
+soda,soda_can,noun,drink
+tree,tree_silhouette,noun,nature
+woman,woman_silhouette,noun,people
+car,car_sedan,noun,travel

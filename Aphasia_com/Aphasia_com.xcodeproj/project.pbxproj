@@ -274,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4168D120B7BEAC003B449A /* Utility.swift */,
+				601EAF1620B81A87006168D6 /* Enums.swift */,
 			);
 			path = "Algorithm Scripts";
 			sourceTree = "<group>";
@@ -298,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF7206C20AD3FA700675140 /* Aphasia_com */,
+				601F417D20B7E47A00C18C6B /* images.txt */,
 				EDF7208120AD3FA700675140 /* Aphasia_comTests */,
 				EDF7208C20AD3FA700675140 /* Aphasia_comUITests */,
 				EDF7206B20AD3FA700675140 /* Products */,
@@ -418,8 +420,9 @@
 				TargetAttributes = {
 					EDF7206920AD3FA700675140 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 845CX8Y83W;
 						LastSwiftMigration = 0930;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					EDF7207D20AD3FA700675140 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -746,9 +749,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 845CX8Y83W;
 				INFOPLIST_FILE = Aphasia_com/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -763,9 +768,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 845CX8Y83W;
 				INFOPLIST_FILE = Aphasia_com/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -12,10 +12,14 @@ import Foundation
 import UIKit
 import SQLite
 
-let UTILITY = Utility() // Setting up singleton.
-
 class Utility {
+    /**
+     * Setting up singleton instance of Utility.
+     *
+     * To call any utility function: `Utility.sharedInstance.(function_name)`
+     */
     static let sharedInstance = Utility()
+    
     var database: Connection! // Connection to database.
     
     // Fields for the database.

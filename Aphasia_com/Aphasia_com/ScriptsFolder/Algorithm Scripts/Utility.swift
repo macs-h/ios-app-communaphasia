@@ -55,12 +55,12 @@ class Utility {
 //        populateCells()
     }
     
-    
+    // ----------------------------------------------------------------------------
     func utilTest () {
         print("util test")
         print(getDatabaseEntry("cat", "linear", ["1"]))
     }
-    
+    // ----------------------------------------------------------------------------
 
     /**
      * A sentence processing function which takes in a string and breaks it down into tokens
@@ -72,7 +72,7 @@ class Utility {
      *                      words.
      *  - Returns:    a 1D array of words.
      */
-    func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
+    func getSentenceToWords(_ inputString:String, _ charSet:CharacterSet) -> Array<String> {
         return inputString.components(separatedBy: charSet)
     }
 
@@ -93,7 +93,7 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList:Array<String>) ->
+    func getDatabaseEntry(_ word:String, _ typeOfSearch:String, _ exclusionList:Array<String>) ->
         (word: String, type: String, image: UIImage, suggestions: [String]) {
             // make like DB extraction.
             var image: UIImage = UIImage(named: "image placeholder")!
@@ -119,6 +119,26 @@ class Utility {
             // Should we use enums as what is returned for the word_type??
             return (word, word_type, image, suggestions)
     }
+    
+    
+    
+    /**
+     * Removes all the words in the exclusion list from the parsed in array.
+     *
+     *  - Parameters:
+     *      - wordArray:        the array containing the processed words from the original sentence.
+     *      - exclusionList:    the list containing all the words to be excluded.
+     *
+     *  - Returns: wordArray without the excluded words.
+     */
+    func dropWords(_ wordArray:Array<String>, _ exclusionList:Array<String>) -> Array<String> {
+        return wordArray.filter { !exclusionList.contains($0) }
+    }
+    
+    
+    // ----------------------------------------------------------------------------
+    // Private functions follow.
+    // ----------------------------------------------------------------------------
     
     /**
      * Creates the cells in the database table. Only called from init().

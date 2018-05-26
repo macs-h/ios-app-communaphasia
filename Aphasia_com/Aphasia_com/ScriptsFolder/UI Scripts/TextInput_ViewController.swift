@@ -25,7 +25,7 @@ class TextInput_ViewController: UIViewController {
         
         if (segue.identifier == "TIToResult_segue")
         {
-            var resultController = segue.destination as! TextResult_ViewController
+            let resultController = segue.destination as! TextResult_ViewController
             resultController.inputString = textField.text!
         }
     }

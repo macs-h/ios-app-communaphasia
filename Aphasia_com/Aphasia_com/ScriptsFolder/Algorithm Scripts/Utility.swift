@@ -101,6 +101,7 @@ class Utility {
         (word: String, type: String, image: UIImage, suggestions: [String]) {
             // make like DB extraction.
             var image: UIImage = UIImage(named: "image placeholder")!
+            var imageLink = ""
             var word_type: String = ""
             var suggestions: Array<String> = []
             do {
@@ -109,7 +110,9 @@ class Utility {
                     if word == cell[self.KEYWORD] {
                         word_type = cell[self.TYPE]
                         image = UIImage(named: cell[self.IMAGE_LINK])!
+                        imageLink = cell[self.IMAGE_LINK]
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: ","))
+                        print("found word:",word)
                     } else {
                         print("-------cant find", word)
                         image = UIImage(named: "image placeholder")!
@@ -118,7 +121,7 @@ class Utility {
             } catch {
                 print(error)
             }
-            
+            image = UIImage(named: imageLink)!
             print("EO getDBENtry")
             //print(wordType.noun)
             // Should we use enums as what is returned for the word_type??
@@ -171,7 +174,7 @@ class Utility {
         var fileText:String = ""
         
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
-        print("file url", fileURL)
+        //print("file url", fileURL)
         // check if the file exists and read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()

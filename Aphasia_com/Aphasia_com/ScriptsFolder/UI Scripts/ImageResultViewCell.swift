@@ -1,14 +1,14 @@
 //
-//  ImageSelectViewCell.swift
-//  CommunAphasia
+//  ImageResultViewCell.swift
+//  Aphasia_com
 //
-//  Created by RedSQ on 21/05/18.
-//  Copyright © 2018 RedSQ. All rights reserved.
+//  Created by Sam Paterson on 26/05/18.
+//  Copyright © 2018 Cosc345. All rights reserved.
 //
 
 import UIKit
 
-class ImageSelectViewCell: UICollectionViewCell {
+class ImageResultViewCell: UICollectionViewCell {
     //good to manage these variables in the clzass but could be done with an array in the view controller
     var word: String = "car"
     var type: String = "verb" //for the type of word (noun, verb etc)
@@ -25,12 +25,12 @@ class ImageSelectViewCell: UICollectionViewCell {
         
         //---colouring boarders---//
         /*if type == "noun"{
-            layer.borderColor = UIColor.red.cgColor
-        }else{
-            layer.borderColor = UIColor.blue.cgColor
-            
-        }
-        layer.borderWidth = 4 //max dont change*/
+         layer.borderColor = UIColor.red.cgColor
+         }else{
+         layer.borderColor = UIColor.blue.cgColor
+         
+         }
+         layer.borderWidth = 4 //max dont change*/
     }
     
     func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String]){
@@ -40,9 +40,4 @@ class ImageSelectViewCell: UICollectionViewCell {
         let image = self.imageView.image!
         return (word, type, image, suggestions)
     }
-    
-    
-  
-    
-   
 }

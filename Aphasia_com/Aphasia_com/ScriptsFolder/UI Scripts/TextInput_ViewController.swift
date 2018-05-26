@@ -1,9 +1,9 @@
 //
 //  TextInput_ViewController.swift
-//  Aphasia_com
+//  CommunAphasia
 //
-//  Created by Sam Paterson on 17/05/18.
-//  Copyright © 2018 Cosc345. All rights reserved.
+//  Created by RedSQ on 17/05/18.
+//  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import UIKit

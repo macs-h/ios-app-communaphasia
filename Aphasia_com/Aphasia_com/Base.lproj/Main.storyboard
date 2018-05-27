@@ -241,6 +241,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFH-rU-k8t">
+                                <rect key="frame" x="1029" y="751" width="55" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="DoneButton:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="ZYT-8g-fwJ"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7C1-FZ-yFn">
                                 <rect key="frame" x="378" y="293" width="336" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -432,6 +441,7 @@
         <image name="image placeholder.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1qB-hy-XeI"/>
         <segue reference="1ob-KH-uom"/>
         <segue reference="Tuv-aW-ka3"/>
         <segue reference="Vq3-nG-FAk"/>

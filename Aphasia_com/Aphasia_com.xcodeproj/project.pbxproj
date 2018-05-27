@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44B0BCDB20B7C53300F75283 /* Pic_to_text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B0BCD420B7C53300F75283 /* Pic_to_text.swift */; };
+		44B0BCDB20B7C53300F75283 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B0BCD420B7C53300F75283 /* ImageToText.swift */; };
 		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
 		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -138,7 +138,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		44B0BCD420B7C53300F75283 /* Pic_to_text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pic_to_text.swift; sourceTree = "<group>"; };
+		44B0BCD420B7C53300F75283 /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextResultViewCell.swift; sourceTree = "<group>"; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
@@ -301,7 +301,8 @@
 		ED4168D020B7BEAC003B449A /* Algorithm Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				44B0BCD420B7C53300F75283 /* Pic_to_text.swift */,
+				EDFA3AE120B8ED6800F6DBBD /* Enums.swift */,
+				44B0BCD420B7C53300F75283 /* ImageToText.swift */,
 				ED4168D120B7BEAC003B449A /* Utility.swift */,
 			);
 			path = "Algorithm Scripts";
@@ -310,15 +311,15 @@
 		ED4168D220B7BEAC003B449A /* UI Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */,
-				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
-				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
-				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
-				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
-				ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */,
-				EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */,
+				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */,
+				ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */,
+				ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */,
+				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
+				EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */,
+				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
+				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
 			);
 			path = "UI Scripts";
 			sourceTree = "<group>";
@@ -604,7 +605,7 @@
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
 				EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */,
 				ED4168DB20B7BEAD003B449A /* ImageSelectViewCell.swift in Sources */,
-				44B0BCDB20B7C53300F75283 /* Pic_to_text.swift in Sources */,
+				44B0BCDB20B7C53300F75283 /* ImageToText.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				EDFA3ADD20B8DAA400F6DBBD /* ImageResultViewCell.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,

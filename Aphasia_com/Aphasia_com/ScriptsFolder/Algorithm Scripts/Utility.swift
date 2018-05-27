@@ -27,6 +27,7 @@ class Utility {
     let ID = Expression<Int>("id")
     let IMAGE_LINK = Expression<String>("imageLink")
     let KEYWORD = Expression<String>("keyword")
+    let NUM = Expression<String>("num")
     let RELATIONSHIPS = Expression<String>("relationships")
     let TYPE = Expression<String>("type")
     
@@ -94,20 +95,23 @@ class Utility {
      *  - Returns: a tuple which contains the information extracted from the database.
      *      - word:         the word describing the entry.
      *      - type:         the type of image (e.g. noun, adjective, etc.).
+     *      - num:          singular or plural.
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
     func getDatabaseEntry(_ word:String, _ typeOfSearch:String, _ exclusionList:Array<String>) ->
-        (word: String, type: String, image: UIImage, suggestions: [String]) {
+        (word: String, type: String, num: String, image: UIImage, suggestions: [String]) {
             // make like DB extraction.
             var image: UIImage = UIImage(named: "image placeholder")!
             var word_type: String = ""
+            var num: String = ""
             var suggestions: Array<String> = []
             do {
                 let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
                 for cell in cellTable {
                     if word == cell[self.KEYWORD] {
                         word_type = cell[self.TYPE]
+                        num == cell[self.NUM]
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: ","))
                     } else {
@@ -122,7 +126,7 @@ class Utility {
             print("EO getDBENtry")
             //print(wordType.noun)
             // Should we use enums as what is returned for the word_type??
-            return (word, word_type, image, suggestions)
+            return (word, word_type, num, image, suggestions)
     }
     
     

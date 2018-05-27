@@ -23,6 +23,14 @@ class Utility {
     // Connection to database.
     var database: Connection!
     
+    // Global exclusion list - words to ignore.
+    let EXCLUSION_LIST: Array<String> = [
+        "the",
+         "is",
+         "to",
+         "a"
+    ]
+    
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
     let ID = Expression<Int>("id")
@@ -57,8 +65,10 @@ class Utility {
 
 
     /**
-     * A sentence processing function which takes in a string and breaks it down into
-     * tokens (by whitespaces) and returns them as an array of words.
+     * A sentence processing function which takes in a string of words, breaks it down
+     * into separate words (tokens) by whitespaces and places them into an array. It then
+     * converts all the strings to lowercase, drops/removes from the array any words that
+     * are present in the `EXCLUSION_LIST`, before returning the array of words.
      *
      *  - Parameters:
      *      - inputString:  a string to be broken down into separate words.
@@ -67,9 +77,12 @@ class Utility {
      *  - Returns:  a 1D array of words.
      */
     func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
-        return inputString.components(separatedBy: charSet)
+        return dropWords(
+            ( inputString.components(separatedBy: charSet) ).map { $0.lowercased() },
+            EXCLUSION_LIST
+        )
     }
-
+    
 
     /**
      * Finds the entry in the database which corresponds to `word` and returns that entry

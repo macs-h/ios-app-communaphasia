@@ -17,7 +17,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
    
-    let exclusionList = [String]()
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
@@ -85,7 +84,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             //call a function the the cell whcih asigns each variable with data from a function
             //which returns a tuple with data like, image, word, suggestions etc
-            cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(defaultWords[indexPath.item], "temp type", exclusionList))
+            cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(defaultWords[indexPath.item]))
             //cell.cellImageView.image = selectCellImages[indexPath.item]
              return cell
         }else{

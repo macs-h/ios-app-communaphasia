@@ -24,12 +24,7 @@ class Utility {
     var database: Connection!
     
     // Global exclusion list - words to ignore.
-    let EXCLUSION_LIST: Array<String> = [
-        "the",
-         "is",
-         "to",
-         "a"
-    ]
+    let EXCLUSION_LIST: Array<String> = ["the","is","to","a"]
     
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
@@ -38,6 +33,7 @@ class Utility {
     let KEYWORD = Expression<String>("keyword")
     let RELATIONSHIPS = Expression<String>("relationships")
     let TYPE = Expression<String>("type")
+    let GR_NUM = Expression<String>("grNum")
     
     
     /// `Init` function which initialises the database, creating the cells required, and
@@ -77,10 +73,7 @@ class Utility {
      *  - Returns:  a 1D array of words.
      */
     func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
-        return dropWords(
-            ( inputString.components(separatedBy: charSet) ).map { $0.lowercased() },
-            EXCLUSION_LIST
-        )
+        return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
     }
     
 
@@ -91,8 +84,6 @@ class Utility {
      *
      *  - Parameters:
      *      - word:             the keyword to search for, in the database.
-     *      - typeOfSearch:     the type of search to use (`simple` / `linear` / `binary`)
-     *      - exclusionList:    the list containing all the words NOT to be searched for.
      *
      *  - Returns: a tuple which contains the information extracted from the database.
      *      - word:         the word describing the entry.
@@ -100,12 +91,12 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList: Array<String>) ->
-        (word: String, type: String, image: UIImage, suggestions: [String]) {
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
             var image: UIImage = UIImage(named: "image placeholder")!
             var word_type: String = ""
             var suggestions: Array<String> = []
-            
+            var grNum: String = gNum.singlular.rawValue  // Singular, by default.
+        
             do {
                 let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
                 for cell in cellTable {
@@ -114,6 +105,7 @@ class Utility {
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
                         print("> found word:",word)
+                        grNum = cell[self.GR_NUM]
                         break
                     } else {
                         //print("-------cant find", word)
@@ -122,10 +114,8 @@ class Utility {
             } catch {
                 print(error)
             }
-            //print("EO getDBENtry")
-            //print(wordType.noun)
             // Should we use enums as what is returned for the word_type??
-            return (word, word_type, image, suggestions)
+            return (word, word_type, image, suggestions, grNum)
     }
     
     
@@ -156,6 +146,7 @@ class Utility {
             table.column(self.KEYWORD)
             table.column(self.TYPE)
             table.column(self.RELATIONSHIPS)
+            table.column(self.GR_NUM)
         }
         do {
             try self.database.run(makeTable)
@@ -198,7 +189,9 @@ class Utility {
                         self.KEYWORD <- values[0],
                         self.IMAGE_LINK <- values[1],
                         self.TYPE <- values[2],
-                        self.RELATIONSHIPS <- values[3])
+                        self.RELATIONSHIPS <- values[3],
+                        self.GR_NUM <- values[4]
+                    )
                     do {
                         try self.database.run(insertImage)
                         print("> Inserted: \(values[0])")

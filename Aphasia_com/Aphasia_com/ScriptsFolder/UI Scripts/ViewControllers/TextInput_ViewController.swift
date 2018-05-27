@@ -8,9 +8,9 @@
 
 import UIKit
 
-/// Description of class.  @Sam description
 ///
 /// Handles the text input from the user ...??
+///
 class TextInput_ViewController: UIViewController {
 
     /// References the user input text field.
@@ -18,9 +18,9 @@ class TextInput_ViewController: UIViewController {
     var stringArray = [String]()
     
     /**
-     * @Sam description
+     * Called when the `done` button is pressed.
      *
-     *  - Parameter sender: ???
+     *  - Parameter sender: the object which called this function.
      */
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{

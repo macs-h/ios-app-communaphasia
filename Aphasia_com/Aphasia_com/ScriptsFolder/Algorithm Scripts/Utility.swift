@@ -32,8 +32,8 @@ class Utility {
     let TYPE = Expression<String>("type")
     
     
-    /// `Init` function which initialises the database, creating the cells required, and populating
-    /// the cells with entries/information.
+    /// `Init` function which initialises the database, creating the cells required, and
+    /// populating the cells with entries/information.
     private init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -153,7 +153,8 @@ class Utility {
     }
     
     
-    /// Populates the cells in the database table with data read in from a CSV text file.
+    /// Populates the cells in the database table with data read in from a CSV text
+    /// file.
     private func populateCells() {
         var fileText:String = ""
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")

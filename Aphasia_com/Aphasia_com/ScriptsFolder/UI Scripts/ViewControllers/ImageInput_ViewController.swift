@@ -8,6 +8,9 @@
 
 import UIKit
 
+///
+///
+///
 class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var selectedCollectionView: UICollectionView!
@@ -38,21 +41,25 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         // Dispose of any resources that can be recreated.
     }
     
+    
+    /**
+     * Reference to the UI 'done' button.
+     *
+     *  - Parameter sender: the object which called this function.
+     */
     @IBAction func DoneButton(_ sender: Any) {
         if selectedWords.count > 0 {
             //at least one image is selected
             
             performSegue(withIdentifier: "IIToResult_segue", sender: self)
-        }else{
+        } else {
             //show warning
         }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "IIToResult_segue")
-        {
+        if (segue.identifier == "IIToResult_segue") {
             let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
             var resultController = segue.destination as! ImageResult_ViewController
             resultController.selectedCellsResult = finalSelectedWords

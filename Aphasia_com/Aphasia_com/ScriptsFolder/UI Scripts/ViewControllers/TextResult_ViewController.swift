@@ -8,10 +8,9 @@
 
 import UIKit
 
-/// @Sam description
-/// Description of class.
 ///
 /// Result of converting image to text ...?
+///
 class TextResult_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     

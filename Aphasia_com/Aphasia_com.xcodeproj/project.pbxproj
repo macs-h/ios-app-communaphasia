@@ -320,11 +320,11 @@
 		ED61065820BA389A003C4904 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
-				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
-				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
-				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
+				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
+				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
+				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
+				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -332,10 +332,10 @@
 		ED61065F20BA38C1003C4904 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */,
 				ED4168D320B7BEAC003B449A /* ImageSelectViewCell.swift */,
 				ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */,
 				EDFA3AD420B8CD1900F6DBBD /* SelectedImageViewCell.swift */,
-				EDFA3ADC20B8DAA400F6DBBD /* ImageResultViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

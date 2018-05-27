@@ -84,7 +84,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             //call a function the the cell whcih asigns each variable with data from a function
             //which returns a tuple with data like, image, word, suggestions etc
-            cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(defaultWords[indexPath.item]))
+            cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
             //cell.cellImageView.image = selectCellImages[indexPath.item]
              return cell
         }else{

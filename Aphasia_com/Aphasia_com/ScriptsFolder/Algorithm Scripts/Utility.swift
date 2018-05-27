@@ -18,7 +18,7 @@ class Utility {
 
     /// Setting up singleton instance of Utility.
     /// To call any utility function: `Utility.sharedInstance.(function_name)`
-    static let sharedInstance = Utility()
+    static let instance = Utility()
     
     // Connection to database.
     var database: Connection!
@@ -49,7 +49,7 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == true {  // should be false, set to true for TESTING -------------------
+        if launchedBefore == false {  // should be false, set to true for TESTING -------------------
             print("> first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()
@@ -105,7 +105,7 @@ class Utility {
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
                         print("> found word:",word)
-                        grNum = cell[self.GR_NUM]
+                        grNum = (cell[self.GR_NUM] == gNum.singlular.rawValue) ? gNum.singlular.rawValue : gNum.plural.rawValue
                         break
                     } else {
                         //print("-------cant find", word)

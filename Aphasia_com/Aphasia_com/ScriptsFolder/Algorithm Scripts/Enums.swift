@@ -2,13 +2,13 @@
 //  Enums.swift
 //  CommunAphasia
 //
-//  An enum file containing all the enum declarations.
-//
 //  Created by RedSQ on 25/05/18.
 //  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import Foundation
+
+///   An enum file containing all the enum declarations.
 
 /// The type of word, in terms of linguistics (e.g. noun).
 enum wordType :String {

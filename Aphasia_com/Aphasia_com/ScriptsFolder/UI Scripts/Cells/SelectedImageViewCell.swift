@@ -1,27 +1,27 @@
 //
-//  ImageTextResultViewCell.swift
-//  Aphasia_com
+//  SelectedImageViewCell.swift
+//  CommunAphasia
 //
-//  Created by Sam Paterson on 25/05/18.
-//  Copyright © 2018 Cosc345. All rights reserved.
+//  Created by RedSQ on 26/05/18.
+//  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import UIKit
 
-class ImageTextResultViewCell: UICollectionViewCell {
-    //good to manage these variables in the class but could be done with an array in the view controller
+/// The class for the cell in the `SelectedCollectionView`. It stores the cell
+/// properties and deals with assigning and exporting.
+class SelectedImageViewCell: UICollectionViewCell {
+    //good to manage these variables in the clzass but could be done with an array in the view controller
     var word: String = "car"
     var type: String = "verb" //for the type of word (noun, verb etc)
     var num: String = "singular"
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
-    //
     
     func addData(cell: (word: String, type: String, num: String, image: UIImage , suggestions: [String])){
         self.word = cell.word
         self.type = cell.type
         self.num = cell.num
-        print("Image 2", cell.image)
         self.imageView.image = cell.image
         self.suggestedWords = cell.suggestions
         

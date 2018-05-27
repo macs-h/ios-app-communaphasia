@@ -1,4 +1,4 @@
-apple,apple,noun,food
+apple,apple,noun,food+fruit
 basketball,basketball,noun,sport
 breakfast,food_breakfast,noun,food
 cat,cat_silhouette,noun,cute

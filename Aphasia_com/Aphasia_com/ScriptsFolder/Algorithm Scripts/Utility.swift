@@ -109,17 +109,17 @@ class Utility {
                     if word == cell[self.KEYWORD] {
                         word_type = cell[self.TYPE]
                         image = UIImage(named: cell[self.IMAGE_LINK])!
-                        suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: ","))
+                        suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
+                        print("found word:",word)
+                        break
                     } else {
-                        print("-------cant find", word)
-                        image = UIImage(named: "image placeholder")!
+                        //print("-------cant find", word)
                     }
                 }
             } catch {
                 print(error)
             }
-            
-            print("EO getDBENtry")
+            //print("EO getDBENtry")
             //print(wordType.noun)
             // Should we use enums as what is returned for the word_type??
             return (word, word_type, image, suggestions)
@@ -171,7 +171,7 @@ class Utility {
         var fileText:String = ""
         
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
-        print("file url", fileURL)
+        //print("file url", fileURL)
         // check if the file exists and read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()

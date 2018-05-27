@@ -15,7 +15,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
    
     let exclusionList = [String]()
-    var defaultWords = ["cow", "cat"]
+    var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
     //---need to create a temp tuple to store remove cell data??

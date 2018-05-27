@@ -18,6 +18,7 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         InputImagesCollectionView.delegate = self
         InputImagesCollectionView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
 

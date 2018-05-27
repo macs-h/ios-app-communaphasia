@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44856EC720BA6B610035C01A /* ImageSelectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44856EC620BA6B610035C01A /* ImageSelectViewCell.swift */; };
+		44856ED220BA73DB0035C01A /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44856ECB20BA73DB0035C01A /* ImageToText.swift */; };
 		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
 		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -139,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		44856EC620BA6B610035C01A /* ImageSelectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectViewCell.swift; sourceTree = "<group>"; };
+		44856ECB20BA73DB0035C01A /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextResultViewCell.swift; sourceTree = "<group>"; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				EDFA3AE120B8ED6800F6DBBD /* Enums.swift */,
+				44856ECB20BA73DB0035C01A /* ImageToText.swift */,
 				ED4168D120B7BEAC003B449A /* Utility.swift */,
 			);
 			path = "Algorithm Scripts";
@@ -625,6 +628,7 @@
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				EDFA3ADD20B8DAA400F6DBBD /* ImageResultViewCell.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
+				44856ED220BA73DB0035C01A /* ImageToText.swift in Sources */,
 				ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

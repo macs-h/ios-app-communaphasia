@@ -8,15 +8,28 @@
 
 import UIKit
 
+/// Description of class.  @Sam description
+/// What does it do?
 class ImageSelectViewCell: UICollectionViewCell {
-    //good to manage these variables in the clzass but could be done with an array in the view controller
-    var word: String = "car"
-    var type: String = "verb" //for the type of word (noun, verb etc)
     
+    // good to manage these variables in the class but could be done with an array in the view controller
+    var word: String = "car"
+    var type: String = "verb" // for the type of word (noun, verb etc). Could use enums.
+    
+    /// What does this do? -----------
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
-    //
     
+    
+    /**
+     * Description of what this function does.  @Sam description
+     *
+     * - Parameter cell:    a tuple containing the following properties:
+     *      - word:         ??
+     *      - type:         ??
+     *      - image:        ??
+     *      - suggestions:  ??
+     */
     func addData(cell: (word: String, type: String, image: UIImage , suggestions: [String])){
         self.word = cell.word
         self.type = cell.type
@@ -33,7 +46,21 @@ class ImageSelectViewCell: UICollectionViewCell {
         layer.borderWidth = 4 //max dont change*/
     }
     
-    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String]){
+    
+    /**
+     * Description of what this function does.  @Sam description
+     *
+     *  - Returns: a tuple containing ....??
+     *      - word:         the word describing the entry.
+     *      - type:         the type of image (e.g. noun, adjective, etc.).
+     *      - image:        the `UIImage` element.
+     *      - suggestions:  possible suggestions which are related to the word.
+     *
+     * ----------------
+     *  @Sam check the description of these return types.
+     * ----------------
+     */
+    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String]) {
         let word = self.word
         let type = self.type
         let suggestions = self.suggestedWords
@@ -41,8 +68,4 @@ class ImageSelectViewCell: UICollectionViewCell {
         return (word, type, image, suggestions)
     }
     
-    
-  
-    
-   
 }

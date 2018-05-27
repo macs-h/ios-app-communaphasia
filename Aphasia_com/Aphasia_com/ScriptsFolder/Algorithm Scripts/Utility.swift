@@ -100,7 +100,7 @@ class Utility {
                         word_type = cell[self.TYPE]
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
-                        print("found word:",word)
+                        print("> found word:",word)
                         break
                     } else {
                         //print("-------cant find", word)

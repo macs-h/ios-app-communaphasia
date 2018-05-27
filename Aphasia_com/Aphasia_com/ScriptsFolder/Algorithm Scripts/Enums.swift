@@ -8,10 +8,12 @@
 
 import Foundation
 
-///   An enum file containing all the enum declarations.
+///
+/// An enum file containing all the enum declarations.
+///
 
 /// The type of word, in terms of linguistics (e.g. noun).
-enum wordType :String {
+enum wordType: String {
     case noun, properNoun
     case verb, adverb
     case adjective
@@ -19,10 +21,15 @@ enum wordType :String {
 }
 
 /// The category of the image (e.g. animals).
-enum imageCategory :String {
+enum imageCategory: String {
     case animal
     case food
     case colours
     case emotions
 }
 
+/// Grammatical number - categorises whether a word is singular or plural.
+enum gNum: String {
+    case singlular
+    case plural
+}

@@ -17,7 +17,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
    
-    let exclusionList = [String]()
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
@@ -85,7 +84,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             //call a function the the cell whcih asigns each variable with data from a function
             //which returns a tuple with data like, image, word, suggestions etc
-            cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(defaultWords[indexPath.item], "temp type", exclusionList))
+            cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
             //cell.cellImageView.image = selectCellImages[indexPath.item]
              return cell
         }else{
@@ -102,7 +101,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if collectionView == self.InputCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageSelectViewCell
             //do something with the cell
-            //asign a tuple with data from a function in cell which returns its data
+            
+            showSinglePluralVC(cell: cell, indexPath: indexPath)
+            
+            /*
             selectedWords.append(cell.word)
             let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
             selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
@@ -111,6 +113,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
             InputCollectionView?.deleteItems(at: [indexPath])
             //using previous cell as a suggestion
+            */
         }else{
             //InputCollectionView
             //show option to discard/ change
@@ -118,5 +121,40 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
         }
     }
+    
+    func showSinglePluralVC(cell: ImageSelectViewCell, indexPath: IndexPath){
+        
+        let singlePluralVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePluralVC") as! SinglePlural_ViewController
+        
+        self.addChildViewController(singlePluralVC)
+        singlePluralVC.view.frame = self.view.frame
+        self.view.addSubview(singlePluralVC.view)
+        singlePluralVC.didMove(toParentViewController: self)
+        
+        singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+       /* singlePluralVC.delegate = self
+        //moves these to function in single... view controller
+        singlePluralVC.singleImageView.image = cell.imageView.image
+        singlePluralVC.pluralImageView.image = cell.imageView.image
+        singlePluralVC.backPluralImageView.image = cell.imageView.image*/
+        
+        
+    }
 
+}
+
+extension ImageInput_ViewController : SinglePluralDelegate{
+    
+    func selectedGNum(cell: ImageSelectViewCell, grNum: String, indexPath: IndexPath) {
+        selectedWords.append(cell.word)
+        let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
+        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+        let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
+        newCell.addData(cell: cell.extractData())
+        newCell.grNum = grNum
+        print("-----------cell: \(cell.word) grNum: \(newCell.grNum) shoudl be \(grNum)")
+        
+        defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
+        InputCollectionView?.deleteItems(at: [indexPath])
+    }
 }

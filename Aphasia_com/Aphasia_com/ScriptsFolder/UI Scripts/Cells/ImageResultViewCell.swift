@@ -18,6 +18,7 @@ class ImageResultViewCell: UICollectionViewCell {
     /// Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
+    var grNum: String = gNum.singlular.rawValue
     
     
     /**
@@ -29,11 +30,12 @@ class ImageResultViewCell: UICollectionViewCell {
      *      - image:        the image to be displayed in the cell.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func addData(cell: (word: String, type: String, image: UIImage , suggestions: [String])){
+    func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String)) {
         self.word = cell.word
         self.type = cell.type
         self.imageView.image = cell.image
         self.suggestedWords = cell.suggestions
+        self.grNum = cell.grNum
         
         //---colouring boarders---//
         /*if type == "noun"{
@@ -55,11 +57,12 @@ class ImageResultViewCell: UICollectionViewCell {
      *      - image:        the image to be displayed in the cell.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String]){
+    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
         let word = self.word
         let type = self.type
         let suggestions = self.suggestedWords
         let image = self.imageView.image!
-        return (word, type, image, suggestions)
+        let grNum = self.grNum
+        return (word, type, image, suggestions, grNum)
     }
 }

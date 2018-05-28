@@ -16,7 +16,7 @@ import Foundation
 enum wordType: String {
     case noun, properNoun
     case verb, adverb
-    case adjective
+    case adjective = "adj" // .rawValue will return "adj".
     case preposition
 }
 

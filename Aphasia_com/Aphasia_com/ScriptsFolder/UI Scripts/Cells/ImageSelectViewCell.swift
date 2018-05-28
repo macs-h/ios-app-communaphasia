@@ -11,7 +11,8 @@ import UIKit
 /// The class for the cell in the `InputCollectionView`. It stores the cell properties
 /// and deals with assigning and exporting.
 class ImageSelectViewCell: UICollectionViewCell {
-    // good to manage these variables in the class but could be done with an array in the view controller
+    // Good to manage these variables in the clzass but could be done with an array in
+    // the view controller.
     var word: String = "car"
     var type: String = "verb" // for the type of word (noun, verb etc). Could use enums.
     

@@ -11,9 +11,10 @@ import UIKit
 /// The class for the cell in the `SelectedCollectionView`. It stores the cell
 /// properties and deals with assigning and exporting.
 class SelectedImageViewCell: UICollectionViewCell {
-    //good to manage these variables in the clzass but could be done with an array in the view controller
+    // Good to manage these variables in the clzass but could be done with an array in
+    // the view controller.
     var word: String = "car"
-    var type: String = "verb" //for the type of word (noun, verb etc)
+    var type: String = "verb" // for the type of word (noun, verb etc). Could use enums.
     
     /// Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
@@ -64,5 +65,14 @@ class SelectedImageViewCell: UICollectionViewCell {
         let image = self.imageView.image!
         let grNum = self.grNum
         return (word, type, image, suggestions, grNum)
+    }
+    
+    func showPlural(){
+        let image = UIImage(named: "cow.png")
+        let frontImageView = UIImageView(image: image)
+        self.contentView.addSubview(imageView)
+        frontImageView.frame = imageView.frame
+        //frontImageView.frame.offsetBy(dx: 3, dy: 3)
+        //imageView.frame = CGRect(x: imageView.frame.x, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
     }
 }

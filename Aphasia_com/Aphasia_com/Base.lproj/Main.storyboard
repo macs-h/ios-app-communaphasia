@@ -257,6 +257,14 @@
                                     <action selector="DoneButton:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="ZYT-8g-fwJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-6F-c6P">
+                                <rect key="frame" x="954" y="759" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteSelectedCell:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="AZ1-9f-uuv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86848283680000005" green="0.86848283680000005" blue="0.86848283680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -377,10 +385,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoF-VN-6RM">
+                                <rect key="frame" x="166" y="204" width="806" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.86848283680000005" green="0.86848283680000005" blue="0.86848283680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="BoF-VN-6RM" id="dlw-VW-uNK"/>
                         <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
                         <segue destination="QFY-px-uCe" kind="show" identifier="TIToResult_segue" id="9fL-cx-gPa"/>
                     </connections>
@@ -414,7 +430,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="F8O-mK-ZoV" kind="show" id="gQP-Iw-auM"/>
+                                    <segue destination="F8O-mK-ZoV" kind="show" identifier="backButton" id="gQP-Iw-auM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your sentence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awH-kK-bsd">
@@ -478,6 +494,7 @@
                     <connections>
                         <outlet property="resultCollectionView" destination="vx9-KE-FDJ" id="pgg-N7-Pzo"/>
                         <outlet property="resultLabel" destination="cSc-an-lAY" id="Zgf-bJ-2vE"/>
+                        <segue destination="F8O-mK-ZoV" kind="show" identifier="TIToInput_segue" id="70q-bh-RdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEs-97-Vni" userLabel="First Responder" sceneMemberID="firstResponder"/>

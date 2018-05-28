@@ -88,7 +88,7 @@ class Utility {
      *      - suggestions:  possible suggestions which are related to the word.
      */
     func getDatabaseEntry(_ word: String, _ typeOfSearch: String, _ exclusionList: Array<String>) ->
-        (word: String, type: String, image: UIImage, suggestions: [String]) {
+        (word: String, type: String, gNum: String, image: UIImage, suggestions: [String]) {
             var image: UIImage = UIImage(named: "image placeholder")!
             var word_type: String = ""
             var suggestions: Array<String> = []
@@ -112,7 +112,7 @@ class Utility {
             //print("EO getDBENtry")
             //print(wordType.noun)
             // Should we use enums as what is returned for the word_type??
-            return (word, word_type, image, suggestions)
+            return (word, word_type, "",image, suggestions)
     }
     
     

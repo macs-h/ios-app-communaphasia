@@ -14,9 +14,10 @@ class ImageTextResultViewCell: UICollectionViewCell {
     var type: String = "verb" //for the type of word (noun, verb etc)
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
+    var gNum = ""
     //
     
-    func addData(cell: (word: String, type: String, image: UIImage , suggestions: [String])){
+    func addData(cell: (word: String, type: String, gNum: String,image: UIImage , suggestions: [String])){
         self.word = cell.word
         self.type = cell.type
         print("Image 2", cell.image)
@@ -33,11 +34,12 @@ class ImageTextResultViewCell: UICollectionViewCell {
          layer.borderWidth = 4 //max dont change*/
     }
     
-    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String]){
+    func extractData()-> (word: String, type: String, gNum: String,image: UIImage, suggestions: [String]){
         let word = self.word
         let type = self.type
+        let gNum = self.gNum
         let suggestions = self.suggestedWords
         let image = self.imageView.image!
-        return (word, type, image, suggestions)
+        return (word, type, gNum,image, suggestions)
     }
 }

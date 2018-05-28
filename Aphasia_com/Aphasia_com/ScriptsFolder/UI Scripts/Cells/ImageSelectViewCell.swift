@@ -15,7 +15,7 @@ class ImageSelectViewCell: UICollectionViewCell {
     // good to manage these variables in the class but could be done with an array in the view controller
     var word: String = "car"
     var type: String = "verb" // for the type of word (noun, verb etc). Could use enums.
-    
+    var gNum = ""
     /// What does this do? -----------
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
@@ -30,7 +30,7 @@ class ImageSelectViewCell: UICollectionViewCell {
      *      - image:        ??
      *      - suggestions:  ??
      */
-    func addData(cell: (word: String, type: String, image: UIImage , suggestions: [String])){
+    func addData(cell: (word: String, type: String, gNum: String ,image: UIImage , suggestions: [String])){
         self.word = cell.word
         self.type = cell.type
         self.imageView.image = cell.image
@@ -60,12 +60,14 @@ class ImageSelectViewCell: UICollectionViewCell {
      *  @Sam check the description of these return types.
      * ----------------
      */
-    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String]) {
+    func extractData()-> (word: String, type: String, gNum: String, image: UIImage, suggestions: [String]) {
         let word = self.word
         let type = self.type
+        let gNum = self.gNum
         let suggestions = self.suggestedWords
         let image = self.imageView.image!
-        return (word, type, image, suggestions)
+        
+        return (word, type, gNum,image, suggestions)
     }
     
 }

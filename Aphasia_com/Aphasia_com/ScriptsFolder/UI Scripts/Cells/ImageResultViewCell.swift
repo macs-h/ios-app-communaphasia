@@ -12,14 +12,15 @@ class ImageResultViewCell: UICollectionViewCell {
     //good to manage these variables in the clzass but could be done with an array in the view controller
     var word: String = "car"
     var type: String = "verb" //for the type of word (noun, verb etc)
-    
+    var gNum = ""
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
     //
     
-    func addData(cell: (word: String, type: String, image: UIImage , suggestions: [String])){
+    func addData(cell: (word: String, type: String, gNum: String, image: UIImage , suggestions: [String])){
         self.word = cell.word
         self.type = cell.type
+        self.gNum = cell.gNum
         self.imageView.image = cell.image
         self.suggestedWords = cell.suggestions
         

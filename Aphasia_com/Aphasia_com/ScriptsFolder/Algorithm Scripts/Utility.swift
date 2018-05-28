@@ -24,7 +24,7 @@ class Utility {
     var database: Connection!
     
     // Global exclusion list - words to ignore.
-    let EXCLUSION_LIST: Array<String> = ["the","is","to","a",""]
+    let EXCLUSION_LIST: Array<String> = ["the","is","to","a","","am"]
     
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
@@ -104,7 +104,7 @@ class Utility {
                         word_type = cell[self.TYPE]
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
-                        print("> found word:",word)
+                        //print("> found word:",word)
                         grNum = (cell[self.GR_NUM] == gNum.singlular.rawValue) ? gNum.singlular.rawValue : gNum.plural.rawValue
                         break
                     } else {

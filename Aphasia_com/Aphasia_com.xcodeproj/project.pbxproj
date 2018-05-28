@@ -1,12 +1,20 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    classes = {
-    };
-    objectVersion = 46;
-    objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
 
 /* Begin PBXBuildFile section */
+		44856EE920BBD0600035C01A /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE020BBD0600035C01A /* sleep.png */; };
+		44856EEA20BBD0600035C01A /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE720BBD0600035C01A /* call.png */; };
+		44856EEB20BBD0600035C01A /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE820BBD0600035C01A /* eat.png */; };
+		44856EF720BBE8890035C01A /* small.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EED20BBE8890035C01A /* small.png */; };
+		44856EF820BBE8890035C01A /* big.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EF420BBE8890035C01A /* big.png */; };
+		44856EF920BBE8890035C01A /* red.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44856EF520BBE8890035C01A /* red.jpeg */; };
+		44856EFA20BBE8890035C01A /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EF620BBE8890035C01A /* blue.png */; };
+		44856EFC20BBF90D0035C01A /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44856EFB20BBF90D0035C01A /* i.jpg */; };
 		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
 		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,93 +60,101 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-        524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
-            remoteInfo = "SQLite iOS";
-        };
-        524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
-            remoteInfo = "SQLiteTests iOS";
-        };
-        524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
-            remoteInfo = "SQLite Mac";
-        };
-        524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
-            remoteInfo = "SQLiteTests Mac";
-        };
-        524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
-            remoteInfo = "SQLite tvOS";
-        };
-        524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = 03A65E631C6BB0F60062603F;
-            remoteInfo = "SQLiteTests tvOS";
-        };
-        524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 2;
-            remoteGlobalIDString = A121AC451CA35C79005A31D1;
-            remoteInfo = "SQLite watchOS";
-        };
-        524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-            proxyType = 1;
-            remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
-            remoteInfo = "SQLite iOS";
-        };
-        EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = EDF7206220AD3FA700675140 /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = EDF7206920AD3FA700675140;
-            remoteInfo = Aphasia_com;
-        };
-        EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = EDF7206220AD3FA700675140 /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = EDF7206920AD3FA700675140;
-            remoteInfo = Aphasia_com;
-        };
+		524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247AD31C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247ADD1C3F04ED00AE3E12;
+			remoteInfo = "SQLiteTests iOS";
+		};
+		524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B3C1C3F3ED000AE3E12;
+			remoteInfo = "SQLite Mac";
+		};
+		524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE247B451C3F3ED000AE3E12;
+			remoteInfo = "SQLiteTests Mac";
+		};
+		524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E5A1C6BB0F50062603F;
+			remoteInfo = "SQLite tvOS";
+		};
+		524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A65E631C6BB0F60062603F;
+			remoteInfo = "SQLiteTests tvOS";
+		};
+		524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A121AC451CA35C79005A31D1;
+			remoteInfo = "SQLite watchOS";
+		};
+		524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
+		EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDF7206220AD3FA700675140 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF7206920AD3FA700675140;
+			remoteInfo = Aphasia_com;
+		};
+		EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDF7206220AD3FA700675140 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF7206920AD3FA700675140;
+			remoteInfo = Aphasia_com;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-        524D0BC220B100A100EC19E7 /* Embed Frameworks */ = {
-            isa = PBXCopyFilesBuildPhase;
-            buildActionMask = 2147483647;
-            dstPath = "";
-            dstSubfolderSpec = 10;
-            files = (
-                524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */,
-            );
-            name = "Embed Frameworks";
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		524D0BC220B100A100EC19E7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		44856EE020BBD0600035C01A /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
+		44856EE720BBD0600035C01A /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
+		44856EE820BBD0600035C01A /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
+		44856EED20BBE8890035C01A /* small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small.png; sourceTree = "<group>"; };
+		44856EF420BBE8890035C01A /* big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big.png; sourceTree = "<group>"; };
+		44856EF520BBE8890035C01A /* red.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red.jpeg; sourceTree = "<group>"; };
+		44856EF620BBE8890035C01A /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		44856EFB20BBF90D0035C01A /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i.jpg; sourceTree = "<group>"; };
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		601DEB6220BA7A7E00FF2778 /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
 		ED0AB96420B7DDE1009AA958 /* ImageTextResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextResultViewCell.swift; sourceTree = "<group>"; };
@@ -187,29 +203,29 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-        EDF7206720AD3FA700675140 /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
-                524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7207B20AD3FA700675140 /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7208620AD3FA700675140 /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		EDF7206720AD3FA700675140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
+				524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7207B20AD3FA700675140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7208620AD3FA700675140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -254,6 +270,10 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
+				44856EFB20BBF90D0035C01A /* i.jpg */,
+				44856EE720BBD0600035C01A /* call.png */,
+				44856EE820BBD0600035C01A /* eat.png */,
+				44856EE020BBD0600035C01A /* sleep.png */,
 				EDFA3AEC20B8EF7600F6DBBD /* apple.png */,
 				EDFA3AEE20B8EF8C00F6DBBD /* car_sedan.png */,
 				ED27976620B7C7C0001AF14C /* basketball.png */,
@@ -270,6 +290,10 @@
 				EDFA3AF820B8EFB900F6DBBD /* woman_silhouette.png */,
 				ED27976720B7C7C0001AF14C /* soda_can.png */,
 				ED27976420B7C7C0001AF14C /* tree_silhouette.png */,
+				44856EF420BBE8890035C01A /* big.png */,
+				44856EF620BBE8890035C01A /* blue.png */,
+				44856EF520BBE8890035C01A /* red.jpeg */,
+				44856EED20BBE8890035C01A /* small.png */,
 			);
 			path = "Database images";
 			sourceTree = "<group>";
@@ -401,213 +425,221 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-        EDF7206920AD3FA700675140 /* Aphasia_com */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */;
-            buildPhases = (
-                EDF7206620AD3FA700675140 /* Sources */,
-                EDF7206720AD3FA700675140 /* Frameworks */,
-                EDF7206820AD3FA700675140 /* Resources */,
-                524D0BC220B100A100EC19E7 /* Embed Frameworks */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                524D0BC120B100A000EC19E7 /* PBXTargetDependency */,
-            );
-            name = Aphasia_com;
-            productName = Aphasia_com;
-            productReference = EDF7206A20AD3FA700675140 /* Aphasia_com.app */;
-            productType = "com.apple.product-type.application";
-        };
-        EDF7207D20AD3FA700675140 /* Aphasia_comTests */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */;
-            buildPhases = (
-                EDF7207A20AD3FA700675140 /* Sources */,
-                EDF7207B20AD3FA700675140 /* Frameworks */,
-                EDF7207C20AD3FA700675140 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                EDF7208020AD3FA700675140 /* PBXTargetDependency */,
-            );
-            name = Aphasia_comTests;
-            productName = Aphasia_comTests;
-            productReference = EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */;
-            productType = "com.apple.product-type.bundle.unit-test";
-        };
-        EDF7208820AD3FA700675140 /* Aphasia_comUITests */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */;
-            buildPhases = (
-                EDF7208520AD3FA700675140 /* Sources */,
-                EDF7208620AD3FA700675140 /* Frameworks */,
-                EDF7208720AD3FA700675140 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                EDF7208B20AD3FA700675140 /* PBXTargetDependency */,
-            );
-            name = Aphasia_comUITests;
-            productName = Aphasia_comUITests;
-            productReference = EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */;
-            productType = "com.apple.product-type.bundle.ui-testing";
-        };
+		EDF7206920AD3FA700675140 /* Aphasia_com */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */;
+			buildPhases = (
+				EDF7206620AD3FA700675140 /* Sources */,
+				EDF7206720AD3FA700675140 /* Frameworks */,
+				EDF7206820AD3FA700675140 /* Resources */,
+				524D0BC220B100A100EC19E7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				524D0BC120B100A000EC19E7 /* PBXTargetDependency */,
+			);
+			name = Aphasia_com;
+			productName = Aphasia_com;
+			productReference = EDF7206A20AD3FA700675140 /* Aphasia_com.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDF7207D20AD3FA700675140 /* Aphasia_comTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */;
+			buildPhases = (
+				EDF7207A20AD3FA700675140 /* Sources */,
+				EDF7207B20AD3FA700675140 /* Frameworks */,
+				EDF7207C20AD3FA700675140 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF7208020AD3FA700675140 /* PBXTargetDependency */,
+			);
+			name = Aphasia_comTests;
+			productName = Aphasia_comTests;
+			productReference = EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EDF7208820AD3FA700675140 /* Aphasia_comUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */;
+			buildPhases = (
+				EDF7208520AD3FA700675140 /* Sources */,
+				EDF7208620AD3FA700675140 /* Frameworks */,
+				EDF7208720AD3FA700675140 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF7208B20AD3FA700675140 /* PBXTargetDependency */,
+			);
+			name = Aphasia_comUITests;
+			productName = Aphasia_comUITests;
+			productReference = EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-        EDF7206220AD3FA700675140 /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                LastSwiftUpdateCheck = 0830;
-                LastUpgradeCheck = 0930;
-                ORGANIZATIONNAME = Cosc345;
-                TargetAttributes = {
-                    EDF7206920AD3FA700675140 = {
-                        CreatedOnToolsVersion = 8.3.3;
-                        DevelopmentTeam = 845CX8Y83W;
-                        LastSwiftMigration = 0930;
-                        ProvisioningStyle = Automatic;
-                    };
-                    EDF7207D20AD3FA700675140 = {
-                        CreatedOnToolsVersion = 8.3.3;
-                        LastSwiftMigration = 0930;
-                        ProvisioningStyle = Automatic;
-                        TestTargetID = EDF7206920AD3FA700675140;
-                    };
-                    EDF7208820AD3FA700675140 = {
-                        CreatedOnToolsVersion = 8.3.3;
-                        LastSwiftMigration = 0930;
-                        ProvisioningStyle = Automatic;
-                        TestTargetID = EDF7206920AD3FA700675140;
-                    };
-                };
-            };
-            buildConfigurationList = EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */;
-            compatibilityVersion = "Xcode 3.2";
-            developmentRegion = English;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
-                Base,
-            );
-            mainGroup = EDF7206120AD3FA700675140;
-            productRefGroup = EDF7206B20AD3FA700675140 /* Products */;
-            projectDirPath = "";
-            projectReferences = (
-                {
-                    ProductGroup = 524D0BA520B1004400EC19E7 /* Products */;
-                    ProjectRef = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
-                },
-            );
-            projectRoot = "";
-            targets = (
-                EDF7206920AD3FA700675140 /* Aphasia_com */,
-                EDF7207D20AD3FA700675140 /* Aphasia_comTests */,
-                EDF7208820AD3FA700675140 /* Aphasia_comUITests */,
-            );
-        };
+		EDF7206220AD3FA700675140 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Cosc345;
+				TargetAttributes = {
+					EDF7206920AD3FA700675140 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 845CX8Y83W;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+					};
+					EDF7207D20AD3FA700675140 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EDF7206920AD3FA700675140;
+					};
+					EDF7208820AD3FA700675140 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EDF7206920AD3FA700675140;
+					};
+				};
+			};
+			buildConfigurationList = EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF7206120AD3FA700675140;
+			productRefGroup = EDF7206B20AD3FA700675140 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 524D0BA520B1004400EC19E7 /* Products */;
+					ProjectRef = 524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EDF7206920AD3FA700675140 /* Aphasia_com */,
+				EDF7207D20AD3FA700675140 /* Aphasia_comTests */,
+				EDF7208820AD3FA700675140 /* Aphasia_comUITests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-        524D0BAF20B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB120B1004500EC19E7 /* SQLiteTests iOS.xctest */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.cfbundle;
-            path = "SQLiteTests iOS.xctest";
-            remoteRef = 524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB320B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB520B1004500EC19E7 /* SQLiteTests Mac.xctest */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.cfbundle;
-            path = "SQLiteTests Mac.xctest";
-            remoteRef = 524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB720B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BB920B1004500EC19E7 /* SQLiteTests tvOS.xctest */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.cfbundle;
-            path = "SQLiteTests tvOS.xctest";
-            remoteRef = 524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
-        524D0BBB20B1004500EC19E7 /* SQLite.framework */ = {
-            isa = PBXReferenceProxy;
-            fileType = wrapper.framework;
-            path = SQLite.framework;
-            remoteRef = 524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };
+		524D0BAF20B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BAE20B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB120B1004500EC19E7 /* SQLiteTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests iOS.xctest";
+			remoteRef = 524D0BB020B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB320B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BB220B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB520B1004500EC19E7 /* SQLiteTests Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests Mac.xctest";
+			remoteRef = 524D0BB420B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB720B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BB620B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BB920B1004500EC19E7 /* SQLiteTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteTests tvOS.xctest";
+			remoteRef = 524D0BB820B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		524D0BBB20B1004500EC19E7 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 524D0BBA20B1004500EC19E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-        EDF7206820AD3FA700675140 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                60249A1F20B91CC100BBC5FC /* images.txt in Resources */,
-                EDFA3AEF20B8EF8C00F6DBBD /* car_sedan.png in Resources */,
-                ED27977520B7C7C0001AF14C /* image placeholder.png in Resources */,
-                ED27977420B7C7C0001AF14C /* fish.png in Resources */,
-                EDFA3AF920B8EFB900F6DBBD /* woman_silhouette.png in Resources */,
-                ED27977320B7C7C0001AF14C /* pencil.png in Resources */,
-                EDFA3AF520B8EF9D00F6DBBD /* food_lunch.png in Resources */,
-                EDFA3AED20B8EF7700F6DBBD /* apple.png in Resources */,
-                ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */,
-                EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
-                ED27977220B7C7C0001AF14C /* soda_can.png in Resources */,
-                ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */,
-                ED27976F20B7C7C0001AF14C /* tree_silhouette.png in Resources */,
-                ED27977120B7C7C0001AF14C /* basketball.png in Resources */,
-                EDFA3AF120B8EF9500F6DBBD /* food_breakfast.png in Resources */,
-                ED27977020B7C7C0001AF14C /* cat_silhouette.png in Resources */,
-                EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
-                EDFA3AF320B8EF9900F6DBBD /* food_dinner.png in Resources */,
-                ED27976D20B7C7C0001AF14C /* cow.png in Resources */,
-                EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */,
-                EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7207C20AD3FA700675140 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                EDFA3AEA20B8ED9100F6DBBD /* images.txt in Resources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        EDF7208720AD3FA700675140 /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		EDF7206820AD3FA700675140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60249A1F20B91CC100BBC5FC /* images.txt in Resources */,
+				EDFA3AEF20B8EF8C00F6DBBD /* car_sedan.png in Resources */,
+				ED27977520B7C7C0001AF14C /* image placeholder.png in Resources */,
+				ED27977420B7C7C0001AF14C /* fish.png in Resources */,
+				EDFA3AF920B8EFB900F6DBBD /* woman_silhouette.png in Resources */,
+				ED27977320B7C7C0001AF14C /* pencil.png in Resources */,
+				EDFA3AF520B8EF9D00F6DBBD /* food_lunch.png in Resources */,
+				EDFA3AED20B8EF7700F6DBBD /* apple.png in Resources */,
+				44856EF820BBE8890035C01A /* big.png in Resources */,
+				ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */,
+				44856EE920BBD0600035C01A /* sleep.png in Resources */,
+				EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
+				ED27977220B7C7C0001AF14C /* soda_can.png in Resources */,
+				44856EEB20BBD0600035C01A /* eat.png in Resources */,
+				ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */,
+				ED27976F20B7C7C0001AF14C /* tree_silhouette.png in Resources */,
+				44856EEA20BBD0600035C01A /* call.png in Resources */,
+				44856EF920BBE8890035C01A /* red.jpeg in Resources */,
+				ED27977120B7C7C0001AF14C /* basketball.png in Resources */,
+				44856EFA20BBE8890035C01A /* blue.png in Resources */,
+				EDFA3AF120B8EF9500F6DBBD /* food_breakfast.png in Resources */,
+				44856EF720BBE8890035C01A /* small.png in Resources */,
+				ED27977020B7C7C0001AF14C /* cat_silhouette.png in Resources */,
+				44856EFC20BBF90D0035C01A /* i.jpg in Resources */,
+				EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
+				EDFA3AF320B8EF9900F6DBBD /* food_dinner.png in Resources */,
+				ED27976D20B7C7C0001AF14C /* cow.png in Resources */,
+				EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */,
+				EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7207C20AD3FA700675140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDFA3AEA20B8ED9100F6DBBD /* images.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF7208720AD3FA700675140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -652,40 +684,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-        524D0BC120B100A000EC19E7 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            name = "SQLite iOS";
-            targetProxy = 524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */;
-        };
-        EDF7208020AD3FA700675140 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = EDF7206920AD3FA700675140 /* Aphasia_com */;
-            targetProxy = EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */;
-        };
-        EDF7208B20AD3FA700675140 /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = EDF7206920AD3FA700675140 /* Aphasia_com */;
-            targetProxy = EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */;
-        };
+		524D0BC120B100A000EC19E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = 524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */;
+		};
+		EDF7208020AD3FA700675140 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF7206920AD3FA700675140 /* Aphasia_com */;
+			targetProxy = EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */;
+		};
+		EDF7208B20AD3FA700675140 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF7206920AD3FA700675140 /* Aphasia_com */;
+			targetProxy = EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-        EDF7207120AD3FA700675140 /* Main.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                EDF7207220AD3FA700675140 /* Base */,
-            );
-            name = Main.storyboard;
-            sourceTree = "<group>";
-        };
-        EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                EDF7207720AD3FA700675140 /* Base */,
-            );
-            name = LaunchScreen.storyboard;
-            sourceTree = "<group>";
-        };
+		EDF7207120AD3FA700675140 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF7207220AD3FA700675140 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF7207720AD3FA700675140 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -905,43 +937,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-        EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209020AD3FA700675140 /* Debug */,
-                EDF7209120AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209320AD3FA700675140 /* Debug */,
-                EDF7209420AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209620AD3FA700675140 /* Debug */,
-                EDF7209720AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                EDF7209920AD3FA700675140 /* Debug */,
-                EDF7209A20AD3FA700675140 /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
+		EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209020AD3FA700675140 /* Debug */,
+				EDF7209120AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209320AD3FA700675140 /* Debug */,
+				EDF7209420AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209620AD3FA700675140 /* Debug */,
+				EDF7209720AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7209920AD3FA700675140 /* Debug */,
+				EDF7209A20AD3FA700675140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-    };
-    rootObject = EDF7206220AD3FA700675140 /* Project object */;
+	};
+	rootObject = EDF7206220AD3FA700675140 /* Project object */;
 }

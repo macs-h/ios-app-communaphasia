@@ -17,7 +17,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
    
-    var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
+    var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
+                        "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
+                        "calling","big","small","red","blue","i"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
     var selectedCells = [SelectedImageViewCell]()
@@ -98,24 +100,34 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
  
        
     }
+    @IBAction func wantButtonPress(_ sender: Any) {
+        
+        selectedWords.append("want")
+        
+        let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
+        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+        let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
+        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: ""))
+        selectedCells.append(newCell)
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.InputCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageSelectViewCell
             //do something with the cell
-            
-            showSinglePluralVC(cell: cell, indexPath: indexPath)
-            
-            /*
-            selectedWords.append(cell.word)
-            let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
-            selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
-            let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
-            newCell.addData(cell: cell.extractData())
-            defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
-            InputCollectionView?.deleteItems(at: [indexPath])
-            //using previous cell as a suggestion
-            */
+            if cell.type == wordType.noun.rawValue {
+                showSinglePluralVC(cell: cell, indexPath: indexPath)
+            }else{
+                selectedWords.append(cell.word)
+                let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
+                selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+                let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
+                newCell.addData(cell: cell.extractData())
+                defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
+                InputCollectionView?.deleteItems(at: [indexPath])
+                selectedCells.append(newCell)
+                //using previous cell as a suggestion
+            }
         }else{
             //InputCollectionView
             //show option to discard/ change

@@ -18,6 +18,8 @@ enum wordType: String {
     case verb, adverb
     case adjective = "adj" // .rawValue will return "adj".
     case preposition
+    case pronoun
+    case modal
 }
 
 /// The category of the image (e.g. animals).

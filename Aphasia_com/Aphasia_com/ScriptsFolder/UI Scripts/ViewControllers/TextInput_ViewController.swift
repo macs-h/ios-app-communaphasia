@@ -15,7 +15,11 @@ class TextInput_ViewController: UIViewController {
 
     /// References the user input text field.
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     var stringArray = [String]()
+    var attributedString: NSMutableAttributedString?
+    
     
     /**
      * Called when the `done` button is pressed.
@@ -57,7 +61,7 @@ class TextInput_ViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        errorLabel.attributedText = attributedString
         // Do any additional setup after loading the view.
     }
 
@@ -76,6 +80,24 @@ class TextInput_ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func showErrors(_ wordArray: [String], _ errorArray: [Int]) {
+//        let attributedString = NSMutableAttributedString(string: "This is a string")
+        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
+        for index in errorArray {
+            attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
+//            let nSRange = NSMakeRange(0, 2)
+//            attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.red], range: nSRange)
+        
+        }
+//        errorLabel.text = "changed"
+//        var myAttribute = [NSAttributedStringKey.foregroundColor: UIColor.red]
+//        var attributedString = NSAttributedString(string: "i am a string" , attributes: myAttribute)
+        print(">> attributedString:", attributedString)
+//        attributedString = attributedString
+        
     }
     
     

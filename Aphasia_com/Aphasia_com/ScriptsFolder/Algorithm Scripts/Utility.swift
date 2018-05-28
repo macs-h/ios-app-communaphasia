@@ -107,14 +107,13 @@ class Utility {
                         print("> found word:",word)
                         grNum = (cell[self.GR_NUM] == gNum.singlular.rawValue) ? gNum.singlular.rawValue : gNum.plural.rawValue
                         break
-                    } else {
-                        //print("-------cant find", word)
                     }
                 }
             } catch {
                 print(error)
             }
             // Should we use enums as what is returned for the word_type??
+            print("> word_type: \(word_type)")
             return (word, word_type, image, suggestions, grNum)
     }
     
@@ -201,6 +200,16 @@ class Utility {
                 }
             }
         }
+    }
+    
+}
+
+
+/// Used to colourise specific text in a UILabel.
+extension NSMutableAttributedString {
+    func setColor(color: UIColor, forText stringValue: String) {
+        let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
+        self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
     }
     
 }

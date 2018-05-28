@@ -84,11 +84,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if collectionView == self.InputCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageSelectViewCell //gives the type of the custom class that was made for the cell
             
-            //call a function the the cell whcih asigns each variable with data from a function
-            //which returns a tuple with data like, image, word, suggestions etc
+            // call a function the the cell whcih asigns each variable with data from a function
+            // which returns a tuple with data like, image, word, suggestions etc
             cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
-            //cell.cellImageView.image = selectCellImages[indexPath.item]
-             return cell
+            // cell.cellImageView.image = selectCellImages[indexPath.item]
+            return cell
         }else{
             //inputCollectionView
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! SelectedImageViewCell //gives the type of the custom class that was made for the cell

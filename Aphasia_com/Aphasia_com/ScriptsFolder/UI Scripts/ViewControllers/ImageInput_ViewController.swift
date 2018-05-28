@@ -20,6 +20,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
+    var selectedCells = [SelectedImageViewCell]()
     //---need to create a temp tuple to store remove cell data??
     
     //let selectCellImages: [UIImage] = [UIImage(named: "placeholder")!,]
@@ -59,9 +60,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "IIToResult_segue") {
-            let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
+            //let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
             var resultController = segue.destination as! ImageResult_ViewController
-            resultController.selectedCellsResult = finalSelectedWords
+            resultController.selectedCellsResult = selectedCells
+            
         }
     }
     
@@ -152,8 +154,7 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
         newCell.addData(cell: cell.extractData())
         newCell.grNum = grNum
-        print("-----------cell: \(cell.word) grNum: \(newCell.grNum) shoudl be \(grNum)")
-        
+        selectedCells.append(newCell)
         defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
         InputCollectionView?.deleteItems(at: [indexPath])
     }

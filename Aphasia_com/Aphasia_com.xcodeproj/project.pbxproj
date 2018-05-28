@@ -325,9 +325,9 @@
 				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
 				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
-				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
 				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
 				ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */,
+				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

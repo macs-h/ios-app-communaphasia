@@ -24,12 +24,7 @@ class Utility {
     var database: Connection!
     
     // Global exclusion list - words to ignore.
-    let EXCLUSION_LIST: Array<String> = [
-        "the",
-         "is",
-         "to",
-         "a"
-    ]
+    let EXCLUSION_LIST: Array<String> = ["the","is","to","a",""]
     
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
@@ -78,10 +73,7 @@ class Utility {
      *  - Returns:  a 1D array of words.
      */
     func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
-        return dropWords(
-            ( inputString.components(separatedBy: charSet) ).map { $0.lowercased() },
-            EXCLUSION_LIST
-        )
+        return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
     }
     
 
@@ -113,6 +105,7 @@ class Utility {
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
                         print("> found word:",word)
+                        grNum = (cell[self.GR_NUM] == gNum.singlular.rawValue) ? gNum.singlular.rawValue : gNum.plural.rawValue
                         break
                     } else {
                         //print("-------cant find", word)

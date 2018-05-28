@@ -20,6 +20,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
+    var selectedCells = [SelectedImageViewCell]()
     //---need to create a temp tuple to store remove cell data??
     
     //let selectCellImages: [UIImage] = [UIImage(named: "placeholder")!,]
@@ -59,9 +60,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "IIToResult_segue") {
-            let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
+            //let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
             var resultController = segue.destination as! ImageResult_ViewController
-            resultController.selectedCellsResult = finalSelectedWords
+            resultController.selectedCellsResult = selectedCells
+            
         }
     }
     
@@ -140,6 +142,16 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         
         
     }
+    
+    @IBAction func deleteSelectedCell(_ sender: Any) {
+        
+        let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
+        selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
+        selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
+        selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
+        
+    }
+    
 
 }
 
@@ -152,9 +164,13 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
         newCell.addData(cell: cell.extractData())
         newCell.grNum = grNum
-        print("-----------cell: \(cell.word) grNum: \(newCell.grNum) shoudl be \(grNum)")
+        if grNum == gNum.plural.rawValue{
+            newCell.showPlural()
+        }
+        selectedCells.append(newCell)
         
-        defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
-        InputCollectionView?.deleteItems(at: [indexPath])
+        //if we want to remove it from the selectCollectionView
+        //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
+        //InputCollectionView?.deleteItems(at: [indexPath])
     }
 }

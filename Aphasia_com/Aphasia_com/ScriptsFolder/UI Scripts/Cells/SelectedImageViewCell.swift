@@ -65,4 +65,13 @@ class SelectedImageViewCell: UICollectionViewCell {
         let grNum = self.grNum
         return (word, type, image, suggestions, grNum)
     }
+    
+    func showPlural(){
+        let image = UIImage(named: "cow.png")
+        let frontImageView = UIImageView(image: image)
+        self.contentView.addSubview(imageView)
+        frontImageView.frame = imageView.frame
+        //frontImageView.frame.offsetBy(dx: 3, dy: 3)
+        //imageView.frame = CGRect(x: imageView.frame.x, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+    }
 }

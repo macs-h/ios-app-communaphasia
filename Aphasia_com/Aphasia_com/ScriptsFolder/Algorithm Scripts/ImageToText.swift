@@ -20,27 +20,32 @@ class ImageToText {
 //        var returnString:[String] = []
         var returnString:Array<String> = []
         var temp:String = ""
+        var wordToAppend = ""
         
         for imageNum in 0...pics.count-1 {
             //first word, probably add 'the'
             if (pics[0].type == wordType.noun.rawValue && imageNum==0) {
+                wordToAppend = (pics[imageNum].grNum == gNum.singlular.rawValue) ? pics[imageNum].word : pics[imageNum].word + "s"
                 returnString.append("The")          // index 0
-                returnString.append(pics[0].word)   // index 1
+                returnString.append(wordToAppend)   // index 1
                 
             }else{
-                let picType = pics[imageNum].type  // only need to access value once, instead of thrice.
-                if picType == wordType.adjective.rawValue {
-                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
+                let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
+                let prevPic = pics[imageNum-1]
+                let nextPic = (imageNum < pics.count-1) ? pics[imageNum+1] : nil
+                if thisPic.type == wordType.adjective.rawValue {
+                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
                     returnString.append(temp)           // index 2
-                    returnString.append(pics[imageNum].word)   // index 3
-                } else if picType == wordType.noun.rawValue {
-                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
+                    returnString.append((thisPic.word))   // index 3
+                } else if thisPic.type == wordType.noun.rawValue {
+                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : thisPic.word + "s"
+                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
                     returnString.append(temp)           // index 3
-                    returnString.append(pics[imageNum].word)   // index 2
-                } else if picType == wordType.verb.rawValue {
-                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
+                    returnString.append(wordToAppend)   // index 2
+                } else if thisPic.type == wordType.verb.rawValue {
+                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
                     returnString.append(temp)           // index 3
-                    returnString.append(pics[imageNum].word)   // index 2
+                    returnString.append(thisPic.word)   // index 2
                 }
             }
             

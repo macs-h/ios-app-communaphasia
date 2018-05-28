@@ -84,19 +84,11 @@ class TextInput_ViewController: UIViewController {
     
     
     func showErrors(_ wordArray: [String], _ errorArray: [Int]) {
-//        let attributedString = NSMutableAttributedString(string: "This is a string")
         attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
         for index in errorArray {
             attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
-//            let nSRange = NSMakeRange(0, 2)
-//            attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.red], range: nSRange)
-        
         }
-//        errorLabel.text = "changed"
-//        var myAttribute = [NSAttributedStringKey.foregroundColor: UIColor.red]
-//        var attributedString = NSAttributedString(string: "i am a string" , attributes: myAttribute)
         print(">> attributedString:", attributedString)
-//        attributedString = attributedString
         
     }
     

@@ -8,13 +8,15 @@
 
 import UIKit
 
+///
+///
+///
 class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var selectedCollectionView: UICollectionView!
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
    
-    let exclusionList = [String]()
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast","lunch","dinner"]
     let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String]).self
     var selectedWords = [String]()
@@ -38,21 +40,25 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         // Dispose of any resources that can be recreated.
     }
     
+    
+    /**
+     * Reference to the UI 'done' button.
+     *
+     *  - Parameter sender: the object which called this function.
+     */
     @IBAction func DoneButton(_ sender: Any) {
         if selectedWords.count > 0 {
             //at least one image is selected
             
             performSegue(withIdentifier: "IIToResult_segue", sender: self)
-        }else{
+        } else {
             //show warning
         }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "IIToResult_segue")
-        {
+        if (segue.identifier == "IIToResult_segue") {
             let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
             var resultController = segue.destination as! ImageResult_ViewController
             resultController.selectedCellsResult = finalSelectedWords
@@ -78,7 +84,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             //call a function the the cell whcih asigns each variable with data from a function
             //which returns a tuple with data like, image, word, suggestions etc
-            cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(defaultWords[indexPath.item], "temp type", exclusionList))
+            cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
             //cell.cellImageView.image = selectCellImages[indexPath.item]
              return cell
         }else{
@@ -139,13 +145,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 
 extension ImageInput_ViewController : SinglePluralDelegate{
     
-    func selectedGNum(cell: ImageSelectViewCell, gNum: String, indexPath: IndexPath) {
+    func selectedGNum(cell: ImageSelectViewCell, grNum: String, indexPath: IndexPath) {
         selectedWords.append(cell.word)
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
         selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
         newCell.addData(cell: cell.extractData())
-        newCell.gNum = gNum
+        newCell.grNum = grNum
         
         defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
         InputCollectionView?.deleteItems(at: [indexPath])

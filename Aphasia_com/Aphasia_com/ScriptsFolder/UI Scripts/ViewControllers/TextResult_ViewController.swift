@@ -8,10 +8,9 @@
 
 import UIKit
 
-/// @Sam description
-/// Description of class.
 ///
 /// Result of converting image to text ...?
+///
 class TextResult_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     
@@ -22,7 +21,6 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     var inputString = String()
     var wordsToBeShown = [String]()
-    var exclusionList = [String]()
     
     
     /**
@@ -32,8 +30,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         
         resultLabel.text = inputString //shows at bottom what was typed
-        wordsToBeShown = Utility.sharedInstance.getSentenceToWords(inputString, .whitespaces)
-        print("words to be shown", wordsToBeShown)
+        wordsToBeShown = Utility.instance.getSentenceToWords(inputString, .whitespaces)
+        print("> words to be shown", wordsToBeShown)
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
@@ -57,7 +55,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
      *              many cells you want).
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("w2bs count", wordsToBeShown.count)
+        print("> w2bs count", wordsToBeShown.count)
         return  wordsToBeShown.count  //number of images going to be shown
     }
     
@@ -79,7 +77,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         
         //call a function the the cell which asigns each variable with data from a function
         //which returns a tuple with data like, image, word, suggestions etc
-        cell.addData(cell: Utility.sharedInstance.getDatabaseEntry(wordsToBeShown[indexPath.item], "temp type", exclusionList))
+        cell.addData(cell: Utility.instance.getDatabaseEntry(wordsToBeShown[indexPath.row]))
         
         //idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
         

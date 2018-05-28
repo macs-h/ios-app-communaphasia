@@ -8,7 +8,7 @@
 
 import UIKit
 protocol SinglePluralDelegate: class {
-    func selectedGNum(cell: ImageSelectViewCell, gNum: String, indexPath: IndexPath)
+    func selectedGNum(cell: ImageSelectViewCell, grNum: String, indexPath: IndexPath)
 }
 class SinglePlural_ViewController: UIViewController {
     
@@ -48,13 +48,13 @@ class SinglePlural_ViewController: UIViewController {
     
     //single image selected
     @IBAction func selectSingle(_ sender: Any) {
-        delegate?.selectedGNum(cell: cell!, gNum: "single", indexPath: indexPath!)
+        delegate?.selectedGNum(cell: cell!, grNum: "single", indexPath: indexPath!)
         closePopup()
     }
     
     //plural image selected
     @IBAction func selectPlural(_ sender: Any) {
-        delegate?.selectedGNum(cell: cell!, gNum: "plural", indexPath: indexPath!)
+        delegate?.selectedGNum(cell: cell!, grNum: "plural", indexPath: indexPath!)
         closePopup()
     }
     

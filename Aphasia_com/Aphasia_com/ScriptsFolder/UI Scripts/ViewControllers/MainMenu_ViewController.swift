@@ -9,8 +9,8 @@
 import UIKit
 import SQLite
 
-/// @Sam description
-/// Description of class.
+///
+///
 ///
 class MainMenu_ViewController: UIViewController {
     

@@ -152,6 +152,7 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
         newCell.addData(cell: cell.extractData())
         newCell.grNum = grNum
+        print("-----------cell: \(cell.word) grNum: \(newCell.grNum) shoudl be \(grNum)")
         
         defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
         InputCollectionView?.deleteItems(at: [indexPath])

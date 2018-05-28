@@ -506,6 +506,7 @@
         <image name="image placeholder.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="70q-bh-RdG"/>
         <segue reference="1qB-hy-XeI"/>
         <segue reference="gQP-Iw-auM"/>
         <segue reference="Tuv-aW-ka3"/>

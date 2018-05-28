@@ -254,6 +254,14 @@
                                     <action selector="DoneButton:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="ZYT-8g-fwJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-6F-c6P">
+                                <rect key="frame" x="954" y="759" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteSelectedCell:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="AZ1-9f-uuv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86848283680000005" green="0.86848283680000005" blue="0.86848283680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>

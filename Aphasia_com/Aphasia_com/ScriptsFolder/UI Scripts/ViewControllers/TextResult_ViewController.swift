@@ -20,8 +20,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var resultLabel: UILabel!
     
     var inputString = String()
-    var wordsToBeShown = [String]()
-    var errorArray = [Int]()
+    var cellsToBeShown = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String)]()
     
     
     /**
@@ -31,8 +30,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         
         resultLabel.text = inputString //shows at bottom what was typed
-        wordsToBeShown = Utility.instance.getSentenceToWords(inputString, .whitespaces)
-        print("> words to be shown", wordsToBeShown)
+        //wordsToBeShown = Utility.instance.getSentenceToWords(inputString, .whitespaces)
+        //print("> words to be shown", wordsToBeShown)
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
@@ -48,7 +47,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         if (segue.identifier == "TIToInput_segue")
         {
             let inputController = segue.destination as! TextInput_ViewController
-            inputController.showErrors(wordsToBeShown, errorArray)
+            //inputController.showErrors(wordsToBeShown, errorArray)
 //            resultController.inputString = textField.text!
         }
     }
@@ -66,8 +65,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
      *              many cells you want).
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("> w2bs count", wordsToBeShown.count)
-        return  wordsToBeShown.count  //number of images going to be shown
+        //print("> w2bs count", wordsToBeShown.count)
+        return  cellsToBeShown.count  //number of images going to be shown
     }
     
     
@@ -89,7 +88,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         // call a function the the cell which asigns each variable with data from a function
         // which returns a tuple with data like, image, word, suggestions etc
         
-        let tempCell = Utility.instance.getDatabaseEntry(wordsToBeShown[indexPath.item])
+        /*let tempCell = Utility.instance.getDatabaseEntry(wordsToBeShown[indexPath.item])
         if tempCell.type == "" {
             errorArray.append(indexPath.item)
             print("> errorArray: \(errorArray)")
@@ -101,7 +100,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
             print("> return func")
             performSegue(withIdentifier: "TIToInput_segue", sender: self)
             
-        }
+        }*/
+        cell.addData(cell: cellsToBeShown[indexPath.item])
         return cell
     }
     

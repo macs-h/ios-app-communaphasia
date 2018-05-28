@@ -24,7 +24,7 @@ class Utility {
     var database: Connection!
     
     // Global exclusion list - words to ignore.
-    let EXCLUSION_LIST: Array<String> = ["the","is","to","a"]
+    let EXCLUSION_LIST: Array<String> = ["the","is","to","a",""]
     
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")

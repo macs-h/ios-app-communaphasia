@@ -21,25 +21,49 @@ class ImageToText {
         var returnString:Array<String> = []
         var temp:String = ""
         
-        if pics[0].type == wordType.noun.rawValue {
-            returnString.append("The")          // index 0
-            returnString.append(pics[0].word)   // index 1
+        for imageNum in 0...pics.count-1 {
+            //first word, probably add 'the'
+            if (pics[0].type == wordType.noun.rawValue && imageNum==0) {
+                returnString.append("The")          // index 0
+                returnString.append(pics[0].word)   // index 1
+                
+            }else{
+                let picType = pics[imageNum].type  // only need to access value once, instead of thrice.
+                if picType == wordType.adjective.rawValue {
+                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
+                    returnString.append(temp)           // index 2
+                    returnString.append(pics[imageNum].word)   // index 3
+                } else if picType == wordType.noun.rawValue {
+                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
+                    returnString.append(temp)           // index 3
+                    returnString.append(pics[imageNum].word)   // index 2
+                } else if picType == wordType.verb.rawValue {
+                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
+                    returnString.append(temp)           // index 3
+                    returnString.append(pics[imageNum].word)   // index 2
+                }
+            }
+            
         }
-        
-        let pic1Type = pics[1].type  // only need to access value once, instead of thrice.
-        if pic1Type == wordType.adjective.rawValue {
-            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
-            returnString.append(temp)           // index 2
-            returnString.append(pics[1].word)   // index 3
-        } else if pic1Type == wordType.noun.rawValue {
-            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
-            returnString.append(pics[1].word)   // index 2
-            returnString.append(temp)           // index 3
-        } else if pic1Type == wordType.verb.rawValue {
-            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
-            returnString.append(pics[1].word)   // index 2
-            returnString.append(temp)           // index 3
-        }
+//        if pics[0].type == wordType.noun.rawValue {
+//            returnString.append("The")          // index 0
+//            returnString.append(pics[0].word)   // index 1
+//        }
+//
+//        let pic1Type = pics[1].type  // only need to access value once, instead of thrice.
+//        if pic1Type == wordType.adjective.rawValue {
+//            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
+//            returnString.append(temp)           // index 2
+//            returnString.append(pics[1].word)   // index 3
+//        } else if pic1Type == wordType.noun.rawValue {
+//            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
+//            returnString.append(pics[1].word)   // index 2
+//            returnString.append(temp)           // index 3
+//        } else if pic1Type == wordType.verb.rawValue {
+//            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
+//            returnString.append(pics[1].word)   // index 2
+//            returnString.append(temp)           // index 3
+//        }
         
         // ----------------------------------------------------------------------------
         // Above code is the same as below. @Winston please check.

@@ -58,10 +58,47 @@ class TextInput_ViewController: UIViewController {
      *
      *  - Parameter sender: the object which called this function.
      */
+    @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
             let wordArray = Utility.instance.getSentenceToWords(textField.text!, .whitespaces)
             let errorArray = makeCells(words: wordArray)
+            
+            
+            // ---------------------------------------------------------------------------- //
+            var inputString: String = textField.text!
+            var NSCount: Int = 0
+            
+            let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+            tagger.string = inputString
+            let range = NSRange(location: 0, length: inputString.utf16.count)
+            let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
+            tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, _ in
+                if let tag = tag {
+                    let word = (inputString as NSString).substring(with: tokenRange)
+//                    inputArray.append(word)
+                    print("\(word): \(tag.rawValue)")
+                    
+                    if cells.count > 0 {
+                        if word == cells[NSCount].word {
+                            cells[NSCount].type = tag.rawValue
+                            print(">\(cells[NSCount].type)")
+                            NSCount += 1
+                            
+                        }
+                    }
+                }
+                
+            }
+            
+            //count = 0
+            //NSlin for loop:
+            //if NSword == cells[0]
+            //cell[loopNum].type = NSword.type
+            //count +=1
+            
+            
+            // ---------------------------------------------------------------------------- //
             if errorArray.count > 0{
                 showErrors(wordArray, errorArray)
                 errorLabel.attributedText = attributedString

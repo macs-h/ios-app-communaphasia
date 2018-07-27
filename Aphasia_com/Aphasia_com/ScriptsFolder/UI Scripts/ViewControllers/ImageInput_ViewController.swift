@@ -8,9 +8,7 @@
 
 import UIKit
 
-///
-///
-///
+
 class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var selectedCollectionView: UICollectionView!
@@ -45,9 +43,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-     * Reference to the UI 'done' button.
-     *
-     *  - Parameter sender: the object which called this function.
+        Reference to the UI 'done' button.
+
+        - Parameter sender: the object which called this function.
      */
     @IBAction func DoneButton(_ sender: Any) {
         if selectedWords.count > 0 {

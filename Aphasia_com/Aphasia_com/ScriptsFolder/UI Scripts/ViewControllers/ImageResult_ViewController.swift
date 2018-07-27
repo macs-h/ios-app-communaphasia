@@ -8,9 +8,7 @@
 
 import UIKit
 
-///
-///
-///
+
 class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
     @IBOutlet weak var InputImagesCollectionView: UICollectionView!

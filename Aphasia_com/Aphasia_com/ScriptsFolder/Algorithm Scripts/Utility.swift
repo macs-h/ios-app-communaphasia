@@ -10,14 +10,16 @@ import Foundation
 import UIKit
 import SQLite
 
-/// This class acts as a 'helper' class containing regularly used utility functions.
-///
-/// It has been set up in such a way that it is a singleton and available to be called
-/// from any class within the project.
+/**
+    This class acts as a 'helper' class containing regularly used utility functions.
+
+    It has been set up in such a way that it is a singleton and available to be called
+    from any class within the project.
+ */
 class Utility {
 
-    /// Setting up singleton instance of Utility.
-    /// To call any utility function: `Utility.sharedInstance.(function_name)`
+    // Setting up singleton instance of Utility.
+    // To call any utility function: `Utility.sharedInstance.(function_name)`
     static let instance = Utility()
     
     // Connection to database.
@@ -36,8 +38,10 @@ class Utility {
     let GR_NUM = Expression<String>("grNum")
     
     
-    /// `Init` function which initialises the database, creating the cells required, and
-    /// populating the cells with entries/information.
+    /**
+        `Init` function which initialises the database, creating the cells required, and
+        populating the cells with entries/information.
+     */
     private init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -61,16 +65,16 @@ class Utility {
 
 
     /**
-     * A sentence processing function which takes in a string of words, breaks it down
-     * into separate words (tokens) by whitespaces and places them into an array. It then
-     * converts all the strings to lowercase, drops/removes from the array any words that
-     * are present in the `EXCLUSION_LIST`, before returning the array of words.
-     *
-     *  - Parameters:
-     *      - inputString:  a string to be broken down into separate words.
-     *      - charSet:      indicates which ASCII character is used to separate the
-     *                      sentence into words.
-     *  - Returns:  a 1D array of words.
+        A sentence processing function which takes in a string of words, breaks it down
+        into separate words (tokens) by whitespaces and places them into an array. It then
+        converts all the strings to lowercase, drops/removes from the array any words that
+        are present in the `EXCLUSION_LIST`, before returning the array of words.
+
+        - Parameters:
+           - inputString:  a string to be broken down into separate words.
+           - charSet:      indicates which ASCII character is used to separate the
+                           sentence into words.
+        - Returns:  a 1D array of words.
      */
     func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
         return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
@@ -78,18 +82,17 @@ class Utility {
     
 
     /**
-     * Finds the entry in the database which corresponds to `word` and returns that entry
-     * as a tuple containing the relevant metadata. It will search the database based on
-     * the `typeOfSearch` parsed in.
-     *
-     *  - Parameters:
-     *      - word:             the keyword to search for, in the database.
-     *
-     *  - Returns: a tuple which contains the information extracted from the database.
-     *      - word:         the word describing the entry.
-     *      - type:         the type of image (e.g. noun, adjective, etc.).
-     *      - image:        the `UIImage` element.
-     *      - suggestions:  possible suggestions which are related to the word.
+        Finds the entry in the database which corresponds to `word` and returns that entry
+        as a tuple containing the relevant metadata. It will search the database based on
+        the `typeOfSearch` parsed in.
+
+        - Parameter word: the keyword to search for, in the database.
+
+        - Returns: a tuple which contains the information extracted from the database.
+           - word:         the word describing the entry.
+           - type:         the type of image (e.g. noun, adjective, etc.).
+           - image:        the `UIImage` element.
+           - suggestions:  possible suggestions which are related to the word.
      */
     func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
             var image: UIImage = UIImage(named: "image placeholder")!
@@ -119,14 +122,14 @@ class Utility {
     
     
     /**
-     * Removes all the words in the exclusion list from the parsed in array.
-     *
-     *  - Parameters:
-     *      - wordArray:        array containing the processed words from the original
-     *                          sentence.
-     *      - exclusionList:    array containing all the word(s) to be excluded.
-     *
-     *  - Returns:  an array of words, without the excluded word(s).
+        Removes all the words in the exclusion list from the parsed in array.
+
+        - Parameters:
+           - wordArray:        array containing the processed words from the original
+                               sentence.
+           - exclusionList:    array containing all the word(s) to be excluded.
+
+        - Returns:  an array of words, without the excluded word(s).
      */
     func dropWords(_ wordArray: Array<String>, _ exclusionList: Array<String>) -> Array<String> {
         return wordArray.filter { !exclusionList.contains($0) }
@@ -137,7 +140,7 @@ class Utility {
     // Private functions follow.
     // ----------------------------------------------------------------------------
     
-    /// Creates the cells in the database table. Only called from `init()`.
+    // Creates the cells in the database table. Only called from `init()`.
     private func setCells() {
         let makeTable = self.CELL_TABLE.create { (table) in
             table.column(self.ID, primaryKey: true)
@@ -156,8 +159,8 @@ class Utility {
     }
     
     
-    /// Populates the cells in the database table with data read in from a CSV text
-    /// file.
+    // Populates the cells in the database table with data read in from a CSV text
+    // file.
     private func populateCells() {
         var fileText:String = ""
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
@@ -205,7 +208,7 @@ class Utility {
 }
 
 
-/// Used to colourise specific text in a UILabel.
+// Used to colourise specific text in a UILabel.
 extension NSMutableAttributedString {
     func setColor(color: UIColor, forText stringValue: String) {
         let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)

@@ -49,13 +49,13 @@ class SinglePlural_ViewController: UIViewController {
     
     //single image selected
     @IBAction func selectSingle(_ sender: Any) {
-        delegate?.selectedGNum(cell: cell!, grNum: gNum.singlular.rawValue, indexPath: indexPath!)
+        delegate?.selectedGNum(cell: cell!, grNum: "singular", indexPath: indexPath!)
         closePopup()
     }
     
     //plural image selected
     @IBAction func selectPlural(_ sender: Any) {
-        delegate?.selectedGNum(cell: cell!, grNum: gNum.plural.rawValue, indexPath: indexPath!)
+        delegate?.selectedGNum(cell: cell!, grNum: "plural", indexPath: indexPath!)
         closePopup()
     }
     

@@ -23,10 +23,11 @@ class ImageToText {
         var wordToAppend = ""
         
         for imageNum in 0...pics.count-1 {
+            print(pics[imageNum].grNum)
             //first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
-                    print(pics[0].grNum) //bug bc adjectives have plural tag
+                    //print(pics[0].grNum) //bug bc adjectives have plural tag
                     returnString.append("The")          // index 0
                     returnString.append((pics[0].grNum == gNum.plural.rawValue) ? pics[0].word + "s" : pics[0].word)   // index 1
                 }else {

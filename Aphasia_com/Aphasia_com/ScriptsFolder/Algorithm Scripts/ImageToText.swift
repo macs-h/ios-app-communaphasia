@@ -28,7 +28,7 @@ class ImageToText {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
                     print(pics[0].grNum) //bug bc adjectives have plural tag
                     returnString.append("The")          // index 0
-                    returnString.append((pics[0].grNum == gNum.plural.rawValue) ? pics[0].word + "s" : pics[0].word)   // index 1
+                    returnString.append((pics[0].grNum == gNum.plural.rawValue && pics[0].type == wordType.noun.rawValue) ? pics[0].word + "s" : pics[0].word)   // index 1
                 }else {
                     returnString.append(pics[0].word)
                 }
@@ -74,6 +74,14 @@ class ImageToText {
             
         }
         return returnString.joined(separator: " ")
+    }
+    
+    func pluralize(pic: SelectedImageViewCell) -> String {
+        if (pic.grNum == "plural") {
+            return pic.word + "s"
+        } else {
+            return pic.grNum
+        }
     }
     
     func isNoun(prevWord: SelectedImageViewCell) -> String{

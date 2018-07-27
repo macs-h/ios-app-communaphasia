@@ -105,7 +105,7 @@ class Utility {
                         image = UIImage(named: cell[self.IMAGE_LINK])!
                         suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
                         //print("> found word:",word)
-                        grNum = (cell[self.GR_NUM] == gNum.singlular.rawValue) ? gNum.singlular.rawValue : gNum.plural.rawValue
+                        grNum = cell[self.GR_NUM]
                         break
                     }
                 }

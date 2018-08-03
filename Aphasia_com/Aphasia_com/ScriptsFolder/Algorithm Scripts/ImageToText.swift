@@ -40,6 +40,8 @@ class ImageToText {
                     wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : pluralize(pic: thisPic)
                     returnString.append(temp)
                     returnString.append(wordToAppend)
+                }else if thisPic.type == wordType.pronoun.rawValue {
+                    returnString.append(thisPic.suggestedWords[0])
                 }else if thisPic.type == wordType.adjective.rawValue {
                     temp = isAdj(prevWord: prevPic)
                     returnString.append(temp)
@@ -130,5 +132,20 @@ class ImageToText {
         }
         return temp
     }
+//    func isPronoun(prevWord: SelectedImageViewCell) -> String{
+//        var temp = ""
+//        if prevWord.type == wordType.verb.rawValue {
+//            temp = "the"
+//        }else if prevWord.type == wordType.noun.rawValue {
+//            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are the" : "is the"
+//        }else if prevWord.type == wordType.adjective.rawValue {
+//            temp = ""
+//        }else if prevWord.type == wordType.pronoun.rawValue {
+//            temp = "am the"
+//        }else if prevWord.type == wordType.modal.rawValue {
+//            temp = "the"
+//        }
+//        return temp
+//    }
 }
 

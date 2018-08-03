@@ -27,7 +27,7 @@ class ImageToText {
             //first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
-                    //print(pics[0].grNum) //bug bc adjectives have plural tag
+//                    print(pics[0].grNum) //bug bc adjectives have plural tag
                     returnString.append("The")          // index 0
                     if pics[0].type == wordType.noun.rawValue {
                         print(pics[0].grNum + "---" + pics[0].word)

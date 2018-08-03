@@ -113,7 +113,6 @@ class Utility {
                 print(error)
             }
             // Should we use enums as what is returned for the word_type??
-            print("> word_type: \(word_type)")
             return (word, word_type, image, suggestions, grNum)
     }
     

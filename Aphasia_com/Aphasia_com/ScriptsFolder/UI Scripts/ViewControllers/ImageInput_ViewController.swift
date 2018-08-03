@@ -123,8 +123,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
                 let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! SelectedImageViewCell
                 newCell.addData(cell: cell.extractData())
-                defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
-                InputCollectionView?.deleteItems(at: [indexPath])
+                //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
+                //InputCollectionView?.deleteItems(at: [indexPath])
                 selectedCells.append(newCell)
                 //using previous cell as a suggestion
             }

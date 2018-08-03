@@ -13,7 +13,7 @@ class ImageToText {
     var cell: ImageSelectViewCell?
 
     private init(){
-        print("imageToText class Init")
+//        print("imageToText class Init")
     }
 
     func createSentence(pics: [SelectedImageViewCell]) -> String {
@@ -104,7 +104,8 @@ class ImageToText {
         if prevWord.type == wordType.verb.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are" : "is"
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
+//            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are" : "is"
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {

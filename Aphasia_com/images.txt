@@ -9,7 +9,7 @@ cow,cow,noun,farm,r
 deer,deer_silhouette,noun,hunting,deer
 dinner,food_dinner,noun,food,r
 eating,eat,verb,food,r
-fish,fish,noun,water,fishes
+fish,fish,noun,water,fish
 i,i.jpg,pronoun,me,we
 lunch,food_lunch,noun,food,lunches
 man,man_silhouette,noun,people,men

@@ -17,7 +17,6 @@ class ImageToText {
     }
 
     func createSentence(pics: [SelectedImageViewCell]) -> String {
-//        var returnString:[String] = []
         var returnString:Array<String> = []
         var temp:String = ""
         var wordToAppend = ""
@@ -27,29 +26,28 @@ class ImageToText {
             //first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
-//                    print(pics[0].grNum) //bug bc adjectives have plural tag
                     returnString.append("The")          // index 0
                     if pics[0].type == wordType.noun.rawValue {
-                        print(pics[0].grNum + "---" + pics[0].word)
                         returnString.append((pics[0].grNum != "singular") ? pluralize(pic: pics[0]) : pics[0].word)   // index 1
                     }
-                }else {
+                } else {
                     returnString.append(pics[0].word)
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
                 let prevPic = pics[imageNum-1]
-                //let nextPic = (imageNum < pics.count-1) ? pics[imageNum+1] : nil
                 
                 if thisPic.type == wordType.noun.rawValue {
                     temp = isNoun(prevWord: prevPic)
-                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : thisPic.word + "s"
+                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : pluralize(pic: thisPic)
                     returnString.append(temp)
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.adjective.rawValue {
                     temp = isAdj(prevWord: prevPic)
                     returnString.append(temp)
                     returnString.append(thisPic.word)
+//                }else if thisPic.type == wordType.pronoun.rawValue {
+                    
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic)
                     returnString.append(temp)
@@ -75,7 +73,6 @@ class ImageToText {
 //                    returnString.append(thisPic.word)   // index 2
 //                }
             }
-            
         }
         return returnString.joined(separator: " ")
     }
@@ -87,6 +84,7 @@ class ImageToText {
             return pic.grNum
         }
     }
+    
     
     func isNoun(prevWord: SelectedImageViewCell) -> String{
         var temp = ""

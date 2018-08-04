@@ -481,7 +481,7 @@
 				TargetAttributes = {
 					EDF7206920AD3FA700675140 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 845CX8Y83W;
+						DevelopmentTeam = 5GYA7CS533;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
@@ -831,7 +831,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 845CX8Y83W;
+				DEVELOPMENT_TEAM = 5GYA7CS533;
 				INFOPLIST_FILE = Aphasia_com/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -851,7 +851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 845CX8Y83W;
+				DEVELOPMENT_TEAM = 5GYA7CS533;
 				INFOPLIST_FILE = Aphasia_com/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -94,6 +94,7 @@ class TextInput_ViewController: UIViewController {
             
             // ---------------------------------------------------------------------------- //
             if errorArray.count > 0{
+                
                 showErrors(wordArray, errorArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()

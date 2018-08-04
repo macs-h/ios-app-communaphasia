@@ -83,8 +83,7 @@ class Utility {
 
     /**
      * Finds the entry in the database which corresponds to `word` and returns that entry
-     * as a tuple containing the relevant metadata. It will search the database based on
-     * the `typeOfSearch` parsed in.
+     * as a tuple containing the relevant metadata. 
      *
      *  - Parameters:
      *      - word:             the keyword to search for, in the database.
@@ -95,31 +94,50 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
-            var image: UIImage = UIImage(named: "image placeholder")!
-            var word_type: String = ""
-            var suggestions: Array<String> = []
-            var grNum: String = gNum.singlular.rawValue  // Singular, by default.
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String){
+        var image: UIImage = UIImage(named: "image placeholder")!
+        var word_type: String = ""
+        var suggestions: Array<String> = []
+        var grNum: String = gNum.singlular.rawValue  // Singular, by default.
         
-            do {
-                let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
-                for cell in cellTable {
-                    if word == cell[self.KEYWORD] {
-                        word_type = cell[self.TYPE]
-                        image = UIImage(named: cell[self.IMAGE_LINK])!
-                        suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
-                        //print("> found word:",word)
-                        grNum = cell[self.GR_NUM]
-                        break
-                    }
-                }
-            } catch {
-                print(error)
+        do {
+            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM).filter(KEYWORD == word).limit(1)
+            for cell in try database.prepare(querry){
+                word_type = cell[TYPE]
+                image = UIImage(named: cell[IMAGE_LINK])!
+                suggestions = getSentenceToWords(cell[RELATIONSHIPS], .init(charactersIn: "+"))
+                grNum = cell[GR_NUM]
             }
-            // Should we use enums as what is returned for the word_type??
-            return (word, word_type, image, suggestions, grNum)
+        } catch {
+            print(error)
+        }
+        return (word, word_type, image, suggestions, grNum)
     }
-    
+    //old version
+    func getDatabaseEntryIterative(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
+        var image: UIImage = UIImage(named: "image placeholder")!
+        var word_type: String = ""
+        var suggestions: Array<String> = []
+        var grNum: String = gNum.singlular.rawValue  // Singular, by default.
+        
+        do {
+            let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
+            for cell in cellTable {
+                if word == cell[self.KEYWORD] {
+                    word_type = cell[self.TYPE]
+                    image = UIImage(named: cell[self.IMAGE_LINK])!
+                    suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
+                    //print("> found word:",word)
+                    grNum = cell[self.GR_NUM]
+                    break
+                }
+            }
+        } catch {
+            print(error)
+        }
+        // Should we use enums as what is returned for the word_type??
+        return (word, word_type, image, suggestions, grNum)
+    }
     
     /**
      * Removes all the words in the exclusion list from the parsed in array.
@@ -169,14 +187,12 @@ class Utility {
         }
     }
     
-    
     /// Populates the cells in the database table with data read in from a CSV text
     /// file.
     private func populateCells() {
+        //finds the txt file which we use to populate the database
         var fileText:String = ""
         let fileURL = Bundle.main.url(forResource: "images", withExtension: "txt")
-        //print("file url", fileURL)
-        // check if the file exists and read to string
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()
             if fileExists != nil {
@@ -215,7 +231,7 @@ class Utility {
         }
     }
     
-}//end Utility
+}//end Utility class
 
 
 /// Used to colourise specific text in a UILabel.

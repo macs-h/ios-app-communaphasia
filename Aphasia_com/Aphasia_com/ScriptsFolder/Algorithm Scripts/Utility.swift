@@ -38,6 +38,7 @@ class Utility {
     let RELATIONSHIPS = Expression<String>("relationships")
     let TYPE = Expression<String>("type")
     let GR_NUM = Expression<String>("grNum")
+    let CATEGORY = Expression<String>("category")
     
     
     /// `Init` function which initialises the database, creating the cells required, and
@@ -101,7 +102,7 @@ class Utility {
         var grNum: String = gNum.singlular.rawValue  // Singular, by default.
         
         do {
-            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM).filter(KEYWORD == word).limit(1)
+            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM).filter(KEYWORD.like(word)).limit(1)
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
@@ -178,6 +179,7 @@ class Utility {
             table.column(self.TYPE)
             table.column(self.RELATIONSHIPS)
             table.column(self.GR_NUM)
+            table.column(self.CATEGORY)
         }
         do {
             try self.database.run(makeTable)
@@ -209,20 +211,18 @@ class Utility {
         if fileText != "" {
             let lines = fileText.components(separatedBy: .newlines)
             for line in lines {
-                //print("line:",line)
                 var values = line.components(separatedBy: .init(charactersIn: ","))
-                //print("v1: \(values[0])","v2: \(values[1])", "v3: \(values[2])")
                 if values[0] != "" {
                     let insertImage = self.CELL_TABLE.insert(
                         self.KEYWORD <- values[0],
                         self.IMAGE_LINK <- values[1],
                         self.TYPE <- values[2],
                         self.RELATIONSHIPS <- values[3],
-                        self.GR_NUM <- values[4]
+                        self.GR_NUM <- values[4],
+                        self.CATEGORY <- values[5]
                     )
                     do {
                         try self.database.run(insertImage)
-                        //print("> Inserted: \(values[0])")
                     } catch {
                         print(error)
                     }

@@ -24,6 +24,9 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
        
         let convertedSentance = ImageToText.instance.createSentence(pics: selectedCellsResult)
         resultTextLabel.text = convertedSentance
+        
+        Utility.instance.setRecentImages(Sentence: selectedCellsResult)
+        print(Utility.instance.printRecentImageSearches())
         // Do any additional setup after loading the view.
     }
 

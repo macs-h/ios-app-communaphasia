@@ -23,6 +23,10 @@ class Utility {
     // Connection to database.
     var database: Connection!
     
+    //recently used image sentences
+    var recentImageSentences : Array<[SelectedImageViewCell]> = []
+
+    
     // Global exclusion list - words to ignore.
     let EXCLUSION_LIST: Array<String> = ["the","is","to","a","","am","."]
     
@@ -131,6 +135,17 @@ class Utility {
         return wordArray.filter { !exclusionList.contains($0) }
     }
     
+    func setRecentImages(Sentence : [SelectedImageViewCell]){
+        recentImageSentences.append(Sentence)
+    }
+    func printRecentImageSearches(){
+        for sentence in recentImageSentences{
+            for image in sentence{
+                print(image.word + " ", terminator: "")
+            }
+            print("")
+        }
+    }
     
     // ----------------------------------------------------------------------------
     // Private functions follow.
@@ -165,7 +180,6 @@ class Utility {
         do {
             let fileExists = try fileURL?.checkResourceIsReachable()
             if fileExists != nil {
-                print("> URL:",fileURL!)
                 fileText = try String(contentsOf: fileURL!, encoding: .utf8)
             } else {
                 print("> File does not exist, cannot populate database")
@@ -192,7 +206,7 @@ class Utility {
                     )
                     do {
                         try self.database.run(insertImage)
-                        print("> Inserted: \(values[0])")
+                        //print("> Inserted: \(values[0])")
                     } catch {
                         print(error)
                     }
@@ -201,7 +215,7 @@ class Utility {
         }
     }
     
-}
+}//end Utility
 
 
 /// Used to colourise specific text in a UILabel.

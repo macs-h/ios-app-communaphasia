@@ -183,7 +183,6 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         if grNum == "plural"{
             newCell.showPlural()
         }
-        print("check: " + newCell.grNum)
         selectedCells.append(newCell)
         //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
         //InputCollectionView?.deleteItems(at: [indexPath])

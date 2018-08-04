@@ -22,7 +22,6 @@ class ImageToText {
         var wordToAppend = ""
         
         for imageNum in 0...pics.count-1 {
-            print(pics[imageNum].grNum)
             //first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){

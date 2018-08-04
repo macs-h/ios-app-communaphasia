@@ -95,24 +95,26 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String){
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String){
         var image: UIImage = UIImage(named: "image placeholder")!
         var word_type: String = ""
         var suggestions: Array<String> = []
         var grNum: String = gNum.singlular.rawValue  // Singular, by default.
+        var category: String = "Other"
         
         do {
-            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM).filter(KEYWORD.like(word)).limit(1)
+            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY).filter(KEYWORD.like(word)).limit(1)
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
                 suggestions = getSentenceToWords(cell[RELATIONSHIPS], .init(charactersIn: "+"))
                 grNum = cell[GR_NUM]
+                category = cell[CATEGORY]
             }
         } catch {
             print(error)
         }
-        return (word, word_type, image, suggestions, grNum)
+        return (word, word_type, image, suggestions, grNum, category)
     }
     //old version
     func getDatabaseEntryIterative(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {

@@ -21,7 +21,7 @@ class TextInput_ViewController: UIViewController {
     var attributedString: NSMutableAttributedString?
     
     
-    var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String)]()
+    var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
     
     func makeCells(words:[String])-> [Int]{
         var errorArray = [Int]()

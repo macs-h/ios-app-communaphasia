@@ -20,7 +20,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var resultLabel: UILabel!
     
     var inputString = String()
-    var cellsToBeShown = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String)]()
+    var cellsToBeShown = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
     
     
     /**

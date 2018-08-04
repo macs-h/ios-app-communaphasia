@@ -24,7 +24,7 @@ class Utility {
     var database: Connection!
     
     //recently used image sentences
-    var recentSentences : Array<[SelectedImageViewCell]> = []
+    var recentSentences : Array<[ImageCell]> = []
 
     
     // Global exclusion list - words to ignore.
@@ -154,7 +154,7 @@ class Utility {
         return wordArray.filter { !exclusionList.contains($0) }
     }
     
-    func setRecentSentence(Sentence : [SelectedImageViewCell]){
+    func setRecentSentence(Sentence : [ImageCell]){
         recentSentences.append(Sentence)
     }
     func printRecentSentences(){

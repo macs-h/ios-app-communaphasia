@@ -15,7 +15,7 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
 
     @IBOutlet weak var InputImagesCollectionView: UICollectionView!
     @IBOutlet weak var resultTextLabel: UILabel!
-    var selectedCellsResult = [SelectedImageViewCell]()
+    var selectedCellsResult = [ImageCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     }
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageResultCell", for: indexPath) as! ImageResultViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageResultCell", for: indexPath) as! ImageCell
         cell.addData(cell: selectedCellsResult[indexPath.item].extractData())
         return cell
     }

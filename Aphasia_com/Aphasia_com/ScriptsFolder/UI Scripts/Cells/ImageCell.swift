@@ -1,5 +1,5 @@
 //
-//  SelectedImageViewCell.swift
+//  ImageResultViewCell.swift
 //  CommunAphasia
 //
 //  Created by RedSQ on 26/05/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-/// The class for the cell in the `SelectedCollectionView`. It stores the cell
+/// The class for the cell in the `ImageResultCollectionView`. It stores the cell
 /// properties and deals with assigning and exporting.
-class SelectedImageViewCell: UICollectionViewCell {
+class ImageCell: UICollectionViewCell {
     // Good to manage these variables in the clzass but could be done with an array in
     // the view controller.
     var word: String = "car"
@@ -20,7 +20,7 @@ class SelectedImageViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
     var grNum: String = gNum.singlular.rawValue
-   
+    
     
     /**
      * Takes in a tuple and assigns it to class properties.

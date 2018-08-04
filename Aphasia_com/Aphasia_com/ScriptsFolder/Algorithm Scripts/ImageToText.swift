@@ -10,13 +10,13 @@ import Foundation
 
 class ImageToText {
     static let instance = ImageToText()
-    var cell: ImageSelectViewCell?
+    var cell: ImageCell?
 
     private init(){
 //        print("imageToText class Init")
     }
 
-    func createSentence(pics: [SelectedImageViewCell]) -> String {
+    func createSentence(pics: [ImageCell]) -> String {
         var returnString:Array<String> = []
         var temp:String = ""
         var wordToAppend = ""
@@ -78,7 +78,7 @@ class ImageToText {
         return returnString.joined(separator: " ")
     }
     
-    func pluralize(pic: SelectedImageViewCell) -> String {
+    func pluralize(pic: ImageCell) -> String {
         if (pic.grNum == "plural") {
             return pic.word + "s"
         } else {
@@ -87,7 +87,7 @@ class ImageToText {
     }
     
     
-    func isNoun(prevWord: SelectedImageViewCell) -> String{
+    func isNoun(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
             temp = "the"
@@ -102,7 +102,7 @@ class ImageToText {
         }
         return temp
     }
-    func isAdj(prevWord: SelectedImageViewCell) -> String{
+    func isAdj(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
             temp = "the"
@@ -117,7 +117,7 @@ class ImageToText {
         }
         return temp
     }
-    func isVerb(prevWord: SelectedImageViewCell) -> String{
+    func isVerb(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
             temp = "" // Exception?

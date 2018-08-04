@@ -20,7 +20,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","i"]
-    let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
+    //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
     //---need to create a temp tuple to store remove cell data??

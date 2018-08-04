@@ -22,6 +22,7 @@ class TextInput_ViewController: UIViewController {
     
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
+    //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
     func makeCells(words:[String])-> [Int]{
         var errorArray = [Int]()

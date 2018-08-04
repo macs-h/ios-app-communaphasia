@@ -19,16 +19,16 @@ class Utility {
     /// Setting up singleton instance of Utility.
     /// To call any utility function: `Utility.sharedInstance.(function_name)`
     static let instance = Utility()
-    
     // Connection to database.
     var database: Connection!
-    
     //recently used image sentences
     var recentSentences : Array<[ImageCell]> = []
-
-    
     // Global exclusion list - words to ignore.
     let EXCLUSION_LIST: Array<String> = ["the","is","to","a","","am","."]
+    //commonly used images to be displayed in the common category
+    let commonImages = ["i","eating"]
+    //the categories our images may represent
+    let categories = ["emotions","animals","food","activity","travel","objects","other"]
     
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
@@ -63,8 +63,6 @@ class Utility {
             print("> not first launch")
         }
     }
-
-
     /**
      * A sentence processing function which takes in a string of words, breaks it down
      * into separate words (tokens) by whitespaces and places them into an array. It then
@@ -81,10 +79,37 @@ class Utility {
         return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
     }
     
-
+    /**
+     * Removes all the words in the exclusion list from the parsed in array.
+     *
+     *  - Parameters:
+     *      - wordArray:        array containing the processed words from the original
+     *                          sentence.
+     *      - exclusionList:    array containing all the word(s) to be excluded.
+     *
+     *  - Returns:  an array of words, without the excluded word(s).
+     */
+    func dropWords(_ wordArray: Array<String>, _ exclusionList: Array<String>) -> Array<String> {
+        return wordArray.filter { !exclusionList.contains($0) }
+    }
+    
+    func setRecentSentence(Sentence : [ImageCell]){
+        recentSentences.append(Sentence)
+    }
+    func printRecentSentences(){
+        for sentence in recentSentences{
+            for image in sentence{
+                print(image.word + " ", terminator: "")
+            }
+            print("")
+        }
+    }
+    //---------------------------
+    //------Database Stuff-------
+    //---------------------------
     /**
      * Finds the entry in the database which corresponds to `word` and returns that entry
-     * as a tuple containing the relevant metadata. 
+     * as a tuple containing the relevant metadata.
      *
      *  - Parameters:
      *      - word:             the keyword to search for, in the database.
@@ -142,32 +167,24 @@ class Utility {
         return (word, word_type, image, suggestions, grNum)
     }
     
-    /**
-     * Removes all the words in the exclusion list from the parsed in array.
-     *
-     *  - Parameters:
-     *      - wordArray:        array containing the processed words from the original
-     *                          sentence.
-     *      - exclusionList:    array containing all the word(s) to be excluded.
-     *
-     *  - Returns:  an array of words, without the excluded word(s).
-     */
-    func dropWords(_ wordArray: Array<String>, _ exclusionList: Array<String>) -> Array<String> {
-        return wordArray.filter { !exclusionList.contains($0) }
-    }
-    
-    func setRecentSentence(Sentence : [ImageCell]){
-        recentSentences.append(Sentence)
-    }
-    func printRecentSentences(){
-        for sentence in recentSentences{
-            for image in sentence{
-                print(image.word + " ", terminator: "")
+    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)] {
+        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
+        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY).filter(CATEGORY.like(category))
+        do{
+            for cell in try database.prepare(querry){
+                cells.append((cell[KEYWORD],
+                              cell[TYPE],
+                              UIImage(named: cell[self.IMAGE_LINK])!,
+                              getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+")),
+                              cell[GR_NUM],
+                              cell[CATEGORY]))
             }
-            print("")
+        } catch {
+            print(error)
         }
+        return cells
     }
-    
+
     // ----------------------------------------------------------------------------
     // Private functions follow.
     // ----------------------------------------------------------------------------

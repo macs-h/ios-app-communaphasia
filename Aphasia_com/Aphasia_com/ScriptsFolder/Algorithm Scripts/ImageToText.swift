@@ -13,7 +13,7 @@ class ImageToText {
     var cell: ImageSelectViewCell?
 
     private init(){
-        print("imageToText class Init")
+//        print("imageToText class Init")
     }
 
     func createSentence(pics: [SelectedImageViewCell]) -> String {
@@ -38,9 +38,11 @@ class ImageToText {
                 
                 if thisPic.type == wordType.noun.rawValue {
                     temp = isNoun(prevWord: prevPic)
-                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : pluralize(pic: thisPic)
+                    wordToAppend = (thisPic.grNum == "singular") ? thisPic.word : pluralize(pic: thisPic)
                     returnString.append(temp)
                     returnString.append(wordToAppend)
+                }else if thisPic.type == wordType.pronoun.rawValue {
+                    returnString.append(thisPic.suggestedWords[0])
                 }else if thisPic.type == wordType.adjective.rawValue {
                     temp = isAdj(prevWord: prevPic)
                     returnString.append(temp)
@@ -90,7 +92,7 @@ class ImageToText {
         if prevWord.type == wordType.verb.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are the" : "is the"
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
@@ -105,7 +107,7 @@ class ImageToText {
         if prevWord.type == wordType.verb.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are" : "is"
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {
@@ -120,7 +122,7 @@ class ImageToText {
         if prevWord.type == wordType.verb.rawValue {
             temp = "" // Exception?
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are" : "is"
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
@@ -130,5 +132,20 @@ class ImageToText {
         }
         return temp
     }
+//    func isPronoun(prevWord: SelectedImageViewCell) -> String{
+//        var temp = ""
+//        if prevWord.type == wordType.verb.rawValue {
+//            temp = "the"
+//        }else if prevWord.type == wordType.noun.rawValue {
+//            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are the" : "is the"
+//        }else if prevWord.type == wordType.adjective.rawValue {
+//            temp = ""
+//        }else if prevWord.type == wordType.pronoun.rawValue {
+//            temp = "am the"
+//        }else if prevWord.type == wordType.modal.rawValue {
+//            temp = "the"
+//        }
+//        return temp
+//    }
 }
 

@@ -31,9 +31,9 @@
 		ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */; };
 		ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */; };
 		ED61067320BA4995003C4904 /* SinglePlural_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */; };
+		EDEEBF7F2117CB6600D46B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDEEBF782117CB6500D46B33 /* Assets.xcassets */; };
 		EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7206D20AD3FA700675140 /* AppDelegate.swift */; };
 		EDF7207320AD3FA700675140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207120AD3FA700675140 /* Main.storyboard */; };
-		EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207420AD3FA700675140 /* Assets.xcassets */; };
 		EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */; };
 		EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */; };
 		EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */; };
@@ -159,10 +159,10 @@
 		ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResult_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInput_ViewController.swift; sourceTree = "<group>"; };
 		ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlural_ViewController.swift; sourceTree = "<group>"; };
+		EDEEBF782117CB6500D46B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF7206A20AD3FA700675140 /* Aphasia_com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aphasia_com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7206D20AD3FA700675140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF7207220AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EDF7207420AD3FA700675140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF7207720AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDF7207920AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,11 +358,11 @@
 		EDF7206C20AD3FA700675140 /* Aphasia_com */ = {
 			isa = PBXGroup;
 			children = (
+				EDEEBF782117CB6500D46B33 /* Assets.xcassets */,
 				ED27975F20B7C7C0001AF14C /* Images */,
 				ED4168CD20B7BEAC003B449A /* ScriptsFolder */,
 				EDF7206D20AD3FA700675140 /* AppDelegate.swift */,
 				EDF7207120AD3FA700675140 /* Main.storyboard */,
-				EDF7207420AD3FA700675140 /* Assets.xcassets */,
 				EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */,
 				EDF7207920AD3FA700675140 /* Info.plist */,
 			);
@@ -572,8 +572,8 @@
 				ED27976F20B7C7C0001AF14C /* tree_silhouette.png in Resources */,
 				ED27977120B7C7C0001AF14C /* basketball.png in Resources */,
 				EDFA3AF120B8EF9500F6DBBD /* food_breakfast.png in Resources */,
+				EDEEBF7F2117CB6600D46B33 /* Assets.xcassets in Resources */,
 				ED27977020B7C7C0001AF14C /* cat_silhouette.png in Resources */,
-				EDF7207520AD3FA700675140 /* Assets.xcassets in Resources */,
 				EDFA3AF320B8EF9900F6DBBD /* food_dinner.png in Resources */,
 				ED27976D20B7C7C0001AF14C /* cow.png in Resources */,
 				EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */,

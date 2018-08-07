@@ -15,7 +15,6 @@
 		44856EF920BBE8890035C01A /* red.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44856EF520BBE8890035C01A /* red.jpeg */; };
 		44856EFA20BBE8890035C01A /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EF620BBE8890035C01A /* blue.png */; };
 		44856EFC20BBF90D0035C01A /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44856EFB20BBF90D0035C01A /* i.jpg */; };
-		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
 		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601DEB6220BA7A7E00FF2778 /* ImageToText.swift */; };
@@ -206,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
-				524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +474,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Cosc345;
 				TargetAttributes = {
 					EDF7206920AD3FA700675140 = {

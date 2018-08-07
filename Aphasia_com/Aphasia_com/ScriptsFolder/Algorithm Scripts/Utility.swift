@@ -136,22 +136,22 @@ class Utility {
     }
     
     
-    func getSynonyms(_ word: String) {
-        let string = "https://wordsapiv1.p.mashape.com/words/stack/synonyms"
-        let url = NSURL(string: string)
-        let request = NSMutableURLRequest(url: url! as URL)
-        request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
-        request.httpMethod = "GET"
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: request as URLRequest as URLRequest) { (data, response, error) -> Void in
-            if let resp = response as? HTTPURLResponse {
-                // Do what you want to do with your response.
-            }
-        }
-        task.resume()
-    }
-    
+//    func getSynonyms(_ word: String) {
+//        let string = "https://wordsapiv1.p.mashape.com/words/stack/synonyms"
+//        let url = NSURL(string: string)
+//        let request = NSMutableURLRequest(url: url! as URL)
+//        request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
+//        request.httpMethod = "GET"
+//        let session = URLSession.shared
+//        
+//        let task = session.dataTask(with: request as URLRequest as URLRequest) { (data, response, error) -> Void in
+//            if let resp = response as? HTTPURLResponse {
+//                // Do what you want to do with your response.
+//            }
+//        }
+//        task.resume()
+//    }
+//    
     
     // ----------------------------------------------------------------------------
     // Private functions follow.

@@ -13,10 +13,9 @@ import UIKit
     properties and deals with assigning and exporting.
  */
 class SelectedImageViewCell: UICollectionViewCell {
-    // Good to manage these variables in the clzass but could be done with an array in
-    // the view controller.
+    //good to manage these variables in the clzass but could be done with an array in the view controller
     var word: String = "car"
-    var type: String = "verb" // for the type of word (noun, verb etc). Could use enums.
+    var type: String = "verb" //for the type of word (noun, verb etc)
     
     // Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!

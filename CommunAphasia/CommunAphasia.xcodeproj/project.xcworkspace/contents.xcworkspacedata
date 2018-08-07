@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Aphasia_com.xcodeproj">
+      location = "self:/Users/mhuang/345/Aphasia_com/CommunAphasia.xcodeproj">
    </FileRef>
 </Workspace>

@@ -8,21 +8,24 @@
 
 import UIKit
 
-/**
-    Text result of converting image to text.
- */
+///
+/// Result of converting image to text ...?
+///
 class TextResult_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     
     @IBOutlet weak var resultCollectionView: UICollectionView!
     
-    // Reference to the label which will display the result of converting images to text ...?
+    /// Reference to the label which will display the result of converting images to text ...?
     @IBOutlet weak var resultLabel: UILabel!
     
     var inputString = String()
     var cellsToBeShown = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
     
     
+    /**
+     * @Sam description
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,15 +54,15 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     
     /**
-        @Sam description.
-
-        - Parameters:
-            - collectionView:   The collection view requesting this information.
-            - section:          An index number identifying a section in collectionView.
-                               This index value is 0-based.
-
-        - Returns:  the number of rows in `section` - the length of the collection (how
-                   many cells you want).
+     * @Sam description.
+     *
+     *  - Parameters:
+     *      - collectionView:   The collection view requesting this information.
+     *      - section:          An index number identifying a section in collectionView.
+     *                          This index value is 0-based.
+     *
+     *  - Returns:  the number of rows in `section` - the length of the collection (how
+     *              many cells you want).
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //print("> w2bs count", wordsToBeShown.count)
@@ -69,15 +72,14 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     //collection view is the collection it's going into, indexPath is the index of the cell
     
-    
     /**
-        @Sam description
-
-        - Parameters:
-            - collectionView:   The collection view requesting this information.
-            - indexPath:        The index path that specifies the location of the item.
-
-        - Returns:  a configured cell object. Must not return `nil` from this method.
+     * @Sam description
+     *
+     *  - Parameters:
+     *      - collectionView:   The collection view requesting this information.
+     *      - indexPath:        The index path that specifies the location of the item.
+     *
+     *  - Returns:  a configured cell object. Must not return `nil` from this method.
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -105,12 +107,12 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     
     /**
-        @Sam description
-
-        - Parameters:
-            - collectionView:   The collection view object that is notifying you of the
-                               selection change.
-            - indexPath:        The index path of the cell that was selected.
+     * @Sam description
+     *
+     *  - Parameters:
+     *      - collectionView:   The collection view object that is notifying you of the
+     *                          selection change.
+     *      - indexPath:        The index path of the cell that was selected.
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // used for editing the cell

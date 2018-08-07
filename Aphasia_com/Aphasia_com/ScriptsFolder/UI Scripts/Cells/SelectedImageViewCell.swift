@@ -8,29 +8,27 @@
 
 import UIKit
 
-/**
-    The class for the cell in the `SelectedCollectionView`. It stores the cell
-    properties and deals with assigning and exporting.
- */
+/// The class for the cell in the `SelectedCollectionView`. It stores the cell
+/// properties and deals with assigning and exporting.
 class SelectedImageViewCell: UICollectionViewCell {
     //good to manage these variables in the clzass but could be done with an array in the view controller
     var word: String = "car"
     var type: String = "verb" //for the type of word (noun, verb etc)
     
-    // Reference to the image on the UI which are changed to reflect the image.
+    /// Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
     var suggestedWords = [String]()
     var grNum: String = gNum.singlular.rawValue
    
     
     /**
-        Takes in a tuple and assigns it to class properties.
-
-        - Parameter cell:   a tuple containing the following properties:
-            - word:         the word for the cell.
-            - type:         the type of word.
-            - image:        the image to be displayed in the cell.
-            - suggestions:  possible suggestions which are related to the word.
+     * Takes in a tuple and assigns it to class properties.
+     *
+     * - Parameter cell:    a tuple containing the following properties:
+     *      - word:         the word for the cell.
+     *      - type:         the type of word.
+     *      - image:        the image to be displayed in the cell.
+     *      - suggestions:  possible suggestions which are related to the word.
      */
     func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String)) {
         self.word = cell.word
@@ -51,13 +49,13 @@ class SelectedImageViewCell: UICollectionViewCell {
     
     
     /**
-        Extracts the cell properties and puts it into a tuple.
-
-        - Returns: a tuple containing the cell's properties.
-            - word:         the word for the cell.
-            - type:         the type of word.
-            - image:        the image to be displayed in the cell.
-            - suggestions:  possible suggestions which are related to the word.
+     * Extracts the cell properties and puts it into a tuple.
+     *
+     *  - Returns: a tuple containing the cell's properties.
+     *      - word:         the word for the cell.
+     *      - type:         the type of word.
+     *      - image:        the image to be displayed in the cell.
+     *      - suggestions:  possible suggestions which are related to the word.
      */
     func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
         let word = self.word

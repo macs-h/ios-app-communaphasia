@@ -1,9 +1,9 @@
 //
 //  SinglePlural_ViewController.swift
-//  CommunAphasia
+//  Aphasia_com
 //
-//  Created by RedSQ on 27/05/18.
-//  Copyright © 2018 RedSQ. All rights reserved.
+//  Created by Sam Paterson on 27/05/18.
+//  Copyright © 2018 Cosc345. All rights reserved.
 //
 
 import UIKit

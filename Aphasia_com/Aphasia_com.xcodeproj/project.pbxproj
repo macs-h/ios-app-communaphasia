@@ -29,7 +29,6 @@
 		ED27977220B7C7C0001AF14C /* soda_can.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976720B7C7C0001AF14C /* soda_can.png */; };
 		ED27977320B7C7C0001AF14C /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976820B7C7C0001AF14C /* pencil.png */; };
 		ED27977420B7C7C0001AF14C /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976920B7C7C0001AF14C /* fish.png */; };
-		ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */; };
 		ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D120B7BEAC003B449A /* Utility.swift */; };
 		ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */; };
 		ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */; };
@@ -162,7 +161,6 @@
 		ED27976720B7C7C0001AF14C /* soda_can.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soda_can.png; sourceTree = "<group>"; };
 		ED27976820B7C7C0001AF14C /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		ED27976920B7C7C0001AF14C /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
-		ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D120B7BEAC003B449A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInput_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu_ViewController.swift; sourceTree = "<group>"; };
@@ -292,19 +290,10 @@
 		ED4168CD20B7BEAC003B449A /* ScriptsFolder */ = {
 			isa = PBXGroup;
 			children = (
-				ED4168CE20B7BEAC003B449A /* DataBase Scripts */,
 				ED4168D020B7BEAC003B449A /* Algorithm Scripts */,
 				ED4168D220B7BEAC003B449A /* UI Scripts */,
 			);
 			path = ScriptsFolder;
-			sourceTree = "<group>";
-		};
-		ED4168CE20B7BEAC003B449A /* DataBase Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				ED4168CF20B7BEAC003B449A /* Database_ViewController.swift */,
-			);
-			path = "DataBase Scripts";
 			sourceTree = "<group>";
 		};
 		ED4168D020B7BEAC003B449A /* Algorithm Scripts */ = {
@@ -629,7 +618,6 @@
 				ED4168DD20B7BEAD003B449A /* MainMenu_ViewController.swift in Sources */,
 				ED4168DC20B7BEAD003B449A /* TextInput_ViewController.swift in Sources */,
 				EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */,
-				ED4168D920B7BEAD003B449A /* Database_ViewController.swift in Sources */,
 				ED61067320BA4995003C4904 /* SinglePlural_ViewController.swift in Sources */,
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
 				EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */,

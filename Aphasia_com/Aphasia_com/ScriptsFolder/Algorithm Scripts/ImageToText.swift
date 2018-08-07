@@ -10,98 +10,142 @@ import Foundation
 
 class ImageToText {
     static let instance = ImageToText()
-    var cell: ImageSelectViewCell?
+    var cell: ImageCell?
 
     private init(){
-        print("imageToText class Init")
+//        print("imageToText class Init")
     }
 
-    func createSentence(pics: [SelectedImageViewCell]) -> String {
-//        var returnString:[String] = []
+    func createSentence(pics: [ImageCell]) -> String {
         var returnString:Array<String> = []
         var temp:String = ""
+        var wordToAppend = ""
         
         for imageNum in 0...pics.count-1 {
             //first word, probably add 'the'
-            if (pics[0].type == wordType.noun.rawValue && imageNum==0) {
-                returnString.append("The")          // index 0
-                returnString.append(pics[0].word)   // index 1
-                
-            }else{
-                let picType = pics[imageNum].type  // only need to access value once, instead of thrice.
-                if picType == wordType.adjective.rawValue {
-                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
-                    returnString.append(temp)           // index 2
-                    returnString.append(pics[imageNum].word)   // index 3
-                } else if picType == wordType.noun.rawValue {
-                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
-                    returnString.append(temp)           // index 3
-                    returnString.append(pics[imageNum].word)   // index 2
-                } else if picType == wordType.verb.rawValue {
-                    temp = (pics[imageNum-1].grNum == gNum.singlular.rawValue) ? "is" : "are"
-                    returnString.append(temp)           // index 3
-                    returnString.append(pics[imageNum].word)   // index 2
+            if imageNum==0 {
+                if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
+                    returnString.append("The")          // index 0
+                    if pics[0].type == wordType.noun.rawValue {
+                        returnString.append((pics[0].grNum != "singular") ? pluralize(pic: pics[0]) : pics[0].word)   // index 1
+                    }
+                } else {
+                    returnString.append(pics[0].word)
                 }
+            }else{
+                let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
+                let prevPic = pics[imageNum-1]
+                
+                if thisPic.type == wordType.noun.rawValue {
+                    temp = isNoun(prevWord: prevPic)
+                    wordToAppend = (thisPic.grNum == "singular") ? thisPic.word : pluralize(pic: thisPic)
+                    returnString.append(temp)
+                    returnString.append(wordToAppend)
+                }else if thisPic.type == wordType.pronoun.rawValue {
+                    returnString.append(thisPic.suggestedWords[0])
+                }else if thisPic.type == wordType.adjective.rawValue {
+                    temp = isAdj(prevWord: prevPic)
+                    returnString.append(temp)
+                    returnString.append(thisPic.word)
+//                }else if thisPic.type == wordType.pronoun.rawValue {
+                    
+                }else if thisPic.type == wordType.verb.rawValue {
+                    temp = isVerb(prevWord: prevPic)
+                    returnString.append(temp)
+                    returnString.append((prevPic.type == wordType.modal.rawValue) ? String(thisPic.word.dropLast(3)) : thisPic.word)
+                }else if thisPic.type == wordType.modal.rawValue {
+                    returnString.append(thisPic.word)
+                }else{
+                    returnString.append(thisPic.word)
+                }
+                
+//                if thisPic.type == wordType.adjective.rawValue {
+//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
+//                    returnString.append(temp)           // index 2
+//                    returnString.append((thisPic.word))   // index 3
+//                } else if thisPic.type == wordType.noun.rawValue {
+//                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : thisPic.word + "s"
+//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
+//                    returnString.append(temp)           // index 3
+//                    returnString.append(wordToAppend)   // index 2
+//                } else if thisPic.type == wordType.verb.rawValue {
+//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
+//                    returnString.append(temp)           // index 3
+//                    returnString.append(thisPic.word)   // index 2
+//                }
             }
-            
         }
-//        if pics[0].type == wordType.noun.rawValue {
-//            returnString.append("The")          // index 0
-//            returnString.append(pics[0].word)   // index 1
-//        }
-//
-//        let pic1Type = pics[1].type  // only need to access value once, instead of thrice.
-//        if pic1Type == wordType.adjective.rawValue {
-//            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
-//            returnString.append(temp)           // index 2
-//            returnString.append(pics[1].word)   // index 3
-//        } else if pic1Type == wordType.noun.rawValue {
-//            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
-//            returnString.append(pics[1].word)   // index 2
-//            returnString.append(temp)           // index 3
-//        } else if pic1Type == wordType.verb.rawValue {
-//            temp = (pics[0].grNum == gNum.singlular.rawValue) ? "is" : "are"
-//            returnString.append(pics[1].word)   // index 2
-//            returnString.append(temp)           // index 3
-//        }
-        
-        // ----------------------------------------------------------------------------
-        // Above code is the same as below. @Winston please check.
-        // ----------------------------------------------------------------------------
-
-//        if pics[0].type == "noun" {
-//            returnString[0] = "The"
-//            returnString[1] = pics[0].word
-//        }
-//
-//        if pics[1].type == "adj" {
-//            if pics[0].num == "singular" {
-//                returnString[2] = "is"
-//            }
-//            if pics[0].num == "plural" {
-//                returnString[2] = "are"
-//            }
-//            returnString[3] = pics[1].word
-//        }
-//        if pics[1].type == "noun" {
-//            if pics[0].num == "singular" {
-//                returnString[3] = "is"
-//            }
-//            if pics[0].num == "plural" {
-//                returnString[3] = "are"
-//            }
-//            returnString[2] = pics[1].word
-//        }
-//        if pics[1].type == "verb" {
-//            if pics[0].num == "singular" {
-//                returnString[3] = "is"
-//            }
-//            if pics[0].num == "plural" {
-//                returnString[3] = "are"
-//            }
-//            returnString[2] = pics[1].word
-//        }
         return returnString.joined(separator: " ")
     }
+    
+    func pluralize(pic: ImageCell) -> String {
+        if (pic.grNum == "plural") {
+            return pic.word + "s"
+        } else {
+            return pic.grNum
+        }
+    }
+    
+    
+    func isNoun(prevWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+            temp = "the"
+        }else if prevWord.type == wordType.noun.rawValue {
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ""
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            temp = "am the"
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = "the"
+        }
+        return temp
+    }
+    func isAdj(prevWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+            temp = "the"
+        }else if prevWord.type == wordType.noun.rawValue {
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ","
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            temp = "am"
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = "the"
+        }
+        return temp
+    }
+    func isVerb(prevWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+            temp = "" // Exception?
+        }else if prevWord.type == wordType.noun.rawValue {
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ""
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            temp = "am"
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = "to"
+        }
+        return temp
+    }
+//    func isPronoun(prevWord: SelectedImageViewCell) -> String{
+//        var temp = ""
+//        if prevWord.type == wordType.verb.rawValue {
+//            temp = "the"
+//        }else if prevWord.type == wordType.noun.rawValue {
+//            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are the" : "is the"
+//        }else if prevWord.type == wordType.adjective.rawValue {
+//            temp = ""
+//        }else if prevWord.type == wordType.pronoun.rawValue {
+//            temp = "am the"
+//        }else if prevWord.type == wordType.modal.rawValue {
+//            temp = "the"
+//        }
+//        return temp
+//    }
 }
 

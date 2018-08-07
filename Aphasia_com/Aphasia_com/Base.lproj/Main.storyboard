@@ -77,7 +77,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageResultCell" id="N7x-06-Jrl" customClass="ImageResultViewCell" customModule="Aphasia_com" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageResultCell" id="N7x-06-Jrl" customClass="ImageCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -91,7 +91,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="iO6-7M-lE7" id="xV4-GZ-ynA"/>
+                                            <outlet property="imageView" destination="iO6-7M-lE7" id="vlR-xW-N64"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7g-bj-NVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1538.8489208633093" y="123.74100719424462"/>
+            <point key="canvasLocation" x="-2245" y="123"/>
         </scene>
         <!--Image Input View Controller-->
         <scene sceneID="J8f-Ve-7Lo">
@@ -174,22 +174,17 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Colour"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4a-h9-okz">
-                                        <rect key="frame" x="20" y="107" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4a-h9-okz" userLabel="wantButton">
+                                        <rect key="frame" x="19" y="107" width="33" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="blah"/>
+                                        <state key="normal" title="want"/>
+                                        <connections>
+                                            <action selector="wantButtonPress:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="MbG-3F-qnH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-6F-c6P">
-                                <rect key="frame" x="954" y="759" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete"/>
-                                <connections>
-                                    <action selector="deleteSelectedCell:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="AZ1-9f-uuv"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
                                 <rect key="frame" x="42" y="149" width="946" height="486"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -205,7 +200,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InputCell" id="Krm-dr-pxa" customClass="ImageSelectViewCell" customModule="Aphasia_com" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InputCell" id="Krm-dr-pxa" customClass="ImageCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -244,7 +239,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectedCell" id="9lq-fU-zMH" customClass="SelectedImageViewCell" customModule="Aphasia_com" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectedCell" id="9lq-fU-zMH" customClass="ImageCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -271,6 +266,14 @@
                                     <action selector="DoneButton:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="ZYT-8g-fwJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-6F-c6P">
+                                <rect key="frame" x="954" y="759" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteSelectedCell:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="AZ1-9f-uuv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
@@ -287,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-708.45323741007201" y="123.74100719424462"/>
+            <point key="canvasLocation" x="-1047" y="123"/>
         </scene>
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
@@ -352,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffN-i2-Fa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-708" y="859"/>
+            <point key="canvasLocation" x="-704" y="1113"/>
         </scene>
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
@@ -406,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSV-ca-hx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880.03597122302165" y="123.74100719424462"/>
+            <point key="canvasLocation" x="1367" y="134"/>
         </scene>
         <!--Text result controller-->
         <scene sceneID="iNj-Ia-tMN">
@@ -445,7 +448,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextResultCell" id="edW-at-K5g" customClass="ImageTextResultViewCell" customModule="Aphasia_com" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextResultCell" id="edW-at-K5g" customClass="ImageCell" customModule="Aphasia_com" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="173" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -496,11 +499,12 @@
                     <connections>
                         <outlet property="resultCollectionView" destination="vx9-KE-FDJ" id="pgg-N7-Pzo"/>
                         <outlet property="resultLabel" destination="cSc-an-lAY" id="Zgf-bJ-2vE"/>
+                        <segue destination="F8O-mK-ZoV" kind="show" identifier="TIToInput_segue" id="70q-bh-RdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEs-97-Vni" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712.0503597122304" y="123.74100719424462"/>
+            <point key="canvasLocation" x="2659" y="147"/>
         </scene>
     </scenes>
     <resources>
@@ -516,9 +520,9 @@
         <image name="image placeholder.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9fL-cx-gPa"/>
+        <segue reference="1qB-hy-XeI"/>
         <segue reference="gQP-Iw-auM"/>
         <segue reference="Tuv-aW-ka3"/>
-        <segue reference="aWA-95-zEq"/>
+        <segue reference="Vq3-nG-FAk"/>
     </inferredMetricsTieBreakers>
 </document>

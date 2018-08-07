@@ -20,7 +20,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var resultLabel: UILabel!
     
     var inputString = String()
-    var wordsToBeShown = [String]()
+    var cellsToBeShown = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
     
     
     /**
@@ -30,8 +30,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         
         resultLabel.text = inputString //shows at bottom what was typed
-        wordsToBeShown = Utility.instance.getSentenceToWords(inputString, .whitespaces)
-        print("> words to be shown", wordsToBeShown)
+        //wordsToBeShown = Utility.instance.getSentenceToWords(inputString, .whitespaces)
+        //print("> words to be shown", wordsToBeShown)
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
@@ -40,6 +40,16 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "TIToInput_segue")
+        {
+            let inputController = segue.destination as! TextInput_ViewController
+            //inputController.showErrors(wordsToBeShown, errorArray)
+//            resultController.inputString = textField.text!
+        }
     }
     
     
@@ -55,8 +65,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
      *              many cells you want).
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("> w2bs count", wordsToBeShown.count)
-        return  wordsToBeShown.count  //number of images going to be shown
+        //print("> w2bs count", wordsToBeShown.count)
+        return  cellsToBeShown.count  //number of images going to be shown
     }
     
     
@@ -73,14 +83,25 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextResultCell", for: indexPath) as! ImageTextResultViewCell //gives the type of the custom class that was made for the cell-----might need to create a seperate class for text->images
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextResultCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell-----might need to create a seperate class for text->images
         
-        //call a function the the cell which asigns each variable with data from a function
-        //which returns a tuple with data like, image, word, suggestions etc
-        cell.addData(cell: Utility.instance.getDatabaseEntry(wordsToBeShown[indexPath.row]))
+        // call a function the the cell which asigns each variable with data from a function
+        // which returns a tuple with data like, image, word, suggestions etc
         
-        //idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
-        
+        /*let tempCell = Utility.instance.getDatabaseEntry(wordsToBeShown[indexPath.item])
+        if tempCell.type == "" {
+            errorArray.append(indexPath.item)
+            print("> errorArray: \(errorArray)")
+        } else if errorArray.count == 0 {
+            cell.addData(cell: tempCell)
+        }
+        // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
+        if indexPath.item == wordsToBeShown.count - 1 {
+            print("> return func")
+            performSegue(withIdentifier: "TIToInput_segue", sender: self)
+            
+        }*/
+        cell.addData(cell: cellsToBeShown[indexPath.item])
         return cell
     }
     

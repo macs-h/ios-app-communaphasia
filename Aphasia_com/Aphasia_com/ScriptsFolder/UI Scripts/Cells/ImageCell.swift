@@ -10,15 +10,17 @@ import UIKit
 
 /// The class for the cell in the `ImageResultCollectionView`. It stores the cell
 /// properties and deals with assigning and exporting.
-class ImageResultViewCell: UICollectionViewCell {
-    //good to manage these variables in the clzass but could be done with an array in the view controller
+class ImageCell: UICollectionViewCell {
+    // Good to manage these variables in the clzass but could be done with an array in
+    // the view controller.
     var word: String = "car"
-    var type: String = "verb" //for the type of word (noun, verb etc)
-    
-    /// Reference to the image on the UI which are changed to reflect the image.
-    @IBOutlet weak var imageView: UIImageView!
+    var type: String = "verb" // for the type of word (noun, verb etc). Could use enums.
     var suggestedWords = [String]()
     var grNum: String = gNum.singlular.rawValue
+    var category: String = "Other"
+    /// Reference to the image on the UI which are changed to reflect the image.
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     
     /**
@@ -30,12 +32,13 @@ class ImageResultViewCell: UICollectionViewCell {
      *      - image:        the image to be displayed in the cell.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String)) {
+    func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)) {
         self.word = cell.word
         self.type = cell.type
         self.imageView.image = cell.image
         self.suggestedWords = cell.suggestions
         self.grNum = cell.grNum
+        self.category = cell.category
         
         //---colouring boarders---//
         /*if type == "noun"{
@@ -57,12 +60,16 @@ class ImageResultViewCell: UICollectionViewCell {
      *      - image:        the image to be displayed in the cell.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
-        let word = self.word
-        let type = self.type
-        let suggestions = self.suggestedWords
-        let image = self.imageView.image!
-        let grNum = self.grNum
-        return (word, type, image, suggestions, grNum)
+    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String) {
+        return (self.word, self.type, self.imageView.image!, self.suggestedWords, self.grNum, self.category)
+    }
+    
+    func showPlural(){
+        let image = UIImage(named: "cow.png")
+        let frontImageView = UIImageView(image: image)
+        self.contentView.addSubview(imageView)
+        frontImageView.frame = imageView.frame
+        //frontImageView.frame.offsetBy(dx: 3, dy: 3)
+        //imageView.frame = CGRect(x: imageView.frame.x, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
     }
 }

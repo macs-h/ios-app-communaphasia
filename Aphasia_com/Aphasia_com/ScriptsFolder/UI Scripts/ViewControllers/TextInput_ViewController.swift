@@ -15,7 +15,44 @@ class TextInput_ViewController: UIViewController {
 
     /// References the user input text field.
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     var stringArray = [String]()
+    var attributedString: NSMutableAttributedString?
+    
+    
+    var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
+    //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
+    
+    func makeCells(words:[String])-> [Int]{
+        var errorArray = [Int]()
+        //var cells = [ImageTextResultViewCell]()
+        var i = 0
+        for word in words{
+            let tempCell = Utility.instance.getDatabaseEntry(word)
+            if tempCell.type == "" {
+                errorArray.append(i)
+                print("> errorArray: \(errorArray)")
+            } else if errorArray.count == 0 {
+                
+                
+                cells.append(tempCell)
+            }
+            // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
+            
+            i += 1
+        }
+        return errorArray
+    }
+
+    func showErrors(_ wordArray: [String], _ errorArray: [Int]) {
+        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
+        for index in errorArray {
+            attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
+        }
+        print(">> attributedString:", attributedString)
+        
+    }
     
     /**
      * Called when the `done` button is pressed.
@@ -24,9 +61,17 @@ class TextInput_ViewController: UIViewController {
      */
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
-            performSegue(withIdentifier: "TIToResult_segue", sender: self)
-        }
+            let wordArray = Utility.instance.getSentenceToWords(textField.text!, .whitespaces)
+            let errorArray = makeCells(words: wordArray)
+            if errorArray.count > 0{
+                showErrors(wordArray, errorArray)
+                errorLabel.attributedText = attributedString
+                cells.removeAll()
+            }else{
+                performSegue(withIdentifier: "TIToResult_segue", sender: self)
+            }
         
+        }
     }
 
     /** Xcode generated **  @Sam description
@@ -43,6 +88,7 @@ class TextInput_ViewController: UIViewController {
         {
             let resultController = segue.destination as! TextResult_ViewController
             resultController.inputString = textField.text!
+            resultController.cellsToBeShown = cells
         }
     }
     
@@ -57,7 +103,6 @@ class TextInput_ViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -80,14 +125,15 @@ class TextInput_ViewController: UIViewController {
     
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
+    
 }
+
+
+
+
+
+
+

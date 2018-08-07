@@ -1,20 +1,20 @@
 //
 //  SinglePlural_ViewController.swift
-//  CommunAphasia
+//  Aphasia_com
 //
-//  Created by RedSQ on 27/05/18.
-//  Copyright © 2018 RedSQ. All rights reserved.
+//  Created by Sam Paterson on 27/05/18.
+//  Copyright © 2018 Cosc345. All rights reserved.
 //
 
 import UIKit
 protocol SinglePluralDelegate: class {
-    func selectedGNum(cell: ImageSelectViewCell, grNum: String, indexPath: IndexPath)
+    func selectedGNum(cell: ImageCell, grNum: String, indexPath: IndexPath)
 }
 class SinglePlural_ViewController: UIViewController {
     
     weak var delegate: SinglePluralDelegate?
     
-    var cell: ImageSelectViewCell?
+    var cell: ImageCell?
     
     var indexPath: IndexPath?
     
@@ -37,7 +37,7 @@ class SinglePlural_ViewController: UIViewController {
     }
     
     
-    func setUp(delegate: SinglePluralDelegate, cell: ImageSelectViewCell, indexPath: IndexPath){
+    func setUp(delegate: SinglePluralDelegate, cell: ImageCell, indexPath: IndexPath){
         self.delegate = delegate
         self.cell = cell
         let image = cell.imageView.image
@@ -49,13 +49,13 @@ class SinglePlural_ViewController: UIViewController {
     
     //single image selected
     @IBAction func selectSingle(_ sender: Any) {
-        delegate?.selectedGNum(cell: cell!, grNum: gNum.singlular.rawValue, indexPath: indexPath!)
+        delegate?.selectedGNum(cell: cell!, grNum: "singular", indexPath: indexPath!)
         closePopup()
     }
     
     //plural image selected
     @IBAction func selectPlural(_ sender: Any) {
-        delegate?.selectedGNum(cell: cell!, grNum: gNum.plural.rawValue, indexPath: indexPath!)
+        delegate?.selectedGNum(cell: cell!, grNum: "plural", indexPath: indexPath!)
         closePopup()
     }
     

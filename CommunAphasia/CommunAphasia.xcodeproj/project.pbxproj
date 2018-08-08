@@ -170,15 +170,15 @@
 		ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlural_ViewController.swift; sourceTree = "<group>"; };
 		ED74CAB421194B5100850E9F /* small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small.png; sourceTree = "<group>"; };
 		EDEEBF782117CB6500D46B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EDF7206A20AD3FA700675140 /* Aphasia_com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aphasia_com.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7206A20AD3FA700675140 /* CommunAphasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunAphasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7206D20AD3FA700675140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF7207220AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDF7207720AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDF7207920AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7207E20AD3FA700675140 /* CommunAphasiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunAphasiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comTests.swift; sourceTree = "<group>"; };
 		EDF7208420AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aphasia_comUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7208920AD3FA700675140 /* CommunAphasiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunAphasiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comUITests.swift; sourceTree = "<group>"; };
 		EDF7208F20AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFA3AE120B8ED6800F6DBBD /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -340,9 +340,9 @@
 			isa = PBXGroup;
 			children = (
 				EDFA3AE920B8ED9100F6DBBD /* images.txt */,
-				EDF7206C20AD3FA700675140 /* Aphasia_com */,
-				EDF7208120AD3FA700675140 /* Aphasia_comTests */,
-				EDF7208C20AD3FA700675140 /* Aphasia_comUITests */,
+				EDF7206C20AD3FA700675140 /* CommunAphasia */,
+				EDF7208120AD3FA700675140 /* CommunAphasiaTests */,
+				EDF7208C20AD3FA700675140 /* CommunAphasiaUITests */,
 				EDF7206B20AD3FA700675140 /* Products */,
 				524D0BA320B0FFB700EC19E7 /* SQLite Resources */,
 				524D0BBC20B1009100EC19E7 /* Frameworks */,
@@ -352,14 +352,14 @@
 		EDF7206B20AD3FA700675140 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EDF7206A20AD3FA700675140 /* Aphasia_com.app */,
-				EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */,
-				EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */,
+				EDF7206A20AD3FA700675140 /* CommunAphasia.app */,
+				EDF7207E20AD3FA700675140 /* CommunAphasiaTests.xctest */,
+				EDF7208920AD3FA700675140 /* CommunAphasiaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EDF7206C20AD3FA700675140 /* Aphasia_com */ = {
+		EDF7206C20AD3FA700675140 /* CommunAphasia */ = {
 			isa = PBXGroup;
 			children = (
 				EDEEBF782117CB6500D46B33 /* Assets.xcassets */,
@@ -370,33 +370,33 @@
 				EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */,
 				EDF7207920AD3FA700675140 /* Info.plist */,
 			);
-			path = Aphasia_com;
+			path = CommunAphasia;
 			sourceTree = "<group>";
 		};
-		EDF7208120AD3FA700675140 /* Aphasia_comTests */ = {
+		EDF7208120AD3FA700675140 /* CommunAphasiaTests */ = {
 			isa = PBXGroup;
 			children = (
 				EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */,
 				EDF7208420AD3FA700675140 /* Info.plist */,
 			);
-			path = Aphasia_comTests;
+			path = CommunAphasiaTests;
 			sourceTree = "<group>";
 		};
-		EDF7208C20AD3FA700675140 /* Aphasia_comUITests */ = {
+		EDF7208C20AD3FA700675140 /* CommunAphasiaUITests */ = {
 			isa = PBXGroup;
 			children = (
 				EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */,
 				EDF7208F20AD3FA700675140 /* Info.plist */,
 			);
-			path = Aphasia_comUITests;
+			path = CommunAphasiaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EDF7206920AD3FA700675140 /* Aphasia_com */ = {
+		EDF7206920AD3FA700675140 /* CommunAphasia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */;
+			buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasia" */;
 			buildPhases = (
 				EDF7206620AD3FA700675140 /* Sources */,
 				EDF7206720AD3FA700675140 /* Frameworks */,
@@ -408,14 +408,14 @@
 			dependencies = (
 				524D0BC120B100A000EC19E7 /* PBXTargetDependency */,
 			);
-			name = Aphasia_com;
+			name = CommunAphasia;
 			productName = Aphasia_com;
-			productReference = EDF7206A20AD3FA700675140 /* Aphasia_com.app */;
+			productReference = EDF7206A20AD3FA700675140 /* CommunAphasia.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EDF7207D20AD3FA700675140 /* Aphasia_comTests */ = {
+		EDF7207D20AD3FA700675140 /* CommunAphasiaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */;
+			buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasiaTests" */;
 			buildPhases = (
 				EDF7207A20AD3FA700675140 /* Sources */,
 				EDF7207B20AD3FA700675140 /* Frameworks */,
@@ -426,14 +426,14 @@
 			dependencies = (
 				EDF7208020AD3FA700675140 /* PBXTargetDependency */,
 			);
-			name = Aphasia_comTests;
+			name = CommunAphasiaTests;
 			productName = Aphasia_comTests;
-			productReference = EDF7207E20AD3FA700675140 /* Aphasia_comTests.xctest */;
+			productReference = EDF7207E20AD3FA700675140 /* CommunAphasiaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EDF7208820AD3FA700675140 /* Aphasia_comUITests */ = {
+		EDF7208820AD3FA700675140 /* CommunAphasiaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */;
+			buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasiaUITests" */;
 			buildPhases = (
 				EDF7208520AD3FA700675140 /* Sources */,
 				EDF7208620AD3FA700675140 /* Frameworks */,
@@ -444,9 +444,9 @@
 			dependencies = (
 				EDF7208B20AD3FA700675140 /* PBXTargetDependency */,
 			);
-			name = Aphasia_comUITests;
+			name = CommunAphasiaUITests;
 			productName = Aphasia_comUITests;
-			productReference = EDF7208920AD3FA700675140 /* Aphasia_comUITests.xctest */;
+			productReference = EDF7208920AD3FA700675140 /* CommunAphasiaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -479,7 +479,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */;
+			buildConfigurationList = EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "CommunAphasia" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -498,9 +498,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				EDF7206920AD3FA700675140 /* Aphasia_com */,
-				EDF7207D20AD3FA700675140 /* Aphasia_comTests */,
-				EDF7208820AD3FA700675140 /* Aphasia_comUITests */,
+				EDF7206920AD3FA700675140 /* CommunAphasia */,
+				EDF7207D20AD3FA700675140 /* CommunAphasiaTests */,
+				EDF7208820AD3FA700675140 /* CommunAphasiaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -655,12 +655,12 @@
 		};
 		EDF7208020AD3FA700675140 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EDF7206920AD3FA700675140 /* Aphasia_com */;
+			target = EDF7206920AD3FA700675140 /* CommunAphasia */;
 			targetProxy = EDF7207F20AD3FA700675140 /* PBXContainerItemProxy */;
 		};
 		EDF7208B20AD3FA700675140 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EDF7206920AD3FA700675140 /* Aphasia_com */;
+			target = EDF7206920AD3FA700675140 /* CommunAphasia */;
 			targetProxy = EDF7208A20AD3FA700675140 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -808,7 +808,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 845CX8Y83W;
-				INFOPLIST_FILE = Aphasia_com/Info.plist;
+				INFOPLIST_FILE = CommunAphasia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
@@ -828,7 +828,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 845CX8Y83W;
-				INFOPLIST_FILE = Aphasia_com/Info.plist;
+				INFOPLIST_FILE = CommunAphasia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.communAphasia;
@@ -851,7 +851,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aphasia_com.app/Aphasia_com";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommunAphasia.app/CommunAphasia";
 			};
 			name = Debug;
 		};
@@ -866,7 +866,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aphasia_com.app/Aphasia_com";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommunAphasia.app/CommunAphasia";
 			};
 			name = Release;
 		};
@@ -901,7 +901,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "Aphasia_com" */ = {
+		EDF7206520AD3FA700675140 /* Build configuration list for PBXProject "CommunAphasia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF7209020AD3FA700675140 /* Debug */,
@@ -910,7 +910,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_com" */ = {
+		EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF7209320AD3FA700675140 /* Debug */,
@@ -919,7 +919,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comTests" */ = {
+		EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasiaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF7209620AD3FA700675140 /* Debug */,
@@ -928,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "Aphasia_comUITests" */ = {
+		EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasiaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF7209920AD3FA700675140 /* Debug */,

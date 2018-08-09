@@ -10,14 +10,16 @@ import Foundation
 import UIKit
 import SQLite
 
-/// This class acts as a 'helper' class containing regularly used utility functions.
-///
-/// It has been set up in such a way that it is a singleton and available to be called
-/// from any class within the project.
+/**
+    This class acts as a 'helper' class containing regularly used utility functions.
+
+    It has been set up in such a way that it is a singleton and available to be called
+    from any class within the project.
+ */
 class Utility {
 
-    /// Setting up singleton instance of Utility.
-    /// To call any utility function: `Utility.sharedInstance.(function_name)`
+    // Setting up singleton instance of Utility.
+    // To call any utility function: `Utility.sharedInstance.(function_name)`
     static let instance = Utility()
     // Connection to database.
     var database: Connection!
@@ -41,8 +43,8 @@ class Utility {
     let CATEGORY = Expression<String>("category")
     
     
-    /// `Init` function which initialises the database, creating the cells required, and
-    /// populating the cells with entries/information.
+    // `Init` function which initialises the database, creating the cells required, and
+    // populating the cells with entries/information.
     private init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -184,6 +186,40 @@ class Utility {
         }
         return cells
     }
+    
+    
+    // ----------------------------------------------------------------------------
+    // API for synonyms via WordsAPI
+    // ----------------------------------------------------------------------------
+    private class MyDelegate: NSObject, URLSessionDataDelegate {
+        fileprivate func urlSession(_ session: URLSession,
+                                        dataTask: URLSessionDataTask,
+                                        didReceive data: Data) {
+            if let dataStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                print(dataStr)
+            }
+        }
+    }
+    
+    func getSynonym(_ word: String) {
+        let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
+        let type = "synonyms"
+        let url = NSURL(string: baseUrl + word + "/" + type)
+        let request = NSMutableURLRequest(url: url! as URL)
+        request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
+        request.setValue("wordsapiv1.p.mashape.com", forHTTPHeaderField: "X-Mashape-Host")
+        request.httpMethod = "GET"
+        
+        let delegateObj = MyDelegate()
+        let session = URLSession(configuration: URLSessionConfiguration.default,
+                                 delegate: delegateObj,
+                                 delegateQueue: nil)
+        let task = session.dataTask(with: request as URLRequest)
+        task.resume()
+        sleep(2)
+    }
+    
+    
 
     // ----------------------------------------------------------------------------
     // Private functions follow.

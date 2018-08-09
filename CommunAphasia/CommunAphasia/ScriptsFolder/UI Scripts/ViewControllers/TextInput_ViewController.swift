@@ -8,9 +8,7 @@
 
 import UIKit
 
-///
-/// Handles the text input from the user ...??
-///
+
 class TextInput_ViewController: UIViewController {
 
     /// References the user input text field.
@@ -32,9 +30,9 @@ class TextInput_ViewController: UIViewController {
             let tempCell = Utility.instance.getDatabaseEntry(word)
             if tempCell.type == "" {
                 errorArray.append(i)
-                print("> errorArray: \(errorArray)")
+                print("> errorArray: \(errorArray)\t\(tempCell.type)|")
             } else if errorArray.count == 0 {
-                
+//                print(Utility.instance.getSynonym(word))
                 
                 cells.append(tempCell)
             }
@@ -55,34 +53,54 @@ class TextInput_ViewController: UIViewController {
     }
     
     /**
-     * Called when the `done` button is pressed.
-     *
-     *  - Parameter sender: the object which called this function.
+        Called when the `done` button is pressed.
+
+        - Parameter sender: the object which called this function.
      */
+    @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
             let wordArray = Utility.instance.getSentenceToWords(textField.text!, .whitespaces)
             let errorArray = makeCells(words: wordArray)
+            
             if errorArray.count > 0{
                 showErrors(wordArray, errorArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()
-            }else{
+            } else {
+                var inputString: String = textField.text!
+                var NSCount: Int = 0
+                
+                let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+                tagger.string = inputString
+                let range = NSRange(location: 0, length: inputString.utf16.count)
+                let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
+                tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, _ in
+                    if let tag = tag {
+                        let word = (inputString as NSString).substring(with: tokenRange)
+                        
+                        print("\(word): \(tag.rawValue)")
+                        
+                        if cells.count > 0 {
+                            print(">> NSCount:", NSCount)
+                            if word == cells[NSCount].word {
+                                cells[NSCount].type = tag.rawValue
+                                print(">\(cells[NSCount].type)")
+                                NSCount += 1
+                                
+                            }
+                        }
+                    }
+                    
+                }
+            
                 performSegue(withIdentifier: "TIToResult_segue", sender: self)
             }
-        
+            
         }
     }
 
-    /** Xcode generated **  @Sam description
-     *
-     * Notifies the view controller that a segue is about to be performed. Subclasses
-     * override this method and use it to configure the new view controller prior to it
-     * being displayed.
-     *
-     * The segue object contains information about the transition, including references
-     * to both view controllers that are involved.
-     */
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "TIToResult_segue")
         {
@@ -92,32 +110,13 @@ class TextInput_ViewController: UIViewController {
         }
     }
     
-    /** Xcode generated **
-     *
-     * Called after the controller's view is loaded into memory.
-     * This method is called after the view controller has loaded its view hierarchy into
-     * memory.
-     *
-     * You usually override this method to perform additional initialization on views
-     * that were loaded from nib files.
-     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
     
-    /** Xcode generated **
-     *
-     * Sent to the view controller when the app receives a memory warning.
-     *
-     * Your app never calls this method directly. Instead, this method is called when the
-     * system determines that the amount of available memory is low.
-     *
-     * You can override this method to release any additional memory used by your view
-     * controller. If you do, your implementation of this method must call the super
-     * implementation at some point.
-     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

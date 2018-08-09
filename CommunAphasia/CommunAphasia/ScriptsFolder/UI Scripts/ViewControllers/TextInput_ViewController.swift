@@ -22,12 +22,13 @@ class TextInput_ViewController: UIViewController {
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
+    @available(iOS 11.0, *)
     func makeCells(words:[String])-> [Int]{
         var errorArray = [Int]()
         //var cells = [ImageTextResultViewCell]()
         var i = 0
         for word in words{
-            let tempCell = Utility.instance.getDatabaseEntry(word)
+            let tempCell = Utility.instance.getDatabaseEntry(Utility.instance.lemmatize(word))
             if tempCell.type == "" {
                 errorArray.append(i)
                 print("> errorArray: \(errorArray)\t\(tempCell.type)|")
@@ -48,7 +49,7 @@ class TextInput_ViewController: UIViewController {
         for index in errorArray {
             attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
         }
-        print(">> attributedString:", attributedString)
+        print(">> attributedString:", attributedString!)
         
     }
     
@@ -73,9 +74,11 @@ class TextInput_ViewController: UIViewController {
                 
                 let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
                 tagger.string = inputString
-                let range = NSRange(location: 0, length: inputString.utf16.count)
-                let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
-                tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, _ in
+                tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
+                                     unit: .word,
+                                     scheme: .lexicalClass,
+                                     options: [.omitPunctuation, .omitWhitespace])
+                { tag, tokenRange, _ in
                     if let tag = tag {
                         let word = (inputString as NSString).substring(with: tokenRange)
                         

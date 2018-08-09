@@ -143,31 +143,32 @@ class Utility {
         }
         return (word, word_type, image, suggestions, grNum, category)
     }
+    
     //old version
-    func getDatabaseEntryIterative(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
-        var image: UIImage = UIImage(named: "image placeholder")!
-        var word_type: String = ""
-        var suggestions: Array<String> = []
-        var grNum: String = gNum.singlular.rawValue  // Singular, by default.
-        
-        do {
-            let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
-            for cell in cellTable {
-                if word == cell[self.KEYWORD] {
-                    word_type = cell[self.TYPE]
-                    image = UIImage(named: cell[self.IMAGE_LINK])!
-                    suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
-                    //print("> found word:",word)
-                    grNum = cell[self.GR_NUM]
-                    break
-                }
-            }
-        } catch {
-            print(error)
-        }
-        // Should we use enums as what is returned for the word_type??
-        return (word, word_type, image, suggestions, grNum)
-    }
+//    func getDatabaseEntryIterative(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
+//        var image: UIImage = UIImage(named: "image placeholder")!
+//        var word_type: String = ""
+//        var suggestions: Array<String> = []
+//        var grNum: String = gNum.singlular.rawValue  // Singular, by default.
+//
+//        do {
+//            let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
+//            for cell in cellTable {
+//                if word == cell[self.KEYWORD] {
+//                    word_type = cell[self.TYPE]
+//                    image = UIImage(named: cell[self.IMAGE_LINK])!
+//                    suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
+//                    //print("> found word:",word)
+//                    grNum = cell[self.GR_NUM]
+//                    break
+//                }
+//            }
+//        } catch {
+//            print(error)
+//        }
+//        // Should we use enums as what is returned for the word_type??
+//        return (word, word_type, image, suggestions, grNum)
+//    }
     
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
@@ -186,6 +187,32 @@ class Utility {
         }
         return cells
     }
+    
+    
+    // ----------------------------------------------------------------------------
+    // Lemmatization
+    // ----------------------------------------------------------------------------
+    
+    @available(iOS 11.0, *)
+    func lemmatize(_ word: String) -> String {
+        var returnString:String = ""
+        let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
+        tagger.string = word
+        
+        tagger.enumerateTags(in: NSMakeRange(0, word.utf16.count),
+                             unit: .word,
+                             scheme: .lemma,
+                             options: [.omitWhitespace, .omitPunctuation])
+        { (tag, tokenRange, stop) in
+            if let lemma = tag?.rawValue {
+                returnString = lemma
+            } else {
+                returnString = word
+            }
+        }
+        return returnString
+    }
+    
     
     
     // ----------------------------------------------------------------------------

@@ -10,7 +10,7 @@ deer,deer_silhouette,noun,hunting,deer,animals
 dinner,food_dinner,noun,food,r,food
 eating,eat,verb,nil,r,activity
 fish,fish,noun,water,fish,animals
-i,i.jpg,pronoun,me,we,objects
+I,i.jpg,pronoun,me,we,objects
 lunch,food_lunch,noun,food,lunches,food
 man,man_silhouette,noun,people,men,objects
 pencil,pencil,noun,draw,r,objects
@@ -24,3 +24,4 @@ car,car_sedan,noun,travel,r,travel
 fast,fast,adj,faster+fastest,r,speed
 quickly,fast,adverb,quick,r,speed
 waiting,waiting.jpg,verb,for,r,activity
+want,want,modal,stuff,r,other

@@ -43,12 +43,14 @@ class ImageToText {
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
                     returnString.append(thisPic.suggestedWords[0])
+                }else if thisPic.type == wordType.adverb.rawValue {
+                    temp = isAdverb(prevWord: prevPic)
+                    returnString.append(temp)
+                    returnString.append(thisPic.word)
                 }else if thisPic.type == wordType.adjective.rawValue {
                     temp = isAdj(prevWord: prevPic)
                     returnString.append(temp)
                     returnString.append(thisPic.word)
-//                }else if thisPic.type == wordType.pronoun.rawValue {
-                    
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic)
                     returnString.append(temp)
@@ -99,9 +101,12 @@ class ImageToText {
             temp = "am the"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
         }
         return temp
     }
+    
     func isAdj(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
@@ -114,6 +119,24 @@ class ImageToText {
             temp = "am"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
+        }
+        return temp
+    }
+    func isAdverb(prevWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+        }else if prevWord.type == wordType.noun.rawValue {
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ","
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            temp = "am"
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = "the"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ","
         }
         return temp
     }
@@ -129,6 +152,8 @@ class ImageToText {
             temp = "am"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "to"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
         }
         return temp
     }

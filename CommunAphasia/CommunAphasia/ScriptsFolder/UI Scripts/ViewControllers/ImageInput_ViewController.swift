@@ -93,7 +93,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                  button.imageView?.tintColor = Utility.instance.hexStringToUIColor(hex: "ffffff")
             }
         }
-        //cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        
+        //print("count",cellsInCategory.count)
         currentCategoyIndex = sender.tag
     }
     
@@ -104,7 +106,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     //gives the collection view how many cells it needs to hold
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.InputCollectionView {
-            return defaultWords.count
+            return cellsInCategory.count
         }else{
             //input collection View
             return selectedWords.count
@@ -117,7 +119,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             // call a function the the cell whcih asigns each variable with data from a function
             // which returns a tuple with data like, image, word, suggestions etc
-            cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
+            //cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
+            cell.addData(cell: cellsInCategory[indexPath.item])
             // cell.cellImageView.image = selectCellImages[indexPath.item]
             return cell
         }else{

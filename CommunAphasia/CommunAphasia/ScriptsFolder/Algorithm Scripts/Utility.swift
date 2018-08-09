@@ -41,6 +41,7 @@ class Utility {
     let TYPE = Expression<String>("type")
     let GR_NUM = Expression<String>("grNum")
     let CATEGORY = Expression<String>("category")
+    let TENSE = Expression<String>("tense")
     
     
     // `Init` function which initialises the database, creating the cells required, and
@@ -122,56 +123,35 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String){
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String){
         var image: UIImage = UIImage(named: "image placeholder")!
         var word_type: String = ""
         var suggestions: Array<String> = []
         var grNum: String = gNum.singlular.rawValue  // Singular, by default.
         var category: String = "Other"
+        var tense: String = ""
         
         do {
-            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY).filter(KEYWORD.like(word)).limit(1)
+            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(KEYWORD.like(word)).limit(1)
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
                 suggestions = getSentenceToWords(cell[RELATIONSHIPS], .init(charactersIn: "+"))
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
+                tense = cell[TENSE]
+                
             }
         } catch {
             print(error)
         }
-        return (word, word_type, image, suggestions, grNum, category)
+        return (word, word_type, image, suggestions, grNum, category, tense)
     }
-    //old version
-    func getDatabaseEntryIterative(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
-        var image: UIImage = UIImage(named: "image placeholder")!
-        var word_type: String = ""
-        var suggestions: Array<String> = []
-        var grNum: String = gNum.singlular.rawValue  // Singular, by default.
-        
-        do {
-            let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
-            for cell in cellTable {
-                if word == cell[self.KEYWORD] {
-                    word_type = cell[self.TYPE]
-                    image = UIImage(named: cell[self.IMAGE_LINK])!
-                    suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
-                    //print("> found word:",word)
-                    grNum = cell[self.GR_NUM]
-                    break
-                }
-            }
-        } catch {
-            print(error)
-        }
-        // Should we use enums as what is returned for the word_type??
-        return (word, word_type, image, suggestions, grNum)
-    }
+
     
-    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)] {
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
-        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY).filter(CATEGORY.like(category))
+    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
+        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
         do{
             for cell in try database.prepare(querry){
                 cells.append((cell[KEYWORD],
@@ -179,7 +159,8 @@ class Utility {
                               UIImage(named: cell[self.IMAGE_LINK])!,
                               getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+")),
                               cell[GR_NUM],
-                              cell[CATEGORY]))
+                              cell[CATEGORY],
+                              cell[TENSE]))
             }
         } catch {
             print(error)
@@ -235,6 +216,7 @@ class Utility {
             table.column(self.RELATIONSHIPS)
             table.column(self.GR_NUM)
             table.column(self.CATEGORY)
+            table.column(self.TENSE)
         }
         do {
             try self.database.run(makeTable)
@@ -274,7 +256,8 @@ class Utility {
                         self.TYPE <- values[2],
                         self.RELATIONSHIPS <- values[3],
                         self.GR_NUM <- values[4],
-                        self.CATEGORY <- values[5]
+                        self.CATEGORY <- values[5],
+                        self.TENSE <- values[6]
                     )
                     do {
                         try self.database.run(insertImage)

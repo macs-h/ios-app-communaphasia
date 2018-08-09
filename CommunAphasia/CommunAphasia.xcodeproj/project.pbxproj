@@ -20,6 +20,7 @@
 		601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601DEB6220BA7A7E00FF2778 /* ImageToText.swift */; };
 		60249A1F20B91CC100BBC5FC /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
 		C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBC0E2115557300A66995 /* ImageCell.swift */; };
+		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
 		ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976120B7C7C0001AF14C /* deer_silhouette.png */; };
 		ED27976D20B7C7C0001AF14C /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976220B7C7C0001AF14C /* cow.png */; };
 		ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976320B7C7C0001AF14C /* image placeholder.png */; };
@@ -152,6 +153,7 @@
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		601DEB6220BA7A7E00FF2778 /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
 		C10CBC0E2115557300A66995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
 		ED27976220B7C7C0001AF14C /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
 		ED27976320B7C7C0001AF14C /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
 				ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */,
 				ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */,
+				C153B974211C0011008E5451 /* Tense_ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				ED61067320BA4995003C4904 /* SinglePlural_ViewController.swift in Sources */,
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
 				EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */,
+				C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
 				C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */,

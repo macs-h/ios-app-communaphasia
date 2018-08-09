@@ -16,8 +16,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
    
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
-                        "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
-                        "calling","big","small","red","blue","i"]
+                        "lunch","dinner","basketball","fish","soda","tree","eat","sleep",
+                        "call","big","small","red","blue","i"]
     //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
@@ -105,7 +105,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
         selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
-        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: ""))
+        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: "",tense: ""))
         selectedCells.append(newCell)
     }
     
@@ -115,6 +115,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             //do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
+            }else if cell.type == wordType.verb.rawValue {
+                showTenseVC(cell: cell, indexPath: indexPath)
             }else{
                 selectedWords.append(cell.word)
                 let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
@@ -149,6 +151,22 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         singlePluralVC.singleImageView.image = cell.imageView.image
         singlePluralVC.pluralImageView.image = cell.imageView.image
         singlePluralVC.backPluralImageView.image = cell.imageView.image*/
+    }
+    func showTenseVC(cell: ImageCell, indexPath: IndexPath){
+        
+        let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
+        
+        self.addChildViewController(tenseVC)
+        tenseVC.view.frame = self.view.frame
+        self.view.addSubview(tenseVC.view)
+        tenseVC.didMove(toParentViewController: self)
+        
+        tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+        /* singlePluralVC.delegate = self
+         //moves these to function in single... view controller
+         singlePluralVC.singleImageView.image = cell.imageView.image
+         singlePluralVC.pluralImageView.image = cell.imageView.image
+         singlePluralVC.backPluralImageView.image = cell.imageView.image*/
         
         
     }
@@ -186,5 +204,17 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         //if we want to remove it from the selectCollectionView
         //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
         //InputCollectionView?.deleteItems(at: [indexPath])
+    }
+}
+extension ImageInput_ViewController : TenseDelegate{
+    
+    func selectedTense(cell: ImageCell, tense: String, indexPath: IndexPath){
+        selectedWords.append(cell.word)
+        let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
+        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+        let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
+        newCell.addData(cell: cell.extractData())
+        newCell.tense = tense
+        selectedCells.append(newCell)
     }
 }

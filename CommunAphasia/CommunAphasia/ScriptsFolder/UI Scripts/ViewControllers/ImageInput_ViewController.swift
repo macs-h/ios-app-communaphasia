@@ -8,9 +8,7 @@
 
 import UIKit
 
-///
-///
-///
+
 class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var selectedCollectionView: UICollectionView!
@@ -63,7 +61,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "IIToResult_segue") {
             //let finalSelectedWords = selectedCollectionView.visibleCells as! [SelectedImageViewCell]
-            var resultController = segue.destination as! ImageResult_ViewController
+            let resultController = segue.destination as! ImageResult_ViewController
             resultController.selectedCellsResult = selectedCells
             
         }

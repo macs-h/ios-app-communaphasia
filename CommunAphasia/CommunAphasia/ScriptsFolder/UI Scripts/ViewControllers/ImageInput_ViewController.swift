@@ -93,8 +93,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                  button.imageView?.tintColor = Utility.instance.hexStringToUIColor(hex: "ffffff")
             }
         }
-        cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
         
+        cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        InputCollectionView?.reloadData()
         //print("count",cellsInCategory.count)
         currentCategoyIndex = sender.tag
     }

@@ -59,11 +59,10 @@ class TextInput_ViewController: UIViewController {
     
     
     /**
-        Called when the `done` button is pressed.
-
-        - Parameter sender: the object which called this function.
+     * Called when the `done` button is pressed.
+     *
+     *  - Parameter sender: the object which called this function.
      */
-    @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false)
@@ -106,7 +105,7 @@ class TextInput_ViewController: UIViewController {
             
                 performSegue(withIdentifier: "TIToResult_segue", sender: self)
             }
-            
+        
         }
     }
 

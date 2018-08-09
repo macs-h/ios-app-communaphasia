@@ -60,21 +60,6 @@ class ImageToText {
                 }else{
                     returnString.append(thisPic.word)
                 }
-                
-//                if thisPic.type == wordType.adjective.rawValue {
-//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
-//                    returnString.append(temp)           // index 2
-//                    returnString.append((thisPic.word))   // index 3
-//                } else if thisPic.type == wordType.noun.rawValue {
-//                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : thisPic.word + "s"
-//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
-//                    returnString.append(temp)           // index 3
-//                    returnString.append(wordToAppend)   // index 2
-//                } else if thisPic.type == wordType.verb.rawValue {
-//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
-//                    returnString.append(temp)           // index 3
-//                    returnString.append(thisPic.word)   // index 2
-//                }
             }
         }
         return returnString.joined(separator: " ")
@@ -92,7 +77,11 @@ class ImageToText {
     func isNoun(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
-            temp = "the"
+            if prevWord.suggestedWords[0] != "nil" {
+            temp = prevWord.suggestedWords[0] + " the"
+            } else {
+                temp = "the"
+            }
         }else if prevWord.type == wordType.noun.rawValue {
             temp = (prevWord.grNum == "singular") ? "is" : "are"
         }else if prevWord.type == wordType.adjective.rawValue {
@@ -157,20 +146,4 @@ class ImageToText {
         }
         return temp
     }
-//    func isPronoun(prevWord: SelectedImageViewCell) -> String{
-//        var temp = ""
-//        if prevWord.type == wordType.verb.rawValue {
-//            temp = "the"
-//        }else if prevWord.type == wordType.noun.rawValue {
-//            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are the" : "is the"
-//        }else if prevWord.type == wordType.adjective.rawValue {
-//            temp = ""
-//        }else if prevWord.type == wordType.pronoun.rawValue {
-//            temp = "am the"
-//        }else if prevWord.type == wordType.modal.rawValue {
-//            temp = "the"
-//        }
-//        return temp
-//    }
 }
-

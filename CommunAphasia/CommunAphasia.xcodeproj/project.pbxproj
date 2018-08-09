@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194F035C211C0CD900782AD3 /* fast.png in Resources */ = {isa = PBXBuildFile; fileRef = 194F0354211C0CD800782AD3 /* fast.png */; };
+		194F035D211C0CD900782AD3 /* waiting.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 194F035B211C0CD900782AD3 /* waiting.jpg */; };
 		44856EE920BBD0600035C01A /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE020BBD0600035C01A /* sleep.png */; };
 		44856EEA20BBD0600035C01A /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE720BBD0600035C01A /* call.png */; };
 		44856EEB20BBD0600035C01A /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE820BBD0600035C01A /* eat.png */; };
@@ -142,6 +144,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		194F0354211C0CD800782AD3 /* fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fast.png; sourceTree = "<group>"; };
+		194F035B211C0CD900782AD3 /* waiting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waiting.jpg; sourceTree = "<group>"; };
 		44856EE020BBD0600035C01A /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
 		44856EE720BBD0600035C01A /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		44856EE820BBD0600035C01A /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 				44856EE020BBD0600035C01A /* sleep.png */,
 				EDFA3AEC20B8EF7600F6DBBD /* apple.png */,
 				EDFA3AEE20B8EF8C00F6DBBD /* car_sedan.png */,
+				194F0354211C0CD800782AD3 /* fast.png */,
+				194F035B211C0CD900782AD3 /* waiting.jpg */,
 				ED27976620B7C7C0001AF14C /* basketball.png */,
 				ED27976520B7C7C0001AF14C /* cat_silhouette.png */,
 				EDFA3AF020B8EF9400F6DBBD /* food_breakfast.png */,
@@ -575,6 +581,7 @@
 				EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
 				ED27977220B7C7C0001AF14C /* soda_can.png in Resources */,
 				44856EEB20BBD0600035C01A /* eat.png in Resources */,
+				194F035C211C0CD900782AD3 /* fast.png in Resources */,
 				ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */,
 				ED27976F20B7C7C0001AF14C /* tree_silhouette.png in Resources */,
 				44856EEA20BBD0600035C01A /* call.png in Resources */,
@@ -584,6 +591,7 @@
 				44856EFA20BBE8890035C01A /* blue.png in Resources */,
 				EDFA3AF120B8EF9500F6DBBD /* food_breakfast.png in Resources */,
 				EDEEBF7F2117CB6600D46B33 /* Assets.xcassets in Resources */,
+				194F035D211C0CD900782AD3 /* waiting.jpg in Resources */,
 				ED27977020B7C7C0001AF14C /* cat_silhouette.png in Resources */,
 				44856EFC20BBF90D0035C01A /* i.jpg in Resources */,
 				EDFA3AF320B8EF9900F6DBBD /* food_dinner.png in Resources */,

@@ -17,7 +17,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
    
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
-                        "calling","big","small","red","blue","i"]
+                        "calling","big","small","red","blue","i","fast","quickly","waiting"]
     //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()

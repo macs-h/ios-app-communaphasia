@@ -78,8 +78,12 @@ class Utility {
      *                      sentence into words.
      *  - Returns:  a 1D array of words.
      */
-    func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
-        return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
+    func getSentenceToWords(from inputString: String, separatedBy charSet: CharacterSet, removeSelectWords:Bool? = true) -> Array<String> {
+        if removeSelectWords! {
+            return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
+        } else {
+            return (inputString.components(separatedBy: charSet))
+        }
     }
     
     /**
@@ -136,7 +140,7 @@ class Utility {
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
-                suggestions = getSentenceToWords(cell[RELATIONSHIPS], .init(charactersIn: "+"))
+                suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"))
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
                 tense = cell[TENSE]
@@ -157,7 +161,7 @@ class Utility {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
-                              getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+")),
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
                               cell[GR_NUM],
                               cell[CATEGORY],
                               cell[TENSE]))
@@ -167,6 +171,34 @@ class Utility {
         }
         return cells
     }
+    
+    
+    // ----------------------------------------------------------------------------
+    // Lemmatization
+    // ----------------------------------------------------------------------------
+    
+    @available(iOS 11.0, *)
+    func lemmatize(_ word: String) -> String {
+        var returnString:String = ""
+        let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
+        tagger.string = word
+        
+        tagger.enumerateTags(in: NSMakeRange(0, word.utf16.count),
+                             unit: .word,
+                             scheme: .lemma,
+                             options: [.omitWhitespace, .omitPunctuation])
+        { (tag, tokenRange, stop) in
+            
+            if let lemma = tag?.rawValue {
+                returnString = lemma
+            } else {
+                returnString = word
+            }
+            
+        }
+        return returnString
+    }
+    
     
     
     // ----------------------------------------------------------------------------
@@ -269,6 +301,9 @@ class Utility {
         }
     }
     
+    
+    
+    
 }//end Utility class
 
 
@@ -279,4 +314,26 @@ extension NSMutableAttributedString {
         self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
     }
     
+}
+
+
+extension UIColor {
+    convenience init(hex: String) {
+        let scanner = Scanner(string: hex)
+        scanner.scanLocation = 0
+        
+        var rgbValue: UInt64 = 0
+        
+        scanner.scanHexInt64(&rgbValue)
+        
+        let r = (rgbValue & 0xff0000) >> 16
+        let g = (rgbValue & 0xff00) >> 8
+        let b = rgbValue & 0xff
+        
+        self.init(
+            red: CGFloat(r) / 0xff,
+            green: CGFloat(g) / 0xff,
+            blue: CGFloat(b) / 0xff, alpha: 1
+        )
+    }
 }

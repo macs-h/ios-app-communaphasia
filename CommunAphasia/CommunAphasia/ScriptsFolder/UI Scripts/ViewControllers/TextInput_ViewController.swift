@@ -30,9 +30,9 @@ class TextInput_ViewController: UIViewController {
             let tempCell = Utility.instance.getDatabaseEntry(word)
             if tempCell.type == "" {
                 errorArray.append(i)
-                print("> errorArray: \(errorArray)")
+                print("> errorArray: \(errorArray)\t\(tempCell.type)|")
             } else if errorArray.count == 0 {
-                print(Utility.instance.getSynonym(word))
+//                print(Utility.instance.getSynonym(word))
                 
                 cells.append(tempCell)
             }
@@ -53,22 +53,50 @@ class TextInput_ViewController: UIViewController {
     }
     
     /**
-     * Called when the `done` button is pressed.
-     *
-     *  - Parameter sender: the object which called this function.
+        Called when the `done` button is pressed.
+
+        - Parameter sender: the object which called this function.
      */
+    @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
             let wordArray = Utility.instance.getSentenceToWords(textField.text!, .whitespaces)
             let errorArray = makeCells(words: wordArray)
+            
             if errorArray.count > 0{
                 showErrors(wordArray, errorArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()
-            }else{
+            } else {
+                var inputString: String = textField.text!
+                var NSCount: Int = 0
+                
+                let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+                tagger.string = inputString
+                let range = NSRange(location: 0, length: inputString.utf16.count)
+                let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
+                tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, _ in
+                    if let tag = tag {
+                        let word = (inputString as NSString).substring(with: tokenRange)
+                        
+                        print("\(word): \(tag.rawValue)")
+                        
+                        if cells.count > 0 {
+                            print(">> NSCount:", NSCount)
+                            if word == cells[NSCount].word {
+                                cells[NSCount].type = tag.rawValue
+                                print(">\(cells[NSCount].type)")
+                                NSCount += 1
+                                
+                            }
+                        }
+                    }
+                    
+                }
+            
                 performSegue(withIdentifier: "TIToResult_segue", sender: self)
             }
-        
+            
         }
     }
 

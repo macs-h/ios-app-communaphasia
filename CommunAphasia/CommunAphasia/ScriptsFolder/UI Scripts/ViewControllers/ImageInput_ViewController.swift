@@ -90,7 +90,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             if button.tag == sender.tag{
                 //new tab to be selected
-                 button.imageView?.tintColor = Utility.instance.hexStringToUIColor(hex: "ffffff")
+                 button.imageView?.tintColor = UIColor(hex: "ffffff")
             }
         }
         

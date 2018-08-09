@@ -23,17 +23,17 @@ class TextInput_ViewController: UIViewController {
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
     @available(iOS 11.0, *)
-    func makeCells(words:[String])-> [Int]{
+    func makeCells(using words:[String], from original:[String])-> [Int]{
         var errorArray = [Int]()
         //var cells = [ImageTextResultViewCell]()
         var i = 0
         for word in words{
             print("\t\(Utility.instance.lemmatize(word))")
             let tempCell = Utility.instance.getDatabaseEntry(Utility.instance.lemmatize(word))
-            print("\(tempCell.type)")
+            print("\(tempCell)")
             if tempCell.type == "" {
-                errorArray.append(i)
-                print("> errorArray: \(errorArray)\t\(tempCell.type)|")
+                errorArray.append(original.index(of: tempCell.word)!)
+                print("> errorArray: \(errorArray)\t\(tempCell)|")
             } else if errorArray.count == 0 {
 //                print(Utility.instance.getSynonym(word))
                 
@@ -48,7 +48,7 @@ class TextInput_ViewController: UIViewController {
 
     
     func showErrors(_ wordArray: [String], _ errorArray: [Int], _ inputArray: [String]) {
-        attributedString = NSMutableAttributedString(string: inputArray.joined(separator: " "))
+        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
         for index in errorArray {
             attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
         }
@@ -67,8 +67,8 @@ class TextInput_ViewController: UIViewController {
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false)
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces)
-            let errorArray = makeCells(words: wordArray)
-            
+            let errorArray = makeCells(using: wordArray, from: inputArray)
+                
             if errorArray.count > 0{
 //                showErrors(wordArray, errorArray)
                 showErrors(inputArray, errorArray, inputArray)

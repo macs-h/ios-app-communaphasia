@@ -77,8 +77,12 @@ class Utility {
      *                      sentence into words.
      *  - Returns:  a 1D array of words.
      */
-    func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
-        return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
+    func getSentenceToWords(from inputString: String, separatedBy charSet: CharacterSet, removeSelectWords:Bool? = true) -> Array<String> {
+        if removeSelectWords! {
+            return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
+        } else {
+            return (inputString.components(separatedBy: charSet))
+        }
     }
     
     /**
@@ -134,7 +138,7 @@ class Utility {
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
-                suggestions = getSentenceToWords(cell[RELATIONSHIPS], .init(charactersIn: "+"))
+                suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"))
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
             }
@@ -178,7 +182,7 @@ class Utility {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
-                              getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+")),
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
                               cell[GR_NUM],
                               cell[CATEGORY]))
             }
@@ -204,11 +208,13 @@ class Utility {
                              scheme: .lemma,
                              options: [.omitWhitespace, .omitPunctuation])
         { (tag, tokenRange, stop) in
+            
             if let lemma = tag?.rawValue {
                 returnString = lemma
             } else {
                 returnString = word
             }
+            
         }
         return returnString
     }

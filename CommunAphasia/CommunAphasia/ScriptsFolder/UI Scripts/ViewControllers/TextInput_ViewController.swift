@@ -28,7 +28,9 @@ class TextInput_ViewController: UIViewController {
         //var cells = [ImageTextResultViewCell]()
         var i = 0
         for word in words{
+            print("\t\(Utility.instance.lemmatize(word))")
             let tempCell = Utility.instance.getDatabaseEntry(Utility.instance.lemmatize(word))
+            print("\(tempCell.type)")
             if tempCell.type == "" {
                 errorArray.append(i)
                 print("> errorArray: \(errorArray)\t\(tempCell.type)|")
@@ -44,14 +46,16 @@ class TextInput_ViewController: UIViewController {
         return errorArray
     }
 
-    func showErrors(_ wordArray: [String], _ errorArray: [Int]) {
-        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
+    
+    func showErrors(_ wordArray: [String], _ errorArray: [Int], _ inputArray: [String]) {
+        attributedString = NSMutableAttributedString(string: inputArray.joined(separator: " "))
         for index in errorArray {
             attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
         }
         print(">> attributedString:", attributedString!)
         
     }
+    
     
     /**
         Called when the `done` button is pressed.
@@ -61,11 +65,13 @@ class TextInput_ViewController: UIViewController {
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
-            let wordArray = Utility.instance.getSentenceToWords(textField.text!, .whitespaces)
+            let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false)
+            let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces)
             let errorArray = makeCells(words: wordArray)
             
             if errorArray.count > 0{
-                showErrors(wordArray, errorArray)
+//                showErrors(wordArray, errorArray)
+                showErrors(inputArray, errorArray, inputArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()
             } else {

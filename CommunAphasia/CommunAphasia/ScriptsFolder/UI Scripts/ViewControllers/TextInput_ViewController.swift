@@ -37,6 +37,7 @@ class TextInput_ViewController: UIViewController {
                 print("> errorArray: \(errorArray)\t\(tempCell)|")
                 print("SYN:", Utility.instance.getSynonym(lemWord))
             } else if errorArray.count == 0 {
+//                print(Utility.instance.getSynonym(word))
                 
                 cells.append(tempCell)
             }
@@ -63,6 +64,7 @@ class TextInput_ViewController: UIViewController {
      *
      *  - Parameter sender: the object which called this function.
      */
+    @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false)

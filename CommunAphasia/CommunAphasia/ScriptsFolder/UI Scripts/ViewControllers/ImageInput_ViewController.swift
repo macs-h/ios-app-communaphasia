@@ -23,8 +23,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     var selectedCells = [ImageCell]()
     //---need to create a temp tuple to store remove cell data??
     
-    //let selectCellImages: [UIImage] = [UIImage(named: "placeholder")!,]
     
+    //category UI Things
+    @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
+    let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab"]
+    var currentCategoyIndex = 0
+    private var cellsInCategory: [(String, String, UIImage, [String], String, String)]! //temp storage to be used by collection view cells
+    let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +37,15 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         InputCollectionView.delegate = self
         selectedCollectionView.dataSource = self
         selectedCollectionView.delegate = self
-
+        
+        
+        //colours tabs
+        for button in tabButtons{
+            button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
+        }
+        ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
     }
 
@@ -66,6 +79,24 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
         }
     }
+    
+    @IBAction func ChangeCategory(_ sender: UIButton){
+        for button in tabButtons{
+            if button.tag == currentCategoyIndex{
+                //changes the old tab back to normal
+                //button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
+            }
+            if button.tag == sender.tag{
+                //new tab to be selected
+                 button.imageView?.tintColor = Utility.instance.hexStringToUIColor(hex: "ffffff")
+            }
+        }
+        //cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        currentCategoyIndex = sender.tag
+    }
+    
     
     
     //-------collection view stuff---------//

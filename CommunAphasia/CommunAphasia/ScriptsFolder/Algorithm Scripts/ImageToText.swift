@@ -58,9 +58,9 @@ class ImageToText {
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic)
                     returnString.append(temp)
-                    returnString.append((prevPic.type == wordType.modal.rawValue) ? String(thisPic.word.dropLast(3)) : thisPic.word)
-                }else if thisPic.type == wordType.modal.rawValue {
-                    returnString.append(thisPic.word)
+                    returnString.append((prevPic.type == wordType.modal.rawValue) ? thisPic.word : thisPic.tense)
+//                    returnString.append((prevPic.type == wordType.modal.rawValue) ? String(thisPic.word.dropLast(3)) : thisPic.tense)
+
                 }else{
                     returnString.append(thisPic.word)
                 }

@@ -177,28 +177,6 @@ class Utility {
     // Lemmatization
     // ----------------------------------------------------------------------------
     
-//    @available(iOS 11.0, *)
-//    func lemmatize(_ word: String) -> String {
-//        var returnString:String = ""
-//        let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
-//        tagger.string = word
-//        
-//        tagger.enumerateTags(in: NSMakeRange(0, word.utf16.count),
-//                             unit: .word,
-//                             scheme: .lemma,
-//                             options: [.omitWhitespace, .omitPunctuation])
-//        { (tag, tokenRange, stop) in
-//            
-//            if let lemma = tag?.rawValue {
-//                returnString = lemma
-//            } else {
-//                returnString = word
-//            }
-//            
-//        }
-//        return returnString
-//    }
-    
     
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {

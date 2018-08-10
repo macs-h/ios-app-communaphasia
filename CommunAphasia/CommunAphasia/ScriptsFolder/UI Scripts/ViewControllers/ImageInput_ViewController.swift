@@ -205,11 +205,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @IBAction func deleteSelectedCell(_ sender: Any) {
-        
-        let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
-        selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
-        selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
-        selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
+        if selectedCells.count > 0 {
+            let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
+            selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
+            selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
+            selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
+        }
     }
 }
 

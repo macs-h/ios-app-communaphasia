@@ -413,7 +413,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbb-iT-gaE" userLabel="PastButton">
-                                        <rect key="frame" x="40" y="40" width="78" height="79"/>
+                                        <rect key="frame" x="40" y="40" width="78" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="PastButtonPressed:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="gfl-eL-pEV"/>
@@ -429,14 +429,14 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csn-Vx-zrH" userLabel="PresentButton">
-                                        <rect key="frame" x="196" y="40" width="78" height="79"/>
+                                        <rect key="frame" x="196" y="40" width="78" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="PresentButtonPressed:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="Msy-9b-cRW"/>
                                             <action selector="selectSingle:" destination="Con-qa-cZR" eventType="touchUpInside" id="b80-f9-sja"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pastTense" translatesAutoresizingMaskIntoConstraints="NO" id="ws2-CX-Ao9" userLabel="presentTense">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="presentTense" translatesAutoresizingMaskIntoConstraints="NO" id="ws2-CX-Ao9" userLabel="presentTense">
                                         <rect key="frame" x="220" y="121" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -445,14 +445,14 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-h9-FT6" userLabel="FutureButton">
-                                        <rect key="frame" x="351" y="40" width="78" height="79"/>
+                                        <rect key="frame" x="351" y="40" width="78" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="FutureButtonPressed:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="eQC-MX-idI"/>
                                             <action selector="selectSingle:" destination="Con-qa-cZR" eventType="touchUpInside" id="TVt-LS-JrN"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pastTense" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-VI-UdT" userLabel="futureTense">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="futureTense" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-VI-UdT" userLabel="futureTense">
                                         <rect key="frame" x="375" y="121" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -705,8 +705,10 @@
         <image name="Logo" width="699" height="309"/>
         <image name="Pic selection background" width="920" height="539"/>
         <image name="Text to image arrow" width="475" height="259"/>
+        <image name="futureTense" width="512" height="512"/>
         <image name="image placeholder.png" width="150" height="150"/>
         <image name="pastTense" width="512" height="512"/>
+        <image name="presentTense" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gQP-Iw-auM"/>

@@ -21,7 +21,7 @@ soda,soda_can,noun,drink,r,food,t
 tree,tree_silhouette,noun,nature,r,animals,t
 woman,woman_silhouette,noun,people,women,objects,t
 car,car_sedan,noun,travel,r,travel,t
-fast,fast,adj,faster+fastest,r,speed,t
-quickly,fast,adverb,quick,r,speed,t
+fast,fast,adj,faster+fastest,r,other,t
+quickly,fast,adverb,quick,r,other,t
 wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
 want,want,modal,stuff,r,other,t

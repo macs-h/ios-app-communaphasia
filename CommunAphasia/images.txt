@@ -10,7 +10,7 @@ deer,deer_silhouette,noun,hunting,deer,animals,t
 dinner,food_dinner,noun,food,r,food,t
 eat,eat,verb,nil,r,activity,ate+eating+will eat
 fish,fish,noun,water,fish,animals,t
-i,i.jpg,pronoun,me,we,objects,t
+I,i.jpg,pronoun,me,we,objects,t
 lunch,food_lunch,noun,food,lunches,food,t
 man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t

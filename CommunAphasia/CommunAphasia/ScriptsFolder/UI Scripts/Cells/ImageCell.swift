@@ -18,6 +18,7 @@ class ImageCell: UICollectionViewCell {
     var suggestedWords = [String]()
     var grNum: String = gNum.singlular.rawValue
     var category: String = "Other"
+    var tense: String = "current"
     /// Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
     
@@ -32,13 +33,14 @@ class ImageCell: UICollectionViewCell {
      *      - image:        the image to be displayed in the cell.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)) {
+    func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)) {
         self.word = cell.word
         self.type = cell.type
         self.imageView.image = cell.image
         self.suggestedWords = cell.suggestions
         self.grNum = cell.grNum
         self.category = cell.category
+        self.tense = cell.tense
         
         //---colouring boarders---//
         /*if type == "noun"{
@@ -60,8 +62,8 @@ class ImageCell: UICollectionViewCell {
      *      - image:        the image to be displayed in the cell.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String) {
-        return (self.word, self.type, self.imageView.image!, self.suggestedWords, self.grNum, self.category)
+    func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String) {
+        return (self.word, self.type, self.imageView.image!, self.suggestedWords, self.grNum, self.category, self.tense)
     }
     
     func showPlural(){

@@ -384,6 +384,94 @@
             </objects>
             <point key="canvasLocation" x="-1047.3021582733813" y="122.30215827338131"/>
         </scene>
+        <!--Tense View Controller-->
+        <scene sceneID="ntY-PR-Ppj">
+            <objects>
+                <viewController storyboardIdentifier="tenseVC" id="CJH-kp-KQ3" customClass="Tense_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r9S-I9-dPk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bky-xO-fOA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TO1-ET-qdB">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4O-R0-u3J" userLabel="CloseButton">
+                                <rect key="frame" x="0.0" y="-9" width="1112" height="851"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="closePopup" destination="Con-qa-cZR" eventType="touchUpInside" id="4Za-1M-AFh"/>
+                                    <action selector="closePopup:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="v6D-iH-ufA"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Q6-1fD">
+                                <rect key="frame" x="321" y="338" width="470" height="159"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-x6-All" userLabel="PastView">
+                                        <rect key="frame" x="40" y="40" width="78" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbb-iT-gaE" userLabel="PastButton">
+                                        <rect key="frame" x="40" y="40" width="78" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="PastButtonPressed:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="gfl-eL-pEV"/>
+                                            <action selector="selectSingle:" destination="Con-qa-cZR" eventType="touchUpInside" id="kaC-Vs-Mu9"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pastTense" translatesAutoresizingMaskIntoConstraints="NO" id="sPV-1G-cXp">
+                                        <rect key="frame" x="64" y="121" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-BQ-GXt" userLabel="PresentView">
+                                        <rect key="frame" x="196" y="40" width="78" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csn-Vx-zrH" userLabel="PresentButton">
+                                        <rect key="frame" x="196" y="40" width="78" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="PresentButtonPressed:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="Msy-9b-cRW"/>
+                                            <action selector="selectSingle:" destination="Con-qa-cZR" eventType="touchUpInside" id="b80-f9-sja"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pastTense" translatesAutoresizingMaskIntoConstraints="NO" id="ws2-CX-Ao9" userLabel="presentTense">
+                                        <rect key="frame" x="220" y="121" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tG-CZ-VYn" userLabel="FutureView">
+                                        <rect key="frame" x="351" y="40" width="78" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-h9-FT6" userLabel="FutureButton">
+                                        <rect key="frame" x="351" y="40" width="78" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="FutureButtonPressed:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="eQC-MX-idI"/>
+                                            <action selector="selectSingle:" destination="Con-qa-cZR" eventType="touchUpInside" id="TVt-LS-JrN"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pastTense" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-VI-UdT" userLabel="futureTense">
+                                        <rect key="frame" x="375" y="121" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="FutureImageView" destination="4tG-CZ-VYn" id="anY-W5-1pr"/>
+                        <outlet property="PastImageView" destination="Bw8-x6-All" id="4LY-XM-gnV"/>
+                        <outlet property="PresentImageView" destination="h3V-BQ-GXt" id="WFT-c2-dbd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEG-9j-Pki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1406.1151079136691" y="1112.9496402877699"/>
+        </scene>
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
             <objects>
@@ -618,9 +706,9 @@
         <image name="Pic selection background" width="920" height="539"/>
         <image name="Text to image arrow" width="475" height="259"/>
         <image name="image placeholder.png" width="150" height="150"/>
+        <image name="pastTense" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9fL-cx-gPa"/>
         <segue reference="gQP-Iw-auM"/>
         <segue reference="Tuv-aW-ka3"/>
         <segue reference="aWA-95-zEq"/>

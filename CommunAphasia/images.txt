@@ -3,19 +3,19 @@ basketball,basketball,noun,sport,r,activity,t
 big,big,adj,size,r,objects,t
 blue,blue,adj,water,r,objects,t
 breakfast,food_breakfast,noun,food,r,food,t
-call,call,verb,phone,r,activity,called+calling+will call
+call,call,verb,nil,r,activity,called+calling+will call
 cat,cat_silhouette,noun,cute,r,animals,t
 cow,cow,noun,farm,r,animals,t
 deer,deer_silhouette,noun,hunting,deer,animals,t
 dinner,food_dinner,noun,food,r,food,t
-eat,eat,verb,food,r,activity,ate+eating+will eat
+eat,eat,verb,nil,r,activity,ate+eating+will eat
 fish,fish,noun,water,fish,animals,t
-i,i.jpg,pronoun,me,we,objects,t
+I,i.jpg,pronoun,me,we,objects,t
 lunch,food_lunch,noun,food,lunches,food,t
 man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t
 red,red.jpeg,adj,blood,r,objects,t
-sleep,sleep,verb,bed,r,activity,slept+sleeping+will sleep
+sleep,sleep,verb,on,r,activity,slept+sleeping+will sleep
 small,small,adj,size,r,objects,t
 soda,soda_can,noun,drink,r,food,t
 tree,tree_silhouette,noun,nature,r,animals,t
@@ -24,4 +24,4 @@ car,car_sedan,noun,travel,r,travel,t
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
 wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
-want,want,modal,stuff,r,other,t
+want,want,modal,nil,r,other,t

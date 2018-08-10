@@ -202,8 +202,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
          singlePluralVC.singleImageView.image = cell.imageView.image
          singlePluralVC.pluralImageView.image = cell.imageView.image
          singlePluralVC.backPluralImageView.image = cell.imageView.image*/
-        
-        
     }
     
     @IBAction func deleteSelectedCell(_ sender: Any) {
@@ -212,10 +210,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
         selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
         selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
-        
     }
-    
-
 }
 
 extension ImageInput_ViewController : SinglePluralDelegate{

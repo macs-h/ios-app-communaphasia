@@ -74,4 +74,30 @@ class ImageCell: UICollectionViewCell {
         //frontImageView.frame.offsetBy(dx: 3, dy: 3)
         //imageView.frame = CGRect(x: imageView.frame.x, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
     }
+    
+    func showTense(tenseType: String) -> UIImage{
+        let image = imageView.image
+        var tenseImage = UIImage(named: "imagePlaceholder.png")
+        if tenseType == "past" {
+            tenseImage = UIImage(named: "pastTense.png")!
+        }else if tenseType == "present" {
+            tenseImage = UIImage(named: "presentTense.png")!
+        }else if tenseType == "future"{
+            tenseImage = UIImage(named: "futureTense.png")!
+        }
+        let size = CGSize(width: (image?.size.width)!, height: (image?.size.height)!)
+        UIGraphicsBeginImageContext(size)
+        //for tense superimposed on image
+        //        let finalSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        //        let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
+        //for tense sitting below image
+        let finalSize = CGRect(x: (size.width - (size.width*0.6))/2, y: 0, width: size.width*0.6, height: size.height*0.6)
+        let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
+        
+        image!.draw(in: finalSize, blendMode: CGBlendMode.normal, alpha: 1)
+        tenseImage?.draw(in: tenseSize, blendMode: CGBlendMode.normal, alpha: 1)
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
 }

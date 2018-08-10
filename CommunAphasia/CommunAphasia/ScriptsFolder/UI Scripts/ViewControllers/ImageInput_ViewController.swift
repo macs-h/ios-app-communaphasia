@@ -232,7 +232,7 @@ extension ImageInput_ViewController : SinglePluralDelegate{
             newCell.grNum = "plural"
         }
         if grNum == "plural"{
-            newCell.showPlural()
+            //newCell.showPlural()
         }
         selectedCells.append(newCell)
         
@@ -248,33 +248,10 @@ extension ImageInput_ViewController : TenseDelegate{
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
         selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
         
-        let image = cell.imageView.image
-        var tenseImage = UIImage(named: "imagePlaceholder.png")
-        if tenseType == "past" {
-            tenseImage = UIImage(named: "pastTense.png")!
-        }else if tenseType == "present" {
-            tenseImage = UIImage(named: "presentTense.png")!
-        }else if tenseType == "future"{
-            tenseImage = UIImage(named: "futureTense.png")!
-        }
-        let size = CGSize(width: (image?.size.width)!, height: (image?.size.height)!)
-        UIGraphicsBeginImageContext(size)
-        //for tense superimposed on image
-        //let finalSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        //let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
-        //for tense sitting below image
-        let finalSize = CGRect(x: (size.width - (size.width*0.6))/2, y: 0, width: size.width*0.6, height: size.height*0.6)
-        let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
-        
-        image!.draw(in: finalSize)
-        tenseImage?.draw(in: tenseSize, blendMode: CGBlendMode.normal, alpha: 0.8)
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
         newCell.addData(cell: cell.extractData())
         newCell.tense = tense
-        newCell.imageView.image = newImage
+        newCell.imageView.image = cell.showTense(tenseType: tenseType)
         selectedCells.append(newCell)
     }
 }

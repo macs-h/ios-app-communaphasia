@@ -177,26 +177,46 @@ class Utility {
     // Lemmatization
     // ----------------------------------------------------------------------------
     
+//    @available(iOS 11.0, *)
+//    func lemmatize(_ word: String) -> String {
+//        var returnString:String = ""
+//        let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
+//        tagger.string = word
+//        
+//        tagger.enumerateTags(in: NSMakeRange(0, word.utf16.count),
+//                             unit: .word,
+//                             scheme: .lemma,
+//                             options: [.omitWhitespace, .omitPunctuation])
+//        { (tag, tokenRange, stop) in
+//            
+//            if let lemma = tag?.rawValue {
+//                returnString = lemma
+//            } else {
+//                returnString = word
+//            }
+//            
+//        }
+//        return returnString
+//    }
+    
+    
     @available(iOS 11.0, *)
-    func lemmatize(_ word: String) -> String {
-        var returnString:String = ""
+    func lemmaTag(inputString: String) -> [String] {
+        var returnArray:[String] = []
         let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
-        tagger.string = word
-        
-        tagger.enumerateTags(in: NSMakeRange(0, word.utf16.count),
+        tagger.string = inputString
+        tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
                              unit: .word,
                              scheme: .lemma,
-                             options: [.omitWhitespace, .omitPunctuation])
-        { (tag, tokenRange, stop) in
-            
-            if let lemma = tag?.rawValue {
-                returnString = lemma
-            } else {
-                returnString = word
+                             options: [.omitPunctuation, .omitWhitespace])
+        { tag, tokenRange, _ in
+            if let tag = tag {
+                let word = (inputString as NSString).substring(with: tokenRange)
+                returnArray.append(tag.rawValue)
+                print("\(word): \(tag.rawValue)")
             }
-            
         }
-        return returnString
+        return returnArray
     }
     
     

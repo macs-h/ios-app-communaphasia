@@ -25,20 +25,20 @@ class TextInput_ViewController: UIViewController {
     @available(iOS 11.0, *)
     func makeCells(using words:[String], from original:[String])-> [Int]{
         var errorArray = [Int]()
-        //var cells = [ImageTextResultViewCell]()
+        let originalLemmaTagged = Utility.instance.lemmaTag(inputString: original.joined(separator: " "))
         var i = 0
         for word in words{
-            print("\t\(Utility.instance.lemmatize(word))")
-            let tempCell = Utility.instance.getDatabaseEntry(Utility.instance.lemmatize(word))
-//            print("\(tempCell)")
+            let tempCell = Utility.instance.getDatabaseEntry(
+                originalLemmaTagged[ original.index(of: word)! ]
+            )
+            
+//            print(">>> \(tempCell.word)")
             if tempCell.type == "" {
-                let lemWord = Utility.instance.lemmatize(word)
+                let lemWord = Utility.instance.lemmaTag(inputString: word).joined(separator: " ")
                 errorArray.append(original.index(of: word)!)
                 print("> errorArray: \(errorArray)\t\(tempCell)|")
                 print("SYN:", Utility.instance.getSynonym(lemWord))
             } else if errorArray.count == 0 {
-//                print(Utility.instance.getSynonym(word))
-                
                 cells.append(tempCell)
             }
             // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
@@ -93,7 +93,7 @@ class TextInput_ViewController: UIViewController {
                         print("\(word): \(tag.rawValue)")
                         
                         if cells.count > 0 {
-                            print(">> NSCount:", NSCount)
+//                            print(">> NSCount:", NSCount)
                             if word == cells[NSCount].word {
                                 cells[NSCount].type = tag.rawValue
                                 print(">\(cells[NSCount].type)")

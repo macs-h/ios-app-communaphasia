@@ -67,15 +67,23 @@ class ImageCell: UICollectionViewCell {
     }
     
     func showPlural(){
-        let image = UIImage(named: "cow.png")
-        let frontImageView = UIImageView(image: image)
-        self.contentView.addSubview(imageView)
-        frontImageView.frame = imageView.frame
-        //frontImageView.frame.offsetBy(dx: 3, dy: 3)
-        //imageView.frame = CGRect(x: imageView.frame.x, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+        let image = imageView.image
+        let size = CGSize(width: (image?.size.width)!, height: (image?.size.height)!)
+        UIGraphicsBeginImageContext(size)
+        
+        let backSize = CGRect(x: 0, y: 0, width: (image?.size.width)!-200, height: (image?.size.height)!-200)
+        let frontSize = CGRect(x: 160, y: 160, width: (image?.size.width)!-200, height: (image?.size.height)!-200)
+        
+        image?.draw(in: backSize)
+        image?.draw(in: frontSize)
+        
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        imageView.image = newImage
+        
     }
     
-    func showTense(tenseType: String) -> UIImage{
+    func showTense(tenseType: String){
         let image = imageView.image
         var tenseImage = UIImage(named: "imagePlaceholder.png")
         if tenseType == "past" {
@@ -88,8 +96,9 @@ class ImageCell: UICollectionViewCell {
         let size = CGSize(width: (image?.size.width)!, height: (image?.size.height)!)
         UIGraphicsBeginImageContext(size)
         //for tense superimposed on image
-        //        let finalSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        //        let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
+        //let finalSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        //let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
+        
         //for tense sitting below image
         let finalSize = CGRect(x: (size.width - (size.width*0.6))/2, y: 0, width: size.width*0.6, height: size.height*0.6)
         let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
@@ -98,6 +107,6 @@ class ImageCell: UICollectionViewCell {
         tenseImage?.draw(in: tenseSize, blendMode: CGBlendMode.normal, alpha: 1)
         let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        return newImage
+        imageView.image = newImage
     }
 }

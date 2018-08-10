@@ -19,7 +19,7 @@ class TextInput_ViewController: UIViewController {
     var attributedString: NSMutableAttributedString?
     
     
-    var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
+    var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
     @available(iOS 11.0, *)

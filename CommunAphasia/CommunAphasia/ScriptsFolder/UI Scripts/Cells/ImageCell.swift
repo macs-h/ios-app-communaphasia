@@ -21,6 +21,11 @@ class ImageCell: UICollectionViewCell {
     var tense: String = "current"
     /// Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
+    let colourDict: [String: CGColor] = ["noun":UIColor.red.cgColor,
+                                         "adj":UIColor.green.cgColor,
+                                         "verb":UIColor.blue.cgColor,
+                                         "pronoun":UIColor.orange.cgColor,
+                                         "adverb":UIColor.purple.cgColor]
     
     
     
@@ -41,6 +46,7 @@ class ImageCell: UICollectionViewCell {
         self.grNum = cell.grNum
         self.category = cell.category
         self.tense = cell.tense
+        showType()
         
         //---colouring boarders---//
         /*if type == "noun"{
@@ -67,11 +73,60 @@ class ImageCell: UICollectionViewCell {
     }
     
     func showPlural(){
-        let image = UIImage(named: "cow.png")
-        let frontImageView = UIImageView(image: image)
-        self.contentView.addSubview(imageView)
-        frontImageView.frame = imageView.frame
-        //frontImageView.frame.offsetBy(dx: 3, dy: 3)
-        //imageView.frame = CGRect(x: imageView.frame.x, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+        let image = imageView.image
+        let size = CGSize(width: imageView.frame.width, height: imageView.frame.height)
+        UIGraphicsBeginImageContext(size)
+        let space: CGFloat = 15
+        let backSize = CGRect(x: 0, y: 0, width: imageView.frame.width-space, height: imageView.frame.height-space)
+        let frontSize = CGRect(x: space, y: space, width: imageView.frame.width-space, height: imageView.frame.height-space)
+        //if i decide to try and aspect fit plural images
+        //https://stackoverflow.com/questions/43094186/uiimage-aspect-fill-when-using-drawinrect
+        image?.draw(in: backSize, blendMode: CGBlendMode.normal, alpha: 0.7)
+        image?.draw(in: frontSize)
+        
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        imageView.image = newImage
+        
+    }
+    
+    func showTense(tenseType: String){
+        let image = imageView.image
+        var tenseImage = UIImage(named: "imagePlaceholder.png")
+        if tenseType == "past" {
+            tenseImage = UIImage(named: "pastTense.png")!
+        }else if tenseType == "present" {
+            tenseImage = UIImage(named: "presentTense.png")!
+        }else if tenseType == "future"{
+            tenseImage = UIImage(named: "futureTense.png")!
+        }
+        let size = CGSize(width: imageView.frame.width, height: imageView.frame.height)
+        UIGraphicsBeginImageContext(size)
+        //for tense superimposed on image
+        //let finalSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        //let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
+        
+        //for tense sitting below image
+        let finalSize = CGRect(x: (size.width - (size.width*0.6))/2, y: 0, width: size.width*0.6, height: size.height*0.6)
+        let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
+        
+        image!.draw(in: finalSize, blendMode: CGBlendMode.normal, alpha: 1)
+        tenseImage?.draw(in: tenseSize, blendMode: CGBlendMode.normal, alpha: 1)
+        
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        imageView.image = newImage
+    }
+    func showType(){
+        let borderWidth: CGFloat = 5
+        imageView.layer.borderWidth = borderWidth
+        imageView.layer.borderColor = colourDict[type]
+        let image = imageView.image
+        let size = CGSize(width: imageView.frame.width, height: imageView.frame.height)
+        UIGraphicsBeginImageContext(size)
+        image?.draw(in: CGRect(x: borderWidth, y: borderWidth, width: size.width-(borderWidth*2), height: size.height-(borderWidth*2)))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        imageView.image = newImage
     }
 }

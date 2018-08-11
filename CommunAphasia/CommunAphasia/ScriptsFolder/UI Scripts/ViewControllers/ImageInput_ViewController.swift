@@ -202,20 +202,16 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
          singlePluralVC.singleImageView.image = cell.imageView.image
          singlePluralVC.pluralImageView.image = cell.imageView.image
          singlePluralVC.backPluralImageView.image = cell.imageView.image*/
-        
-        
     }
     
     @IBAction func deleteSelectedCell(_ sender: Any) {
-        
-        let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
-        selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
-        selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
-        selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
-        
+        if selectedCells.count > 0 {
+            let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
+            selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
+            selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
+            selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
+        }
     }
-    
-
 }
 
 extension ImageInput_ViewController : SinglePluralDelegate{
@@ -243,13 +239,15 @@ extension ImageInput_ViewController : SinglePluralDelegate{
 }
 extension ImageInput_ViewController : TenseDelegate{
     
-    func selectedTense(cell: ImageCell, tense: String, indexPath: IndexPath){
+    func selectedTense(cell: ImageCell, tense: String, tenseType: String, indexPath: IndexPath){
         selectedWords.append(cell.word)
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
         selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+        
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
         newCell.addData(cell: cell.extractData())
         newCell.tense = tense
+        newCell.showTense(tenseType: tenseType)
         selectedCells.append(newCell)
     }
 }

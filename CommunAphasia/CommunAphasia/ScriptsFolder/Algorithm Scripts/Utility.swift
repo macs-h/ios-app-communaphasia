@@ -267,7 +267,9 @@ class Utility {
                                  delegateQueue: nil)
         let task = session.dataTask(with: request as URLRequest)
         task.resume()
-        sleep(2)
+        while (delegateObj.synonyms.isEmpty) {
+            usleep(20 * 1000)  // sleep for 20 milliseconds
+        }
         return delegateObj.synonyms
     }
     

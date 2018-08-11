@@ -28,16 +28,13 @@ class TextInput_ViewController: UIViewController {
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: original.joined(separator: " "))
         var i = 0
         for word in words{
-            let tempCell = Utility.instance.getDatabaseEntry(
-                originalLemmaTagged[ original.index(of: word)! ]
-            )
+            let lemmaWord = originalLemmaTagged[ original.index(of: word)! ]
+            let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
             
-//            print(">>> \(tempCell.word)")
             if tempCell.type == "" {
-                let lemWord = Utility.instance.lemmaTag(inputString: word).joined(separator: " ")
                 errorArray.append(original.index(of: word)!)
-                print("> errorArray: \(errorArray)\t\(tempCell)|")
-                print("SYN:", Utility.instance.getSynonym(lemWord))
+                // prints the array of synonyms for the (lemmatized) word.
+                print("SYN:", Utility.instance.getSynonym(lemmaWord))
             } else if errorArray.count == 0 {
                 cells.append(tempCell)
             }

@@ -203,16 +203,19 @@ class Utility {
     // API for synonyms via WordsAPI
     // ----------------------------------------------------------------------------
     private class MyDelegate: NSObject, URLSessionDataDelegate {
+        fileprivate var synonyms: [String] = []
         fileprivate func urlSession(_ session: URLSession,
                                         dataTask: URLSessionDataTask,
                                         didReceive data: Data) {
-            if let dataStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
-                print(dataStr)
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let dictionary = json as? [String: Any],
+                let syn = dictionary["synonyms"] {
+                self.synonyms = ((syn as! NSArray).componentsJoined(by: ",")).components(separatedBy: ",")
             }
         }
     }
     
-    func getSynonym(_ word: String) {
+    func getSynonym(_ word: String) -> [String] {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
         let url = NSURL(string: baseUrl + word + "/" + type)
@@ -228,6 +231,7 @@ class Utility {
         let task = session.dataTask(with: request as URLRequest)
         task.resume()
         sleep(2)
+        return delegateObj.synonyms
     }
     
     

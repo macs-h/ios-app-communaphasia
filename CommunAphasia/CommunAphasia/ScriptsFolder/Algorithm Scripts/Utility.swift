@@ -151,6 +151,27 @@ class Utility {
         }
         return (word, word_type, image, suggestions, grNum, category, tense)
     }
+    
+    func checkWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]{
+        //let lowerWords = words.map {$0.lowercased()}
+        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
+        
+        do{
+            for cell in try database.prepare(querry){
+                cells.append((cell[KEYWORD],
+                              cell[TYPE],
+                              UIImage(named: cell[self.IMAGE_LINK])!,
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
+                              cell[GR_NUM],
+                              cell[CATEGORY],
+                              cell[TENSE]))
+            }
+        } catch {
+            print(error)
+        }
+        return cells
+    }
 
     
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {

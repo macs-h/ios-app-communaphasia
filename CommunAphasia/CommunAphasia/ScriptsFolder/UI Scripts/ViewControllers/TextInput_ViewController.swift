@@ -29,15 +29,14 @@ class TextInput_ViewController: UIViewController {
         var i = 0
         for word in words{
             print("\t\(Utility.instance.lemmatize(word))")
-            let tempCell = Utility.instance.getDatabaseEntry(Utility.instance.lemmatize(word))
-//            print("\(tempCell)")
-            if tempCell.type == "" {
+            
+            if Utility.instance.isInDatabase(word: Utility.instance.lemmatize(word)) == false{
                 let lemWord = Utility.instance.lemmatize(word)
+                
                 errorArray.append(original.index(of: word)!)
-                print("> errorArray: \(errorArray)\t\(tempCell)|")
                 print("SYN:", Utility.instance.getSynonym(lemWord))
             } else if errorArray.count == 0 {
-//                print(Utility.instance.getSynonym(word))
+                let tempCell = Utility.instance.getDatabaseEntry(Utility.instance.lemmatize(word))
                 
                 cells.append(tempCell)
             }

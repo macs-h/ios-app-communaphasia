@@ -28,16 +28,19 @@ class TextInput_ViewController: UIViewController {
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: original.joined(separator: " "))
         var i = 0
         for word in words{
+//            print(originalLemmaTagged)
             let lemmaWord = originalLemmaTagged[ original.index(of: word)! ]
-            let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
+//            let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
             
-            if tempCell.type == "" {
+      
+            if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
-                // prints the array of synonyms for the (lemmatized) word.
                 print("SYN:", Utility.instance.getSynonym(lemmaWord))
             } else if errorArray.count == 0 {
+                let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                 cells.append(tempCell)
             }
+            
             // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
             
             i += 1

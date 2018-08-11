@@ -152,7 +152,7 @@ class Utility {
         return (word, word_type, image, suggestions, grNum, category, tense)
     }
     
-    func checkWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]{
+    func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]{
         //let lowerWords = words.map {$0.lowercased()}
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
         let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
@@ -173,6 +173,17 @@ class Utility {
         return cells
     }
 
+    func isInDatabase(word: String) -> Bool {
+        do{
+            let count = try database.scalar(CELL_TABLE.filter(KEYWORD.like(word)).count)
+            if count > 0 {
+                return true
+            }
+        }catch{
+            print(error)
+        }
+        return false
+    }
     
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
@@ -202,6 +213,7 @@ class Utility {
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
         var returnArray:[String] = []
+        var count: Int = 0
         let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
         tagger.string = inputString
         tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
@@ -213,6 +225,10 @@ class Utility {
                 let word = (inputString as NSString).substring(with: tokenRange)
                 returnArray.append(tag.rawValue)
                 print("\(word): \(tag.rawValue)")
+                count += 1
+            } else {
+                returnArray.append((inputString.components(separatedBy: " "))[count])
+                count += 1
             }
         }
         return returnArray

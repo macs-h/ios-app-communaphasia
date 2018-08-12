@@ -8,6 +8,9 @@
 import UIKit
 import Foundation
 
+var haveSubject: Bool = false
+var subVerb: Bool = false
+
 class ImageToText {
     static let instance = ImageToText()
     var cell: ImageCell?
@@ -26,9 +29,13 @@ class ImageToText {
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
                     returnString.append("The")          // index 0
+                    haveSubject = true
                     if pics[0].type == wordType.noun.rawValue {
                         returnString.append((pics[0].grNum != "singular") ? pluralize(pic: pics[0]) : pics[0].word)   // index 1
                     }
+                } else if pics[0].type == wordType.pronoun.rawValue {
+                    haveSubject = true
+                    returnString.append(pics[0].word)
                 } else {
                     returnString.append(pics[0].word)
                 }
@@ -42,37 +49,37 @@ class ImageToText {
                     returnString.append(temp)
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
-                    returnString.append(thisPic.suggestedWords[0])
+                    if haveSubject == true {
+                        returnString.append(thisPic.suggestedWords[0])
+                    }
+                }else if thisPic.type == wordType.modal.rawValue {
+                    temp = isModal(prevWord: prevPic)
+                    returnString.append(temp)
+                    returnString.append(thisPic.word)
+                }else if thisPic.type == wordType.adverb.rawValue {
+                    temp = isAdverb(prevWord: prevPic)
+                    returnString.append(temp)
+                    returnString.append(thisPic.word)
                 }else if thisPic.type == wordType.adjective.rawValue {
                     temp = isAdj(prevWord: prevPic)
                     returnString.append(temp)
                     returnString.append(thisPic.word)
-//                }else if thisPic.type == wordType.pronoun.rawValue {
-                    
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic)
                     returnString.append(temp)
-                    returnString.append((prevPic.type == wordType.modal.rawValue) ? String(thisPic.word.dropLast(3)) : thisPic.word)
-                }else if thisPic.type == wordType.modal.rawValue {
-                    returnString.append(thisPic.word)
+                    if prevPic.type == wordType.modal.rawValue {
+                        returnString.append(thisPic.word)
+                    } else if subVerb == true {
+                        returnString.append(thisPic.word)
+                    } else {
+                        returnString.append(thisPic.tense)
+                    }
+                    subVerb = true
+//                    returnString.append((prevPic.type == wordType.modal.rawValue || (haveSubject == false && subVerb == true)) ? thisPic.word :thisPic.tense)
+//                    subVerb = true
                 }else{
                     returnString.append(thisPic.word)
                 }
-                
-//                if thisPic.type == wordType.adjective.rawValue {
-//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
-//                    returnString.append(temp)           // index 2
-//                    returnString.append((thisPic.word))   // index 3
-//                } else if thisPic.type == wordType.noun.rawValue {
-//                    wordToAppend = (thisPic.grNum == gNum.singlular.rawValue) ? thisPic.word : thisPic.word + "s"
-//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
-//                    returnString.append(temp)           // index 3
-//                    returnString.append(wordToAppend)   // index 2
-//                } else if thisPic.type == wordType.verb.rawValue {
-//                    temp = (prevPic.grNum == gNum.singlular.rawValue) ? "is" : "are"
-//                    returnString.append(temp)           // index 3
-//                    returnString.append(thisPic.word)   // index 2
-//                }
             }
         }
         return returnString.joined(separator: " ")
@@ -90,7 +97,11 @@ class ImageToText {
     func isNoun(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
-            temp = "the"
+            if prevWord.suggestedWords[0] != "nil" {
+            temp = prevWord.suggestedWords[0] + " the"
+            } else {
+                temp = "the"
+            }
         }else if prevWord.type == wordType.noun.rawValue {
             temp = (prevWord.grNum == "singular") ? "is" : "are"
         }else if prevWord.type == wordType.adjective.rawValue {
@@ -99,13 +110,20 @@ class ImageToText {
             temp = "am the"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
         }
         return temp
     }
+    
     func isAdj(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
+            if prevWord.suggestedWords[0] != "nil" {
+                temp = prevWord.suggestedWords[0] + " the"
+            } else {
             temp = "the"
+            }
         }else if prevWord.type == wordType.noun.rawValue {
             temp = (prevWord.grNum == "singular") ? "is" : "are"
         }else if prevWord.type == wordType.adjective.rawValue {
@@ -114,6 +132,24 @@ class ImageToText {
             temp = "am"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
+        }
+        return temp
+    }
+    func isAdverb(prevWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+        }else if prevWord.type == wordType.noun.rawValue {
+            temp = (prevWord.grNum == "singular") ? "is" : "are"
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ","
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            temp = "am"
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = "the"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ","
         }
         return temp
     }
@@ -122,30 +158,37 @@ class ImageToText {
         if prevWord.type == wordType.verb.rawValue {
             temp = "" // Exception?
         }else if prevWord.type == wordType.noun.rawValue {
+            if haveSubject == true {
+                temp = "to"
+            } else {
             temp = (prevWord.grNum == "singular") ? "is" : "are"
+            }
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             temp = "am"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "to"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
         }
         return temp
     }
-//    func isPronoun(prevWord: SelectedImageViewCell) -> String{
-//        var temp = ""
-//        if prevWord.type == wordType.verb.rawValue {
-//            temp = "the"
-//        }else if prevWord.type == wordType.noun.rawValue {
-//            temp = (prevWord.grNum == gNum.plural.rawValue) ? "are the" : "is the"
-//        }else if prevWord.type == wordType.adjective.rawValue {
-//            temp = ""
-//        }else if prevWord.type == wordType.pronoun.rawValue {
-//            temp = "am the"
-//        }else if prevWord.type == wordType.modal.rawValue {
-//            temp = "the"
-//        }
-//        return temp
-//    }
+    func isModal(prevWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+            temp = "" // Exception?
+        }else if prevWord.type == wordType.noun.rawValue {
+            temp = (prevWord.grNum == "singular") ? "s" : ""
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ""
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            temp = ""
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = "and"
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
+        }
+        return temp
+    }
 }
-

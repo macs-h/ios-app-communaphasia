@@ -17,7 +17,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
    
     var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
-                        "calling","big","small","red","blue","i"]
+                        "calling","big","small","red","blue","I","fast","quickly","waiting","want"]
     //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
@@ -28,7 +28,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
     let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab"]
     var currentCategoyIndex = 0
-    private var cellsInCategory: [(String, String, UIImage, [String], String, String)]! //temp storage to be used by collection view cells
+    private var cellsInCategory: [(String, String, UIImage, [String], String, String, String)]! //temp storage to be used by collection view cells
     let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
     override func viewDidLoad() {
@@ -140,7 +140,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
         selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
-        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: ""))
+        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: "",tense: ""))
         selectedCells.append(newCell)
     }
     
@@ -150,6 +150,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             //do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
+            }else if cell.type == wordType.verb.rawValue {
+                showTenseVC(cell: cell, indexPath: indexPath)
             }else{
                 selectedWords.append(cell.word)
                 let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
@@ -184,20 +186,32 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         singlePluralVC.singleImageView.image = cell.imageView.image
         singlePluralVC.pluralImageView.image = cell.imageView.image
         singlePluralVC.backPluralImageView.image = cell.imageView.image*/
+    }
+    func showTenseVC(cell: ImageCell, indexPath: IndexPath){
         
+        let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
         
+        self.addChildViewController(tenseVC)
+        tenseVC.view.frame = self.view.frame
+        self.view.addSubview(tenseVC.view)
+        tenseVC.didMove(toParentViewController: self)
+        
+        tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+        /* singlePluralVC.delegate = self
+         //moves these to function in single... view controller
+         singlePluralVC.singleImageView.image = cell.imageView.image
+         singlePluralVC.pluralImageView.image = cell.imageView.image
+         singlePluralVC.backPluralImageView.image = cell.imageView.image*/
     }
     
     @IBAction func deleteSelectedCell(_ sender: Any) {
-        
-        let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
-        selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
-        selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
-        selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
-        
+        if selectedCells.count > 0 {
+            let indexPath = IndexPath(item: selectedWords.count-1, section: 0)
+            selectedCells.remove(at: indexPath.item) //removes from the list of selected cells
+            selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
+            selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
+        }
     }
-    
-
 }
 
 extension ImageInput_ViewController : SinglePluralDelegate{
@@ -221,5 +235,20 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         //if we want to remove it from the selectCollectionView
         //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
         //InputCollectionView?.deleteItems(at: [indexPath])
+    }
+}
+extension ImageInput_ViewController : TenseDelegate{
+    
+    func selectedTense(cell: ImageCell, tense: String, tenseType: String, indexPath: IndexPath){
+        selectedWords.append(cell.word)
+        let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
+        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+        
+        let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
+        newCell.addData(cell: cell.extractData())
+        newCell.tense = tense
+        newCell.tenseType = tenseType
+        newCell.showTense(tenseType: tenseType)
+        selectedCells.append(newCell)
     }
 }

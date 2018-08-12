@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:tmp.xcodeproj">
+      location = "self:Lemmatize_Testing.xcodeproj">
    </FileRef>
 </Workspace>

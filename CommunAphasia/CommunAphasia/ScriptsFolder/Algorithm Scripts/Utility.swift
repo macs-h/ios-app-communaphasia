@@ -41,6 +41,7 @@ class Utility {
     let TYPE = Expression<String>("type")
     let GR_NUM = Expression<String>("grNum")
     let CATEGORY = Expression<String>("category")
+    let TENSE = Expression<String>("tense")
     
     
     // `Init` function which initialises the database, creating the cells required, and
@@ -77,8 +78,12 @@ class Utility {
      *                      sentence into words.
      *  - Returns:  a 1D array of words.
      */
-    func getSentenceToWords(_ inputString: String, _ charSet: CharacterSet) -> Array<String> {
-        return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
+    func getSentenceToWords(from inputString: String, separatedBy charSet: CharacterSet, removeSelectWords:Bool? = true) -> Array<String> {
+        if removeSelectWords! {
+            return dropWords( (inputString.components(separatedBy: charSet)).map { $0.lowercased() }, EXCLUSION_LIST )
+        } else {
+            return (inputString.components(separatedBy: charSet))
+        }
     }
     
     /**
@@ -122,64 +127,76 @@ class Utility {
      *      - image:        the `UIImage` element.
      *      - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String){
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String){
         var image: UIImage = UIImage(named: "image placeholder")!
         var word_type: String = ""
         var suggestions: Array<String> = []
         var grNum: String = gNum.singlular.rawValue  // Singular, by default.
         var category: String = "Other"
+        var tense: String = ""
         
         do {
-            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY).filter(KEYWORD.like(word)).limit(1)
+            let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(KEYWORD.like(word)).limit(1)
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
-                suggestions = getSentenceToWords(cell[RELATIONSHIPS], .init(charactersIn: "+"))
+                suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"))
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
+                tense = cell[TENSE]
+                
             }
         } catch {
             print(error)
         }
-        return (word, word_type, image, suggestions, grNum, category)
-    }
-    //old version
-    func getDatabaseEntryIterative(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String) {
-        var image: UIImage = UIImage(named: "image placeholder")!
-        var word_type: String = ""
-        var suggestions: Array<String> = []
-        var grNum: String = gNum.singlular.rawValue  // Singular, by default.
-        
-        do {
-            let cellTable = try self.database.prepare(self.CELL_TABLE)  // gets entry out of DB.
-            for cell in cellTable {
-                if word == cell[self.KEYWORD] {
-                    word_type = cell[self.TYPE]
-                    image = UIImage(named: cell[self.IMAGE_LINK])!
-                    suggestions = getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+"))
-                    //print("> found word:",word)
-                    grNum = cell[self.GR_NUM]
-                    break
-                }
-            }
-        } catch {
-            print(error)
-        }
-        // Should we use enums as what is returned for the word_type??
-        return (word, word_type, image, suggestions, grNum)
+        return (word, word_type, image, suggestions, grNum, category, tense)
     }
     
-    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)] {
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String)]()
-        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY).filter(CATEGORY.like(category))
+    func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]{
+        //let lowerWords = words.map {$0.lowercased()}
+        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
+        
         do{
             for cell in try database.prepare(querry){
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
-                              getSentenceToWords(cell[self.RELATIONSHIPS], .init(charactersIn: "+")),
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
                               cell[GR_NUM],
-                              cell[CATEGORY]))
+                              cell[CATEGORY],
+                              cell[TENSE]))
+            }
+        } catch {
+            print(error)
+        }
+        return cells
+    }
+
+    func isInDatabase(word: String) -> Bool {
+        do{
+            let count = try database.scalar(CELL_TABLE.filter(KEYWORD.like(word)).count)
+            if count > 0 {
+                return true
+            }
+        }catch{
+            print(error)
+        }
+        return false
+    }
+    
+    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
+        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
+        do{
+            for cell in try database.prepare(querry){
+                cells.append((cell[KEYWORD],
+                              cell[TYPE],
+                              UIImage(named: cell[self.IMAGE_LINK])!,
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
+                              cell[GR_NUM],
+                              cell[CATEGORY],
+                              cell[TENSE]))
             }
         } catch {
             print(error)
@@ -189,19 +206,53 @@ class Utility {
     
     
     // ----------------------------------------------------------------------------
+    // Lemmatization
+    // ----------------------------------------------------------------------------
+    
+    
+    @available(iOS 11.0, *)
+    func lemmaTag(inputString: String) -> [String] {
+        var returnArray:[String] = []
+        var count: Int = 0
+        let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
+        tagger.string = inputString
+        tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
+                             unit: .word,
+                             scheme: .lemma,
+                             options: [.omitPunctuation, .omitWhitespace])
+        { tag, tokenRange, _ in
+            if let tag = tag {
+                let word = (inputString as NSString).substring(with: tokenRange)
+                returnArray.append(tag.rawValue)
+                print("\(word): \(tag.rawValue)")
+                count += 1
+            } else {
+                returnArray.append((inputString.components(separatedBy: " "))[count])
+                count += 1
+            }
+        }
+        return returnArray
+    }
+    
+    
+    
+    // ----------------------------------------------------------------------------
     // API for synonyms via WordsAPI
     // ----------------------------------------------------------------------------
     private class MyDelegate: NSObject, URLSessionDataDelegate {
+        fileprivate var synonyms: [String] = []
         fileprivate func urlSession(_ session: URLSession,
                                         dataTask: URLSessionDataTask,
                                         didReceive data: Data) {
-            if let dataStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
-                print(dataStr)
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let dictionary = json as? [String: Any],
+                let syn = dictionary["synonyms"] {
+                self.synonyms = ((syn as! NSArray).componentsJoined(by: ",")).components(separatedBy: ",")
             }
         }
     }
     
-    func getSynonym(_ word: String) {
+    func getSynonym(_ word: String) -> [String] {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
         let url = NSURL(string: baseUrl + word + "/" + type)
@@ -216,7 +267,10 @@ class Utility {
                                  delegateQueue: nil)
         let task = session.dataTask(with: request as URLRequest)
         task.resume()
-        sleep(2)
+        while (delegateObj.synonyms.isEmpty) {
+            usleep(20 * 1000)  // sleep for 20 milliseconds
+        }
+        return delegateObj.synonyms
     }
     
     
@@ -235,6 +289,7 @@ class Utility {
             table.column(self.RELATIONSHIPS)
             table.column(self.GR_NUM)
             table.column(self.CATEGORY)
+            table.column(self.TENSE)
         }
         do {
             try self.database.run(makeTable)
@@ -274,7 +329,8 @@ class Utility {
                         self.TYPE <- values[2],
                         self.RELATIONSHIPS <- values[3],
                         self.GR_NUM <- values[4],
-                        self.CATEGORY <- values[5]
+                        self.CATEGORY <- values[5],
+                        self.TENSE <- values[6]
                     )
                     do {
                         try self.database.run(insertImage)

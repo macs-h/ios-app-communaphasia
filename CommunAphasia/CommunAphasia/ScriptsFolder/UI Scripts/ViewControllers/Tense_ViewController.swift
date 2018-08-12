@@ -16,7 +16,7 @@ class Tense_ViewController: UIViewController {
     weak var delegate: TenseDelegate?
     var cell: ImageCell?
     var indexPath: IndexPath?
-    var tenses: [String]?
+    var tenses: String?
     
     
     @IBOutlet weak var PastImageView: UIImageView!
@@ -44,21 +44,22 @@ class Tense_ViewController: UIViewController {
         PresentImageView.image = image
         FutureImageView.image = image
         self.indexPath = indexPath
-        self.tenses = cell.tense.components(separatedBy: "+")
+        //self.tenses = cell.tense.components(separatedBy: "+")
+        self.tenses = cell.tense
     }
     
     @IBAction func PastButtonPressed(_ sender: Any) {
-        delegate?.selectedTense(cell: cell!, tense: self.tenses![0], tenseType: "past", indexPath: indexPath!)
+        delegate?.selectedTense(cell: cell!, tense: self.tenses!, tenseType: "past", indexPath: indexPath!)
         closePopup(sender)
     }
     
     @IBAction func PresentButtonPressed(_ sender: Any) {
-        delegate?.selectedTense(cell: cell!, tense: self.tenses![1], tenseType: "present", indexPath: indexPath!)
+        delegate?.selectedTense(cell: cell!, tense: self.tenses!, tenseType: "present", indexPath: indexPath!)
         closePopup(sender)
     }
     
     @IBAction func FutureButtonPressed(_ sender: Any) {
-        delegate?.selectedTense(cell: cell!, tense: self.tenses![2], tenseType: "future", indexPath: indexPath!)
+        delegate?.selectedTense(cell: cell!, tense: self.tenses!, tenseType: "future", indexPath: indexPath!)
         closePopup(sender)
     }
     @IBAction func closePopup(_ sender: Any) {

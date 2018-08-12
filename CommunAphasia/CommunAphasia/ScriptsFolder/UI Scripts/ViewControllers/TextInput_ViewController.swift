@@ -57,26 +57,48 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @available(iOS 11.0, *)
-    func makeCells(using words:[String], from original:[String])-> [Int]{
+    func makeCells(using wordArray:[String], from original:[String])-> [Int]{
         var errorArray = [Int]()
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
-        var i = 0
+//        var i = 0
+        // Start loading wheel.
         
-        for word in words{
-            let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
-            
-            if Utility.instance.isInDatabase(word: lemmaWord) == false{
-                errorArray.append(original.index(of: word)!)
+        for word in wordArray {
+            if wordArray.isEmpty && errorArray.isEmpty {
+                invalidSentence()
+                return []
+            } else {
+                let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
                 
-            } else if errorArray.count == 0 {
-                let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
-                cells.append(tempCell)
-            }
+                if Utility.instance.isInDatabase(word: lemmaWord) == false{
+                    errorArray.append(original.index(of: word)!)
+                    
+                    // Check internet connection availability.
+                    if Utility.instance.isConnectedToNetwork(){
+                        print("Internet Connection Available!")
+                        
+                        if let synonyms = Utility.instance.getSynonym(lemmaWord) {
+                            print("SYN:", synonyms)
+                            var s = Utility.instance.synonymsInDataBase(from: synonyms)
+                            s.append("test")
+                            print(s)
+                        } else {
+                            print("No synonyms found") // handle this?
+                        }
+                    } else {
+                        print("Internet Connection not Available!")
+                    }
+                    
+                } else if errorArray.count == 0 {
+                    let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
+                    cells.append(tempCell)
+                }
             
             // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
             
-            i += 1
+//            i += 1
+            }
         }
         // End loading wheel.
         
@@ -93,6 +115,19 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
     }
     
+    func testFunc(_ inString: String) {
+//        let eLabel = in
+        attributedString = NSMutableAttributedString(string: inString)
+        attributedString?.setColor(color: UIColor.red, forText: inString)
+    }
+    
+    func invalidSentence() {
+        let str = "Please enter a valid input"
+        attributedString = NSMutableAttributedString(string: str)
+        attributedString?.setColor(color: UIColor.red, forText: str)
+        errorLabel.attributedText = attributedString
+        cells.removeAll()
+    }
     
     /**
      * Called when the `done` button is pressed.
@@ -106,8 +141,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         synonymLabel.isHidden = true
         
         if textField.text != ""{
-            let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false)
-            let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces)
+            let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
+            let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
             let errorArray = makeCells(using: wordArray, from: inputArray)
                 
             if errorArray.count > 0{

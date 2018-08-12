@@ -15,7 +15,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
    
-    var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
+    var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","I","fast","quickly","waiting","want"]
     //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
@@ -94,8 +94,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                  button.imageView?.tintColor = UIColor(hex: "ffffff")
             }
         }
-        
-        cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        if sender.tag == 0{
+            cellsInCategory = Utility.instance.getWordsInDatabase(words: commonWords)
+        }else{
+            cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        }
         InputCollectionView?.reloadData()
         //print("count",cellsInCategory.count)
         currentCategoyIndex = sender.tag

@@ -44,6 +44,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysOriginal), for: .normal)
             button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
+            print("changed to", button.imageView?.tintColor)
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.

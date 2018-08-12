@@ -18,10 +18,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","I","fast","quickly","waiting","want","need","may","can","should","he","she","it","they","we","you"]
-    //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
-    //---need to create a temp tuple to store remove cell data??
     
     
     //category UI Things
@@ -41,10 +39,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         
         //colours tabs
         for button in tabButtons{
-            button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysOriginal), for: .normal)
-            button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            //button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
-            print("changed to", button.imageView?.tintColor)
+            //if(button.imageView?.image?.renderingMode == UIImageRenderingMode.alwaysTemplate){
+               // print("changed to", button.imageView?.image)
+            //}
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
@@ -68,7 +68,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             ImageToText.instance.reset()
             performSegue(withIdentifier: "IIToResult_segue", sender: self)
         } else {
-            //show warning
+            //no picture selectect so show warning?
         }
 
     }
@@ -88,13 +88,14 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             if button.tag == currentCategoyIndex{
                 //changes the old tab back to normal
                 //button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                //button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
                 button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
             }
             if button.tag == sender.tag{
                 //new tab to be selected
                  button.imageView?.tintColor = UIColor(hex: "ffffff")
             }
+            //print("button colour", button.imageView!.tintColor)
         }
         if sender.tag == 0{
             cellsInCategory = Utility.instance.getWordsInDatabase(words: commonWords)
@@ -102,8 +103,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
         }
         InputCollectionView?.reloadData()
-        //print("count",cellsInCategory.count)
         currentCategoyIndex = sender.tag
+        
     }
     
     

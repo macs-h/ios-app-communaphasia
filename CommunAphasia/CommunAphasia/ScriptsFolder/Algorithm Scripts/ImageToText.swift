@@ -38,7 +38,11 @@ class ImageToText {
                     }
                 } else if pics[0].type == wordType.pronoun.rawValue {
                     haveSubject = true
+//                    if pics[0].tenseType == "present" {
+//                        returnString.append(pics[0].word + " " + pics[0].grNum)
+//                    } else {
                     returnString.append(pics[0].word)
+                    
                 } else {
                     //returnString.append(pics[0].tense)
                     returnString.append(tenses[dict[pics[0].tenseType]!])
@@ -124,7 +128,7 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
-            temp = "am the"
+            temp = "the"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.adverb.rawValue {
@@ -146,7 +150,7 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {
-            temp = "am"
+            temp = ""
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.adverb.rawValue {
@@ -162,7 +166,7 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {
-            temp = "am"
+            temp = ""
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.adverb.rawValue {
@@ -193,7 +197,7 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             if currentWord.tenseType == "present" {
-            temp = "am"
+            temp = prevWord.grNum
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = ""

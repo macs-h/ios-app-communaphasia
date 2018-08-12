@@ -53,9 +53,9 @@ class ImageToText {
                         returnString.append(thisPic.suggestedWords[0])
                     }
                 }else if thisPic.type == wordType.modal.rawValue {
-                    temp = isModal(prevWord: prevPic)
+                    temp = isModal(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
-                    returnString.append(thisPic.word)
+                    returnString.append(thisPic.tense)
                 }else if thisPic.type == wordType.adverb.rawValue {
                     temp = isAdverb(prevWord: prevPic)
                     returnString.append(temp)
@@ -67,13 +67,19 @@ class ImageToText {
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
-                    if prevPic.type == wordType.modal.rawValue {
-                        returnString.append(thisPic.tense)
-                    } else if subVerb == true {
-                        returnString.append(thisPic.tense)
+                    if subVerb == true {
+                    returnString.append(thisPic.word)
                     } else {
-                        returnString.append(thisPic.tense)
+                    returnString.append(thisPic.tense)
                     }
+//                    returnString.append(thisPic.tense)
+//                    if prevPic.type == wordType.modal.rawValue {
+//                        returnString.append(thisPic.tense)
+//                    } else if subVerb == true {
+//                        returnString.append(thisPic.word)
+//                    } else {
+//                        returnString.append(thisPic.tense)
+//                    }
                     subVerb = true
 //                    returnString.append((prevPic.type == wordType.modal.rawValue || (haveSubject == false && subVerb == true)) ? thisPic.word :thisPic.tense)
 //                    subVerb = true
@@ -156,7 +162,16 @@ class ImageToText {
     func isVerb(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
-            temp = "" // Exception?
+            if subVerb == true {
+                temp = "to"
+            }
+//            temp = ""
+//                returnString.append(thisPic.tense)
+//            } else if subVerb == true {
+//                returnString.append(thisPic.word)
+//            } else {
+//                returnString.append(thisPic.tense)
+//            }
         }else if prevWord.type == wordType.noun.rawValue {
             if haveSubject == true {
                 temp = "to"
@@ -176,21 +191,37 @@ class ImageToText {
         }
         return temp
     }
-    func isModal(prevWord: ImageCell) -> String{
+    func isModal(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
             temp = "" // Exception?
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == "singular") ? "s" : ""
+            if haveSubject == true {
+                temp = "to"
+//            } else {
+//                temp = (prevWord.grNum == "singular") ? "is" : "are"
+//            }
+//            temp = (prevWord.grNum == "singular") ? "s" : ""
+            }
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             temp = ""
+//            if currentWord.tenseType == "present" {
+//                temp = "am"
+//            }
         }else if prevWord.type == wordType.modal.rawValue {
-            temp = "and"
+//            temp = "and"
+            temp = "to"
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""
         }
         return temp
     }
+    
+    public func reset() {
+        haveSubject = false
+        subVerb = false
+    }
 }
+

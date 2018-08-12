@@ -61,13 +61,15 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      *  - Parameter sender: the object which called this function.
      */
     @IBAction func DoneButton(_ sender: Any) {
+        
         if selectedWords.count > 0 {
             //at least one image is selected
-            
+            ImageToText.instance.reset()
             performSegue(withIdentifier: "IIToResult_segue", sender: self)
         } else {
             //show warning
         }
+
     }
     
     
@@ -150,7 +152,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             //do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
-            }else if cell.type == wordType.verb.rawValue {
+            }else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue{
                 showTenseVC(cell: cell, indexPath: indexPath)
             }else{
                 selectedWords.append(cell.word)

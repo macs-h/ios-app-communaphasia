@@ -24,4 +24,4 @@ car,car_sedan,noun,travel,r,travel,t
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
 wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
-want,want,modal,nil,r,other,t
+want,want,modal,nil,r,activity,wanted+want+will want

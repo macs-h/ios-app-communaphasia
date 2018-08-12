@@ -18,6 +18,7 @@ class TextInput_ViewController: UIViewController {
     var stringArray = [String]()
     var attributedString: NSMutableAttributedString?
     
+    @IBOutlet weak var pickerView: UIPickerView!
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
@@ -32,10 +33,10 @@ class TextInput_ViewController: UIViewController {
             let lemmaWord = originalLemmaTagged[ original.index(of: word)! ]
 //            let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
             
-      
             if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
                 print("SYN:", Utility.instance.getSynonym(lemmaWord))
+                
             } else if errorArray.count == 0 {
                 let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                 cells.append(tempCell)
@@ -110,7 +111,16 @@ class TextInput_ViewController: UIViewController {
         
         }
     }
-
+    
+    @IBAction func errorTapped(gesture: UITapGestureRecognizer){
+        let text = (errorLabel.text)!
+        let dogRange = (text as NSString).range(of: "dog")
+        
+        if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: dogRange){
+            print("dog Error Tapped")
+        }
+        
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "TIToResult_segue")
@@ -134,14 +144,40 @@ class TextInput_ViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
 }
 
-
+extension UITapGestureRecognizer {
+    
+    func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
+        // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
+        let layoutManager = NSLayoutManager()
+        let textContainer = NSTextContainer(size: CGSize.zero)
+        let textStorage = NSTextStorage(attributedString: label.attributedText!)
+        
+        // Configure layoutManager and textStorage
+        layoutManager.addTextContainer(textContainer)
+        textStorage.addLayoutManager(layoutManager)
+        
+        // Configure textContainer
+        textContainer.lineFragmentPadding = 0.0
+        textContainer.lineBreakMode = label.lineBreakMode
+        textContainer.maximumNumberOfLines = label.numberOfLines
+        let labelSize = label.bounds.size
+        textContainer.size = labelSize
+        
+        // Find the tapped character location and compare it to the specified range
+        let locationOfTouchInLabel = self.location(in: label)
+        let textBoundingBox = layoutManager.usedRect(for: textContainer)
+        let textContainerOffset = CGPoint(x:(labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
+                                          y:(labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
+        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
+                                                     y: locationOfTouchInLabel.y - textContainerOffset.y);
+        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+        
+        return NSLocationInRange(indexOfCharacter, targetRange)
+    }
+    
+}
 
 
 

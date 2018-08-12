@@ -56,6 +56,7 @@ class ImageToText {
                     temp = isModal(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
                     returnString.append(thisPic.tense)
+                    subVerb = true
                 }else if thisPic.type == wordType.adverb.rawValue {
                     temp = isAdverb(prevWord: prevPic)
                     returnString.append(temp)

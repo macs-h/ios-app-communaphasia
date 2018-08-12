@@ -14,6 +14,7 @@ var subVerb: Bool = false
 class ImageToText {
     static let instance = ImageToText()
     var cell: ImageCell?
+    var tenses: [String] = []
 
     private init(){
 //        print("imageToText class Init")
@@ -23,8 +24,10 @@ class ImageToText {
         var returnString:Array<String> = []
         var temp:String = ""
         var wordToAppend = ""
+        let dict = ["past":0,"present":1,"future":2]
         
         for imageNum in 0...pics.count-1 {
+            tenses = pics[imageNum].tense.components(separatedBy: "+")
             //first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
@@ -37,7 +40,8 @@ class ImageToText {
                     haveSubject = true
                     returnString.append(pics[0].word)
                 } else {
-                    returnString.append(pics[0].tense)
+                    //returnString.append(pics[0].tense)
+                    returnString.append(tenses[dict[pics[0].tenseType]!])
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
@@ -55,7 +59,7 @@ class ImageToText {
                 }else if thisPic.type == wordType.modal.rawValue {
                     temp = isModal(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
-                    returnString.append(thisPic.tense)
+                    returnString.append(tenses[dict[thisPic.tenseType]!])
                     subVerb = true
                 }else if thisPic.type == wordType.adverb.rawValue {
                     temp = isAdverb(prevWord: prevPic)
@@ -68,10 +72,16 @@ class ImageToText {
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
-                    if subVerb == true {
+                    if prevPic.type == wordType.modal.rawValue && prevPic.tenseType == "past" {
+                        returnString.append(tenses[0])
+                    }
+                    else if subVerb == true {
                     returnString.append(thisPic.word)
+//                    } else if prevPic.type == wordType.modal.rawValue && prevPic.tenseType == "past" {
+//                        print("tense: " + tenses[dict[thisPic.tenseType]!])
+//                        returnString.append(tenses[dict[thisPic.tenseType]!])
                     } else {
-                    returnString.append(thisPic.tense)
+                    returnString.append(tenses[dict[thisPic.tenseType]!])
                     }
 //                    returnString.append(thisPic.tense)
 //                    if prevPic.type == wordType.modal.rawValue {
@@ -186,7 +196,7 @@ class ImageToText {
             temp = "am"
             }
         }else if prevWord.type == wordType.modal.rawValue {
-            temp = "to"
+            temp = ""
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""
         }
@@ -197,13 +207,13 @@ class ImageToText {
         if prevWord.type == wordType.verb.rawValue {
             temp = "" // Exception?
         }else if prevWord.type == wordType.noun.rawValue {
-            if haveSubject == true {
-                temp = "to"
+//            if haveSubject == true {
+//                temp = "to"
 //            } else {
 //                temp = (prevWord.grNum == "singular") ? "is" : "are"
 //            }
 //            temp = (prevWord.grNum == "singular") ? "s" : ""
-            }
+            temp = ""
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
@@ -213,7 +223,7 @@ class ImageToText {
 //            }
         }else if prevWord.type == wordType.modal.rawValue {
 //            temp = "and"
-            temp = "to"
+            temp = ""
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""
         }

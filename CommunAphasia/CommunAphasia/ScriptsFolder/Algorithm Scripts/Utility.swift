@@ -247,7 +247,7 @@ class Utility {
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             if let dictionary = json as? [String: Any],
                 let syn = dictionary["synonyms"] {
-                self.synonyms = ((syn as! NSArray).componentsJoined(by: ",")).components(separatedBy: ",")
+                self.synonyms = ((syn as! NSArray).componentsJoined(by: " ")).components(separatedBy: " ")
             }
         }
     }
@@ -279,7 +279,15 @@ class Utility {
         return delegateObj.synonyms
     }
     
-    
+    func synonymsInDataBase(from inArray: [String]) -> [String] {
+        var returnArray: [String] = []
+        for word in inArray {
+            if isInDatabase(word: word) {
+                returnArray.append(word)
+            }
+        }
+        return returnArray
+    }
 
     // ----------------------------------------------------------------------------
     // Private functions follow.

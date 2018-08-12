@@ -39,7 +39,7 @@ func getSynonym(_ word: String) -> [String]? {
     task.resume()
     var timeOut = 0
     while (delegateObj.synonyms.isEmpty) {
-        if timeOut >= 2000 {
+        if timeOut >= 3000 {
             print("TIMEOUT")
             return nil
         }
@@ -49,7 +49,7 @@ func getSynonym(_ word: String) -> [String]? {
     return delegateObj.synonyms
 }
 print("> start\n")
-if let s = getSynonym("dog") {
+if let s = getSynonym("woman") {
     print(s)
 } else {
     print("ELSE")

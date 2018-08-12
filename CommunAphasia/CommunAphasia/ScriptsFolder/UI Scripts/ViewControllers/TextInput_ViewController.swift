@@ -39,9 +39,15 @@ class TextInput_ViewController: UIViewController {
                 // Get synonym.
                 if let synonyms = Utility.instance.getSynonym(lemmaWord) {
                     print("SYN:", synonyms)
+                    var s = Utility.instance.synonymsInDataBase(from: synonyms)
+                    s.append("test")
+                    print(s)
                 } else {
                     print("No synonyms found") // handle this?
                 }
+                
+                // ------
+                // append "test" to end of synonym array.
                 
             } else if errorArray.count == 0 {
                 let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)

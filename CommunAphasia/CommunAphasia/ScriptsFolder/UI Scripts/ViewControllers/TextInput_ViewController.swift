@@ -72,24 +72,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
                 
                 if Utility.instance.isInDatabase(word: lemmaWord) == false{
-                    errorArray.append(original.index(of: word)!)
-                    
-                    // Check internet connection availability.
-                    if Utility.instance.isConnectedToNetwork(){
-                        print("Internet Connection Available!")
-                        
-                        if let synonyms = Utility.instance.getSynonym(lemmaWord) {
-                            print("SYN:", synonyms)
-                            var s = Utility.instance.synonymsInDataBase(from: synonyms)
-                            s.append("test")
-                            print(s)
-                        } else {
-                            print("No synonyms found") // handle this?
-                        }
-                    } else {
-                        print("Internet Connection not Available!")
-                    }
-                    
+                    errorArray.append(original.index(of: word)!)     
                 } else if errorArray.count == 0 {
                     let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                     cells.append(tempCell)

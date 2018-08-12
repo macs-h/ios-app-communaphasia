@@ -37,7 +37,7 @@ class ImageToText {
                     haveSubject = true
                     returnString.append(pics[0].word)
                 } else {
-                    returnString.append(pics[0].word)
+                    returnString.append(pics[0].tense)
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
@@ -65,12 +65,12 @@ class ImageToText {
                     returnString.append(temp)
                     returnString.append(thisPic.word)
                 }else if thisPic.type == wordType.verb.rawValue {
-                    temp = isVerb(prevWord: prevPic)
+                    temp = isVerb(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
                     if prevPic.type == wordType.modal.rawValue {
-                        returnString.append(thisPic.word)
+                        returnString.append(thisPic.tense)
                     } else if subVerb == true {
-                        returnString.append(thisPic.word)
+                        returnString.append(thisPic.tense)
                     } else {
                         returnString.append(thisPic.tense)
                     }
@@ -153,7 +153,7 @@ class ImageToText {
         }
         return temp
     }
-    func isVerb(prevWord: ImageCell) -> String{
+    func isVerb(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
             temp = "" // Exception?
@@ -166,7 +166,9 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
+            if currentWord.tenseType == "present" {
             temp = "am"
+            }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "to"
         }else if prevWord.type == wordType.adverb.rawValue {

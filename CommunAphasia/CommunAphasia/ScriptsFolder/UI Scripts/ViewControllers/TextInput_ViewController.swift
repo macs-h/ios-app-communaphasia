@@ -29,12 +29,29 @@ class TextInput_ViewController: UIViewController {
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
         var i = 0
+        // Start loading wheel.
+        
         for word in words{
             let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
             
             if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
-                print("SYN:", Utility.instance.getSynonym(lemmaWord))
+                
+                // Check internet connection availability.
+                if Utility.instance.isConnectedToNetwork(){
+                    print("Internet Connection Available!")
+                    
+                    if let synonyms = Utility.instance.getSynonym(lemmaWord) {
+                        print("SYN:", synonyms)
+                        var s = Utility.instance.synonymsInDataBase(from: synonyms)
+                        s.append("test")
+                        print(s)
+                    } else {
+                        print("No synonyms found") // handle this?
+                    }
+                } else {
+                    print("Internet Connection not Available!")
+                }
                 
             } else if errorArray.count == 0 {
                 let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
@@ -45,6 +62,8 @@ class TextInput_ViewController: UIViewController {
             
             i += 1
         }
+        // End loading wheel.
+        
         return errorArray
     }
 
@@ -76,6 +95,8 @@ class TextInput_ViewController: UIViewController {
                 showErrors(inputArray, errorArray, inputArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()
+                errorLabel.isUserInteractionEnabled = true
+                
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0
@@ -114,9 +135,12 @@ class TextInput_ViewController: UIViewController {
     @IBAction func errorTapped(gesture: UITapGestureRecognizer){
         let text = (errorLabel.text)!
         let dogRange = (text as NSString).range(of: "dog")
-        
+        let foxRange = (text as NSString).range(of: "fox")
+        print("txt:" , text)
         if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: dogRange){
             print("dog Error Tapped")
+        }else if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: foxRange){
+            print("fox Error Tapped")
         }
         
     }
@@ -166,13 +190,17 @@ extension UITapGestureRecognizer {
         
         // Find the tapped character location and compare it to the specified range
         let locationOfTouchInLabel = self.location(in: label)
+    
+        print("touched",self.location(in: label))
         let textBoundingBox = layoutManager.usedRect(for: textContainer)
-        let textContainerOffset = CGPoint(x:(labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
-                                          y:(labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
-        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
-                                                     y: locationOfTouchInLabel.y - textContainerOffset.y);
+        
+        let textContainerOffset = CGPoint(x:(labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x, y:(labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
+        
+        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x, y: locationOfTouchInLabel.y - textContainerOffset.y);
+        
         let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         
+        print("target:",targetRange.description, "charIndex:",indexOfCharacter.description)
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
     

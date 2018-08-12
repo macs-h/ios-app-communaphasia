@@ -580,11 +580,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUH-Op-rgn">
-                                <rect key="frame" x="166" y="228" width="806" height="47"/>
+                                <rect key="frame" x="166" y="228" width="806" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3Xb-Mn-LAJ" appends="YES" id="LIa-Fn-CRa"/>
+                                </connections>
                             </label>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-j1-6lR">
                                 <rect key="frame" x="166" y="283" width="300" height="200"/>
@@ -601,6 +605,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSV-ca-hx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3Xb-Mn-LAJ">
+                    <connections>
+                        <action selector="errorTappedWithGesture:" destination="F8O-mK-ZoV" id="w6l-oE-lUB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1366.7266187050361" y="133.81294964028777"/>
         </scene>

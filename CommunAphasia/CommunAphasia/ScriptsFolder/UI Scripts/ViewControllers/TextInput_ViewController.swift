@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TextInput_ViewController: UIViewController {
+class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     /// References the user input text field.
     @IBOutlet weak var textField: UITextField!
@@ -19,9 +19,31 @@ class TextInput_ViewController: UIViewController {
     var attributedString: NSMutableAttributedString?
     
     @IBOutlet weak var pickerView: UIPickerView!
+    var pickerData:[String] = []
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+    }
+    
+    // The number of columns of data in picker view
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data in picker view
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in, in picker view
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
     
     @available(iOS 11.0, *)
     func makeCells(using words:[String], from original:[String])-> [Int]{
@@ -29,29 +51,12 @@ class TextInput_ViewController: UIViewController {
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
         var i = 0
-        // Start loading wheel.
         
         for word in words{
             let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
             
             if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
-                
-                // Check internet connection availability.
-                if Utility.instance.isConnectedToNetwork(){
-                    print("Internet Connection Available!")
-                    
-                    if let synonyms = Utility.instance.getSynonym(lemmaWord) {
-                        print("SYN:", synonyms)
-                        var s = Utility.instance.synonymsInDataBase(from: synonyms)
-                        s.append("test")
-                        print(s)
-                    } else {
-                        print("No synonyms found") // handle this?
-                    }
-                } else {
-                    print("Internet Connection not Available!")
-                }
                 
             } else if errorArray.count == 0 {
                 let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
@@ -97,6 +102,30 @@ class TextInput_ViewController: UIViewController {
                 cells.removeAll()
                 errorLabel.isUserInteractionEnabled = true
                 
+                pickerView.isHidden = false
+                
+                for index in errorArray{
+                    var availableSynonyms: [String] = []
+                    // Check internet connection availability.
+                    if Utility.instance.isConnectedToNetwork(){
+                        print("Internet Connection Available!")
+                        
+                        if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
+                            print("SYN:", synonyms)
+                            availableSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
+                            //availableSynonyms.append("test")
+                            availableSynonyms.append(contentsOf: ["test1","test2","test3","test4","test5"])
+                            print("available sysnonyms:",availableSynonyms)
+                        } else {
+                            print("No synonyms found") // handle this?
+                        }
+                    } else {
+                        print("Internet Connection not Available!")
+                    }
+                    //do things with sysnonyms
+                    pickerData = availableSynonyms
+                    pickerView.reloadAllComponents()
+                }
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0
@@ -136,7 +165,7 @@ class TextInput_ViewController: UIViewController {
         let text = (errorLabel.text)!
         let dogRange = (text as NSString).range(of: "dog")
         let foxRange = (text as NSString).range(of: "fox")
-        print("txt:" , text)
+        
         if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: dogRange){
             print("dog Error Tapped")
         }else if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: foxRange){
@@ -154,12 +183,6 @@ class TextInput_ViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

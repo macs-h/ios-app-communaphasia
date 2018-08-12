@@ -586,11 +586,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-j1-6lR">
+                                <rect key="frame" x="166" y="283" width="300" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="errorLabel" destination="dUH-Op-rgn" id="pZ4-Nt-vb3"/>
+                        <outlet property="pickerView" destination="CNl-j1-6lR" id="egf-MA-Jnb"/>
                         <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
                         <segue destination="QFY-px-uCe" kind="show" identifier="TIToResult_segue" id="9fL-cx-gPa"/>
                     </connections>
@@ -711,9 +716,9 @@
         <image name="presentTense" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1qB-hy-XeI"/>
+        <segue reference="9fL-cx-gPa"/>
         <segue reference="gQP-Iw-auM"/>
         <segue reference="Tuv-aW-ka3"/>
-        <segue reference="Vq3-nG-FAk"/>
+        <segue reference="aWA-95-zEq"/>
     </inferredMetricsTieBreakers>
 </document>

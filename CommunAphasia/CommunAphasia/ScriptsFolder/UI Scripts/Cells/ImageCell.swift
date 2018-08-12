@@ -26,7 +26,7 @@ class ImageCell: UICollectionViewCell {
                                          "verb":UIColor.blue.cgColor,
                                          "pronoun":UIColor.orange.cgColor,
                                          "adverb":UIColor.purple.cgColor]
-    
+    var tenseType: String = "present"
     
     
     /**
@@ -46,6 +46,8 @@ class ImageCell: UICollectionViewCell {
         self.grNum = cell.grNum
         self.category = cell.category
         self.tense = cell.tense
+        
+        
         showType()
         
         //---colouring boarders---//

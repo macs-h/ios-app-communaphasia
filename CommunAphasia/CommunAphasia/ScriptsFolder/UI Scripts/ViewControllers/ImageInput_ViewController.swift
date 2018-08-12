@@ -247,6 +247,7 @@ extension ImageInput_ViewController : TenseDelegate{
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
         newCell.addData(cell: cell.extractData())
         newCell.tense = tense
+        newCell.tenseType = tenseType
         newCell.showTense(tenseType: tenseType)
         selectedCells.append(newCell)
     }

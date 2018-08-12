@@ -26,12 +26,13 @@ class TextInput_ViewController: UIViewController {
     @available(iOS 11.0, *)
     func makeCells(using words:[String], from original:[String])-> [Int]{
         var errorArray = [Int]()
-        let originalLemmaTagged = Utility.instance.lemmaTag(inputString: original.joined(separator: " "))
+        let originalArray = original.map { $0.lowercased() }
+        let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
         var i = 0
+        // Start loading wheel.
+        
         for word in words{
-//            print(originalLemmaTagged)
-            let lemmaWord = originalLemmaTagged[ original.index(of: word)! ]
-//            let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
+            let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
             
             if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
@@ -46,6 +47,8 @@ class TextInput_ViewController: UIViewController {
             
             i += 1
         }
+        // End loading wheel.
+        
         return errorArray
     }
 

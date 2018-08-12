@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SQLite
+import SystemConfiguration
 
 /**
     This class acts as a 'helper' class containing regularly used utility functions.
@@ -247,12 +248,12 @@ class Utility {
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             if let dictionary = json as? [String: Any],
                 let syn = dictionary["synonyms"] {
-                self.synonyms = ((syn as! NSArray).componentsJoined(by: ",")).components(separatedBy: ",")
+                self.synonyms = ((syn as! NSArray).componentsJoined(by: " ")).components(separatedBy: " ")
             }
         }
     }
     
-    func getSynonym(_ word: String) -> [String] {
+    func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
         let url = NSURL(string: baseUrl + word + "/" + type)
@@ -267,13 +268,53 @@ class Utility {
                                  delegateQueue: nil)
         let task = session.dataTask(with: request as URLRequest)
         task.resume()
+        var timeOut = 0
         while (delegateObj.synonyms.isEmpty) {
+            if timeOut >= 3000 {  // Timeout of 3 seconds
+                print("API timed out")
+                return nil
+            }
             usleep(20 * 1000)  // sleep for 20 milliseconds
+            timeOut += 20
         }
         return delegateObj.synonyms
     }
     
+    func synonymsInDataBase(from inArray: [String]) -> [String] {
+        var returnArray: [String] = []
+        for word in inArray {
+            if isInDatabase(word: word) {
+                returnArray.append(word)
+            }
+        }
+        return returnArray
+    }
     
+    
+     func isConnectedToNetwork() -> Bool {
+    
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+            return false
+        }
+        
+        // Working for Cellular and WIFI
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        let ret = (isReachable && !needsConnection)
+        
+        return ret
+    }
 
     // ----------------------------------------------------------------------------
     // Private functions follow.

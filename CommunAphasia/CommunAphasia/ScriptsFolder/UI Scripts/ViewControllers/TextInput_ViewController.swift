@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TextInput_ViewController: UIViewController {
+class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     /// References the user input text field.
     @IBOutlet weak var textField: UITextField!
@@ -19,48 +19,75 @@ class TextInput_ViewController: UIViewController {
     var attributedString: NSMutableAttributedString?
     
     @IBOutlet weak var pickerView: UIPickerView!
+    var pickerData:[String] = []
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+    }
+    
+    // The number of columns of data in picker view
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data in picker view
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in, in picker view
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
     @available(iOS 11.0, *)
-    func makeCells(using words:[String], from original:[String])-> [Int]{
+    func makeCells(using wordArray:[String], from original:[String])-> [Int]{
         var errorArray = [Int]()
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
-        var i = 0
+//        var i = 0
         // Start loading wheel.
         
-        for word in words{
-            let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
-            
-            if Utility.instance.isInDatabase(word: lemmaWord) == false{
-                errorArray.append(original.index(of: word)!)
+        for word in wordArray {
+            if wordArray.isEmpty && errorArray.isEmpty {
+                invalidSentence()
+                return []
+            } else {
+                let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
                 
-                // Check internet connection availability.
-                if Utility.instance.isConnectedToNetwork(){
-                    print("Internet Connection Available!")
+                if Utility.instance.isInDatabase(word: lemmaWord) == false{
+                    errorArray.append(original.index(of: word)!)
                     
-                    if let synonyms = Utility.instance.getSynonym(lemmaWord) {
-                        print("SYN:", synonyms)
-                        var s = Utility.instance.synonymsInDataBase(from: synonyms)
-                        s.append("test")
-                        print(s)
+                    // Check internet connection availability.
+                    if Utility.instance.isConnectedToNetwork(){
+                        print("Internet Connection Available!")
+                        
+                        if let synonyms = Utility.instance.getSynonym(lemmaWord) {
+                            print("SYN:", synonyms)
+                            var s = Utility.instance.synonymsInDataBase(from: synonyms)
+                            s.append("test")
+                            print(s)
+                        } else {
+                            print("No synonyms found") // handle this?
+                        }
                     } else {
-                        print("No synonyms found") // handle this?
+                        print("Internet Connection not Available!")
                     }
-                } else {
-                    print("Internet Connection not Available!")
+                    
+                } else if errorArray.count == 0 {
+                    let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
+                    cells.append(tempCell)
                 }
-                
-            } else if errorArray.count == 0 {
-                let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
-                cells.append(tempCell)
-            }
             
             // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
             
-            i += 1
+//            i += 1
+            }
         }
         // End loading wheel.
         
@@ -77,6 +104,19 @@ class TextInput_ViewController: UIViewController {
         
     }
     
+    func testFunc(_ inString: String) {
+//        let eLabel = in
+        attributedString = NSMutableAttributedString(string: inString)
+        attributedString?.setColor(color: UIColor.red, forText: inString)
+    }
+    
+    func invalidSentence() {
+        let str = "Please enter a valid input"
+        attributedString = NSMutableAttributedString(string: str)
+        attributedString?.setColor(color: UIColor.red, forText: str)
+        errorLabel.attributedText = attributedString
+        cells.removeAll()
+    }
     
     /**
      * Called when the `done` button is pressed.
@@ -86,8 +126,8 @@ class TextInput_ViewController: UIViewController {
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
         if textField.text != ""{
-            let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false)
-            let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces)
+            let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
+            let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
             let errorArray = makeCells(using: wordArray, from: inputArray)
                 
             if errorArray.count > 0{
@@ -95,8 +135,9 @@ class TextInput_ViewController: UIViewController {
                 showErrors(inputArray, errorArray, inputArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()
-                errorLabel.isUserInteractionEnabled = true
-                
+            } else if wordArray.isEmpty && errorArray.isEmpty {
+                // Handles issue where padding words can allow progression to next VC.
+                invalidSentence()
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0
@@ -136,7 +177,7 @@ class TextInput_ViewController: UIViewController {
         let text = (errorLabel.text)!
         let dogRange = (text as NSString).range(of: "dog")
         let foxRange = (text as NSString).range(of: "fox")
-        print("txt:" , text)
+        
         if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: dogRange){
             print("dog Error Tapped")
         }else if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: foxRange){
@@ -154,12 +195,6 @@ class TextInput_ViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

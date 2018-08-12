@@ -15,7 +15,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
    
-    var defaultWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
+    var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","I","fast","quickly","waiting","want","need","may","can","should","he","she","it","they","we","you"]
     //let tempCellTuple = (word: String, type: String, image: UIImage, suggestons: [String],category: String).self
@@ -44,6 +44,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             button.setImage(UIImage(named: "Current tab")?.withRenderingMode(.alwaysOriginal), for: .normal)
             button.imageView?.image = button.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
+            print("changed to", button.imageView?.tintColor)
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
@@ -95,8 +96,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                  button.imageView?.tintColor = UIColor(hex: "ffffff")
             }
         }
-        
-        cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        if sender.tag == 0{
+            cellsInCategory = Utility.instance.getWordsInDatabase(words: commonWords)
+        }else{
+            cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
+        }
         InputCollectionView?.reloadData()
         //print("count",cellsInCategory.count)
         currentCategoyIndex = sender.tag

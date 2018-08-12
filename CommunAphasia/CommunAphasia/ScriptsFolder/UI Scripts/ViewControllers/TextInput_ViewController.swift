@@ -36,7 +36,22 @@ class TextInput_ViewController: UIViewController {
             
             if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
-                print("SYN:", Utility.instance.getSynonym(lemmaWord))
+                
+                // Check internet connection availability.
+                if Utility.instance.isConnectedToNetwork(){
+                    print("Internet Connection Available!")
+                    
+                    if let synonyms = Utility.instance.getSynonym(lemmaWord) {
+                        print("SYN:", synonyms)
+                        var s = Utility.instance.synonymsInDataBase(from: synonyms)
+                        s.append("test")
+                        print(s)
+                    } else {
+                        print("No synonyms found") // handle this?
+                    }
+                } else {
+                    print("Internet Connection not Available!")
+                }
                 
             } else if errorArray.count == 0 {
                 let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)

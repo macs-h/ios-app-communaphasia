@@ -22,11 +22,7 @@ private class MyDelegate: NSObject, URLSessionDataDelegate {
     }
 }
 
-
-/**
- CURRENTLY RETURNS AN ARRAY OF SYNONYMS.
- */
-func getSynonym(_ word: String) {
+func getSynonym(_ word: String) -> [String]? {
     let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
     let type = "synonyms"
     let url = NSURL(string: baseUrl + word + "/" + type)
@@ -41,10 +37,21 @@ func getSynonym(_ word: String) {
                              delegateQueue: nil)
     let task = session.dataTask(with: request as URLRequest)
     task.resume()
-    sleep(2)
-    print("DEL:", delegateObj.synonyms)
-    
-    // Process json data...?
+    var timeOut = 0
+    while (delegateObj.synonyms.isEmpty) {
+        if timeOut >= 2000 {
+            print("TIMEOUT")
+            return nil
+        }
+        usleep(20 * 1000)  // sleep for 20 milliseconds
+        timeOut += 20
+    }
+    return delegateObj.synonyms
 }
-
-getSynonym("dog")
+print("> start\n")
+if let s = getSynonym("dog") {
+    print(s)
+} else {
+    print("ELSE")
+}
+print("\n> end")

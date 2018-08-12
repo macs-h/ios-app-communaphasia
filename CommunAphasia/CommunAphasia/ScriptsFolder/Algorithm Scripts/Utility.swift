@@ -252,7 +252,7 @@ class Utility {
         }
     }
     
-    func getSynonym(_ word: String) -> [String] {
+    func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
         let url = NSURL(string: baseUrl + word + "/" + type)
@@ -267,8 +267,14 @@ class Utility {
                                  delegateQueue: nil)
         let task = session.dataTask(with: request as URLRequest)
         task.resume()
+        var timeOut = 0
         while (delegateObj.synonyms.isEmpty) {
+            if timeOut >= 3000 {  // Timeout of 3 seconds
+                print("API timed out")
+                return nil
+            }
             usleep(20 * 1000)  // sleep for 20 milliseconds
+            timeOut += 20
         }
         return delegateObj.synonyms
     }

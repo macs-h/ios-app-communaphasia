@@ -28,12 +28,21 @@ class TextInput_ViewController: UIViewController {
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
         var i = 0
+        // Start loading wheel.
+        
         for word in words{
             let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
             
             if Utility.instance.isInDatabase(word: lemmaWord) == false{
                 errorArray.append(original.index(of: word)!)
-                print("SYN:", Utility.instance.getSynonym(lemmaWord))
+                
+                // Get synonym.
+                if let synonyms = Utility.instance.getSynonym(lemmaWord) {
+                    print("SYN:", synonyms)
+                } else {
+                    print("No synonyms found") // handle this?
+                }
+                
             } else if errorArray.count == 0 {
                 let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                 cells.append(tempCell)
@@ -43,6 +52,8 @@ class TextInput_ViewController: UIViewController {
             
             i += 1
         }
+        // End loading wheel.
+        
         return errorArray
     }
 

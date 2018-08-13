@@ -16,6 +16,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var synonymLabel: UILabel!
     
     var stringArray = [String]()
+    var currentIndex:Int = 0
+    var errorIndices = [Int]()
+    
+    var attributedArray = [NSMutableAttributedString]()
+    
     var attributedString: NSMutableAttributedString?
     var errors = [String]()
     var errorIndex: Int = 0
@@ -26,7 +31,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var pickerView: UIPickerView!
     var pickerData:[String] = []
-    var currentIndex:Int = 0
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
@@ -52,52 +56,51 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     @IBAction func nextButtonPressed(_ sender: Any) {
         
-        if Utility.instance.isInDatabase(word: errors[errorIndex]) {
-            attributedString?.setColor(color: UIColor.green, forText: errors[errorIndex])
+        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
         }else{
-            attributedString?.setColor(color: UIColor.red, forText: errors[errorIndex])
+            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
         }
         
-        if errorIndex < errors.count-1 {
-            attributedString?.setColor(color: UIColor.blue, forText: errors[errorIndex+1])
-            textField.attributedText = attributedString
+        if currentIndex < errorIndices[errorIndices.count-1] {
             
             errorIndex += 1
-            synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
+            currentIndex = errorIndices[errorIndex]
+            
+            synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
             pickerData = synonyms[errorIndex]
+            pickerData.append(String(errorIndex))
             pickerView.reloadAllComponents()
+            
         }
-        print("curerent err:",errors[errorIndex], "  index:",errorIndex,"  errors: ",errors )
+        
     }
     @IBAction func prevButtonPressed(_ sender: Any) {
-        if Utility.instance.isInDatabase(word: errors[errorIndex]) {
-            attributedString?.setColor(color: UIColor.green, forText: errors[errorIndex])
+        
+        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
         }else{
-            attributedString?.setColor(color: UIColor.red, forText: errors[errorIndex])
+            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
         }
-
-        if errorIndex > 0 {
-            attributedString?.setColor(color: UIColor.blue, forText: errors[errorIndex-1])
-            textField.attributedText = attributedString
+        if currentIndex > errorIndices[0] {
             
             errorIndex -= 1
-            synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
+            currentIndex = errorIndices[errorIndex]
+            
+            synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
             pickerData = synonyms[errorIndex]
+            pickerData.append(String(errorIndex))
             pickerView.reloadAllComponents()
+            
         }
-        print("curerent err:",errors[errorIndex], "  index:",errorIndex,"  errors: ",errors )
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let text = attributedString!
         
-        text.replaceCharacters(in: (text.string as NSString).range(of: errors[errorIndex]), with: pickerData[row])
-        
-        text.setColor(color: UIColor.blue, forText: pickerData[row])
-        
-        errors[errorIndex] = pickerData[row]
-        textField.attributedText = text
-        attributedString = text
+        attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
+        stringArray[currentIndex] = pickerData[row]
+        //need to display attributed array in the text field
+        textField.text = stringArray.joined(separator: " ")
     }
     
     @available(iOS 11.0, *)
@@ -211,12 +214,20 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
                 pickerData = synonyms[errorIndex]
                 currentIndex = errorArray[0]
+                errorIndices = errorArray
                 
                 pickerView.reloadAllComponents()
                 pickerView.isHidden = false
                 
                 nextButton.isHidden = false
                 prevButton.isHidden = false
+                for word in stringArray {
+                    let atWord = NSMutableAttributedString(string: word)
+                    if errors.contains(word){
+                        atWord.setColor(color: UIColor.red, forText: atWord.string)
+                    }
+                    attributedArray.append(atWord)
+                }
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0

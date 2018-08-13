@@ -252,7 +252,9 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerView.endEditing(true)
         pickerView.isHidden = true
         synonymLabel.isHidden = true
-        errorIndex = 0
+        attributedString = NSMutableAttributedString()
+        attributedArray.removeAll()
+        
         
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
@@ -261,7 +263,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
             if errorArray.count > 0 {
                 //showErrors(inputArray, errorArray, inputArray)
-                textField.attributedText = attributedString
                 cells.removeAll()
                 
                 for index in errorArray{
@@ -313,6 +314,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
                 attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
                 setTextFromArray()
+                
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0

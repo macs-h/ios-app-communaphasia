@@ -78,9 +78,9 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageResultCell", for: indexPath) as! ImageCell
-        cell.showType()
-        cell.addData(cell: selectedCellsResult[indexPath.item].extractData())
         
+        cell.addData(cell: selectedCellsResult[indexPath.item].extractData())
+        cell.showType()
         return cell
     }
 

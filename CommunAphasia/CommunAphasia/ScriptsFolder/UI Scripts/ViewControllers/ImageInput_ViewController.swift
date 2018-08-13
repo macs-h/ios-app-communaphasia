@@ -160,14 +160,17 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             // Call a function the the cell which assigns each variable with
             // data from a function which returns a tuple with data like:
             // image, word, suggestions etc
+            
             cell.addData(cell: cellsInCategory[indexPath.item])
             cell.showType()
             return cell
         } else {
-            // InputCollectionView
+            // SelectedCollectionView
             // Gives the type of the custom class that was made for the cell.
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
-            cell.showType()
+            //cell.addData(cell: selectedCells[indexPath.count])
+            //cell.showType()
             return cell
         }
     }
@@ -202,18 +205,19 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.InputCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
-            
             // Do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
             }else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue || cell.type == wordType.adjective.rawValue{
                 showTenseVC(cell: cell, indexPath: indexPath)
+
             } else {
                 selectedWords.append(cell.word)
                 let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
                 selectedCollectionView?.insertItems(at: [insertedIndexPath]) // Add a new cell to bottom table view using the tuple.
                 let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
                 newCell.addData(cell: cell.extractData())
+                newCell.showType()
                 selectedCells.append(newCell)
                 // Using previous cell as a suggestion
             }
@@ -258,7 +262,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         tenseVC.view.frame = self.view.frame
         self.view.addSubview(tenseVC.view)
         tenseVC.didMove(toParentViewController: self)
-        
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -300,6 +303,7 @@ extension ImageInput_ViewController : SinglePluralDelegate {
         if grNum == "plural"{
             newCell.showPlural()
         }
+        newCell.showType()
         selectedCells.append(newCell)
     }
 }
@@ -320,6 +324,7 @@ extension ImageInput_ViewController : TenseDelegate {
         newCell.tense = tense
         newCell.tenseType = tenseType
         newCell.showTense(tenseType: tenseType)
+        newCell.showType()
         selectedCells.append(newCell)
     }
 }

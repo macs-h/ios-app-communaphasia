@@ -160,6 +160,7 @@ class Utility {
         
         do{
             for cell in try database.prepare(querry){
+                print("colour \(cell[KEYWORD])")
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
@@ -191,6 +192,7 @@ class Utility {
         let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
         do{
             for cell in try database.prepare(querry){
+                print("cell keyword: \(cell[KEYWORD])")
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,

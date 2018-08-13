@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1951CB432121918B005D7892 /* talk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1951CB3C2121918A005D7892 /* talk.png */; };
 		195AEB68211D070600E5AA04 /* fast.png in Resources */ = {isa = PBXBuildFile; fileRef = 195AEB66211D070600E5AA04 /* fast.png */; };
 		195AEB69211D070600E5AA04 /* waiting.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 195AEB67211D070600E5AA04 /* waiting.jpg */; };
 		195AEB6B211D082A00E5AA04 /* want.png in Resources */ = {isa = PBXBuildFile; fileRef = 195AEB6A211D082A00E5AA04 /* want.png */; };
@@ -176,6 +177,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1951CB3C2121918A005D7892 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
 		195AEB66211D070600E5AA04 /* fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fast.png; sourceTree = "<group>"; };
 		195AEB67211D070600E5AA04 /* waiting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waiting.jpg; sourceTree = "<group>"; };
 		195AEB6A211D082A00E5AA04 /* want.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = want.png; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
+				1951CB3C2121918A005D7892 /* talk.png */,
 				19EE0305211FF79E008AEC64 /* he.png */,
 				19EE0300211FF79D008AEC64 /* it.png */,
 				19EE02F9211FF79D008AEC64 /* she.png */,
@@ -692,6 +695,7 @@
 				195AEB6B211D082A00E5AA04 /* want.png in Resources */,
 				EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
 				ED83F6D3212110180043251E /* thinking.png in Resources */,
+				1951CB432121918B005D7892 /* talk.png in Resources */,
 				ED27977220B7C7C0001AF14C /* soda_can.png in Resources */,
 				44856EEB20BBD0600035C01A /* eat.png in Resources */,
 				195AEB68211D070600E5AA04 /* fast.png in Resources */,

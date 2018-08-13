@@ -33,6 +33,7 @@ need,need,verb,nil,r,activity,needed+needing+will need
 can,can,modal,nil,r,activity,could have+can+will be able to
 may,may.jpg,modal,nil,r,activity,might have+might+might be able to
 should,should,modal,nil,r,activity,should have+should+should
+talk,talk,verb,to,r,activity,talked+talking+will talk
 angry,angry,adj,nil,r,emotions,t
 cool,cool,adj,nil,r,emotions,t
 laugh,laughing,verb,nil,r,emotions,laughed+laughing+will laugh

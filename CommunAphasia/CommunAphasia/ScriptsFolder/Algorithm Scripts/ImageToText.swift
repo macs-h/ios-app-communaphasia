@@ -38,10 +38,9 @@ class ImageToText {
                     }
                 } else if pics[0].type == wordType.pronoun.rawValue {
                     haveSubject = true
-                    returnString.append(pics[0].word)
-                    
+                    returnString.append(pics[0].word.capitalized)
                 } else {
-                    returnString.append(tenses[dict[pics[0].tenseType]!])
+                    returnString.append(tenses[dict[pics[0].tenseType]!].capitalized)
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.

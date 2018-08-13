@@ -56,7 +56,8 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
    
     
     /**
-        @@@
+        Makes the items within the given collection view upto the size of the
+        collectionview
      
         - Parameters:
             - collectionView:   @@@

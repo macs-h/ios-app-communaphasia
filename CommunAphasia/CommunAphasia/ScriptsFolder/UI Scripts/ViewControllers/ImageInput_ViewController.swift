@@ -80,9 +80,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        @@@
+        Called when a tab is pressed and uses the tab tag to determine what category to use
      
-        - Parameter sender: @@@
+        - Parameter sender: tab button pressed
      */
     @IBAction func ChangeCategory(_ sender: UIButton) {
         for button in tabButtons {
@@ -115,10 +115,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         Tells the colelction view how many cells it needs to hold.
      
         - Parameters:
-            - collectionView:           @@@
-            - numberOfItemsInSelection: @@@
+            - collectionView:           the collection view which number of items
+                                        is being set
+            - numberOfItemsInSelection: number of items in section
      
-        - Returns:  @@@
+        - Returns:  the size of the given collecvtion view
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.InputCollectionView {
@@ -131,13 +132,14 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        @@@
+        Makes the items within the given collection view upto the size of the
+        collectionview
      
         - Parameters:
-            - collectionView:   @@@
-            - indexPath:        @@@
+            - collectionView:   the collection view which cells are being created in
+            - indexPath:        the index of the current cell which is being worked on
      
-        - Returns:  @@@
+        - Returns:  the item that has been made
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.InputCollectionView {
@@ -145,23 +147,20 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             // call a function the the cell whcih asigns each variable with data from a function
             // which returns a tuple with data like, image, word, suggestions etc
-            //cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
             cell.addData(cell: cellsInCategory[indexPath.item])
             cell.showType()
-            // cell.cellImageView.image = selectCellImages[indexPath.item]
             return cell
         } else {
             // InputCollectionView
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell
             cell.showType()
-            //cell.addData(cell.addData(cell: UTILITY.getDatabaseEntry(defaultWords[indexPath.row], "temp type", exclusionList))) //using temp tuple
             return cell
         }
     }
     
     
     /**
-        @@@
+        called when the want button is pressed
      */
     @IBAction func wantButtonPress(_ sender: Any) {
         selectedWords.append("want")
@@ -175,11 +174,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        @@@
+        Controls what happens if an item is selected within a collectionview
      
         - Parameters:
-            - collectionView:   @@@
-            - indexPath:        @@@
+            - collectionView:   the collection view which had an item selected within
+            - indexPath:        indexpath of the item that was selected
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.InputCollectionView {
@@ -195,8 +194,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
                 let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
                 newCell.addData(cell: cell.extractData())
-                //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
-                //InputCollectionView?.deleteItems(at: [indexPath])
                 selectedCells.append(newCell)
                 //using previous cell as a suggestion
             }
@@ -208,11 +205,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        @@@
+        Bring up the popup that asks for single or plural
      
         - Parameters:
-            - cell:         @@@
-            - indexPath:    @@@
+            - cell:         the cell that was pressed
+            - indexPath:    the indexpath of the cell that was pressed
      */
     func showSinglePluralVC(cell: ImageCell, indexPath: IndexPath) {
         let singlePluralVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePluralVC") as! SinglePlural_ViewController
@@ -223,20 +220,16 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         singlePluralVC.didMove(toParentViewController: self)
         
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
-       /* singlePluralVC.delegate = self
-        //moves these to function in single... view controller
-        singlePluralVC.singleImageView.image = cell.imageView.image
-        singlePluralVC.pluralImageView.image = cell.imageView.image
-        singlePluralVC.backPluralImageView.image = cell.imageView.image*/
     }
     
     
     /**
-        @@@
+        Shows the tense popup giving user otption to choose past, present,
+        future tense
      
         - Parameters:
-            - cell:         @@@
-            - indexPath:    @@@
+            - cell:         the cell that was pressed
+            - indexPath:    the indexpath of the cell that was pressed
      */
     func showTenseVC(cell: ImageCell, indexPath: IndexPath) {
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
@@ -247,16 +240,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         tenseVC.didMove(toParentViewController: self)
         
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
-        /* singlePluralVC.delegate = self
-         //moves these to function in single... view controller
-         singlePluralVC.singleImageView.image = cell.imageView.image
-         singlePluralVC.pluralImageView.image = cell.imageView.image
-         singlePluralVC.backPluralImageView.image = cell.imageView.image*/
+      
     }
     
     
-    /**
-        @@@
+    /*
+        Called by the delete button to remove an already selected cell
      */
     @IBAction func deleteSelectedCell(_ sender: Any) {
         if selectedCells.count > 0 {
@@ -271,7 +260,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 
 
 /**
-    @@@
+    Adds a delegate to the ImageInput_ViewCOntroller so that it can get things from
+    the pulural/single popup
  */
 extension ImageInput_ViewController : SinglePluralDelegate{
     func selectedGNum(cell: ImageCell, grNum: String, indexPath: IndexPath) {
@@ -290,15 +280,13 @@ extension ImageInput_ViewController : SinglePluralDelegate{
         }
         selectedCells.append(newCell)
         
-        //if we want to remove it from the selectCollectionView
-        //defaultWords.remove(at: indexPath.item)//remove cell from collection veiw and reload collection view with new cells
-        //InputCollectionView?.deleteItems(at: [indexPath])
     }
 }
 
 
 /**
-    @@@
+     Adds a delegate to the ImageInput_ViewCOntroller so that it can get things from
+     the tense popup
  */
 extension ImageInput_ViewController : TenseDelegate{
     func selectedTense(cell: ImageCell, tense: String, tenseType: String, indexPath: IndexPath){

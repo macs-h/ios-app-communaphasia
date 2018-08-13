@@ -49,6 +49,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.68627450980392157" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1ce-13-iqG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,7 +158,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Back button flipped"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Vq3-nG-FAk"/>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="Vq3-nG-FAk"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
@@ -385,7 +386,7 @@
                         <outletCollection property="tabButtons" destination="1uX-yh-4xF" collectionClass="NSMutableArray" id="M2s-WF-DF9"/>
                         <outletCollection property="tabButtons" destination="ine-zE-h8W" collectionClass="NSMutableArray" id="YyD-73-jhy"/>
                         <outletCollection property="tabButtons" destination="x2V-EJ-sao" collectionClass="NSMutableArray" id="D5M-Hz-CvX"/>
-                        <segue destination="jrt-i2-IQI" kind="show" identifier="IIToResult_segue" id="1qB-hy-XeI"/>
+                        <segue destination="jrt-i2-IQI" kind="custom" identifier="IIToResult_segue" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="1qB-hy-XeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -751,7 +752,6 @@
         <image name="presentTense" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1qB-hy-XeI"/>
         <segue reference="gQP-Iw-auM"/>
         <segue reference="Tuv-aW-ka3"/>
         <segue reference="Vq3-nG-FAk"/>

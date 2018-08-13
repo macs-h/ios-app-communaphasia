@@ -48,6 +48,7 @@
 		ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */; };
 		ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */; };
 		ED61067320BA4995003C4904 /* SinglePlural_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */; };
+		ED720AC52121859F004A3BA4 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED720AC42121859F004A3BA4 /* Animations.swift */; };
 		ED74CAB521194B5100850E9F /* small.png in Resources */ = {isa = PBXBuildFile; fileRef = ED74CAB421194B5100850E9F /* small.png */; };
 		ED83F6D2212110180043251E /* love.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F6C2212110170043251E /* love.png */; };
 		ED83F6D3212110180043251E /* thinking.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F6C9212110170043251E /* thinking.png */; };
@@ -221,6 +222,7 @@
 		ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResult_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInput_ViewController.swift; sourceTree = "<group>"; };
 		ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlural_ViewController.swift; sourceTree = "<group>"; };
+		ED720AC42121859F004A3BA4 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = "CommunAphasia/ScriptsFolder/UI Scripts/Animations.swift"; sourceTree = SOURCE_ROOT; };
 		ED74CAB421194B5100850E9F /* small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small.png; sourceTree = "<group>"; };
 		ED83F6C2212110170043251E /* love.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = love.png; sourceTree = "<group>"; };
 		ED83F6C9212110170043251E /* thinking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thinking.png; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
+				ED720AC42121859F004A3BA4 /* Animations.swift */,
 				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
 				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,
@@ -784,6 +787,7 @@
 				ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */,
 				EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */,
 				C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */,
+				ED720AC52121859F004A3BA4 /* Animations.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
 				C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */,

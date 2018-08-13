@@ -1,39 +1,8 @@
-basketball,basketball,noun,sport,r,activity,t
-big,big,adj,size,r,objects,t
-call,call,verb,nil,r,activity,called+calling+will call
-cat,cat_silhouette,noun,cute,r,animals,t
-cow,cow,noun,farm,r,animals,t
-deer,deer_silhouette,noun,hunting,deer,animals,t
-eat,eat,verb,nil,r,activity,ate+eating+will eat
-fish,fish,noun,water,fish,animals,t
-I,i.jpg,pronoun,me,am,objects,t
-you,you,pronoun,you,are,objects,t
-he,he,pronoun,him,is,objects,t
-she,she,pronoun,her,is,objects,t
-we,we,pronoun,us,are,objects,t
-they,they,pronoun,them,are,objects,t
-it,it,pronoun,it,is,objects,t
-man,man_silhouette,noun,people,men,objects,t
-pencil,pencil,noun,draw,r,objects,t
-sleep,sleep,verb,on,r,activity,slept+sleeping+will sleep
-small,small,adj,size,r,objects,t
-tree,tree_silhouette,noun,nature,r,animals,t
-woman,woman_silhouette,noun,people,women,objects,t
-car,car_sedan,noun,travel,r,travel,t
-fast,fast,adj,faster+fastest,r,other,t
-quickly,fast,adverb,quick,r,other,t
-wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
-want,want,verb,nil,r,activity,wanted+wanting+will want
-need,need,verb,nil,r,activity,needed+needing+will need
-can,can,modal,nil,r,activity,could have+can+will be able to
-may,may.jpg,modal,nil,r,activity,might have+might+might be able to
-should,should,modal,nil,r,activity,should have+should+should
-
 angry,angry,adj,nil,r,emotions,t
 cool,cool,adj,nil,r,emotions,t
 laugh,laughing,verb,nil,r,emotions,laughed+laughing+will laugh
 funny,laughing,adj,nil,r,emotions,t
-love,love,verb,nil,r,emotions,loved+love+will love
+love,love,verb,nil,r,emotions,loved+loving+will love
 sad,sad.jpg,adj,nil,r,emotions,t
 sleepy,sleepy.jpg,adj,nil,r,emotions,t
 think,thinking,adj,nil,r,emotions,thought+thinking+will think
@@ -41,6 +10,52 @@ happy,happy,adj,nil,r,emotions,t
 surprise,surprised,adj,nil,r,emotions,surprised+surprising+surprising
 scared,scared,adj,nil,r,emotions,t
 sick,sick,adj,nil,r,emotions,t
+
+cat,cat_silhouette,noun,cute,r,animals,t
+cow,cow,noun,farm,r,animals,t
+deer,deer_silhouette,noun,hunting,deer,animals,t
+fish,fish,noun,water,fish,animals,t
+tree,tree_silhouette,noun,nature,r,animals,t
+
+apple,apple,noun,food+fruit,r,food,t
+lunch,food_lunch,noun,food,lunches,food,t
+breakfast,food_breakfast,noun,food,r,food,t
+dinner,food_dinner,noun,food,r,food,t
+soda,soda_can,noun,drink,r,food,t
+bacon,bacon,noun,nil,r,food,t
+donut,donut,noun,nil,r,food,t
+egg,egg,noun,nil,r,food,t
+pancake,pancake,noun,nil,r,food,t
+sandwich,sandwich,noun,nil,r,food,t
+toast,toast,noun,nil,r,food,t
+water,water,noun,nil,r,food,t
+lunch,food_lunch,noun,food,lunches,food,t
+
+call,call,verb,nil,r,activity,called+calling+will call
+eat,eat,verb,nil,r,activity,ate+eating+will eat
+sleep,sleep,verb,on,r,activity,slept+sleeping+will sleep
+wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
+want,want,verb,nil,r,activity,wanted+wanting+will want
+need,need,verb,nil,r,activity,needed+needing+will need
+can,can,modal,nil,r,activity,could have+can+will be able to
+may,may.jpg,modal,nil,r,activity,might have+might+might be able to
+should,should,modal,nil,r,activity,should have+should+should
+
+car,car_sedan,noun,travel,r,travel,t
+
+basketball,basketball,noun,sport,r,object,t
+big,big,adj,size,r,objects,t
+I,i.jpg,pronoun,was+am+will be,me,objects,t
+you,you,pronoun,were+are+will be,you,objects,t
+he,he,pronoun,was+is+will be,him,objects,t
+she,she,pronoun,was+is+will be,her,objects,t
+we,we,pronoun,were+are+will be,us,objects,t
+they,they,pronoun,were+are+will be,them,objects,t
+it,it,pronoun,was+is+will be,it,objects,t
+man,man_silhouette,noun,people,men,objects,t
+pencil,pencil,noun,draw,r,objects,t
+small,small,adj,size,r,objects,t
+woman,woman_silhouette,noun,people,women,objects,t
 
 blue,blue,adj,nil,r,other,t
 black,black,adj,nil,r,other,t
@@ -53,11 +68,6 @@ purple,purple,adj,nil,r,other,t
 red,red,adj,nil,r,other,t
 white,white,adj,nil,r,other,t
 yellow,yellow,adj,nil,r,other,t
+fast,fast,adj,faster+fastest,r,other,t
+quickly,fast,adverb,quick,r,other,t
 
-apple,apple,noun,food+fruit,r,food,t
-lunch,food_lunch,noun,food,lunches,food,t
-breakfast,food_breakfast,noun,food,r,food,t
-dinner,food_dinner,noun,food,r,food,t
-soda,soda_can,noun,drink,r,food,t
-bacon,bacon,noun,nil,r,food,t
-donut,donut,noun,nil,r,food,t

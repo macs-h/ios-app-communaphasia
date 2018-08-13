@@ -48,7 +48,7 @@ class ImageCell: UICollectionViewCell {
         self.tense = cell.tense
         
         
-        showType()
+        //showType()
         
         //---colouring boarders---//
         /*if type == "noun"{

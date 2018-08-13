@@ -9,14 +9,11 @@
 import UIKit
 import Foundation
 
-/**
- Flag that is toggled when the subject of the sentence is entered.
- */
+
+// Flag that is toggled when the subject of the sentence is entered.
 var haveSubject: Bool = false
 
-/**
- Flag that is toggled when the subject verb of the sentence is entered.
- */
+// Flag that is toggled when the subject verb of the sentence is entered.
 var subVerb: Bool = false
 
 
@@ -32,16 +29,15 @@ class ImageToText {
     /**
         Basic constructor
      */
-    private init(){
-    }
+    private init() {}
 
     /**
         Function that inputs the words which carry meaning (eg. nouns, pronouns,
         verbs etc.).
      
-        - Parameter pics:   An array of imageCells.
+        - Parameter pics:   An array of `imageCells`.
      
-        - Returns:  The completed sentence as a String.
+        - Returns:  The completed sentence as a `String`.
      */
     func createSentence(pics: [ImageCell]) -> String {
         var returnString:Array<String> = []
@@ -51,7 +47,7 @@ class ImageToText {
         
         for imageNum in 0...pics.count-1 {
             tenses = pics[imageNum].tense.components(separatedBy: "+")
-            //first word, probably add 'the'
+            // first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
                     returnString.append("The")          // index 0
@@ -118,9 +114,9 @@ class ImageToText {
     /**
         A function that returns the plural form of the word.
      
-        - Parameter pics:   The ImageCell with the word to be 'pluralized'.
+        - Parameter pics:   The `ImageCell` with the word to be 'pluralized'.
      
-        - Returns:  The plural form of the word, as a String.
+        - Returns:  The plural form of the word, as a `String`.
      */
     func pluralize(pic: ImageCell) -> String {
         if (pic.grNum == "plural") {
@@ -135,10 +131,10 @@ class ImageToText {
         Function that inputs 'helper' words, with respect to nouns, into the
         final sentence (eg. prepositions, articles, the verb to be etc.).
      
-        - Parameter prevWord: The previous ImageCell in the array. Used to
-        get the previous function word in the sentence.
+        - Parameter prevWord:   The previous `ImageCell` in the array. Used to
+                                get the previous function word in the sentence.
      
-        - Returns:  a String with either nothing or a helper word.
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isNoun(prevWord: ImageCell) -> String{
         var temp = ""
@@ -168,13 +164,13 @@ class ImageToText {
         into the final sentence (eg. prepositions, articles, the verb to be
         etc.).
      
-        - Parameter prevWord: The previous ImageCell in the array. Used to
-        get the previous function word in the sentence.
+        - Parameters:
+            - prevWord:     The previous `ImageCell` in the array. Used to
+                            get the previous function word in the sentence.
+            - currentWord:  The current `ImageCell` in the array. Used to
+                            get the current function word in the sentence.
      
-        - Parameter currentWord: The current ImageCell in the array. Used to
-        get the current function word in the sentence.
-     
-        - Returns:  a String with either nothing or a helper word.
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isAdj(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
@@ -212,14 +208,14 @@ class ImageToText {
     
     
     /**
-     Function that inputs 'helper' words, with respect to adverbs,
-     into the final sentence (eg. prepositions, articles, the verb to be
-     etc.).
-     
-     - Parameter prevWord: The previous ImageCell in the array. Used to
-     get the previous function word in the sentence.
-     
-     - Returns:  a String with either nothing or a helper word.
+        Function that inputs 'helper' words, with respect to adverbs,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
+
+        - Parameter prevWord:   The previous `ImageCell` in the array. Used to
+                                get the previous function word in the sentence.
+
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isAdverb(prevWord: ImageCell) -> String{
         var temp = ""
@@ -240,17 +236,17 @@ class ImageToText {
     
     
     /**
-     Function that inputs 'helper' words, with respect to verbs,
-     into the final sentence (eg. prepositions, articles, the verb to be
-     etc.).
-     
-     - Parameter prevWord: The previous ImageCell in the array. Used to
-     get the previous function word in the sentence.
-     
-     - Parameter currentWord: The current ImageCell in the array. Used to
-     get the current function word in the sentence.
-     
-     - Returns:  a String with either nothing or a helper word.
+        Function that inputs 'helper' words, with respect to verbs,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
+
+        - Parameters:
+            - prevWord:     The previous `ImageCell` in the array. Used to
+                            get the previous function word in the sentence.
+            - currentWord:  The current `ImageCell` in the array. Used to
+                            get the current function word in the sentence.
+
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isVerb(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
@@ -282,17 +278,17 @@ class ImageToText {
     
     
     /**
-     Function that inputs 'helper' words, with respect to modal verbs,
-     into the final sentence (eg. prepositions, articles, the verb to be
-     etc.).
-     
-     - Parameter prevWord: The previous ImageCell in the array. Used to
-     get the previous function word in the sentence.
-     
-     - Parameter currentWord: The current ImageCell in the array. Used to
-     get the current function word in the sentence.
-     
-     - Returns:  a String with either nothing or a helper word.
+        Function that inputs 'helper' words, with respect to modal verbs,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
+
+        - Parameters:
+            - prevWord:     The previous `ImageCell` in the array. Used to
+                            get the previous function word in the sentence.
+            - currentWord:  The current `ImageCell` in the array. Used to
+                            get the current function word in the sentence.
+
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isModal(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""

@@ -177,7 +177,7 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             if currentWord.tenseType == "present" {
-            temp = prevWord.suggestedWords[0]
+            temp = prevWord.suggestedWords[1]
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = ""

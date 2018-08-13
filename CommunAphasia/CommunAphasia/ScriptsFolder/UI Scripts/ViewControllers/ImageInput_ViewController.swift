@@ -129,11 +129,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             // which returns a tuple with data like, image, word, suggestions etc
             //cell.addData(cell: Utility.instance.getDatabaseEntry(defaultWords[indexPath.item]))
             cell.addData(cell: cellsInCategory[indexPath.item])
+            cell.showType()
             // cell.cellImageView.image = selectCellImages[indexPath.item]
             return cell
         }else{
             //inputCollectionView
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell
+            cell.showType()
             //cell.addData(cell.addData(cell: UTILITY.getDatabaseEntry(defaultWords[indexPath.row], "temp type", exclusionList))) //using temp tuple
             return cell
         }

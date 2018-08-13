@@ -87,10 +87,10 @@ class Utility {
         `EXCLUSION_LIST`, before returning the array of words.
 
         - Parameters:
-           - inputString:  a string to be broken down into separate words.
+           - inputString:  A string to be broken down into separate words.
            - charSet:      indicates which ASCII character is used to separate
                            the sentence into words.
-        - Returns:  a 1D array of words.
+        - Returns:  A 1D array of words.
      */
     func getSentenceToWords(from inputString: String, separatedBy charSet: CharacterSet, removeSelectWords:Bool? = true) -> Array<String> {
         if removeSelectWords! {
@@ -105,11 +105,11 @@ class Utility {
         Removes all the words in the exclusion list from the parsed in array.
 
         - Parameters:
-           - wordArray:        array containing the processed words from the
+           - wordArray:        Array containing the processed words from the
                                original sentence.
-           - exclusionList:    array containing all the word(s) to be excluded.
+           - exclusionList:    Array containing all the word(s) to be excluded.
 
-        - Returns:  an array of words, without the excluded word(s).
+        - Returns:  An array of words, without the excluded word(s).
      */
     func dropWords(_ wordArray: Array<String>, _ exclusionList: Array<String>) -> Array<String> {
         return wordArray.filter { !exclusionList.contains($0) }
@@ -147,14 +147,14 @@ class Utility {
         Finds the entry in the database which corresponds to `word` and returns
         that entry as a tuple containing the relevant metadata.
 
-        - Parameter word:  the keyword to search for, in the database.
+        - Parameter word:  The keyword to search for, in the database.
 
-        - Returns:  a tuple which contains the information extracted from the
+        - Returns:  A tuple which contains the information extracted from the
                     database.
-           - word:         the word describing the entry.
-           - type:         the type of image (e.g. noun, adjective, etc.).
-           - image:        the `UIImage` element.
-           - suggestions:  possible suggestions which are related to the word.
+           - word:         The word describing the entry.
+           - type:         The type of image (e.g. noun, adjective, etc.).
+           - image:        The `UIImage` element.
+           - suggestions:  Possible suggestions which are related to the word.
      */
     func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String) {
         var image: UIImage = UIImage(named: "image placeholder")!
@@ -186,9 +186,9 @@ class Utility {
         returns an array of `cells` for each valid word that matches a keyword
         in the database.
      
-        - Parameter words:  an array of words holding the user's input.
+        - Parameter words:  An array of words holding the user's input.
      
-        - Returns:  an array of `cells` which were retrieved from the database.
+        - Returns:  An array of `cells` which were retrieved from the database.
      */
     func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)] {
         
@@ -215,7 +215,7 @@ class Utility {
     /**
         Checks if there is a matching database entry for the word.
      
-        - Parameter word:   word to be checked for in the database.
+        - Parameter word:   The word to be checked for in the database.
      
         - Returns: `true` if word exists in database, else `false`.
      */
@@ -236,9 +236,9 @@ class Utility {
         Retrieves entries from the database as `cells` for all database entries
         that match the given category.
      
-        - Parameter category:   the category to be searched for.
+        - Parameter category:   The category to be searched for.
      
-        - Returns:  an array of `cells` which matched the category.
+        - Returns:  An array of `cells` which matched the category.
      */
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
@@ -269,9 +269,9 @@ class Utility {
         Uses NSLinguisticTagger to lemmatize (find the stem of) each given word,
         and returns the tags as an array.
      
-        - Parameter inputString:    the words (as a string) to be lemmatized.
+        - Parameter inputString:    The words (as a string) to be lemmatized.
      
-        - Returns:  an array holding the lemma of each input word.
+        - Returns:  An array holding the lemma of each input word.
      */
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
@@ -326,9 +326,9 @@ class Utility {
         synonyms which will be used as suggesetions for any invalid words the
         user gives as input.
      
-        - Parameter word:   the word to find synonyms for.
+        - Parameter word:   The word to find synonyms for.
      
-        - Returns:  an array of synonymous words, else `nil`.
+        - Returns:  An array of synonymous words, else `nil`.
      */
     func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
@@ -361,9 +361,9 @@ class Utility {
     /**
         Filters out words that exist in our database.
      
-        - Parameter inArray:    an array of words.
+        - Parameter inArray:    An array of words.
      
-        - Returns:  an array which only contains words that exist in our
+        - Returns:  An array which only contains words that exist in our
                     database, from `inArray`.
      */
     func synonymsInDataBase(from inArray: [String]) -> [String] {

@@ -36,11 +36,11 @@ class ImageCell: UICollectionViewCell {
     /**
         Takes in a tuple and assigns it to class properties.
 
-        - Parameter cell:   a tuple containing the following properties:
-           - word:          the word for the cell.
-           - type:          the type of word.
-           - image:         the image to be displayed in the cell.
-           - suggestions:   possible suggestions which are related to the word.
+        - Parameter cell:   A tuple containing the following properties:
+           - word:          The word for the cell.
+           - type:          The type of word.
+           - image:         The image to be displayed in the cell.
+           - suggestions:   Possible suggestions which are related to the word.
      */
     func addData(cell: (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)) {
         self.word = cell.word
@@ -56,11 +56,11 @@ class ImageCell: UICollectionViewCell {
     /**
         Extracts the cell properties and puts it into a tuple.
 
-        - Returns: a tuple containing the cell's properties.
-           - word:         the word for the cell.
-           - type:         the type of word.
-           - image:        the image to be displayed in the cell.
-           - suggestions:  possible suggestions which are related to the word.
+        - Returns:  A tuple containing the cell's properties.
+           - word:         The word for the cell.
+           - type:         The type of word.
+           - image:        The image to be displayed in the cell.
+           - suggestions:  Possible suggestions which are related to the word.
      */
     func extractData()-> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String) {
         return (self.word, self.type, self.imageView.image!, self.suggestedWords, self.grNum, self.category, self.tense)

@@ -29,7 +29,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     private var cellsInCategory: [(String, String, UIImage, [String], String, String, String)]! //temp storage to be used by collection view cells
     let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
-    
+    /**
+        Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         InputCollectionView.dataSource = self
@@ -47,6 +49,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
 
     
+    /**
+        Sent to the view controller when the app receives a memory warning.
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,9 +59,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        Reference to the UI 'done' button.
+        Reference to the UI `done` button.
 
-        - Parameter sender: the object which called this function.
+        - Parameter sender: The object which called this function.
      */
     @IBAction func DoneButton(_ sender: Any) {
         if selectedWords.count > 0 {
@@ -64,25 +69,32 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             ImageToText.instance.reset()
             performSegue(withIdentifier: "IIToResult_segue", sender: self)
         } else {
-            //no picture selectect so show warning?
-        }
-
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "IIToResult_segue") {
-            let resultController = segue.destination as! ImageResult_ViewController
-            resultController.selectedCellsResult = selectedCells
-            
+            // No picture selectect so show warning?
         }
     }
     
     
     /**
-        Called when a tab is pressed and uses the tab tag to determine what category to use
+        Notifies the view controller that a segue is about to be performed.
      
-        - Parameter sender: tab button pressed
+        - Parameters:
+            - segue:    The segue object containing information about the view
+                        controllers involved in the segue.
+            - sender:   The object that initiated the segue.
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "IIToResult_segue") {
+            let resultController = segue.destination as! ImageResult_ViewController
+            resultController.selectedCellsResult = selectedCells
+        }
+    }
+    
+    
+    /**
+        Called when a tab is pressed and uses the tab tag to determine what
+        category to use.
+     
+        - Parameter sender: Tab button pressed
      */
     @IBAction func ChangeCategory(_ sender: UIButton) {
         for button in tabButtons {
@@ -90,10 +102,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
             }
             if button.tag == sender.tag {
-                //new tab to be selected
+                // New tab to be selected
                  button.imageView?.tintColor = UIColor(hex: "ffffff")
             }
-            //print("button colour", button.imageView!.tintColor)
         }
         if sender.tag == 0 {
             cellsInCategory = Utility.instance.getWordsInDatabase(words: commonWords)
@@ -110,16 +121,15 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     // Collection view stuff.
     // ----------------------------------------------------------------------
     
-
     /**
         Tells the colelction view how many cells it needs to hold.
      
         - Parameters:
-            - collectionView:           the collection view which number of items
-                                        is being set
-            - numberOfItemsInSelection: number of items in section
+            - collectionView:   The collection view requesting this information.
+            - section:          An index number identifying a section in
+                                `collectionView`. This index value is 0-based.
      
-        - Returns:  the size of the given collecvtion view
+        - Returns:  The size of the given `collectionView`.
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.InputCollectionView {
@@ -133,26 +143,30 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     /**
         Makes the items within the given collection view upto the size of the
-        collectionview
+        collectionview.
      
         - Parameters:
-            - collectionView:   the collection view which cells are being created in
-            - indexPath:        the index of the current cell which is being worked on
+            - collectionView:   The collection view requesting this information.
+            - indexPath:        The index path that specifies the location of
+                                the item.
      
-        - Returns:  the item that has been made
+        - Returns:  A configured cell object. Must not return nil.
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.InputCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell
+            // Gives the type of the custom class that was made for the cell.
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
             
-            // call a function the the cell whcih asigns each variable with data from a function
-            // which returns a tuple with data like, image, word, suggestions etc
+            // Call a function the the cell which assigns each variable with
+            // data from a function which returns a tuple with data like:
+            // image, word, suggestions etc
             cell.addData(cell: cellsInCategory[indexPath.item])
             cell.showType()
             return cell
         } else {
             // InputCollectionView
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell
+            // Gives the type of the custom class that was made for the cell.
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
             cell.showType()
             return cell
         }
@@ -160,13 +174,15 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        called when the want button is pressed
+        Called when the `want` button is pressed
+     
+        - Parameter sender: The object which called this function.
      */
     @IBAction func wantButtonPress(_ sender: Any) {
         selectedWords.append("want")
         
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
-        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // Add a new cell to bottom table view using the tuple.
         let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
         newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: "",tense: ""))
         selectedCells.append(newCell)
@@ -174,16 +190,20 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        Controls what happens if an item is selected within a collectionview
+        Controls what happens if an item is selected within a `collectionView`.
+        Tells the delegate that the item at the specified index path was
+        selected.
      
         - Parameters:
-            - collectionView:   the collection view which had an item selected within
-            - indexPath:        indexpath of the item that was selected
+            - collectionView:   The collection view object that is notifying you
+                                of the selection change.
+            - indexPath:        The index path of the cell that was selected.
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.InputCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
-            //do something with the cell
+            
+            // Do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
             } else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue {
@@ -191,11 +211,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             } else {
                 selectedWords.append(cell.word)
                 let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
-                selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple
+                selectedCollectionView?.insertItems(at: [insertedIndexPath]) // Add a new cell to bottom table view using the tuple.
                 let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
                 newCell.addData(cell: cell.extractData())
                 selectedCells.append(newCell)
-                //using previous cell as a suggestion
+                // Using previous cell as a suggestion
             }
         } else {
             //InputCollectionView
@@ -205,11 +225,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        Bring up the popup that asks for single or plural
+        Bring up the popup that asks for single or plural.
      
         - Parameters:
-            - cell:         the cell that was pressed
-            - indexPath:    the indexpath of the cell that was pressed
+            - cell:         The cell that was pressed.
+            - indexPath:    The index path of the cell that was selected.
      */
     func showSinglePluralVC(cell: ImageCell, indexPath: IndexPath) {
         let singlePluralVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePluralVC") as! SinglePlural_ViewController
@@ -224,12 +244,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     /**
-        Shows the tense popup giving user otption to choose past, present,
-        future tense
+        Shows the tense pop-up, giving user option to choose past, present, or
+        future tense.
      
         - Parameters:
-            - cell:         the cell that was pressed
-            - indexPath:    the indexpath of the cell that was pressed
+            - cell:         The cell that was pressed.
+            - indexPath:    The index path of the cell that was selected.
      */
     func showTenseVC(cell: ImageCell, indexPath: IndexPath) {
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
@@ -240,12 +260,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         tenseVC.didMove(toParentViewController: self)
         
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
-      
     }
     
     
-    /*
-        Called by the delete button to remove an already selected cell
+    /**
+        Called by the delete button to remove an already selected cell.
+     
+        - Parameter sender: The object which called this function.
      */
     @IBAction func deleteSelectedCell(_ sender: Any) {
         if selectedCells.count > 0 {
@@ -257,13 +278,14 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
 
 } // End of ImageInput_ViewController class!
+// ----------------------------------------------------------------------
 
 
 /**
-    Adds a delegate to the ImageInput_ViewCOntroller so that it can get things from
-    the pulural/single popup
+    Adds a delegate to the `ImageInput_ViewController` so that it can get
+    things from the plural/single pop-up.
  */
-extension ImageInput_ViewController : SinglePluralDelegate{
+extension ImageInput_ViewController : SinglePluralDelegate {
     func selectedGNum(cell: ImageCell, grNum: String, indexPath: IndexPath) {
         selectedWords.append(cell.word)
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
@@ -279,17 +301,16 @@ extension ImageInput_ViewController : SinglePluralDelegate{
             newCell.showPlural()
         }
         selectedCells.append(newCell)
-        
     }
 }
 
 
 /**
-     Adds a delegate to the ImageInput_ViewCOntroller so that it can get things from
-     the tense popup
+    Adds a delegate to the `ImageInput_ViewController` so that it can get
+    things from the plural/single pop-up.
  */
-extension ImageInput_ViewController : TenseDelegate{
-    func selectedTense(cell: ImageCell, tense: String, tenseType: String, indexPath: IndexPath){
+extension ImageInput_ViewController : TenseDelegate {
+    func selectedTense(cell: ImageCell, tense: String, tenseType: String, indexPath: IndexPath) {
         selectedWords.append(cell.word)
         let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
         selectedCollectionView?.insertItems(at: [insertedIndexPath]) // add a new cell to bottom table view using the tuple

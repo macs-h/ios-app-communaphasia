@@ -72,6 +72,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             pickerData.append(String(errorIndex))
             pickerView.reloadAllComponents()
             
+            attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+            setTextFromArray()
         }
         
     }
@@ -92,15 +94,29 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             pickerData.append(String(errorIndex))
             pickerView.reloadAllComponents()
             
+            attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+            setTextFromArray()
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
+        attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+        setTextFromArray()
         stringArray[currentIndex] = pickerData[row]
         //need to display attributed array in the text field
-        textField.text = stringArray.joined(separator: " ")
+        //textField.text = stringArray.joined(separator: " ")
+        
+    }
+    
+    func setTextFromArray(){
+        let tempString = NSMutableAttributedString()
+        for i in 0...attributedArray.count-1{
+            tempString.append(NSMutableAttributedString(string: " "))
+            tempString.append(attributedArray[i])
+        }
+        textField.attributedText = tempString
     }
     
     @available(iOS 11.0, *)
@@ -138,14 +154,14 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
 
     
-    func showErrors(_ wordArray: [String], _ errorArray: [Int], _ inputArray: [String]) {
-        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
-        for index in errorArray {
-            attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
-        }
-        print(">> attributedString:", attributedString!.string)
-        
-    }
+//    func showErrors(_ wordArray: [String], _ errorArray: [Int], _ inputArray: [String]) {
+//        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
+//        for index in errorArray {
+//            attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
+//        }
+//        print(">> attributedString:", attributedString!.string)
+//
+//    }
     
 //    func testFunc(_ inString: String) {
 ////        let eLabel = in
@@ -182,7 +198,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let errorArray = makeCells(using: wordArray, from: inputArray)
                 
             if errorArray.count > 0 {
-                showErrors(inputArray, errorArray, inputArray)
+                //showErrors(inputArray, errorArray, inputArray)
                 textField.attributedText = attributedString
                 cells.removeAll()
                 
@@ -213,6 +229,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 synonymLabel.isHidden = false
                 
                 pickerData = synonyms[errorIndex]
+                pickerData.append(String(errorIndex))
                 currentIndex = errorArray[0]
                 errorIndices = errorArray
                 
@@ -228,6 +245,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     }
                     attributedArray.append(atWord)
                 }
+                attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
+                setTextFromArray()
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0

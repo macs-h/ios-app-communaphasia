@@ -8,10 +8,12 @@
 
 import UIKit
 
-
+/**
+    Class that controls the Text input screen.
+ */
 class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    /// References the user input text field.
+    // References the user input text field.
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var synonymLabel: UILabel!
     
@@ -34,23 +36,54 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
+    
+    /**
+        Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
     }
     
-    // The number of columns of data in picker view
+    
+    /**
+        The number of columns of data in picker view
+     
+        - Parameter pickerView: @@@
+     
+        - Returns:  @@@
+     */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    // The number of rows of data in picker view
+    
+    /**
+        The number of rows of data in picker view
+     
+        - Parameters:
+            - pickerView:   @@@
+            - component:    @@@
+     
+        - Returns:  @@@
+     */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
     
-    // The data to return for the row and component (column) that's being passed in, in picker view
+    
+    /**
+        The data to return for the row and component (column) that's being
+        passed in, in picker view.
+     
+        - Parameters:
+            - pickerView:   @@@
+            - row:          @@@
+            - component:    @@@
+     
+        - Returns:  (Optional) @@@
+     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
@@ -107,6 +140,15 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
+    
+    /**
+        @@@
+     
+        - Parameters:
+            - pickerView:   @@@
+            - row:          @@@
+            - component:    @@@
+     */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
@@ -127,13 +169,23 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         textField.attributedText = tempString
     }
     
+    
+    /**
+        @@@
+     
+        - Parameters:
+            - wordArray:    @@@
+            - original:     @@@
+     
+        - Returns:  @@@
+     */
     @available(iOS 11.0, *)
-    func makeCells(using wordArray:[String], from original:[String])-> [Int]{
+    func makeCells(using wordArray:[String], from original:[String])-> [Int] {
         var errorArray = [Int]()
         errors = []
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
-//        var i = 0
+
         // Start loading wheel.
         
         for word in wordArray {
@@ -152,10 +204,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
             
             // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
-            
-//            i += 1
+
             }
         }
+        
         // End loading wheel.
         
         return errorArray
@@ -177,6 +229,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 //        attributedString?.setColor(color: UIColor.red, forText: inString)
 //    }
     
+    
+    /**
+        @@@
+     */
     func invalidSentence() {
         let str = "Please enter a valid input"
         attributedString = NSMutableAttributedString(string: str)
@@ -188,9 +244,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
-     * Called when the `done` button is pressed.
-     *
-     *  - Parameter sender: the object which called this function.
+        @@@
      */
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
@@ -309,8 +363,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
-    
-}
+} // End of TextInput_ViewController class!
+
 
 
 

@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    @@@
+    makes a protocol so that the imageInput VC has to implement the delegate
  */
 protocol SinglePluralDelegate: class {
     func selectedGNum(cell: ImageCell, grNum: String, indexPath: IndexPath)
@@ -17,7 +17,7 @@ protocol SinglePluralDelegate: class {
 
 
 /**
-    @@@
+    Class that controls the singlePlural popup
  */
 class SinglePlural_ViewController: UIViewController {
     
@@ -41,12 +41,12 @@ class SinglePlural_ViewController: UIViewController {
     }
     
     /**
-        @@@
+        sets up the popup
      
         - Parameters:
-            - delegate:     @@@
-            - cell:         @@@
-            - indexpath:    @@@
+            - delegate:     what delegate to call after the button is pressed
+            - cell:         what cell is being acted on
+            - indexpath:    the index path of the cell selected
      */
     func setUp(delegate: SinglePluralDelegate, cell: ImageCell, indexPath: IndexPath) {
         self.delegate = delegate
@@ -58,9 +58,8 @@ class SinglePlural_ViewController: UIViewController {
         self.indexPath = indexPath
     }
     
-    //single image selected
     /**
-        @@@
+        The single button has been pressed (user has chosen single for that noun)
      */
     @IBAction func selectSingle(_ sender: Any) {
         delegate?.selectedGNum(cell: cell!, grNum: "singular", indexPath: indexPath!)
@@ -68,16 +67,18 @@ class SinglePlural_ViewController: UIViewController {
     }
     
     
-    //plural image selected
+    
     /**
-        @@@
+        The plural button pressed (user has chosen plural for that noun)
      */
     @IBAction func selectPlural(_ sender: Any) {
         delegate?.selectedGNum(cell: cell!, grNum: "plural", indexPath: indexPath!)
         closePopup()
     }
     
-    
+    /**
+        can tap anywhere else to not choose single or plural
+     */
     @IBAction func closePopup(){
         self.view.removeFromSuperview()
         

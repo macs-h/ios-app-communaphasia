@@ -42,6 +42,7 @@ may,may.jpg,modal,nil,r,activity,might have+might+might be able to
 should,should,modal,nil,r,activity,should have+should+should
 
 car,car_sedan,noun,travel,r,travel,t
+car,car_sedan,noun,travel,r,travel,t
 
 basketball,basketball,noun,sport,r,object,t
 big,big,adj,size,r,objects,t
@@ -56,7 +57,8 @@ man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t
 small,small,adj,size,r,objects,t
 woman,woman_silhouette,noun,people,women,objects,t
-car,car_sedan,noun,travel,r,travel,t
+
+
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
 wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
@@ -66,6 +68,7 @@ can,can,modal,nil,r,activity,could have+can+will be able to
 may,may.jpg,modal,nil,r,activity,might have+might+might be able to
 should,should,modal,nil,r,activity,should have+should+should
 talk,talk,verb,to,r,activity,talked+talking+will talk
+
 angry,angry,adj,nil,r,emotions,t
 cool,cool,adj,nil,r,emotions,t
 laugh,laughing,verb,nil,r,emotions,laughed+laughing+will laugh
@@ -78,6 +81,7 @@ happy,happy,adj,nil,r,emotions,t
 surprise,surprised,adj,nil,r,emotions,surprised+surprising+surprising
 scared,scared,adj,nil,r,emotions,t
 sick,sick,adj,nil,r,emotions,t
+
 blue,blue,adj,nil,r,other,t
 black,black,adj,nil,r,other,t
 brown,brown,adj,nil,r,other,t

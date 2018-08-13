@@ -163,8 +163,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func setTextFromArray(){
         let tempString = NSMutableAttributedString()
         for i in 0...attributedArray.count-1{
-            tempString.append(NSMutableAttributedString(string: " "))
             tempString.append(attributedArray[i])
+            tempString.append(NSMutableAttributedString(string: " "))
         }
         textField.attributedText = tempString
     }
@@ -196,7 +196,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
                 
                 if Utility.instance.isInDatabase(word: lemmaWord) == false{
-                    errorArray.append(original.index(of: word)!)
+                    errorArray.append(originalArray.index(of: word)!)
                     errors.append(word)
                 } else if errorArray.count == 0 {
                     let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
@@ -234,7 +234,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         @@@
      */
     func invalidSentence() {
-        let str = "Please enter a valid input"
+        let str = "Please enter a valid sentence"
         attributedString = NSMutableAttributedString(string: str)
         attributedString?.setColor(color: UIColor.red, forText: str)
         synonymLabel.isHidden = false
@@ -254,13 +254,13 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         synonymLabel.isHidden = true
         attributedString = NSMutableAttributedString()
         attributedArray.removeAll()
-        
+        errorIndex = 0
         
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
             let errorArray = makeCells(using: wordArray, from: inputArray)
-                
+            
             if errorArray.count > 0 {
                 //showErrors(inputArray, errorArray, inputArray)
                 cells.removeAll()
@@ -299,7 +299,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 pickerData.append(String(errorIndex))
                 currentIndex = errorArray[0]
                 errorIndices = errorArray
-                
+               print("------- currentIndex", currentIndex)
                 pickerView.reloadAllComponents()
                 pickerView.isHidden = false
                 
@@ -314,7 +314,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
                 attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
                 setTextFromArray()
-                
+                print("------- error array end", errorArray)
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0

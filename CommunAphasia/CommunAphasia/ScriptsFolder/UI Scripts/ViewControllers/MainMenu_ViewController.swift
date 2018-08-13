@@ -10,7 +10,7 @@ import UIKit
 import SQLite
 
 /**
-    @@@
+    Main class for controlling the mainMenu
  */
 class MainMenu_ViewController: UIViewController {
     

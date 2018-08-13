@@ -67,7 +67,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             errorIndex += 1
             currentIndex = errorIndices[errorIndex]
             
-            synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
+            if Utility.instance.isInDatabase(word: stringArray[currentIndex]){
+                synonymLabel.text = "'" + stringArray[currentIndex] + "' is valid!"
+            }else{
+                synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
+            }
             pickerData = synonyms[errorIndex]
             pickerData.append(String(errorIndex))
             pickerView.reloadAllComponents()
@@ -89,7 +93,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             errorIndex -= 1
             currentIndex = errorIndices[errorIndex]
             
-            synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
+            if Utility.instance.isInDatabase(word: stringArray[currentIndex]){
+                synonymLabel.text = "'" + stringArray[currentIndex] + "' is valid!"
+            }else{
+                synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
+            }
             pickerData = synonyms[errorIndex]
             pickerData.append(String(errorIndex))
             pickerView.reloadAllComponents()
@@ -225,7 +233,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
                 }
                 //do things with sysnonyms
-                synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
+                if Utility.instance.isInDatabase(word: errors[errorIndex]){
+                    synonymLabel.text = "'" + errors[errorIndex] + "' is valid!"
+                }else{
+                    synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
+                }
                 synonymLabel.isHidden = false
                 
                 pickerData = synonyms[errorIndex]

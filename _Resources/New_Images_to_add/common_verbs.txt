@@ -12,7 +12,7 @@ put - image could be useful for something else maybe
 see - same as look?
 show - image not really good match
 start - cant find, checked flag or beginning of race? 
-take - image is watermarked, not great represnetation
+take - image is watermarked, not great representation
 tell - same as talk/say
 turn - cant find
 use - cant find

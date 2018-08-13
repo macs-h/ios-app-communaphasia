@@ -25,7 +25,6 @@ class ImageToText {
         @@@
      */
     private init(){
-//        print("imageToText class Init")
     }
 
     /**
@@ -53,14 +52,9 @@ class ImageToText {
                     }
                 } else if pics[0].type == wordType.pronoun.rawValue {
                     haveSubject = true
-//                    if pics[0].tenseType == "present" {
-//                        returnString.append(pics[0].word + " " + pics[0].grNum)
-//                    } else {
-                    returnString.append(pics[0].word)
-                    
+                    returnString.append(pics[0].word.capitalized)
                 } else {
-                    //returnString.append(pics[0].tense)
-                    returnString.append(tenses[dict[pics[0].tenseType]!])
+                    returnString.append(tenses[dict[pics[0].tenseType]!].capitalized)
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
@@ -73,7 +67,7 @@ class ImageToText {
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
                     if haveSubject == true {
-                        returnString.append(thisPic.suggestedWords[0])
+                        returnString.append(thisPic.grNum)
                     }
                 }else if thisPic.type == wordType.modal.rawValue {
                     temp = isModal(prevWord: prevPic, currentWord: thisPic)
@@ -85,7 +79,7 @@ class ImageToText {
                     returnString.append(temp)
                     returnString.append(thisPic.word)
                 }else if thisPic.type == wordType.adjective.rawValue {
-                    temp = isAdj(prevWord: prevPic)
+                    temp = isAdj(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
                     returnString.append(thisPic.word)
                 }else if thisPic.type == wordType.verb.rawValue {
@@ -96,23 +90,10 @@ class ImageToText {
                     }
                     else if subVerb == true {
                     returnString.append(thisPic.word)
-//                    } else if prevPic.type == wordType.modal.rawValue && prevPic.tenseType == "past" {
-//                        print("tense: " + tenses[dict[thisPic.tenseType]!])
-//                        returnString.append(tenses[dict[thisPic.tenseType]!])
                     } else {
                     returnString.append(tenses[dict[thisPic.tenseType]!])
                     }
-//                    returnString.append(thisPic.tense)
-//                    if prevPic.type == wordType.modal.rawValue {
-//                        returnString.append(thisPic.tense)
-//                    } else if subVerb == true {
-//                        returnString.append(thisPic.word)
-//                    } else {
-//                        returnString.append(thisPic.tense)
-//                    }
                     subVerb = true
-//                    returnString.append((prevPic.type == wordType.modal.rawValue || (haveSubject == false && subVerb == true)) ? thisPic.word :thisPic.tense)
-//                    subVerb = true
                 }else{
                     returnString.append(thisPic.word)
                 }
@@ -175,7 +156,7 @@ class ImageToText {
      
         - Returns:  @@@
      */
-    func isAdj(prevWord: ImageCell) -> String{
+    func isAdj(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
             if prevWord.suggestedWords[0] != "nil" {
@@ -188,7 +169,13 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {
-            temp = ""
+            if currentWord.tenseType == "past" {
+                temp = prevWord.suggestedWords[0]
+            } else if currentWord.tenseType == "present" {
+                temp = prevWord.suggestedWords[1]
+            } else {
+                temp = prevWord.suggestedWords[2]
+            }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == wordType.adverb.rawValue {
@@ -238,13 +225,6 @@ class ImageToText {
             if subVerb == true {
                 temp = "to"
             }
-//            temp = ""
-//                returnString.append(thisPic.tense)
-//            } else if subVerb == true {
-//                returnString.append(thisPic.word)
-//            } else {
-//                returnString.append(thisPic.tense)
-//            }
         }else if prevWord.type == wordType.noun.rawValue {
             if haveSubject == true {
                 temp = "to"
@@ -255,7 +235,7 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             if currentWord.tenseType == "present" {
-            temp = prevWord.grNum
+            temp = prevWord.suggestedWords[1]
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = ""
@@ -278,24 +258,14 @@ class ImageToText {
     func isModal(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
-            temp = "" // Exception?
+            temp = ""
         }else if prevWord.type == wordType.noun.rawValue {
-//            if haveSubject == true {
-//                temp = "to"
-//            } else {
-//                temp = (prevWord.grNum == "singular") ? "is" : "are"
-//            }
-//            temp = (prevWord.grNum == "singular") ? "s" : ""
             temp = ""
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             temp = ""
-//            if currentWord.tenseType == "present" {
-//                temp = "am"
-//            }
         }else if prevWord.type == wordType.modal.rawValue {
-//            temp = "and"
             temp = ""
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""

@@ -248,7 +248,7 @@ class Utility {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
-                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false),
                               cell[GR_NUM],
                               cell[CATEGORY],
                               cell[TENSE]))

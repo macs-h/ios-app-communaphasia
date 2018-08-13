@@ -44,21 +44,6 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     
     /**
-        Notifies the view controller that a segue is about to be performed.
-     
-        - Parameters:
-            - segue:    The segue object containing information about the view
-                        controllers involved in the segue.
-            - sender:   The object that initiated the segue.
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "TIToInput_segue") {
-            let inputController = segue.destination as! TextInput_ViewController
-        }
-    }
-    
-    
-    /**
         Tells the colelction view how many cells it needs to hold.
 
         - Parameters:
@@ -94,18 +79,4 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         return cell
     }
     
-    
-    /**
-        Controls what happens if an item is selected within a collectionview.
-
-        - Parameters:
-            - collectionView:   The collection view requesting this information.
-            - indexPath:        The index path that specifies the location of
-                                the item.
-     */
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // used for editing the cell
-         let cell = collectionView.cellForItem(at: indexPath)
-        //return cell
-    }
-}
+} // End of TextResult_ViewController class!

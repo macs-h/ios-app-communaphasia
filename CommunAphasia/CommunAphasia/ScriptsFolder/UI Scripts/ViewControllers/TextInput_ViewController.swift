@@ -14,12 +14,14 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     /// References the user input text field.
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var synonymLabel: UILabel!
     
     var stringArray = [String]()
     var attributedString: NSMutableAttributedString?
     
     @IBOutlet weak var pickerView: UIPickerView!
     var pickerData:[String] = []
+    var currentError:String = ""
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
@@ -45,6 +47,15 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         return pickerData[row]
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let text = textField.text
+        attributedString = NSMutableAttributedString(string: (text?.replacingOccurrences(of: currentError, with: pickerData[row]))!)
+        attributedString?.setColor(color: UIColor.blue, forText: pickerData[row])
+        errorLabel.attributedText = attributedString
+        textField.attributedText = attributedString
+        currentError = pickerData[row]
+    }
+    
     @available(iOS 11.0, *)
     func makeCells(using wordArray:[String], from original:[String])-> [Int]{
         var errorArray = [Int]()
@@ -61,24 +72,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
                 
                 if Utility.instance.isInDatabase(word: lemmaWord) == false{
-                    errorArray.append(original.index(of: word)!)
-                    
-                    // Check internet connection availability.
-                    if Utility.instance.isConnectedToNetwork(){
-                        print("Internet Connection Available!")
-                        
-                        if let synonyms = Utility.instance.getSynonym(lemmaWord) {
-                            print("SYN:", synonyms)
-                            var s = Utility.instance.synonymsInDataBase(from: synonyms)
-                            s.append("test")
-                            print(s)
-                        } else {
-                            print("No synonyms found") // handle this?
-                        }
-                    } else {
-                        print("Internet Connection not Available!")
-                    }
-                    
+                    errorArray.append(original.index(of: word)!)     
                 } else if errorArray.count == 0 {
                     let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                     cells.append(tempCell)
@@ -100,7 +94,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         for index in errorArray {
             attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
         }
-        print(">> attributedString:", attributedString!)
+        print(">> attributedString:", attributedString!.string)
         
     }
     
@@ -125,6 +119,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
      */
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
+        pickerView.endEditing(true)
+        pickerView.isHidden = true
+        synonymLabel.isHidden = true
+        
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
@@ -135,9 +133,37 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 showErrors(inputArray, errorArray, inputArray)
                 errorLabel.attributedText = attributedString
                 cells.removeAll()
-            } else if wordArray.isEmpty && errorArray.isEmpty {
-                // Handles issue where padding words can allow progression to next VC.
-                invalidSentence()
+                errorLabel.isUserInteractionEnabled = true
+                
+                pickerView.endEditing(false)
+                pickerView.isHidden = false
+                synonymLabel.isHidden = false
+                
+                for index in errorArray{
+                    currentError = inputArray[index]
+                    var availableSynonyms: [String] = []
+                    // Check internet connection availability.
+                    if Utility.instance.isConnectedToNetwork(){
+                        print("Internet Connection Available!")
+                        
+                        if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
+                            print("SYN:", synonyms)
+                            availableSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
+                            //availableSynonyms.append("test")
+                            
+                            print("available sysnonyms:",availableSynonyms)
+                        } else {
+                            print("No synonyms found") // handle this?
+                        }
+                        availableSynonyms.append(contentsOf: ["man","eat","cat"])
+                    } else {
+                        print("Internet Connection not Available!")
+                    }
+                    //do things with sysnonyms
+                    synonymLabel.text = "Cant find '" + inputArray[index] + "', try one of these:"
+                    pickerData = availableSynonyms
+                    pickerView.reloadAllComponents()
+                }
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0

@@ -101,6 +101,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
             performSegue(withIdentifier: "TIToInput_segue", sender: self)
             
         }*/
+        cell.showType()
         cell.addData(cell: cellsToBeShown[indexPath.item])
         return cell
     }

@@ -12,25 +12,31 @@ import SQLite
 import SystemConfiguration
 
 /**
-    This class acts as a 'helper' class containing regularly used utility functions.
+    This class acts as a 'helper' class containing regularly used utility
+    functions.
 
-    It has been set up in such a way that it is a singleton and available to be called
-    from any class within the project.
+    It has been set up in such a way that it is a singleton and available to be
+    called from any class within the project.
  */
 class Utility {
-
-    // Setting up singleton instance of Utility.
+    
+    // Setting up the singleton instance of Utility.
     // To call any utility function: `Utility.sharedInstance.(function_name)`
     static let instance = Utility()
+    
     // Connection to database.
     var database: Connection!
-    //recently used image sentences
+    
+    // Array holding recently used image sentences.
     var recentSentences : Array<[ImageCell]> = []
+    
     // Global exclusion list - words to ignore.
     let EXCLUSION_LIST: Array<String> = ["the","is","to","a","","am","."]
-    //commonly used images to be displayed in the common category
+    
+    // Commonly used images to be displayed in the `common` category.
     let commonImages = ["i","eating"]
-    //the categories our images may represent
+    
+    // The categories our images may represent.
     let categories = ["emotions","animals","food","activity","travel","objects","other"]
     
     // Fields for the database.
@@ -45,8 +51,10 @@ class Utility {
     let TENSE = Expression<String>("tense")
     
     
-    // `Init` function which initialises the database, creating the cells required, and
-    // populating the cells with entries/information.
+    /**
+        Initialisation function which initialises the database, creating the
+        cells required, and populating the cells with entries/information.
+     */
     private init() {
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -67,17 +75,20 @@ class Utility {
             print("> not first launch")
         }
     }
+    
+    
     /**
-     * A sentence processing function which takes in a string of words, breaks it down
-     * into separate words (tokens) by whitespaces and places them into an array. It then
-     * converts all the strings to lowercase, drops/removes from the array any words that
-     * are present in the `EXCLUSION_LIST`, before returning the array of words.
-     *
-     *  - Parameters:
-     *      - inputString:  a string to be broken down into separate words.
-     *      - charSet:      indicates which ASCII character is used to separate the
-     *                      sentence into words.
-     *  - Returns:  a 1D array of words.
+        A sentence processing function which takes in a string of words, breaks
+        it down into separate words (tokens) by whitespaces and places them
+        into an array. It then converts all the strings to lowercase,
+        drops/removes from the array any words that are present in the
+        `EXCLUSION_LIST`, before returning the array of words.
+
+        - Parameters:
+           - inputString:  a string to be broken down into separate words.
+           - charSet:      indicates which ASCII character is used to separate
+                           the sentence into words.
+        - Returns:  a 1D array of words.
      */
     func getSentenceToWords(from inputString: String, separatedBy charSet: CharacterSet, removeSelectWords:Bool? = true) -> Array<String> {
         if removeSelectWords! {
@@ -88,22 +99,32 @@ class Utility {
     }
     
     /**
-     * Removes all the words in the exclusion list from the parsed in array.
-     *
-     *  - Parameters:
-     *      - wordArray:        array containing the processed words from the original
-     *                          sentence.
-     *      - exclusionList:    array containing all the word(s) to be excluded.
-     *
-     *  - Returns:  an array of words, without the excluded word(s).
+        Removes all the words in the exclusion list from the parsed in array.
+
+        - Parameters:
+           - wordArray:        array containing the processed words from the
+                               original sentence.
+           - exclusionList:    array containing all the word(s) to be excluded.
+
+        - Returns:  an array of words, without the excluded word(s).
      */
     func dropWords(_ wordArray: Array<String>, _ exclusionList: Array<String>) -> Array<String> {
         return wordArray.filter { !exclusionList.contains($0) }
     }
     
+    
+    /**
+        Adds a sentence to the list of previously used sentences for the
+        current session.
+     */
     func setRecentSentence(Sentence : [ImageCell]){
         recentSentences.append(Sentence)
     }
+    
+    
+    /**
+        A debug function that prints the `recentSentences` to stdout.
+     */
     func printRecentSentences(){
         for sentence in recentSentences{
             for image in sentence{
@@ -112,21 +133,25 @@ class Utility {
             print("")
         }
     }
-    //---------------------------
-    //------Database Stuff-------
-    //---------------------------
+    
+    
+    
+    // ----------------------------------------------------------------------
+    // Database functions.
+    // ----------------------------------------------------------------------
+    
     /**
-     * Finds the entry in the database which corresponds to `word` and returns that entry
-     * as a tuple containing the relevant metadata.
-     *
-     *  - Parameters:
-     *      - word:             the keyword to search for, in the database.
-     *
-     *  - Returns: a tuple which contains the information extracted from the database.
-     *      - word:         the word describing the entry.
-     *      - type:         the type of image (e.g. noun, adjective, etc.).
-     *      - image:        the `UIImage` element.
-     *      - suggestions:  possible suggestions which are related to the word.
+        Finds the entry in the database which corresponds to `word` and returns
+        that entry as a tuple containing the relevant metadata.
+
+        - Parameter word:  the keyword to search for, in the database.
+
+        - Returns:  a tuple which contains the information extracted from the
+                    database.
+           - word:         the word describing the entry.
+           - type:         the type of image (e.g. noun, adjective, etc.).
+           - image:        the `UIImage` element.
+           - suggestions:  possible suggestions which are related to the word.
      */
     func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String){
         var image: UIImage = UIImage(named: "image placeholder")!
@@ -153,7 +178,17 @@ class Utility {
         return (word, word_type, image, suggestions, grNum, category, tense)
     }
     
-    func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]{
+    
+    /**
+        Takes in an array of words, searches for them in the database and
+        returns an array of `cells` for each valid word that matches a keyword
+        in the database.
+     
+        - Parameter words:  an array of words holding the user's input.
+     
+        - Returns:  an array of `cells` which were retrieved from the database.
+     */
+    func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)] {
         //let lowerWords = words.map {$0.lowercased()}
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
         let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
@@ -174,6 +209,14 @@ class Utility {
         return cells
     }
 
+    
+    /**
+        Checks if there is a matching database entry for the word.
+     
+        - Parameter word:   word to be checked for in the database.
+     
+        - Returns: `true` if word exists in database, else `false`.
+     */
     func isInDatabase(word: String) -> Bool {
         do{
             let count = try database.scalar(CELL_TABLE.filter(KEYWORD.like(word)).count)
@@ -186,6 +229,15 @@ class Utility {
         return false
     }
     
+    
+    /**
+        Retrieves entries from the database as `cells` for all database entries
+        that match the given category.
+     
+        - Parameter category:   the category to be searched for.
+     
+        - Returns:  an array of `cells` which matched the category.
+     */
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
         let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
@@ -206,11 +258,19 @@ class Utility {
     }
     
     
-    // ----------------------------------------------------------------------------
+    
+    // ----------------------------------------------------------------------
     // Lemmatization
-    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------
     
-    
+    /**
+        Uses NSLinguisticTagger to lemmatize (find the stem of) each given word,
+        and returns the tags as an array.
+     
+        - Parameter inputString:    the words (as a string) to be lemmatized.
+     
+        - Returns:  an array holding the lemma of each input word.
+     */
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
         var returnArray:[String] = []
@@ -234,12 +294,17 @@ class Utility {
         }
         return returnArray
     }
+
+
     
-    
-    
-    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------
     // API for synonyms via WordsAPI
-    // ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------
+    
+    /**
+        A private delegate class used to process and hold `.json` data returned
+        from a RESTful API request.
+     */
     private class MyDelegate: NSObject, URLSessionDataDelegate {
         fileprivate var synonyms: [String] = []
         fileprivate func urlSession(_ session: URLSession,
@@ -253,6 +318,16 @@ class Utility {
         }
     }
     
+    
+    /**
+        Makes a RESTful call to WordsAPI, using delegates, to retrieve
+        synonyms which will be used as suggesetions for any invalid words the
+        user gives as input.
+     
+        - Parameter word:   the word to find synonyms for.
+     
+        - Returns:  an array of synonymous words, else `nil`.
+     */
     func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
@@ -270,7 +345,7 @@ class Utility {
         task.resume()
         var timeOut = 0
         while (delegateObj.synonyms.isEmpty) {
-            if timeOut >= 3000 {  // Timeout of 3 seconds
+            if timeOut >= 3000 {  // Timeout set to 3 seconds
                 print("API timed out")
                 return nil
             }
@@ -280,6 +355,15 @@ class Utility {
         return delegateObj.synonyms
     }
     
+    
+    /**
+        Filters out words that exist in our database.
+     
+        - Parameter inArray:    an array of words.
+     
+        - Returns:  an array which only contains words that exist in our
+                    database, from `inArray`.
+     */
     func synonymsInDataBase(from inArray: [String]) -> [String] {
         var returnArray: [String] = []
         for word in inArray {
@@ -291,8 +375,13 @@ class Utility {
     }
     
     
-     func isConnectedToNetwork() -> Bool {
-    
+    /**
+        Checks if there is an internet connection.
+     
+        - Returns: `true` if connected to a network, otherwise `false`.
+     */
+    func isConnectedToNetwork() -> Bool {
+
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -316,11 +405,14 @@ class Utility {
         return ret
     }
 
-    // ----------------------------------------------------------------------------
-    // Private functions follow.
-    // ----------------------------------------------------------------------------
     
-    /// Creates the cells in the database table. Only called from `init()`.
+    // ----------------------------------------------------------------------
+    // Private functions follow.
+    // ----------------------------------------------------------------------
+    
+    /**
+        Creates the cells in the database table. Only called from `init()`.
+     */
     private func setCells() {
         let makeTable = self.CELL_TABLE.create { (table) in
             table.column(self.ID, primaryKey: true)
@@ -340,8 +432,11 @@ class Utility {
         }
     }
     
-    /// Populates the cells in the database table with data read in from a CSV text
-    /// file.
+    
+    /**
+        Populates the cells in the database table with data read in from a CSV
+        text file.
+     */
     private func populateCells() {
         //finds the txt file which we use to populate the database
         var fileText:String = ""
@@ -383,13 +478,14 @@ class Utility {
         }
     }
     
-    
-    
-    
-}//end Utility class
+}
+// End of Utility class!
+// ----------------------------------------------------------------------
 
 
-/// Used to colourise specific text in a UILabel.
+/**
+    Used to colourise specific text in a UILabel.
+ */
 extension NSMutableAttributedString {
     func setColor(color: UIColor, forText stringValue: String) {
         let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
@@ -399,6 +495,9 @@ extension NSMutableAttributedString {
 }
 
 
+/**
+    Used to turn a hex string into a UIColor.
+ */
 extension UIColor {
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)

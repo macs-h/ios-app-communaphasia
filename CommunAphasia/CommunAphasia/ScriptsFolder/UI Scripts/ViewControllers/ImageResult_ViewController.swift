@@ -8,9 +8,9 @@
 
 import UIKit
 
-///
-///
-///
+/**
+    @@@
+ */
 class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
     @IBOutlet weak var InputImagesCollectionView: UICollectionView!
@@ -30,20 +30,40 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
+    // ----------------------------------------------------------------------
+    // Shows input images on screen.
+    // ----------------------------------------------------------------------
     
-    
-    //------------shows input images on screen---------//
-    
-    //gives the collection view how many cells it needs to hold
+    /**
+        Gives the collection view how many cells it needs to hold.
+     
+        - Parameters:
+            - collectionView:   @@@
+            - section:          @@@
+     
+        - Returns:  @@@
+     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return selectedCellsResult.count
     }
    
+    
+    /**
+        @@@
+     
+        - Parameters:
+            - collectionView:   @@@
+            - indexPath:        @@@
+     
+        - Returns:  @@@
+     */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageResultCell", for: indexPath) as! ImageCell
         cell.showType()

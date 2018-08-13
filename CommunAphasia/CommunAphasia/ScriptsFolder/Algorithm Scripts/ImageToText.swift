@@ -165,7 +165,13 @@ class ImageToText {
             temp = "the"
             }
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == "singular") ? "is" : "are"
+            if currentWord.tenseType == "past" {
+                temp = (prevWord.grNum == "singular") ? "was" : "were"
+            } else if currentWord.tenseType == "present" {
+                temp = (prevWord.grNum == "singular") ? "is" : "are"
+            } else {
+                temp = (prevWord.grNum == "singular") ? "will be" : "will be"
+            }
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {

@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    @@@
+    protocol which must be implemented
  */
 protocol TenseDelegate: class {
     func selectedTense(cell: ImageCell, tense: String, tenseType: String, indexPath: IndexPath)
@@ -17,7 +17,7 @@ protocol TenseDelegate: class {
 
 
 /**
-    @@@
+    class the controls the popup
  */
 class Tense_ViewController: UIViewController {
     
@@ -42,12 +42,12 @@ class Tense_ViewController: UIViewController {
     
     
     /**
-        @@@
+     sets up the popup
      
-        - Parameters:
-            - delegate:     @@@
-            - cell:         @@@
-            - indexPath:    @@@
+     - Parameters:
+         - delegate:     what delegate to call after the button is pressed
+         - cell:         what cell is being acted on
+         - indexpath:    the index path of the cell selected
      */
     func setUp(delegate: TenseDelegate, cell: ImageCell, indexPath: IndexPath) {
         self.delegate = delegate
@@ -87,7 +87,9 @@ class Tense_ViewController: UIViewController {
         closePopup(sender)
     }
     
-    
+    /**
+        Closes the popup if no option is selected
+     */
     @IBAction func closePopup(_ sender: Any) {
         self.view.removeFromSuperview()
     }

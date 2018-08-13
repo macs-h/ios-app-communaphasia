@@ -50,7 +50,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     
     /**
-        @@@
+        Tells the colelction view how many cells it needs to hold.
 
         - Parameters:
             - collectionView:   The collection view requesting this information.
@@ -65,10 +65,11 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
-    //collection view is the collection it's going into, indexPath is the index of the cell
+    
     
     /**
-        @@@
+         Makes the items within the given collection view upto the size of the
+         collectionview
      
         - Parameters:
             - collectionView:   The collection view requesting this information.
@@ -104,7 +105,7 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     
     /**
-        @@@
+        Controls what happens if an item is selected within a collectionview
 
         - Parameters:
             - collectionView:   The collection view object that is notifying

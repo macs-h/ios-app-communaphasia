@@ -28,7 +28,7 @@ class Utility {
     var database: Connection!
     
     // Array holding recently used image sentences.
-    var recentSentences : Array<[ImageCell]> = []
+    var recentSentences: Array<[ImageCell]> = []
     
     // Global exclusion list - words to ignore.
     let EXCLUSION_LIST: Array<String> = ["the","is","to","a","","am","."]
@@ -66,7 +66,9 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == false {  // should be false, set to true for TESTING -------------------
+        
+        // Should be set to `false`, set to true for testing.
+        if launchedBefore == false {
             print("> first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()
@@ -98,6 +100,7 @@ class Utility {
         }
     }
     
+    
     /**
         Removes all the words in the exclusion list from the parsed in array.
 
@@ -117,20 +120,20 @@ class Utility {
         Adds a sentence to the list of previously used sentences for the
         current session.
      */
-    func setRecentSentence(Sentence : [ImageCell]){
-        recentSentences.append(Sentence)
+    func setRecentSentence(sentence: [ImageCell]) {
+        recentSentences.append(sentence)
     }
     
     
     /**
         A debug function that prints the `recentSentences` to stdout.
      */
-    func printRecentSentences(){
-        for sentence in recentSentences{
-            for image in sentence{
+    func printRecentSentences() {
+        for sentence in recentSentences {
+            for image in sentence {
                 print(image.word + " ", terminator: "")
             }
-            print("")
+            print()
         }
     }
     
@@ -153,7 +156,7 @@ class Utility {
            - image:        the `UIImage` element.
            - suggestions:  possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String){
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String) {
         var image: UIImage = UIImage(named: "image placeholder")!
         var word_type: String = ""
         var suggestions: Array<String> = []
@@ -163,14 +166,13 @@ class Utility {
         
         do {
             let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(KEYWORD.like(word)).limit(1)
-            for cell in try database.prepare(querry){
+            for cell in try database.prepare(querry) {
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
                 suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"))
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
                 tense = cell[TENSE]
-                
             }
         } catch {
             print(error)
@@ -189,12 +191,12 @@ class Utility {
         - Returns:  an array of `cells` which were retrieved from the database.
      */
     func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)] {
-        //let lowerWords = words.map {$0.lowercased()}
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
-        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
         
-        do{
-            for cell in try database.prepare(querry){
+        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
+        
+        do {
+            for cell in try database.prepare(query) {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
@@ -218,12 +220,12 @@ class Utility {
         - Returns: `true` if word exists in database, else `false`.
      */
     func isInDatabase(word: String) -> Bool {
-        do{
+        do {
             let count = try database.scalar(CELL_TABLE.filter(KEYWORD.like(word)).count)
             if count > 0 {
                 return true
             }
-        }catch{
+        } catch {
             print(error)
         }
         return false
@@ -240,9 +242,9 @@ class Utility {
      */
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
-        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
-        do{
-            for cell in try database.prepare(querry){
+        let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
+        do {
+            for cell in try database.prepare(query) {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
@@ -345,7 +347,7 @@ class Utility {
         task.resume()
         var timeOut = 0
         while (delegateObj.synonyms.isEmpty) {
-            if timeOut >= 3000 {  // Timeout set to 3 seconds
+            if timeOut >= 3000 {  // `timeOut` set to 3 seconds
                 print("API timed out")
                 return nil
             }
@@ -381,7 +383,6 @@ class Utility {
         - Returns: `true` if connected to a network, otherwise `false`.
      */
     func isConnectedToNetwork() -> Bool {
-
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -427,7 +428,7 @@ class Utility {
         do {
             try self.database.run(makeTable)
             print("> Table created")
-        }catch{
+        } catch {
             print(error)
         }
     }
@@ -478,8 +479,7 @@ class Utility {
         }
     }
     
-}
-// End of Utility class!
+} // End of Utility class!
 // ----------------------------------------------------------------------
 
 
@@ -491,7 +491,6 @@ extension NSMutableAttributedString {
         let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
         self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
     }
-    
 }
 
 

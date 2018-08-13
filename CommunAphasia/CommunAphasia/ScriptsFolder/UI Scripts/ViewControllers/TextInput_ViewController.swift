@@ -15,16 +15,25 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
     // References the user input text field.
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var synonymLabel: UILabel!
+    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     var stringArray = [String]()
+    var currentIndex:Int = 0
+    var errorIndices = [Int]()
+    
+    var attributedArray = [NSMutableAttributedString]()
+    
     var attributedString: NSMutableAttributedString?
+    var errors = [String]()
+    var errorIndex: Int = 0
+    var synonyms = [[String]]()
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
     
     @IBOutlet weak var pickerView: UIPickerView!
-    var pickerData: [String] = []
-    var currentError: String = ""
-    
+    var pickerData:[String] = []
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
@@ -42,9 +51,9 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     /**
         The number of columns of data in picker view
      
-        - Parameter pickerView: @@@
+        - Parameter pickerView: the pickerView
      
-        - Returns:  @@@
+        - Returns:  the number of columns in the picker view
      */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -55,10 +64,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         The number of rows of data in picker view
      
         - Parameters:
-            - pickerView:   @@@
-            - component:    @@@
+            - pickerView:   the pickerView
+            - component:    the column in which to count the rows
      
-        - Returns:  @@@
+        - Returns:  the number of rows in selected column
      */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
@@ -70,51 +79,141 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         passed in, in picker view.
      
         - Parameters:
-            - pickerView:   @@@
-            - row:          @@@
-            - component:    @@@
+            - pickerView:   the pickerView
+            - row:          the selected row
+            - component:    the selected column
      
-        - Returns:  (Optional) @@@
+        - Returns:  (Optional) the string held in the selected row and column if any exists
      */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
     
+    /**
+        when the user selects the next button the selected error(unfound word) in the text field moves
+        to the right. The previous selection will turn green if it is in the database and red if not.
+        The current selection will also turn blue.
+     
+     - Parameter:
+        -
+ 
+    */
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        
+        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
+        }else{
+            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
+        }
+        
+        if currentIndex < errorIndices[errorIndices.count-1] {
+            
+            errorIndex += 1
+            currentIndex = errorIndices[errorIndex]
+            
+            if Utility.instance.isInDatabase(word: stringArray[currentIndex]){
+                synonymLabel.text = "'" + stringArray[currentIndex] + "' is valid!"
+            }else{
+                synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
+            }
+            pickerData = synonyms[errorIndex]
+            pickerData.append(String(errorIndex))
+            pickerView.reloadAllComponents()
+            
+            attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+            setTextFromArray()
+        }
+        
+    }
     
     /**
-        @@@
+     when the user selects the next button the selected error(unfound word) in the text field moves
+     to the left. The previous selection will turn green if it is in the database and red if not.
+     The current selection will also turn blue.
      
-        - Parameters:
-            - pickerView:   @@@
-            - row:          @@@
-            - component:    @@@
+     - Parameter:
+     -
+     
      */
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let text = textField.text
-        attributedString = NSMutableAttributedString(string: (text?.replacingOccurrences(of: currentError, with: pickerData[row]))!)
-        attributedString?.setColor(color: UIColor.blue, forText: pickerData[row])
-        errorLabel.attributedText = attributedString
-        textField.attributedText = attributedString
-        currentError = pickerData[row]
+    @IBAction func prevButtonPressed(_ sender: Any) {
+        
+        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
+        }else{
+            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
+        }
+        if currentIndex > errorIndices[0] {
+            
+            errorIndex -= 1
+            currentIndex = errorIndices[errorIndex]
+            
+            if Utility.instance.isInDatabase(word: stringArray[currentIndex]){
+                synonymLabel.text = "'" + stringArray[currentIndex] + "' is valid!"
+            }else{
+                synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
+            }
+            pickerData = synonyms[errorIndex]
+            pickerData.append(String(errorIndex))
+            pickerView.reloadAllComponents()
+            
+            attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+            setTextFromArray()
+        }
     }
     
     
     /**
-        @@@
+        This function changes the selected word in the text field depending on what the user selects in the
+        pickerView (scroll thingy).
      
         - Parameters:
-            - wordArray:    @@@
-            - original:     @@@
+            - pickerView:   the pickerView
+            - row:          the row of the pickerView selected by the user
+            - component:    the component which is selected
+     */
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
+        attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+        setTextFromArray()
+        stringArray[currentIndex] = pickerData[row]
+        //need to display attributed array in the text field
+        //textField.text = stringArray.joined(separator: " ")
+        
+    }
+    /**
+        This function iterates through the array of attributed strings and adds them to a temporary string to be
+        displayed in the text field then updates the text field with the changes.
+
+     */
+    func setTextFromArray(){
+        let tempString = NSMutableAttributedString()
+        for i in 0...attributedArray.count-1{
+            tempString.append(attributedArray[i])
+            tempString.append(NSMutableAttributedString(string: " "))
+        }
+        textField.attributedText = tempString
+    }
+    
+    
+    /**
+        makes an array of cells based on the input words and checks whether they exist in the database.
+        it then retunrs the indices of the words which do not appear in the database.
      
-        - Returns:  @@@
+        - Parameters:
+            - wordArray:    an aray of words (retrieved from the text field and standardised)
+            - original:     the origional words (from the text field)
+     
+        - Returns:  an array containing the indices of the words which do not exist in the database
      */
     @available(iOS 11.0, *)
     func makeCells(using wordArray:[String], from original:[String])-> [Int] {
         var errorArray = [Int]()
+        errors = []
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
 
-        // Start loading wheel.
+        loadingSpinner.startAnimating()// Start loading wheel.
         
         for word in wordArray {
             if wordArray.isEmpty && errorArray.isEmpty {
@@ -124,7 +223,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
                 
                 if Utility.instance.isInDatabase(word: lemmaWord) == false{
-                    errorArray.append(original.index(of: word)!)     
+                    errorArray.append(originalArray.index(of: word)!)
+                    errors.append(word)
                 } else if errorArray.count == 0 {
                     let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                     cells.append(tempCell)
@@ -135,74 +235,53 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
         }
         
-        // End loading wheel.
+        loadingSpinner.stopAnimating() // End loading wheel.
         
         return errorArray
     }
 
-    
-    /**
-        @@@
 
-        - Parameters:
-            - wordArray:    @@@
-            - errorArray:   @@@
-            - inputArray:   @@@
-     */
-    func showErrors(_ wordArray: [String], _ errorArray: [Int], _ inputArray: [String]) {
-        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
-        for index in errorArray {
-            attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
-        }
-        print(">> attributedString:", attributedString!.string)
-    }
-    
-    func testFunc(_ inString: String) {
-//        let eLabel = in
-        attributedString = NSMutableAttributedString(string: inString)
-        attributedString?.setColor(color: UIColor.red, forText: inString)
-    }
-    
     
     /**
-        @@@
+        lets the user know that the sentence they entered is invalid
      */
     func invalidSentence() {
-        let str = "Please enter a valid input"
+        let str = "Please enter a valid sentence"
         attributedString = NSMutableAttributedString(string: str)
         attributedString?.setColor(color: UIColor.red, forText: str)
-        errorLabel.attributedText = attributedString
+        synonymLabel.isHidden = false
+        synonymLabel.attributedText = attributedString
         cells.removeAll()
     }
     
     
     /**
-        @@@
+        this function executes when the user has finished typing their sentence and press the done button.
+        it checks that the words entered are valid and in the database and if they are not will display them
+        to the user in the text field.
      */
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
+        stringArray = (textField.text?.components(separatedBy: " "))!
         pickerView.endEditing(true)
         pickerView.isHidden = true
         synonymLabel.isHidden = true
+        attributedString = NSMutableAttributedString()
+        attributedArray.removeAll()
+        errorIndex = 0
         
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
+            //loadingSpinner.startAnimating()
+            print("animation started")
             let errorArray = makeCells(using: wordArray, from: inputArray)
-                
-            if errorArray.count > 0{
-//                showErrors(wordArray, errorArray)
-                showErrors(inputArray, errorArray, inputArray)
-                errorLabel.attributedText = attributedString
+            
+            if errorArray.count > 0 {
+                //showErrors(inputArray, errorArray, inputArray)
                 cells.removeAll()
-                errorLabel.isUserInteractionEnabled = true
-                
-                pickerView.endEditing(false)
-                pickerView.isHidden = false
-                synonymLabel.isHidden = false
                 
                 for index in errorArray{
-                    currentError = inputArray[index]
                     var availableSynonyms: [String] = []
                     // Check internet connection availability.
                     if Utility.instance.isConnectedToNetwork(){
@@ -218,14 +297,40 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                             print("No synonyms found") // handle this?
                         }
                         availableSynonyms.append(contentsOf: ["man","eat","cat"])
+                        synonyms.append(availableSynonyms)
                     } else {
                         print("Internet Connection not Available!")
                     }
-                    //do things with sysnonyms
-                    synonymLabel.text = "Cant find '" + inputArray[index] + "', try one of these:"
-                    pickerData = availableSynonyms
-                    pickerView.reloadAllComponents()
+
                 }
+                //do things with sysnonyms
+                if Utility.instance.isInDatabase(word: errors[errorIndex]){
+                    synonymLabel.text = "'" + errors[errorIndex] + "' is valid!"
+                }else{
+                    synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
+                }
+                synonymLabel.isHidden = false
+                
+                pickerData = synonyms[errorIndex]
+                pickerData.append(String(errorIndex))
+                currentIndex = errorArray[0]
+                errorIndices = errorArray
+               print("------- currentIndex", currentIndex)
+                pickerView.reloadAllComponents()
+                pickerView.isHidden = false
+                
+                nextButton.isHidden = false
+                prevButton.isHidden = false
+                for word in stringArray {
+                    let atWord = NSMutableAttributedString(string: word)
+                    if errors.contains(word){
+                        atWord.setColor(color: UIColor.red, forText: atWord.string)
+                    }
+                    attributedArray.append(atWord)
+                }
+                attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
+                setTextFromArray()
+                print("------- error array end", errorArray)
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0
@@ -257,28 +362,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
                 performSegue(withIdentifier: "TIToResult_segue", sender: self)
             }
-        
+            //loadingSpinner.stopAnimating()
         }
     }
     
-    
-    /**
-        @@@
-     
-        - Parameter gesture:    @@@
-     */
-    @IBAction func errorTapped(gesture: UITapGestureRecognizer){
-        let text = (errorLabel.text)!
-        let dogRange = (text as NSString).range(of: "dog")
-        let foxRange = (text as NSString).range(of: "fox")
-        
-        if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: dogRange){
-            print("dog Error Tapped")
-        }else if gesture.didTapAttributedTextInLabel(label: errorLabel, inRange: foxRange){
-            print("fox Error Tapped")
-        }
-        
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "TIToResult_segue")
@@ -296,45 +383,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
 } // End of TextInput_ViewController class!
-
-
-/**
-    @@@
- */
-extension UITapGestureRecognizer {
-    func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
-        // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
-        let layoutManager = NSLayoutManager()
-        let textContainer = NSTextContainer(size: CGSize.zero)
-        let textStorage = NSTextStorage(attributedString: label.attributedText!)
-        
-        // Configure layoutManager and textStorage
-        layoutManager.addTextContainer(textContainer)
-        textStorage.addLayoutManager(layoutManager)
-        
-        // Configure textContainer
-        textContainer.lineFragmentPadding = 0.0
-        textContainer.lineBreakMode = label.lineBreakMode
-        textContainer.maximumNumberOfLines = label.numberOfLines
-        let labelSize = label.bounds.size
-        textContainer.size = labelSize
-        
-        // Find the tapped character location and compare it to the specified range
-        let locationOfTouchInLabel = self.location(in: label)
-    
-        print("touched",self.location(in: label))
-        let textBoundingBox = layoutManager.usedRect(for: textContainer)
-        
-        let textContainerOffset = CGPoint(x:(labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x, y:(labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
-        
-        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x, y: locationOfTouchInLabel.y - textContainerOffset.y);
-        
-        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-        
-        print("target:",targetRange.description, "charIndex:",indexOfCharacter.description)
-        return NSLocationInRange(indexOfCharacter, targetRange)
-    }
-}
 
 
 

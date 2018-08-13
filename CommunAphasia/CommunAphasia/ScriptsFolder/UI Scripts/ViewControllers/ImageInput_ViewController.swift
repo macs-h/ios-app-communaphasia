@@ -18,7 +18,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
-                        "calling","big","small","red","blue","I","fast","quickly","waiting","want","need","may","can","should","he","she","it","they","we","you"]
+                        "calling","big","small","red","blue","I","fast","quickly","waiting",
+                        "want","need","may","can","should","he","she","it","they","we","you","talk"]
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
     
@@ -328,3 +329,4 @@ extension ImageInput_ViewController : TenseDelegate {
         selectedCells.append(newCell)
     }
 }
+

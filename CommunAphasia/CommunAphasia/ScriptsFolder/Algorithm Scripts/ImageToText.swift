@@ -9,12 +9,17 @@
 import UIKit
 import Foundation
 
+
+// Flag that is toggled when the subject of the sentence is entered.
 var haveSubject: Bool = false
+
+// Flag that is toggled when the subject verb of the sentence is entered.
 var subVerb: Bool = false
 
 
 /**
-    @@@
+    Class that takes the imageCell and computes the appropriate words to form
+    sentences.
  */
 class ImageToText {
     static let instance = ImageToText()
@@ -22,17 +27,17 @@ class ImageToText {
     var tenses: [String] = []
 
     /**
-        @@@
+        Basic constructor
      */
-    private init(){
-    }
+    private init() {}
 
     /**
-        @@@
+        Function that inputs the words which carry meaning (eg. nouns, pronouns,
+        verbs etc.).
      
-        - Parameter pics:   @@@
+        - Parameter pics:   An array of `imageCells`.
      
-        - Returns:  @@@
+        - Returns:  The completed sentence as a `String`.
      */
     func createSentence(pics: [ImageCell]) -> String {
         var returnString:Array<String> = []
@@ -42,19 +47,22 @@ class ImageToText {
         
         for imageNum in 0...pics.count-1 {
             tenses = pics[imageNum].tense.components(separatedBy: "+")
-            //first word, probably add 'the'
+            // first word, probably add 'the'
             if imageNum==0 {
                 if (pics[0].type == wordType.adjective.rawValue || pics[0].type == wordType.noun.rawValue){
                     returnString.append("The")          // index 0
                     haveSubject = true
                     if pics[0].type == wordType.noun.rawValue {
                         returnString.append((pics[0].grNum != "singular") ? pluralize(pic: pics[0]) : pics[0].word)   // index 1
+                    } else {
+                        returnString.append(pics[0].word)
                     }
                 } else if pics[0].type == wordType.pronoun.rawValue {
                     haveSubject = true
                     returnString.append(pics[0].word.capitalized)
                 } else {
-                    returnString.append(tenses[dict[pics[0].tenseType]!].capitalized)
+                    returnString.append(pics[0].word.capitalized)
+//                    returnString.append(tenses[dict[pics[0].tenseType]!].capitalized)
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.
@@ -104,11 +112,11 @@ class ImageToText {
     
     
     /**
-        @@@
+        A function that returns the plural form of the word.
      
-        - Parameter pics:   @@@
+        - Parameter pics:   The `ImageCell` with the word to be 'pluralized'.
      
-        - Returns:  @@@
+        - Returns:  The plural form of the word, as a `String`.
      */
     func pluralize(pic: ImageCell) -> String {
         if (pic.grNum == "plural") {
@@ -120,11 +128,13 @@ class ImageToText {
     
     
     /**
-        @@@
+        Function that inputs 'helper' words, with respect to nouns, into the
+        final sentence (eg. prepositions, articles, the verb to be etc.).
      
-        - Parameter prevWord:   @@@
+        - Parameter prevWord:   The previous `ImageCell` in the array. Used to
+                                get the previous function word in the sentence.
      
-        - Returns:  @@@
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isNoun(prevWord: ImageCell) -> String{
         var temp = ""
@@ -150,11 +160,17 @@ class ImageToText {
     
     
     /**
-        @@@
+        Function that inputs 'helper' words, with respect to adjectives,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
      
-        - Parameter prevWord:   @@@
+        - Parameters:
+            - prevWord:     The previous `ImageCell` in the array. Used to
+                            get the previous function word in the sentence.
+            - currentWord:  The current `ImageCell` in the array. Used to
+                            get the current function word in the sentence.
      
-        - Returns:  @@@
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isAdj(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
@@ -165,7 +181,13 @@ class ImageToText {
             temp = "the"
             }
         }else if prevWord.type == wordType.noun.rawValue {
-            temp = (prevWord.grNum == "singular") ? "is" : "are"
+            if currentWord.tenseType == "past" {
+                temp = (prevWord.grNum == "singular") ? "was" : "were"
+            } else if currentWord.tenseType == "present" {
+                temp = (prevWord.grNum == "singular") ? "is" : "are"
+            } else {
+                temp = (prevWord.grNum == "singular") ? "will be" : "will be"
+            }
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {
@@ -186,11 +208,14 @@ class ImageToText {
     
     
     /**
-        @@@
-     
-        - Parameter preWord:    @@@
-     
-        - Returns:  @@@
+        Function that inputs 'helper' words, with respect to adverbs,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
+
+        - Parameter prevWord:   The previous `ImageCell` in the array. Used to
+                                get the previous function word in the sentence.
+
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isAdverb(prevWord: ImageCell) -> String{
         var temp = ""
@@ -211,13 +236,17 @@ class ImageToText {
     
     
     /**
-        @@@
-     
+        Function that inputs 'helper' words, with respect to verbs,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
+
         - Parameters:
-            - prevWord:     @@@
-            - currentWord:  @@@
-     
-        - Returns:  @@@
+            - prevWord:     The previous `ImageCell` in the array. Used to
+                            get the previous function word in the sentence.
+            - currentWord:  The current `ImageCell` in the array. Used to
+                            get the current function word in the sentence.
+
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isVerb(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
@@ -226,10 +255,12 @@ class ImageToText {
                 temp = "to"
             }
         }else if prevWord.type == wordType.noun.rawValue {
-            if haveSubject == true {
-                temp = "to"
+            if subVerb == false {
+                if currentWord.tenseType == "present" {
+                    temp = (prevWord.grNum == "singular") ? "is" : "are"
+                }
             } else {
-            temp = (prevWord.grNum == "singular") ? "is" : "are"
+                temp = "to"
             }
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
@@ -247,13 +278,17 @@ class ImageToText {
     
     
     /**
-        @@@
-     
+        Function that inputs 'helper' words, with respect to modal verbs,
+        into the final sentence (eg. prepositions, articles, the verb to be
+        etc.).
+
         - Parameters:
-            - prevWord:     @@@
-            - currentWord:  @@@
-     
-        - Returns:  @@@
+            - prevWord:     The previous `ImageCell` in the array. Used to
+                            get the previous function word in the sentence.
+            - currentWord:  The current `ImageCell` in the array. Used to
+                            get the current function word in the sentence.
+
+        - Returns:  a `String` with either nothing or a helper word.
      */
     func isModal(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
@@ -275,7 +310,8 @@ class ImageToText {
     
     
     /**
-        @@@
+        Function that resets the boolean flags for the subject and subject
+        verb of the sentence.
      */
     public func reset() {
         haveSubject = false

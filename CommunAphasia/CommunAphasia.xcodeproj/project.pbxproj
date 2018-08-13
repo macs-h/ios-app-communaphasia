@@ -433,6 +433,7 @@
 		ED4168D220B7BEAC003B449A /* UI Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				ED720AC42121859F004A3BA4 /* Animations.swift */,
 				ED61065F20BA38C1003C4904 /* Cells */,
 				ED61065820BA389A003C4904 /* ViewControllers */,
 			);
@@ -443,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */,
-				ED720AC42121859F004A3BA4 /* Animations.swift */,
 				ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */,
 				ED4168D520B7BEAC003B449A /* MainMenu_ViewController.swift */,
 				ED4168D420B7BEAC003B449A /* TextInput_ViewController.swift */,

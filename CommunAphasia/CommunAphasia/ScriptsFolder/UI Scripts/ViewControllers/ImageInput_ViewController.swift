@@ -323,3 +323,4 @@ extension ImageInput_ViewController : TenseDelegate {
         selectedCells.append(newCell)
     }
 }
+

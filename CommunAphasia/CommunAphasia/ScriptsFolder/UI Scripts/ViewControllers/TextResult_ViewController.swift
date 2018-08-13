@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    class that controls the Text result screen
+    Class that controls the Text result screen.
  */
 class TextResult_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -22,29 +22,38 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     var inputString = String()
     var cellsToBeShown = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     
-
+    /**
+        Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resultLabel.text = inputString //shows at bottom what was typed
-        //wordsToBeShown = Utility.instance.getSentenceToWords(inputString, .whitespaces)
-        //print("> words to be shown", wordsToBeShown)
+        resultLabel.text = inputString // Shows at bottom what was typed.
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
     }
 
     
+    /**
+        Sent to the view controller when the app receives a memory warning.
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
+    /**
+        Notifies the view controller that a segue is about to be performed.
+     
+        - Parameters:
+            - segue:    The segue object containing information about the view
+                        controllers involved in the segue.
+            - sender:   The object that initiated the segue.
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "TIToInput_segue") {
             let inputController = segue.destination as! TextInput_ViewController
-            //inputController.showErrors(wordsToBeShown, errorArray)
-//            resultController.inputString = textField.text!
         }
     }
     
@@ -65,12 +74,10 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     
-    
-    
     /**
-         Makes the items within the given collection view upto the size of the
-         collectionview
-     
+        Makes the items within the given collection view upto the size of the
+        collectionview.
+
         - Parameters:
             - collectionView:   The collection view requesting this information.
             - indexPath:        The index path that specifies the location of
@@ -82,22 +89,6 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextResultCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell-----might need to create a seperate class for text->images
         
-        // call a function the the cell which asigns each variable with data from a function
-        // which returns a tuple with data like, image, word, suggestions etc
-        
-        /*let tempCell = Utility.instance.getDatabaseEntry(wordsToBeShown[indexPath.item])
-        if tempCell.type == "" {
-            errorArray.append(indexPath.item)
-            print("> errorArray: \(errorArray)")
-        } else if errorArray.count == 0 {
-            cell.addData(cell: tempCell)
-        }
-        // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
-        if indexPath.item == wordsToBeShown.count - 1 {
-            print("> return func")
-            performSegue(withIdentifier: "TIToInput_segue", sender: self)
-            
-        }*/
         cell.showType()
         cell.addData(cell: cellsToBeShown[indexPath.item])
         return cell
@@ -105,12 +96,12 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     
     
     /**
-        Controls what happens if an item is selected within a collectionview
+        Controls what happens if an item is selected within a collectionview.
 
         - Parameters:
-            - collectionView:   The collection view object that is notifying
-                                you of the selection change.
-            - indexPath:        The index path of the cell that was selected.
+            - collectionView:   The collection view requesting this information.
+            - indexPath:        The index path that specifies the location of
+                                the item.
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // used for editing the cell

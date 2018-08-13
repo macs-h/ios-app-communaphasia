@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    makes a protocol so that the imageInput VC has to implement the delegate
+    Makes a protocol so that the `imageInput_VC` has to implement the delegate.
  */
 protocol SinglePluralDelegate: class {
     func selectedGNum(cell: ImageCell, grNum: String, indexPath: IndexPath)
@@ -17,7 +17,7 @@ protocol SinglePluralDelegate: class {
 
 
 /**
-    Class that controls the singlePlural popup
+    Class that controls the `singlePlural` pop-up.
  */
 class SinglePlural_ViewController: UIViewController {
     
@@ -30,23 +30,32 @@ class SinglePlural_ViewController: UIViewController {
     @IBOutlet weak var backPluralImageView: UIImageView!
     
     
+    /**
+        Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     }
-
+    
+    
+    /**
+        Sent to the view controller when the app receives a memory warning.
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
     /**
-        sets up the popup
+        Sets up the pop-up.
      
         - Parameters:
-            - delegate:     what delegate to call after the button is pressed
-            - cell:         what cell is being acted on
-            - indexpath:    the index path of the cell selected
+            - delegate:     What delegate to call after the button is pressed.
+            - cell:         What cell is being acted on.
+            - indexpath:    The index path that specifies the location of the
+                            item.
      */
     func setUp(delegate: SinglePluralDelegate, cell: ImageCell, indexPath: IndexPath) {
         self.delegate = delegate
@@ -58,8 +67,12 @@ class SinglePlural_ViewController: UIViewController {
         self.indexPath = indexPath
     }
     
+    
     /**
-        The single button has been pressed (user has chosen single for that noun)
+        The `single` button has been pressed (user has chosen `single` for
+        that noun).
+     
+        - Parameter sender: The object which called this function.
      */
     @IBAction func selectSingle(_ sender: Any) {
         delegate?.selectedGNum(cell: cell!, grNum: "singular", indexPath: indexPath!)
@@ -67,17 +80,20 @@ class SinglePlural_ViewController: UIViewController {
     }
     
     
-    
     /**
-        The plural button pressed (user has chosen plural for that noun)
+        The `plural` button has been pressed (user has chosen `plural` for
+        that noun).
+     
+        - Parameter sender: The object which called this function.
      */
     @IBAction func selectPlural(_ sender: Any) {
         delegate?.selectedGNum(cell: cell!, grNum: "plural", indexPath: indexPath!)
         closePopup()
     }
     
+    
     /**
-        can tap anywhere else to not choose single or plural
+        Can tap anywhere else to not choose `single` or `plural`.
      */
     @IBAction func closePopup(){
         self.view.removeFromSuperview()

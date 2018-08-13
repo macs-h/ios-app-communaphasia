@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    @@@
+    Class that controls the Image result screen.
  */
 class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
 
@@ -17,6 +17,10 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var resultTextLabel: UILabel!
     var selectedCellsResult = [ImageCell]()
     
+    
+    /**
+        Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         InputImagesCollectionView.delegate = self
@@ -31,6 +35,9 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     }
 
     
+    /**
+        Sent to the view controller when the app receives a memory warning.
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,13 +49,15 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     // ----------------------------------------------------------------------
     
     /**
-        Gives the collection view how many cells it needs to hold.
+        Asks the `collectionView` object for the number of items in the
+        specified section.
      
         - Parameters:
-            - collectionView:   @@@
-            - section:          @@@
+            - collectionView:   The collection view requesting this information.
+            - section:          An index number identifying a section in
+                                `collectionView`. This index value is 0-based.
      
-        - Returns:  @@@
+        - Returns:  The number of rows in `section`.
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return selectedCellsResult.count
@@ -56,14 +65,16 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
    
     
     /**
-        Makes the items within the given collection view upto the size of the
-        collectionview
+        Asks `collectionView` object for the cell that corresponds to the
+        specified item in the collection view.
+        Makes it upto the size of the `collectionView`.
      
         - Parameters:
-            - collectionView:   @@@
-            - indexPath:        @@@
+            - collectionView:   The collection view requesting this information.
+            - indexPath:        The index path that specifies the location of
+                                the item.
      
-        - Returns:  @@@
+        - Returns:  A configured cell object. Must not return nil.
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageResultCell", for: indexPath) as! ImageCell

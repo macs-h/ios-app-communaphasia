@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    @@@
+    Class that controls the Text input screen.
  */
 class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -28,6 +28,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
+    
+    /**
+        Called after the controller's view is loaded into memory.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pickerView.delegate = self

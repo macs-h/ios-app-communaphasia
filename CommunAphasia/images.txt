@@ -9,13 +9,13 @@ deer,deer_silhouette,noun,hunting,deer,animals,t
 dinner,food_dinner,noun,food,r,food,t
 eat,eat,verb,nil,r,activity,ate+eating+will eat
 fish,fish,noun,water,fish,animals,t
-I,i.jpg,pronoun,me,am,objects,t
-you,you,pronoun,you,are,objects,t
-he,he,pronoun,him,is,objects,t
-she,she,pronoun,her,is,objects,t
-we,we,pronoun,us,are,objects,t
-they,they,pronoun,them,are,objects,t
-it,it,pronoun,it,is,objects,t
+I,i.jpg,pronoun,was+am+will be,me,objects,t
+you,you,pronoun,were+are+will be,you,objects,t
+he,he,pronoun,was+is+will be,him,objects,t
+she,she,pronoun,was+is+will be,her,objects,t
+we,we,pronoun,were+are+will be,us,objects,t
+they,they,pronoun,were+are+will be,them,objects,t
+it,it,pronoun,was+is+will be,it,objects,t
 lunch,food_lunch,noun,food,lunches,food,t
 man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t

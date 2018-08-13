@@ -54,7 +54,7 @@ class ImageToText {
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
                     if haveSubject == true {
-                        returnString.append(thisPic.suggestedWords[0])
+                        returnString.append(thisPic.grNum)
                     }
                 }else if thisPic.type == wordType.modal.rawValue {
                     temp = isModal(prevWord: prevPic, currentWord: thisPic)
@@ -132,8 +132,12 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ","
         }else if prevWord.type == wordType.pronoun.rawValue {
-            if currentWord.tenseType == "present" {
-                temp = prevWord.grNum
+            if currentWord.tenseType == "past" {
+                temp = prevWord.suggestedWords[0]
+            } else if currentWord.tenseType == "present" {
+                temp = prevWord.suggestedWords[1]
+            } else {
+                temp = prevWord.suggestedWords[2]
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
@@ -174,7 +178,7 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             if currentWord.tenseType == "present" {
-            temp = prevWord.grNum
+            temp = prevWord.suggestedWords[0]
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = ""

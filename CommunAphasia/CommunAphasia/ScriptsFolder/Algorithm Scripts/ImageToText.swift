@@ -232,10 +232,12 @@ class ImageToText {
                 temp = "to"
             }
         }else if prevWord.type == wordType.noun.rawValue {
-            if haveSubject == true {
-                temp = "to"
+            if subVerb == false {
+                if currentWord.tenseType == "present" {
+                    temp = (prevWord.grNum == "singular") ? "is" : "are"
+                }
             } else {
-            temp = (prevWord.grNum == "singular") ? "is" : "are"
+                temp = "to"
             }
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""

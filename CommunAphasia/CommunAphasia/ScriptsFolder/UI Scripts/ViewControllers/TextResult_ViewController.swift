@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-    @@@
+    class that controls the Text result screen
  */
 class TextResult_ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 

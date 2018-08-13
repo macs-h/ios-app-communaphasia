@@ -58,12 +58,15 @@ class ImageToText {
                     haveSubject = true
                     if pics[0].type == wordType.noun.rawValue {
                         returnString.append((pics[0].grNum != "singular") ? pluralize(pic: pics[0]) : pics[0].word)   // index 1
+                    } else {
+                        returnString.append(pics[0].word)
                     }
                 } else if pics[0].type == wordType.pronoun.rawValue {
                     haveSubject = true
                     returnString.append(pics[0].word.capitalized)
                 } else {
-                    returnString.append(tenses[dict[pics[0].tenseType]!].capitalized)
+                    returnString.append(pics[0].word.capitalized)
+//                    returnString.append(tenses[dict[pics[0].tenseType]!].capitalized)
                 }
             }else{
                 let thisPic = pics[imageNum]  // only need to access value once, instead of thrice.

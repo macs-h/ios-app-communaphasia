@@ -195,9 +195,8 @@ class Utility {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
         
-        do{
-            for cell in try database.prepare(querry){
-                print("colour \(cell[KEYWORD])")
+        do {
+            for cell in try database.prepare(query) {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
@@ -243,10 +242,9 @@ class Utility {
      */
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
-        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
-        do{
-            for cell in try database.prepare(querry){
-                print("cell keyword: \(cell[KEYWORD])")
+        let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
+        do {
+            for cell in try database.prepare(query) {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,

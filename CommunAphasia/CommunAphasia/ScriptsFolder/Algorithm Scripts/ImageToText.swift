@@ -118,6 +118,14 @@ class ImageToText {
         }
     }
     
+    
+    /**
+        @@@
+     
+        - Parameter prevWord:   @@@
+     
+        - Returns:  @@@
+     */
     func isNoun(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
@@ -140,6 +148,14 @@ class ImageToText {
         return temp
     }
     
+    
+    /**
+        @@@
+     
+        - Parameter prevWord:   @@@
+     
+        - Returns:  @@@
+     */
     func isAdj(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {

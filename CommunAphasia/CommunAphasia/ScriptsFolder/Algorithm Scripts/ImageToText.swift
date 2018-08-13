@@ -2,7 +2,7 @@
 //  ImageToText.swift
 //  CommunAphasia
 //
-//  Created by RedSQ 24/05/18.
+//  Created by RedSQ on 24/05/18.
 //  Copyright © 2018 RedSQ. All rights reserved.
 //
 
@@ -12,14 +12,28 @@ import Foundation
 var haveSubject: Bool = false
 var subVerb: Bool = false
 
+
+/**
+    @@@
+ */
 class ImageToText {
     static let instance = ImageToText()
     var cell: ImageCell?
     var tenses: [String] = []
 
+    /**
+        @@@
+     */
     private init(){
     }
 
+    /**
+        @@@
+     
+        - Parameter pics:   @@@
+     
+        - Returns:  @@@
+     */
     func createSentence(pics: [ImageCell]) -> String {
         var returnString:Array<String> = []
         var temp:String = ""
@@ -88,6 +102,14 @@ class ImageToText {
         return returnString.joined(separator: " ")
     }
     
+    
+    /**
+        @@@
+     
+        - Parameter pics:   @@@
+     
+        - Returns:  @@@
+     */
     func pluralize(pic: ImageCell) -> String {
         if (pic.grNum == "plural") {
             return pic.word + "s"
@@ -145,6 +167,15 @@ class ImageToText {
         }
         return temp
     }
+    
+    
+    /**
+        @@@
+     
+        - Parameter preWord:    @@@
+     
+        - Returns:  @@@
+     */
     func isAdverb(prevWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
@@ -161,6 +192,17 @@ class ImageToText {
         }
         return temp
     }
+    
+    
+    /**
+        @@@
+     
+        - Parameters:
+            - prevWord:     @@@
+            - currentWord:  @@@
+     
+        - Returns:  @@@
+     */
     func isVerb(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
@@ -186,6 +228,17 @@ class ImageToText {
         }
         return temp
     }
+    
+    
+    /**
+        @@@
+     
+        - Parameters:
+            - prevWord:     @@@
+            - currentWord:  @@@
+     
+        - Returns:  @@@
+     */
     func isModal(prevWord: ImageCell, currentWord: ImageCell) -> String{
         var temp = ""
         if prevWord.type == wordType.verb.rawValue {
@@ -204,6 +257,10 @@ class ImageToText {
         return temp
     }
     
+    
+    /**
+        @@@
+     */
     public func reset() {
         haveSubject = false
         subVerb = false

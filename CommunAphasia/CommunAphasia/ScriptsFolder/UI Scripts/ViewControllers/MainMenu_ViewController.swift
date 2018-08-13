@@ -9,35 +9,21 @@
 import UIKit
 import SQLite
 
-///
-///
-///
+/**
+    Main class for controlling the `mainMenu`.
+ */
 class MainMenu_ViewController: UIViewController {
     
-    /** Xcode generated **
-     *
-     * Called after the controller's view is loaded into memory.
-     * This method is called after the view controller has loaded its view hierarchy into
-     * memory.
-     *
-     * You usually override this method to perform additional initialization on views
-     * that were loaded from nib files.
+    /**
+        Called after the controller's view is loaded into memory.
      */
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     
-    /** Xcode generated **
-     *
-     * Sent to the view controller when the app receives a memory warning.
-     *
-     * Your app never calls this method directly. Instead, this method is called when the
-     * system determines that the amount of available memory is low.
-     *
-     * You can override this method to release any additional memory used by your view
-     * controller. If you do, your implementation of this method must call the super
-     * implementation at some point.
+    /**
+        Sent to the view controller when the app receives a memory warning.
      */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -28,7 +28,7 @@ class Utility {
     var database: Connection!
     
     // Array holding recently used image sentences.
-    var recentSentences : Array<[ImageCell]> = []
+    var recentSentences: Array<[ImageCell]> = []
     
     // Global exclusion list - words to ignore.
     let EXCLUSION_LIST: Array<String> = ["the","is","to","a","","am","."]
@@ -66,7 +66,9 @@ class Utility {
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore == false {  // should be false, set to true for TESTING -------------------
+        
+        // Should be set to `false`, set to true for testing.
+        if launchedBefore == false {
             print("> first launch")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.setCells()
@@ -85,10 +87,10 @@ class Utility {
         `EXCLUSION_LIST`, before returning the array of words.
 
         - Parameters:
-           - inputString:  a string to be broken down into separate words.
+           - inputString:  A string to be broken down into separate words.
            - charSet:      indicates which ASCII character is used to separate
                            the sentence into words.
-        - Returns:  a 1D array of words.
+        - Returns:  A 1D array of words.
      */
     func getSentenceToWords(from inputString: String, separatedBy charSet: CharacterSet, removeSelectWords:Bool? = true) -> Array<String> {
         if removeSelectWords! {
@@ -98,15 +100,16 @@ class Utility {
         }
     }
     
+    
     /**
         Removes all the words in the exclusion list from the parsed in array.
 
         - Parameters:
-           - wordArray:        array containing the processed words from the
+           - wordArray:        Array containing the processed words from the
                                original sentence.
-           - exclusionList:    array containing all the word(s) to be excluded.
+           - exclusionList:    Array containing all the word(s) to be excluded.
 
-        - Returns:  an array of words, without the excluded word(s).
+        - Returns:  An array of words, without the excluded word(s).
      */
     func dropWords(_ wordArray: Array<String>, _ exclusionList: Array<String>) -> Array<String> {
         return wordArray.filter { !exclusionList.contains($0) }
@@ -117,20 +120,20 @@ class Utility {
         Adds a sentence to the list of previously used sentences for the
         current session.
      */
-    func setRecentSentence(Sentence : [ImageCell]){
-        recentSentences.append(Sentence)
+    func setRecentSentence(sentence: [ImageCell]) {
+        recentSentences.append(sentence)
     }
     
     
     /**
         A debug function that prints the `recentSentences` to stdout.
      */
-    func printRecentSentences(){
-        for sentence in recentSentences{
-            for image in sentence{
+    func printRecentSentences() {
+        for sentence in recentSentences {
+            for image in sentence {
                 print(image.word + " ", terminator: "")
             }
-            print("")
+            print()
         }
     }
     
@@ -144,16 +147,16 @@ class Utility {
         Finds the entry in the database which corresponds to `word` and returns
         that entry as a tuple containing the relevant metadata.
 
-        - Parameter word:  the keyword to search for, in the database.
+        - Parameter word:  The keyword to search for, in the database.
 
-        - Returns:  a tuple which contains the information extracted from the
+        - Returns:  A tuple which contains the information extracted from the
                     database.
-           - word:         the word describing the entry.
-           - type:         the type of image (e.g. noun, adjective, etc.).
-           - image:        the `UIImage` element.
-           - suggestions:  possible suggestions which are related to the word.
+           - word:         The word describing the entry.
+           - type:         The type of image (e.g. noun, adjective, etc.).
+           - image:        The `UIImage` element.
+           - suggestions:  Possible suggestions which are related to the word.
      */
-    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String){
+    func getDatabaseEntry(_ word: String) -> (word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String) {
         var image: UIImage = UIImage(named: "image placeholder")!
         var word_type: String = ""
         var suggestions: Array<String> = []
@@ -163,14 +166,13 @@ class Utility {
         
         do {
             let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(KEYWORD.like(word)).limit(1)
-            for cell in try database.prepare(querry){
+            for cell in try database.prepare(querry) {
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
                 suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false)
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
                 tense = cell[TENSE]
-                
             }
         } catch {
             print(error)
@@ -184,14 +186,14 @@ class Utility {
         returns an array of `cells` for each valid word that matches a keyword
         in the database.
      
-        - Parameter words:  an array of words holding the user's input.
+        - Parameter words:  An array of words holding the user's input.
      
-        - Returns:  an array of `cells` which were retrieved from the database.
+        - Returns:  An array of `cells` which were retrieved from the database.
      */
     func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)] {
-        //let lowerWords = words.map {$0.lowercased()}
+        
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
-        let querry = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
+        let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
         
         do{
             for cell in try database.prepare(querry){
@@ -214,17 +216,17 @@ class Utility {
     /**
         Checks if there is a matching database entry for the word.
      
-        - Parameter word:   word to be checked for in the database.
+        - Parameter word:   The word to be checked for in the database.
      
         - Returns: `true` if word exists in database, else `false`.
      */
     func isInDatabase(word: String) -> Bool {
-        do{
+        do {
             let count = try database.scalar(CELL_TABLE.filter(KEYWORD.like(word)).count)
             if count > 0 {
                 return true
             }
-        }catch{
+        } catch {
             print(error)
         }
         return false
@@ -235,9 +237,9 @@ class Utility {
         Retrieves entries from the database as `cells` for all database entries
         that match the given category.
      
-        - Parameter category:   the category to be searched for.
+        - Parameter category:   The category to be searched for.
      
-        - Returns:  an array of `cells` which matched the category.
+        - Returns:  An array of `cells` which matched the category.
      */
     func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
         var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
@@ -269,9 +271,9 @@ class Utility {
         Uses NSLinguisticTagger to lemmatize (find the stem of) each given word,
         and returns the tags as an array.
      
-        - Parameter inputString:    the words (as a string) to be lemmatized.
+        - Parameter inputString:    The words (as a string) to be lemmatized.
      
-        - Returns:  an array holding the lemma of each input word.
+        - Returns:  An array holding the lemma of each input word.
      */
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
@@ -326,9 +328,9 @@ class Utility {
         synonyms which will be used as suggesetions for any invalid words the
         user gives as input.
      
-        - Parameter word:   the word to find synonyms for.
+        - Parameter word:   The word to find synonyms for.
      
-        - Returns:  an array of synonymous words, else `nil`.
+        - Returns:  An array of synonymous words, else `nil`.
      */
     func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
@@ -347,7 +349,7 @@ class Utility {
         task.resume()
         var timeOut = 0
         while (delegateObj.synonyms.isEmpty) {
-            if timeOut >= 3000 {  // Timeout set to 3 seconds
+            if timeOut >= 3000 {  // `timeOut` set to 3 seconds
                 print("API timed out")
                 return nil
             }
@@ -361,9 +363,9 @@ class Utility {
     /**
         Filters out words that exist in our database.
      
-        - Parameter inArray:    an array of words.
+        - Parameter inArray:    An array of words.
      
-        - Returns:  an array which only contains words that exist in our
+        - Returns:  An array which only contains words that exist in our
                     database, from `inArray`.
      */
     func synonymsInDataBase(from inArray: [String]) -> [String] {
@@ -383,7 +385,6 @@ class Utility {
         - Returns: `true` if connected to a network, otherwise `false`.
      */
     func isConnectedToNetwork() -> Bool {
-
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -429,7 +430,7 @@ class Utility {
         do {
             try self.database.run(makeTable)
             print("> Table created")
-        }catch{
+        } catch {
             print(error)
         }
     }
@@ -480,8 +481,7 @@ class Utility {
         }
     }
     
-}
-// End of Utility class!
+} // End of Utility class!
 // ----------------------------------------------------------------------
 
 
@@ -493,7 +493,6 @@ extension NSMutableAttributedString {
         let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
         self.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
     }
-    
 }
 
 

@@ -141,7 +141,7 @@ class Utility {
             for cell in try database.prepare(querry){
                 word_type = cell[TYPE]
                 image = UIImage(named: cell[IMAGE_LINK])!
-                suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"))
+                suggestions = getSentenceToWords(from: cell[RELATIONSHIPS], separatedBy: .init(charactersIn: "+"), removeSelectWords: false)
                 grNum = cell[GR_NUM]
                 category = cell[CATEGORY]
                 tense = cell[TENSE]
@@ -163,7 +163,7 @@ class Utility {
                 cells.append((cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
-                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+")),
+                              getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false),
                               cell[GR_NUM],
                               cell[CATEGORY],
                               cell[TENSE]))

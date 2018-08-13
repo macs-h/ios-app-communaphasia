@@ -557,13 +557,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENTER A SENTENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-0E-58F">
-                                <rect key="frame" x="261" y="-16" width="590" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
-                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Touch to enter text" textAlignment="natural" minimumFontSize="20" background="Input bar" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZUY-G7-5JJ">
                                 <rect key="frame" x="166" y="163" width="806" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
@@ -587,17 +580,6 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="aWA-95-zEq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUH-Op-rgn">
-                                <rect key="frame" x="166" y="228" width="806" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="3Xb-Mn-LAJ" appends="YES" id="LIa-Fn-CRa"/>
-                                </connections>
-                            </label>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-j1-6lR">
                                 <rect key="frame" x="406" y="504" width="300" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -609,23 +591,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lO7-a2-zzF" userLabel="NextButton">
+                                <rect key="frame" x="627" y="500" width="59" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Forward arrow"/>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="F8O-mK-ZoV" eventType="touchUpInside" id="T3h-Xa-vbH"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFF-Cj-VHj" userLabel="PrevButton">
+                                <rect key="frame" x="424" y="500" width="59" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Backwards arrow"/>
+                                <connections>
+                                    <action selector="prevButtonPressed:" destination="F8O-mK-ZoV" eventType="touchUpInside" id="AD4-W1-q3t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENTER A SENTENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-0E-58F">
+                                <rect key="frame" x="261" y="17" width="590" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="45"/>
+                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="errorLabel" destination="dUH-Op-rgn" id="pZ4-Nt-vb3"/>
+                        <outlet property="nextButton" destination="lO7-a2-zzF" id="c5e-ZD-riF"/>
                         <outlet property="pickerView" destination="CNl-j1-6lR" id="egf-MA-Jnb"/>
+                        <outlet property="prevButton" destination="RFF-Cj-VHj" id="9b1-k7-Whg"/>
                         <outlet property="synonymLabel" destination="etZ-f7-Z5J" id="UcY-ky-Os3"/>
                         <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
                         <segue destination="QFY-px-uCe" kind="show" identifier="TIToResult_segue" id="9fL-cx-gPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSV-ca-hx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="3Xb-Mn-LAJ">
-                    <connections>
-                        <action selector="errorTappedWithGesture:" destination="F8O-mK-ZoV" id="w6l-oE-lUB"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1366.7266187050361" y="133.81294964028777"/>
         </scene>
@@ -729,6 +730,7 @@
         <image name="Activity Icon" width="256" height="256"/>
         <image name="Back button" width="59" height="57"/>
         <image name="Back button flipped" width="59" height="57"/>
+        <image name="Backwards arrow" width="59" height="39"/>
         <image name="Black seperator" width="1112" height="7"/>
         <image name="Common Icon" width="512" height="512"/>
         <image name="Current tab" width="66" height="93"/>
@@ -736,6 +738,7 @@
         <image name="Done button" width="116" height="54"/>
         <image name="Emotion Icon" width="1600" height="1600"/>
         <image name="Food Icon" width="980" height="980"/>
+        <image name="Forward arrow" width="59" height="39"/>
         <image name="Image to text arrow" width="475" height="259"/>
         <image name="Input bar" width="817" height="61"/>
         <image name="Logo" width="699" height="309"/>
@@ -751,9 +754,9 @@
         <image name="presentTense" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1qB-hy-XeI"/>
+        <segue reference="9fL-cx-gPa"/>
         <segue reference="gQP-Iw-auM"/>
         <segue reference="Tuv-aW-ka3"/>
-        <segue reference="Vq3-nG-FAk"/>
+        <segue reference="aWA-95-zEq"/>
     </inferredMetricsTieBreakers>
 </document>

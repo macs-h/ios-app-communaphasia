@@ -1,7 +1,6 @@
 apple,apple,noun,food+fruit,r,food,t
 basketball,basketball,noun,sport,r,activity,t
 big,big,adj,size,r,objects,t
-blue,blue,adj,water,r,objects,t
 breakfast,food_breakfast,noun,food,r,food,t
 call,call,verb,nil,r,activity,called+calling+will call
 cat,cat_silhouette,noun,cute,r,animals,t
@@ -20,7 +19,6 @@ it,it,pronoun,it,is,objects,t
 lunch,food_lunch,noun,food,lunches,food,t
 man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t
-red,red.jpeg,adj,blood,r,objects,t
 sleep,sleep,verb,on,r,activity,slept+sleeping+will sleep
 small,small,adj,size,r,objects,t
 soda,soda_can,noun,drink,r,food,t
@@ -35,3 +33,26 @@ need,need,verb,nil,r,activity,needed+needing+will need
 can,can,modal,nil,r,activity,could have+can+will be able to
 may,may.jpg,modal,nil,r,activity,might have+might+might be able to
 should,should,modal,nil,r,activity,should have+should+should
+angry,angry,adj,nil,r,emotions,t
+cool,cool,adj,nil,r,emotions,t
+laugh,laughing,verb,nil,r,emotions,laughed+laughing+will laugh
+funny,laughing,adj,nil,r,emotions,t
+love,love,verb,nil,r,emotions,loved+love+will love
+sad,sad.jpg,adj,nil,r,emotions,t
+sleepy,sleepy.jpg,adj,nil,r,emotions,t
+think,thinking,adj,nil,r,emotions,thought+thinking+will think
+happy,happy,adj,nil,r,emotions,t
+surprise,surprised,adj,nil,r,emotions,surprised+surprising+surprising
+scared,scared,adj,nil,r,emotions,t
+sick,sick,adj,nil,r,emotions,t
+blue,blue,adj,nil,r,other,t
+black,black,adj,nil,r,other,t
+brown,brown,adj,nil,r,other,t
+gray,gray,adj,nil,r,other,t
+green,green,adj,nil,r,other,t
+orange,orange,adj,nil,r,other,t
+pink,pink,adj,nil,r,other,t
+purple,purple,adj,nil,r,other,t
+red,red,adj,nil,r,other,t
+white,white,adj,nil,r,other,t
+yellow,yellow,adj,nil,r,other,t

@@ -53,11 +53,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
-        The number of columns of data in picker view
+        The number of columns of data in picker view.
      
-        - Parameter pickerView: @@@
+        - Parameter pickerView: the `pickerView`.
      
-        - Returns:  @@@
+        - Returns:  the number of columns in the picker view.
      */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -65,13 +65,13 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
-        The number of rows of data in picker view
+        The number of rows of data in picker view.
      
         - Parameters:
-            - pickerView:   @@@
-            - component:    @@@
+            - pickerView:   the `pickerView`.
+            - component:    the column in which to count the rows.
      
-        - Returns:  @@@
+        - Returns:  the number of rows in selected column
      */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
@@ -83,15 +83,26 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         passed in, in picker view.
      
         - Parameters:
-            - pickerView:   @@@
-            - row:          @@@
-            - component:    @@@
+            - pickerView:   the `pickerView`.
+            - row:          the selected row.
+            - component:    the selected column.
      
-        - Returns:  (Optional) @@@
+        - Returns:  (Optional) the string held in the selected row and column
+                    if any exists.
      */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
+    
+    
+    /**
+        When the user selects the next button the selected error (unfound word)
+        in the text field moves to the right. The previous selection will turn
+        green if it is in the database and red if not.
+        The current selection will also turn blue.
+     
+        - Parameter sender: The object which called this function.
+    */
     @IBAction func nextButtonPressed(_ sender: Any) {
         
         if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
@@ -119,6 +130,16 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
     }
+    
+    
+    /**
+        When the user selects the next button the selected error (unfound word)
+        in the text field moves to the left. The previous selection will turn
+        green if it is in the database and red if not.
+        The current selection will also turn blue.
+     
+        - Parameter sender: The object which called this function.
+     */
     @IBAction func prevButtonPressed(_ sender: Any) {
         
         if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
@@ -147,24 +168,29 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
-        @@@
+        This function changes the selected word in the text field depending on
+        what the user selects in the `pickerView` (scroll thingy).
      
         - Parameters:
-            - pickerView:   @@@
-            - row:          @@@
-            - component:    @@@
+            - pickerView:   the `pickerView`.
+            - row:          the row of the `pickerView` selected by the user.
+            - component:    the component which is selected.
      */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
         attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
         setTextFromArray()
         stringArray[currentIndex] = pickerData[row]
         //need to display attributed array in the text field
         //textField.text = stringArray.joined(separator: " ")
-        
     }
     
+    
+    /**
+        This function iterates through the array of attributed strings and
+        adds them to a temporary string to be displayed in the text field then
+        updates the text field with the changes.
+     */
     func setTextFromArray(){
         let tempString = NSMutableAttributedString()
         for i in 0...attributedArray.count-1{
@@ -176,13 +202,17 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
-        @@@
+        Makes an array of cells based on the input words and checks whether
+        they exist in the database. It then retunrs the indices of the words
+        which do not appear in the database.
      
         - Parameters:
-            - wordArray:    @@@
-            - original:     @@@
+            - wordArray:    An array of words (retrieved from the text field
+                            and processed).
+            - original:     The origional words (from the text field).
      
-        - Returns:  @@@
+        - Returns:  an array containing the indices of the words which do not
+                    exist in the database.
      */
     @available(iOS 11.0, *)
     func makeCells(using wordArray:[String], from original:[String])-> [Int] {
@@ -218,25 +248,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         return errorArray
     }
 
-    
-//    func showErrors(_ wordArray: [String], _ errorArray: [Int], _ inputArray: [String]) {
-//        attributedString = NSMutableAttributedString(string: wordArray.joined(separator: " "))
-//        for index in errorArray {
-//            attributedString?.setColor(color: UIColor.red, forText: wordArray[index])
-//        }
-//        print(">> attributedString:", attributedString!.string)
-//
-//    }
-    
-//    func testFunc(_ inString: String) {
-////        let eLabel = in
-//        attributedString = NSMutableAttributedString(string: inString)
-//        attributedString?.setColor(color: UIColor.red, forText: inString)
-//    }
-    
+
     
     /**
-        @@@
+        Lets the user know that the sentence they entered is invalid.
      */
     func invalidSentence() {
         let str = "Please enter a valid sentence"
@@ -249,7 +264,12 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
-        @@@
+        This function executes when the user has finished typing their sentence
+        and taps the done button. It checks that the words entered are valid
+        and in the database and if they are not it will display them to the
+        user in the text field.
+     
+        - Parameter sender: The object which called this function.
      */
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
@@ -357,6 +377,15 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
+
+    /**
+        Notifies the view controller that a segue is about to be performed.
+     
+        - Parameters:
+            - segue:    The segue object containing information about the view
+                        controllers involved in the segue.
+            - sender:   The object that initiated the segue.
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "TIToResult_segue")
         {
@@ -367,6 +396,9 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
+    /**
+        Sent to the view controller when the app receives a memory warning.
+     */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

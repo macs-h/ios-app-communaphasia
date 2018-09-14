@@ -74,8 +74,9 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextResultCell", for: indexPath) as! ImageCell //gives the type of the custom class that was made for the cell-----might need to create a seperate class for text->images
         
-        cell.showType()
+        
         cell.addData(cell: cellsToBeShown[indexPath.item])
+        cell.showType()
         return cell
     }
     

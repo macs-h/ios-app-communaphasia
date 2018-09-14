@@ -129,10 +129,15 @@ class ImageCell: UICollectionViewCell {
      
         Shrinks image to accommodate for border width.
      */
-    func showType(){
+    func showType(thisType: String? = nil){
+        print(">>",type)
         let borderWidth: CGFloat = 5
         imageView.layer.borderWidth = borderWidth
-        imageView.layer.borderColor = colourDict[type]
+        if thisType == nil{
+            imageView.layer.borderColor = colourDict[type]
+        }else{
+            imageView.layer.borderColor = colourDict[thisType!]
+        }
         let image = imageView.image
         let size = CGSize(width: imageView.frame.width, height: imageView.frame.height)
         UIGraphicsBeginImageContext(size)

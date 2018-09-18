@@ -17,7 +17,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // References the user input text field.
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var synonymLabel: UILabel!
-    //let loadingSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
+    //let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var stringArray = [String]()
     var currentIndex:Int = 0
@@ -39,7 +40,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
     //var activityIndicator = UIActivityIndicatorView()
-    @IBOutlet weak var tempLoadingLabel: UILabel!
+    //@IBOutlet weak var tempLoadingLabel: UILabel!
     
     /**
         Called after the controller's view is loaded into memory.
@@ -293,7 +294,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
             if errorArray.count > 0 {
                 //start async
-                
+                startActivityIndicator()
                 DispatchQueue.global(qos: .userInitiated).async {
                     //showErrors(inputArray, errorArray, inputArray)
                     self.cells.removeAll()
@@ -348,6 +349,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         self.attributedArray[self.errorIndices[0]].setColor(color: UIColor.blue, forText: self.attributedArray[self.errorIndices[0]].string)
                         self.setTextFromArray()
                         print("------- error array end", errorArray)
+                        self.stopActivityIndicator()
                     }
                 }
                 //end async
@@ -420,14 +422,16 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 //        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
 //        view.addSubview(activityIndicator)
 //        activityIndicator.startAnimating()
-        tempLoadingLabel.isHidden = false
+        //tempLoadingLabel.isHidden = false
+        activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
     func stopActivityIndicator(){
         print("Indicator stoped")
 //        activityIndicator.stopAnimating()
-        tempLoadingLabel.isHidden = true
+        //tempLoadingLabel.isHidden = true
+        activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
 
     }

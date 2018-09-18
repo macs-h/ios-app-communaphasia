@@ -47,8 +47,17 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
+        showTute()
     }
-
+    
+    func showTute() {
+        let tuteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tuteVC") as! ImageInputTutorial
+        
+        self.addChildViewController(tuteVC)
+        tuteVC.view.frame = self.view.frame
+        self.view.addSubview(tuteVC.view)
+        tuteVC.didMove(toParentViewController: self)
+    }
     
     /**
         Sent to the view controller when the app receives a memory warning.
@@ -98,6 +107,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Parameter sender: Tab button pressed
      */
     @IBAction func ChangeCategory(_ sender: UIButton) {
+        print("category changed")
         for button in tabButtons {
             if button.tag == currentCategoyIndex {
                 button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
@@ -177,7 +187,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
-    /**
+    /** I THINK THIS IS DEPRECIATED
         Called when the `want` button is pressed
      
         - Parameter sender: The object which called this function.

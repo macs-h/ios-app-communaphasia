@@ -33,6 +33,7 @@
 		60249A1F20B91CC100BBC5FC /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
 		C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBC0E2115557300A66995 /* ImageCell.swift */; };
 		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
+		C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */; };
 		ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976120B7C7C0001AF14C /* deer_silhouette.png */; };
 		ED27976D20B7C7C0001AF14C /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976220B7C7C0001AF14C /* cow.png */; };
 		ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976320B7C7C0001AF14C /* image placeholder.png */; };
@@ -208,6 +209,7 @@
 		601DEB6220BA7A7E00FF2778 /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
 		C10CBC0E2115557300A66995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
+		C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputTutorial.swift; sourceTree = "<group>"; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
 		ED27976220B7C7C0001AF14C /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
 		ED27976320B7C7C0001AF14C /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
@@ -334,6 +336,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C17B6AF12150996A004E0544 /* TutorialScripts */ = {
+			isa = PBXGroup;
+			children = (
+				C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */,
+			);
+			path = TutorialScripts;
+			sourceTree = "<group>";
+		};
 		ED27975F20B7C7C0001AF14C /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +446,7 @@
 		ED4168D220B7BEAC003B449A /* UI Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				C17B6AF12150996A004E0544 /* TutorialScripts */,
 				ED720AC42121859F004A3BA4 /* Animations.swift */,
 				ED61065F20BA38C1003C4904 /* Cells */,
 				ED61065820BA389A003C4904 /* ViewControllers */,
@@ -796,6 +807,7 @@
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
 				C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */,
 				601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */,
+				C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */,
 				ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

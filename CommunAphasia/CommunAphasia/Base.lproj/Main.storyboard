@@ -46,6 +46,14 @@
                                     <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="Si4-Fs-9gl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-3Z-HM8">
+                                <rect key="frame" x="531" y="402" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tutorial"/>
+                                <connections>
+                                    <segue destination="IVG-Ho-Scw" kind="custom" id="uwa-KC-LKm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.68627450980392157" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -133,6 +141,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7g-bj-NVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2245.1438848920866" y="122.30215827338131"/>
+        </scene>
+        <!--Image Input Tutorial-->
+        <scene sceneID="Ylz-Mo-jeC">
+            <objects>
+                <viewController storyboardIdentifier="tuteVC" id="29j-9k-ZuG" customClass="ImageInputTutorial" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S5k-2j-ngG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jr2-Wk-tZ0"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="ET4-Al-UiY" customClass="MakeTransparentHoleOnOverlayView" customModule="CommunAphasia" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V12-hg-hkw" userLabel="selectCategoryHole">
+                                <rect key="frame" x="980" y="144" width="76" height="496"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8h8-3l-FJ8" userLabel="selectCategoryView">
+                                <rect key="frame" x="985" y="149" width="66" height="486"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f4-nJ-igj" userLabel="0">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="wrQ-wq-Wcz"/>
+                                            <action selector="categoryPressed:" destination="29j-9k-ZuG" eventType="touchUpInside" id="kaD-FZ-5rz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYj-Ix-EgG" userLabel="1">
+                                        <rect key="frame" x="0.0" y="69" width="66" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="Y9d-ed-NzA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-ro-9iH" userLabel="2">
+                                        <rect key="frame" x="0.0" y="138" width="66" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="sSM-sI-soL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw0-yq-5wp" userLabel="3">
+                                        <rect key="frame" x="0.0" y="204" width="66" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="oNv-ZA-3Bh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyO-Yw-IEU" userLabel="4">
+                                        <rect key="frame" x="0.0" y="264" width="66" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="0E8-LV-kMV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4N-5j-pnX" userLabel="5">
+                                        <rect key="frame" x="0.0" y="325" width="66" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="Ujc-0x-3Pg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-FE-EMB" userLabel="6">
+                                        <rect key="frame" x="0.0" y="381" width="66" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="s0T-Vz-mKd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAb-NL-b2T" userLabel="7">
+                                        <rect key="frame" x="0.0" y="433" width="66" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="xg6-lS-hrc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="transparentHoleView" destination="V12-hg-hkw" id="SjE-mH-X3m"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CrV-zp-7TN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1066.1870503597122" y="-779.13669064748206"/>
         </scene>
         <!--Image Input View Controller-->
         <scene sceneID="J8f-Ve-7Lo">
@@ -760,7 +890,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1ob-KH-uom"/>
-        <segue reference="Tuv-aW-ka3"/>
+        <segue reference="Si4-Fs-9gl"/>
         <segue reference="Vq3-nG-FAk"/>
     </inferredMetricsTieBreakers>
 </document>

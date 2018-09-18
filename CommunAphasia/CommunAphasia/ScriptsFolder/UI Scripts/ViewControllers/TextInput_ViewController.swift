@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 /**
     Class that controls the Text input screen.
@@ -16,7 +17,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // References the user input text field.
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var synonymLabel: UILabel!
-    @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
+    //let loadingSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var stringArray = [String]()
     var currentIndex:Int = 0
@@ -37,6 +38,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
+    //var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet weak var tempLoadingLabel: UILabel!
     
     /**
         Called after the controller's view is loaded into memory.
@@ -45,6 +48,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
+        //loadingSpinner.center = self.view.center
+        //loadingSpinner.hidesWhenStopped = true
+        //loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        //view.addSubview(loadingSpinner)
     }
     
     
@@ -217,7 +224,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
 
-        loadingSpinner.startAnimating()// Start loading wheel.
+        //loadingSpinner.startAnimating()// Start loading wheel.
         
         for word in wordArray {
             if wordArray.isEmpty && errorArray.isEmpty {
@@ -239,7 +246,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
         }
         
-        loadingSpinner.stopAnimating() // End loading wheel.
+        stopActivityIndicator()//loadingSpinner.stopAnimating() // End loading wheel.
         
         return errorArray
     }
@@ -280,8 +287,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
-            //loadingSpinner.startAnimating()
-            print("animation started")
+            
+            
             let errorArray = makeCells(using: wordArray, from: inputArray)
             
             if errorArray.count > 0 {
@@ -375,7 +382,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
                 performSegue(withIdentifier: "TIToResult_segue", sender: self)
             }
-            //loadingSpinner.stopAnimating()
+            
         }
     }
     
@@ -404,6 +411,25 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startActivityIndicator(){
+        print("Indicator started")
+//        activityIndicator.center = self.view.center
+//        activityIndicator.hidesWhenStopped = true
+//        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+//        view.addSubview(activityIndicator)
+//        activityIndicator.startAnimating()
+        tempLoadingLabel.isHidden = false
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func stopActivityIndicator(){
+        print("Indicator stoped")
+//        activityIndicator.stopAnimating()
+        tempLoadingLabel.isHidden = true
+        UIApplication.shared.endIgnoringInteractionEvents()
+
     }
     
 } // End of TextInput_ViewController class!

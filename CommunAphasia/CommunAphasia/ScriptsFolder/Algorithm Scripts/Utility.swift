@@ -333,32 +333,31 @@ class Utility {
     func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
-        let url = NSURL(string: baseUrl + word + "/" + type)
-        print(word)
-        print(">", baseUrl + word + "/" + type)
-        print(url!)
-        print(NSURL(string: baseUrl + "don\'t" + "/" + type)!)
-        let request = NSMutableURLRequest(url: url! as URL)
-        request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
-        request.setValue("wordsapiv1.p.mashape.com", forHTTPHeaderField: "X-Mashape-Host")
-        request.httpMethod = "GET"
         
-        let delegateObj = MyDelegate()
-        let session = URLSession(configuration: URLSessionConfiguration.default,
-                                 delegate: delegateObj,
-                                 delegateQueue: nil)
-        let task = session.dataTask(with: request as URLRequest)
-        task.resume()
-        var timeOut = 0
-        while (delegateObj.synonyms.isEmpty) {
-            if timeOut >= 3000 {  // `timeOut` set to 3 seconds
-                print("API timed out")
-                return nil
+        if let url = NSURL(string: baseUrl + word + "/" + type) {
+            let request = NSMutableURLRequest(url: url as URL)
+            request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
+            request.setValue("wordsapiv1.p.mashape.com", forHTTPHeaderField: "X-Mashape-Host")
+            request.httpMethod = "GET"
+            
+            let delegateObj = MyDelegate()
+            let session = URLSession(configuration: URLSessionConfiguration.default,
+                                     delegate: delegateObj,
+                                     delegateQueue: nil)
+            let task = session.dataTask(with: request as URLRequest)
+            task.resume()
+            var timeOut = 0
+            while (delegateObj.synonyms.isEmpty) {
+                if timeOut >= 3000 {  // `timeOut` set to 3 seconds
+                    print("API timed out")
+                    return nil
+                }
+                usleep(20 * 1000)  // sleep for 20 milliseconds
+                timeOut += 20
             }
-            usleep(20 * 1000)  // sleep for 20 milliseconds
-            timeOut += 20
+            return delegateObj.synonyms
         }
-        return delegateObj.synonyms
+        return nil
     }
     
     

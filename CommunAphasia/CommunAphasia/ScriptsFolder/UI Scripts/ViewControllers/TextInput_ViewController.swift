@@ -284,6 +284,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             print("animation started")
             let errorArray = makeCells(using: wordArray, from: inputArray)
             
+            for word in errorArray{
+                print("\(word) \(inputArray[word])")
+            }
+            
             if errorArray.count > 0 {
                 //showErrors(inputArray, errorArray, inputArray)
                 cells.removeAll()
@@ -298,7 +302,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                             print("SYN:", synonyms)
                             availableSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
                             //availableSynonyms.append("test")
-                            
+
                             print("available sysnonyms:",availableSynonyms)
                         } else {
                             print("No synonyms found") // handle this?

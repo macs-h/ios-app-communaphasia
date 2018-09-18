@@ -334,6 +334,10 @@ class Utility {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
         let url = NSURL(string: baseUrl + word + "/" + type)
+        print(word)
+        print(">", baseUrl + word + "/" + type)
+        print(url!)
+        print(NSURL(string: baseUrl + "don\'t" + "/" + type)!)
         let request = NSMutableURLRequest(url: url! as URL)
         request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
         request.setValue("wordsapiv1.p.mashape.com", forHTTPHeaderField: "X-Mashape-Host")

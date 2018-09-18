@@ -28,7 +28,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var errors = [String]()
     var errorIndex: Int = 0
     var synonyms = [[String]]()
-    
+    let defaultSynonyms = ["man","eat","cat"]
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     
@@ -285,59 +285,65 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let errorArray = makeCells(using: wordArray, from: inputArray)
             
             if errorArray.count > 0 {
-                //showErrors(inputArray, errorArray, inputArray)
-                cells.removeAll()
+                //start async
                 
-                for index in errorArray{
+                DispatchQueue.global(qos: .userInitiated).async {
+                    //showErrors(inputArray, errorArray, inputArray)
+                    self.cells.removeAll()
                     var availableSynonyms: [String] = []
                     // Check internet connection availability.
                     if Utility.instance.isConnectedToNetwork(){
                         print("Internet Connection Available!")
-                        
-                        if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
-                            print("SYN:", synonyms)
-                            availableSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
-                            //availableSynonyms.append("test")
-                            
-                            print("available sysnonyms:",availableSynonyms)
-                        } else {
-                            print("No synonyms found") // handle this?
+                        for index in errorArray{
+                                if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
+                                    print("SYN:", synonyms)
+                                    availableSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
+                                    
+                                    print("available sysnonyms:",availableSynonyms)
+                                } else {
+                                    print("No synonyms found") // handle this?
+                                }
                         }
-                        availableSynonyms.append(contentsOf: ["man","eat","cat"])
-                        synonyms.append(availableSynonyms)
                     } else {
                         print("Internet Connection not Available!")
+                        //output to a label
                     }
-
-                }
-                //do things with sysnonyms
-                if Utility.instance.isInDatabase(word: errors[errorIndex]){
-                    synonymLabel.text = "'" + errors[errorIndex] + "' is valid!"
-                }else{
-                    synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
-                }
-                synonymLabel.isHidden = false
-                
-                pickerData = synonyms[errorIndex]
-                pickerData.append(String(errorIndex))
-                currentIndex = errorArray[0]
-                errorIndices = errorArray
-               print("------- currentIndex", currentIndex)
-                pickerView.reloadAllComponents()
-                pickerView.isHidden = false
-                
-                nextButton.isHidden = false
-                prevButton.isHidden = false
-                for word in stringArray {
-                    let atWord = NSMutableAttributedString(string: word)
-                    if errors.contains(word){
-                        atWord.setColor(color: UIColor.red, forText: atWord.string)
+                    DispatchQueue.main.async {
+                        if(availableSynonyms.count <= 0){
+                            availableSynonyms.append(contentsOf: self.defaultSynonyms)
+                        }
+                        self.synonyms.append(availableSynonyms)
+                        //do things with sysnonyms
+                        if Utility.instance.isInDatabase(word: self.errors[self.errorIndex]){
+                            self.synonymLabel.text = "'" + self.errors[self.errorIndex] + "' is valid!"
+                        }else{
+                            self.synonymLabel.text = "Cant find '" + self.errors[self.errorIndex] + "', try one of these:"
+                        }
+                        self.synonymLabel.isHidden = false
+                        
+                        self.pickerData = self.synonyms[self.errorIndex]
+                        //pickerData.append(String(errorIndex))
+                        self.currentIndex = errorArray[0]
+                        self.errorIndices = errorArray
+                       print("------- currentIndex", self.currentIndex)
+                        self.pickerView.reloadAllComponents()
+                        self.pickerView.isHidden = false
+                        
+                        self.nextButton.isHidden = false
+                        self.prevButton.isHidden = false
+                        for word in self.stringArray {
+                            let atWord = NSMutableAttributedString(string: word)
+                            if self.errors.contains(word){
+                                atWord.setColor(color: UIColor.red, forText: atWord.string)
+                            }
+                            self.attributedArray.append(atWord)
+                        }
+                        self.attributedArray[self.errorIndices[0]].setColor(color: UIColor.blue, forText: self.attributedArray[self.errorIndices[0]].string)
+                        self.setTextFromArray()
+                        print("------- error array end", errorArray)
                     }
-                    attributedArray.append(atWord)
                 }
-                attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
-                setTextFromArray()
-                print("------- error array end", errorArray)
+                //end async
             } else {
                 var inputString: String = textField.text!
                 var NSCount: Int = 0

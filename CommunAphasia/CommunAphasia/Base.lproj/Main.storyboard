@@ -29,7 +29,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.5601342429577465" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="F8O-mK-ZoV" kind="show" id="1ob-KH-uom"/>
+                                    <segue destination="F8O-mK-ZoV" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="1ob-KH-uom"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-NZ-nbS">
@@ -43,12 +43,13 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.56013424300000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IVG-Ho-Scw" kind="show" id="Si4-Fs-9gl"/>
+                                    <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="Si4-Fs-9gl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22745098039215686" green="0.68627450980392157" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1ce-13-iqG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +101,7 @@
                                 <rect key="frame" x="1033" y="28" width="59" height="57"/>
                                 <state key="normal" image="Back button flipped"/>
                                 <connections>
-                                    <segue destination="IVG-Ho-Scw" kind="show" id="Tuv-aW-ka3"/>
+                                    <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="Tuv-aW-ka3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RESULT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAF-9U-Uwd">
@@ -157,7 +158,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Back button flipped"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Vq3-nG-FAk"/>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="Vq3-nG-FAk"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
@@ -385,7 +386,7 @@
                         <outletCollection property="tabButtons" destination="1uX-yh-4xF" collectionClass="NSMutableArray" id="M2s-WF-DF9"/>
                         <outletCollection property="tabButtons" destination="ine-zE-h8W" collectionClass="NSMutableArray" id="YyD-73-jhy"/>
                         <outletCollection property="tabButtons" destination="x2V-EJ-sao" collectionClass="NSMutableArray" id="D5M-Hz-CvX"/>
-                        <segue destination="jrt-i2-IQI" kind="show" identifier="IIToResult_segue" id="1qB-hy-XeI"/>
+                        <segue destination="jrt-i2-IQI" kind="custom" identifier="IIToResult_segue" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="1qB-hy-XeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,7 +578,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Back button"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="aWA-95-zEq"/>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="aWA-95-zEq"/>
                                 </connections>
                             </button>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-j1-6lR">
@@ -614,6 +615,13 @@
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeF-06-7oE">
+                                <rect key="frame" x="490" y="224" width="143" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -622,8 +630,9 @@
                         <outlet property="pickerView" destination="CNl-j1-6lR" id="egf-MA-Jnb"/>
                         <outlet property="prevButton" destination="RFF-Cj-VHj" id="9b1-k7-Whg"/>
                         <outlet property="synonymLabel" destination="etZ-f7-Z5J" id="UcY-ky-Os3"/>
+                        <outlet property="tempLoadingLabel" destination="DeF-06-7oE" id="3Sz-sY-TsN"/>
                         <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
-                        <segue destination="QFY-px-uCe" kind="show" identifier="TIToResult_segue" id="9fL-cx-gPa"/>
+                        <segue destination="QFY-px-uCe" kind="custom" identifier="TIToResult_segue" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="9fL-cx-gPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSV-ca-hx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -703,7 +712,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Back button"/>
                                 <connections>
-                                    <segue destination="F8O-mK-ZoV" kind="show" id="gQP-Iw-auM"/>
+                                    <segue destination="F8O-mK-ZoV" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="gQP-Iw-auM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -718,7 +727,6 @@
                     <connections>
                         <outlet property="resultCollectionView" destination="vx9-KE-FDJ" id="pgg-N7-Pzo"/>
                         <outlet property="resultLabel" destination="cSc-an-lAY" id="Zgf-bJ-2vE"/>
-                        <segue destination="F8O-mK-ZoV" kind="show" identifier="TIToInput_segue" id="70q-bh-RdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEs-97-Vni" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -754,8 +762,7 @@
         <image name="presentTense" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9fL-cx-gPa"/>
-        <segue reference="gQP-Iw-auM"/>
+        <segue reference="1ob-KH-uom"/>
         <segue reference="Tuv-aW-ka3"/>
         <segue reference="aWA-95-zEq"/>
     </inferredMetricsTieBreakers>

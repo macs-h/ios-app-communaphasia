@@ -39,6 +39,9 @@ class Utility {
     // The categories our images may represent.
     let categories = ["emotions","animals","food","activity","travel","objects","other"]
     
+    //for creating a 2D array of types
+    let typeDict:[String:Int] = ["noun":0, "adj":1, "verb":2, "pronoun":3, "adverb":4, "modal":4]
+    
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
     let ID = Expression<Int>("id")
@@ -190,14 +193,20 @@ class Utility {
      
         - Returns:  An array of `cells` which were retrieved from the database.
      */
-    func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)] {
+    func getWordsInDatabase(words: [String]) -> [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]] {
         
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        var cells = [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()]
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
         
         do {
             for cell in try database.prepare(query) {
-                cells.append((cell[KEYWORD],
+                cells[typeDict[cell[TYPE]]!].append((
+                              cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
                               getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false),
@@ -240,12 +249,19 @@ class Utility {
      
         - Returns:  An array of `cells` which matched the category.
      */
-    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+    func getCellsByCategory(category: String) -> [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]] {
+        var cells = [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)](),
+                     [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()]
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
         do {
             for cell in try database.prepare(query) {
-                cells.append((cell[KEYWORD],
+                print(cell[self.IMAGE_LINK])
+                cells[typeDict[cell[TYPE]]!].append((
+                              cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
                               getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false),

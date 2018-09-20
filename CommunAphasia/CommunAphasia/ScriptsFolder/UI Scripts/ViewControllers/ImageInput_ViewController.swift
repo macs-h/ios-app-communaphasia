@@ -26,7 +26,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
     let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab"]
     var currentCategoyIndex = 0
-    private var cellsInCategory: [(String, String, UIImage, [String], String, String, String)]! //temp storage to be used by collection view cells
+    private var cellsInCategory: [[(String, String, UIImage, [String], String, String, String)]]! //temp storage to be used by collection view cells
     let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
     /**
@@ -133,7 +133,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.InputCollectionView {
-            return cellsInCategory.count
+            return cellsInCategory[0].count
         } else {
             // Input collection View
             return selectedWords.count
@@ -160,7 +160,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             // Call a function the the cell which assigns each variable with
             // data from a function which returns a tuple with data like:
             // image, word, suggestions etc
-            cell.addData(cell: cellsInCategory[indexPath.item])
+            
+            //SAM MAKE EXTRA COLLECTION VIEWS FOR TYPES (cellsInCategory is a 2-D array)
+            cell.addData(cell: cellsInCategory[0][indexPath.item])
             cell.showType()
             return cell
         } else {

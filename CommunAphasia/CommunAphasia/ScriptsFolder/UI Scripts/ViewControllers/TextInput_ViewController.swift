@@ -17,7 +17,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     // References the user input text field.
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var synonymLabel: UILabel!
-    //let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var stringArray = [String]()
@@ -39,8 +38,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
-    //var activityIndicator = UIActivityIndicatorView()
-    //@IBOutlet weak var tempLoadingLabel: UILabel!
     
     /**
         Called after the controller's view is loaded into memory.
@@ -225,8 +222,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
 
-        //loadingSpinner.startAnimating()// Start loading wheel.
-        
         for word in wordArray {
             if wordArray.isEmpty && errorArray.isEmpty {
                 invalidSentence()
@@ -416,21 +411,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func startActivityIndicator(){
-        print("Indicator started")
-//        activityIndicator.center = self.view.center
-//        activityIndicator.hidesWhenStopped = true
-//        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-//        view.addSubview(activityIndicator)
-//        activityIndicator.startAnimating()
-        //tempLoadingLabel.isHidden = false
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
     func stopActivityIndicator(){
-        print("Indicator stoped")
-//        activityIndicator.stopAnimating()
-        //tempLoadingLabel.isHidden = true
         activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
 

@@ -96,3 +96,16 @@ yellow,yellow,adj,nil,r,other,t
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
 
+underneath,underneath,prep,nil,r,other,t
+over,over,prep,nil,r,other,t
+below,below,prep,nil,r,other,t
+above,above,prep,nil,r,other,t
+through,through.jpeg,prep,nil,r,other,t
+around,around,prep,nil,r,other,t
+between,between,prep,nil,r,other,t
+behind,behind,prep,nil,r,other,t
+in front,inFront,prep,nil,r,other,t
+next to,nextTo,prep,nil,r,other,t
+in,in,prep,nil,r,other,t
+on top,onTop,prep,nil,r,other,t
+

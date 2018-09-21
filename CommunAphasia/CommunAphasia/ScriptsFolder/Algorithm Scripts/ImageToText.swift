@@ -90,6 +90,10 @@ class ImageToText {
                     temp = isAdj(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
                     returnString.append(thisPic.word)
+                }else if thisPic.type == "prep" {
+                    temp = isPrep(prevWord: prevPic, currentWord: thisPic)
+                    returnString.append(temp)
+                    returnString.append(thisPic.word)
                 }else if thisPic.type == wordType.verb.rawValue {
                     temp = isVerb(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
@@ -152,6 +156,12 @@ class ImageToText {
             temp = "the"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == "prep" {
+            if (prevWord.word == "in front" || prevWord.word == "on top") {
+                temp = "of the"
+            } else {
+            temp = "the"
+            }
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""
         }
@@ -200,6 +210,12 @@ class ImageToText {
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == "prep" {
+            if (prevWord.word == "in front" || prevWord.word == "on top") {
+                temp = "of the"
+            } else {
+                temp = "the"
+            }
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""
         }
@@ -228,6 +244,12 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
+        }else if prevWord.type == "prep" {
+            if (prevWord.word == "in front" || prevWord.word == "on top") {
+                temp = "of the"
+            } else {
+                temp = "the"
+            }
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ","
         }
@@ -270,6 +292,8 @@ class ImageToText {
             }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = ""
+        }else if prevWord.type == "prep" {
+                temp = ", "
         }else if prevWord.type == wordType.adverb.rawValue {
             temp = ""
         }
@@ -300,6 +324,51 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             temp = ""
+        }else if prevWord.type == wordType.modal.rawValue {
+            temp = ""
+        }else if prevWord.type == "prep" {
+            temp = ", "
+        }else if prevWord.type == wordType.adverb.rawValue {
+            temp = ""
+        }
+        return temp
+    }
+    
+    /**
+     Function that inputs 'helper' words, with respect to prepositions,
+     into the final sentence (eg. prepositions, articles, the verb to be
+     etc.).
+     
+     - Parameters:
+     - prevWord:     The previous `ImageCell` in the array. Used to
+     get the previous function word in the sentence.
+     - currentWord:  The current `ImageCell` in the array. Used to
+     get the current function word in the sentence.
+     
+     - Returns:  a `String` with either nothing or a helper word.
+     */
+    func isPrep(prevWord: ImageCell, currentWord: ImageCell) -> String{
+        var temp = ""
+        if prevWord.type == wordType.verb.rawValue {
+            temp = ""
+        }else if prevWord.type == wordType.noun.rawValue {
+            if currentWord.tenseType == "past" {
+                temp = (prevWord.grNum == "singular") ? "was" : "were"
+            } else if currentWord.tenseType == "present" {
+                temp = (prevWord.grNum == "singular") ? "is" : "are"
+            } else {
+                temp = (prevWord.grNum == "singular") ? "will be" : "will be"
+            }
+        }else if prevWord.type == wordType.adjective.rawValue {
+            temp = ""
+        }else if prevWord.type == wordType.pronoun.rawValue {
+            if currentWord.tenseType == "past" {
+                temp = prevWord.suggestedWords[0]
+            } else if currentWord.tenseType == "present" {
+                temp = prevWord.suggestedWords[1]
+            } else {
+                temp = prevWord.suggestedWords[2]
+            }
         }else if prevWord.type == wordType.modal.rawValue {
             temp = ""
         }else if prevWord.type == wordType.adverb.rawValue {

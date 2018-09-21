@@ -279,6 +279,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
+            print(inputArray)
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
             //loadingSpinner.startAnimating()
             print("animation started")
@@ -306,6 +307,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                             print("available sysnonyms:",availableSynonyms)
                         } else {
                             print("No synonyms found") // handle this?
+                            let contraction = Utility.instance.lemmaTag(inputString: inputArray[index])
+                            availableSynonyms.append(contraction.joined(separator: " "))
                         }
                         availableSynonyms.append(contentsOf: ["man","eat","cat"])
                         synonyms.append(availableSynonyms)

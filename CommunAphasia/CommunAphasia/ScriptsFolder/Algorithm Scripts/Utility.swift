@@ -330,6 +330,7 @@ class Utility {
      
         - Returns:  An array of synonymous words, else `nil`.
      */
+    @available(iOS 11.0, *)
     func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"

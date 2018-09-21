@@ -307,11 +307,14 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                             print("available sysnonyms:",availableSynonyms)
                         } else {
                             print("No synonyms found") // handle this?
+                            
+                            // Assuming the word is a contraction if it cannot be sent to the WordsAPI
+                            // to search for synonyms.
                             let contraction = Utility.instance.lemmaTag(inputString: inputArray[index])
                             availableSynonyms.append(contraction.joined(separator: " "))
                         }
-                        availableSynonyms.append(contentsOf: ["man","eat","cat"])
-                        synonyms.append(availableSynonyms)
+//                        availableSynonyms.append(contentsOf: ["man","eat","cat"])
+//                        synonyms.append(availableSynonyms)
                     } else {
                         print("Internet Connection not Available!")
                     }

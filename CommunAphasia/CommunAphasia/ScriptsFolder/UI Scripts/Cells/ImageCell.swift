@@ -29,7 +29,8 @@ class ImageCell: UICollectionViewCell {
                                          "adj":UIColor.green.cgColor,
                                          "verb":UIColor.blue.cgColor,
                                          "pronoun":UIColor.orange.cgColor,
-                                         "adverb":UIColor.purple.cgColor]
+                                         "adverb":UIColor.purple.cgColor,
+                                         "modal":UIColor.magenta.cgColor]
     var tenseType: String = "present"
     
     

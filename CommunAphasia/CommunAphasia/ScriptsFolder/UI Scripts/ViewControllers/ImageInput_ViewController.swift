@@ -16,6 +16,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var selectedCollectionView: UICollectionView!
     @IBOutlet weak var InputCollectionView: UICollectionView!
     
+    @IBOutlet var inputCollectionViews: [UICollectionView]!
+    
     var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","I","fast","quickly","waiting",
@@ -27,7 +29,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
     let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab"]
     var currentCategoyIndex = 0
-    private var cellsInCategory: [(String, String, UIImage, [String], String, String, String)]! //temp storage to be used by collection view cells
+    private var cellsInCategory: [[(String, String, UIImage, [String], String, String, String)]]! //temp storage to be used by collection view cells
     let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
     var currentTute:Int = 0
@@ -37,8 +39,14 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        InputCollectionView.dataSource = self
-        InputCollectionView.delegate = self
+//        InputCollectionView.dataSource = self
+//        InputCollectionView.delegate = self
+        for collection in inputCollectionViews{
+            collection.dataSource = self
+            collection.delegate = self
+            print("collection \(collection.tag) is x of \(collection.frame.minX) and y\(collection.frame.minY)")
+            
+        }
         selectedCollectionView.dataSource = self
         selectedCollectionView.delegate = self
         
@@ -126,7 +134,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         } else {
             cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
         }
-        InputCollectionView?.reloadData()
+        for collection in inputCollectionViews{
+            collection.reloadData()
+        }
+//        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
     
@@ -147,12 +158,18 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Returns:  The size of the given `collectionView`.
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.InputCollectionView {
-            return cellsInCategory.count
-        } else {
-            // Input collection View
+        if( collectionView == self.selectedCollectionView){
             return selectedWords.count
+        }else{
+            
+            return cellsInCategory[collectionView.tag].count
         }
+//        if collectionView == self.InputCollectionView {
+//            return cellsInCategory[0].count
+//        } else {
+//            // Input collection View
+//            return selectedWords.count
+//        }
     }
     
     
@@ -168,26 +185,44 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Returns:  A configured cell object. Must not return nil.
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.InputCollectionView {
+        if collectionView == self.selectedCollectionView {
+            //SelectedCollectionView
             // Gives the type of the custom class that was made for the cell.
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
-            
-            // Call a function the the cell which assigns each variable with
-            // data from a function which returns a tuple with data like:
-            // image, word, suggestions etc
-            
-            cell.addData(cell: cellsInCategory[indexPath.item])
-            cell.showType()
-            return cell
-        } else {
-            // SelectedCollectionView
-            // Gives the type of the custom class that was made for the cell.
-            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
             //cell.addData(cell: selectedCells[indexPath.count])
             //cell.showType()
             return cell
+            
+        }else{
+            //input collection views
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
+            cell.addData(cell: cellsInCategory[collectionView.tag][indexPath.item])
+            cell.showType()
+            return cell
         }
+        
+        
+//        if collectionView == self.InputCollectionView {
+//            // Gives the type of the custom class that was made for the cell.
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
+//
+//            // Call a function the the cell which assigns each variable with
+//            // data from a function which returns a tuple with data like:
+//            // image, word, suggestions etc
+//
+//            //SAM MAKE EXTRA COLLECTION VIEWS FOR TYPES (cellsInCategory is a 2-D array)
+//            cell.addData(cell: cellsInCategory[0][indexPath.item])
+//            cell.showType()
+//            return cell
+//        } else {
+//            // SelectedCollectionView
+//            // Gives the type of the custom class that was made for the cell.
+//
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
+//            //cell.addData(cell: selectedCells[indexPath.count])
+//            //cell.showType()
+//            return cell
+//        }
     }
     
     
@@ -218,7 +253,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             - indexPath:        The index path of the cell that was selected.
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.InputCollectionView {
+        if collectionView != self.selectedCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
             // Do something with the cell
             if cell.type == wordType.noun.rawValue {
@@ -237,7 +272,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 // Using previous cell as a suggestion
             }
         } else {
-            //InputCollectionView
+            //selectedCollectionView
             //show option to discard/ change
         }
     }

@@ -57,6 +57,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
+        showTute()
         if currentTute == 1 {
             showTute()
         }

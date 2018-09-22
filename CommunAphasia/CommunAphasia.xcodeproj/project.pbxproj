@@ -80,6 +80,7 @@
 		ED83F7072121320D0043251E /* donut.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F7002121320D0043251E /* donut.png */; };
 		ED83F7082121320D0043251E /* sandwich.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F7012121320D0043251E /* sandwich.png */; };
 		ED83F7092121320D0043251E /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F7022121320D0043251E /* water.png */; };
+		EDA393DF2155EE43000E18F5 /* IPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA393DD2155EE42000E18F5 /* IPhoneStoryboard.storyboard */; };
 		EDEEBF7F2117CB6600D46B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDEEBF782117CB6500D46B33 /* Assets.xcassets */; };
 		EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7206D20AD3FA700675140 /* AppDelegate.swift */; };
 		EDF7207320AD3FA700675140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207120AD3FA700675140 /* Main.storyboard */; };
@@ -255,6 +256,7 @@
 		ED83F7002121320D0043251E /* donut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donut.png; sourceTree = "<group>"; };
 		ED83F7012121320D0043251E /* sandwich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sandwich.png; sourceTree = "<group>"; };
 		ED83F7022121320D0043251E /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
+		EDA393DE2155EE42000E18F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		EDEEBF782117CB6500D46B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF7206A20AD3FA700675140 /* CommunAphasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunAphasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7206D20AD3FA700675140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				EDF7206D20AD3FA700675140 /* AppDelegate.swift */,
 				EDF7207120AD3FA700675140 /* Main.storyboard */,
 				EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */,
+				EDA393DD2155EE42000E18F5 /* IPhoneStoryboard.storyboard */,
 				EDF7207920AD3FA700675140 /* Info.plist */,
 			);
 			path = CommunAphasia;
@@ -720,6 +723,7 @@
 				19EE0307211FF79E008AEC64 /* it.png in Resources */,
 				19EE02F3211FDF52008AEC64 /* can.png in Resources */,
 				195AEB6B211D082A00E5AA04 /* want.png in Resources */,
+				EDA393DF2155EE43000E18F5 /* IPhoneStoryboard.storyboard in Resources */,
 				EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */,
 				ED83F6D3212110180043251E /* thinking.png in Resources */,
 				1951CB432121918B005D7892 /* talk.png in Resources */,
@@ -837,6 +841,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EDA393DD2155EE42000E18F5 /* IPhoneStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA393DE2155EE42000E18F5 /* Base */,
+			);
+			name = IPhoneStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		EDF7207120AD3FA700675140 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

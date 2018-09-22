@@ -30,6 +30,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     private var cellsInCategory: [(String, String, UIImage, [String], String, String, String)]! //temp storage to be used by collection view cells
     let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
+    var currentTute:Int = 0
+    
     /**
         Called after the controller's view is loaded into memory.
      */
@@ -47,7 +49,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
-        showTute()
+        if currentTute == 1 {
+            showTute()
+        }
     }
     
     func showTute() {

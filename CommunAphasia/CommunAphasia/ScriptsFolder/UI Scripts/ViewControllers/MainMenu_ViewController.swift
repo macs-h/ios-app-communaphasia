@@ -29,5 +29,15 @@ class MainMenu_ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func tuteButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "1st Tutorial", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "1st Tutorial") {
+            let destinationVC = segue.destination as! ImageInput_ViewController
+            destinationVC.currentTute = 1
+        }
+    }
 
 }

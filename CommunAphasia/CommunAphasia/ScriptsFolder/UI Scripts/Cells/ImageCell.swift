@@ -130,7 +130,7 @@ class ImageCell: UICollectionViewCell {
         Shrinks image to accommodate for border width.
      */
     func showType(thisType: String? = nil){
-        print(">>",type)
+        //print(">>",type)
         let borderWidth: CGFloat = 5
         imageView.layer.borderWidth = borderWidth
         if thisType == nil{

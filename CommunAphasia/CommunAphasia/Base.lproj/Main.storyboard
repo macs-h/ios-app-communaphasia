@@ -52,7 +52,7 @@
                                 <state key="normal" title="Tutorial"/>
                                 <connections>
                                     <action selector="tuteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YQv-1h-UAp"/>
-                                    <segue destination="IVG-Ho-Scw" kind="custom" id="uwa-KC-LKm"/>
+                                    <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="u7j-X1-Uq6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1001,7 +1001,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1ob-KH-uom"/>
-        <segue reference="uwa-KC-LKm"/>
+        <segue reference="u7j-X1-Uq6"/>
         <segue reference="Vq3-nG-FAk"/>
     </inferredMetricsTieBreakers>
 </document>

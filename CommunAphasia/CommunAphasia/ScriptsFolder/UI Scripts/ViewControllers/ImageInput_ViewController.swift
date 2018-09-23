@@ -61,8 +61,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if currentTute == 1 {
             showTute()
         }
-        currentTute = 1
-        showTute()
     }
     
     func showTute() {

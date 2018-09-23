@@ -71,6 +71,8 @@ class SinglePlural_ViewController: UIViewController {
         if tuteNum == 1{
             //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
             windowInPlural.isHidden = false
+        }else{
+            windowInPlural.removeFromSuperview()
         }
     }
     

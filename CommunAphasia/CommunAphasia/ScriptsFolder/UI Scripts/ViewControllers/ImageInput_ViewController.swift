@@ -57,10 +57,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
-        showTute()
+        
         if currentTute == 1 {
             showTute()
         }
+        currentTute = 1
+        showTute()
     }
     
     func showTute() {
@@ -225,23 +227,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 //            return cell
 //        }
     }
-    
-    
-    /** I THINK THIS IS DEPRECIATED
-        Called when the `want` button is pressed
-     
-        - Parameter sender: The object which called this function.
-     */
-    @IBAction func wantButtonPress(_ sender: Any) {
-        selectedWords.append("want")
-        
-        let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
-        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // Add a new cell to bottom table view using the tuple.
-        let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
-        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: "",tense: ""))
-        selectedCells.append(newCell)
-    }
-    
+       
     
     /**
         Controls what happens if an item is selected within a `collectionView`.
@@ -261,7 +247,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
             }else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue || cell.type == wordType.adjective.rawValue{
                 showTenseVC(cell: cell, indexPath: indexPath)
-
             } else {
                 selectedWords.append(cell.word)
                 let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
@@ -294,6 +279,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         self.view.addSubview(singlePluralVC.view)
         singlePluralVC.didMove(toParentViewController: self)
         
+        //need to add tute for these popups
+        if currentTute == 1 {
+            singlePluralVC.tuteNum = 1
+        }
+        
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -313,6 +303,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         tenseVC.view.frame = self.view.frame
         self.view.addSubview(tenseVC.view)
         tenseVC.didMove(toParentViewController: self)
+        
+        //need to add tute for these popups
+        if currentTute == 1 {
+            tenseVC.tuteNum = 1
+        }
+        
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     

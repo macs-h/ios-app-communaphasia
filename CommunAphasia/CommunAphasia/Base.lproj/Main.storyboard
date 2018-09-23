@@ -106,13 +106,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-V6-sZw">
-                                <rect key="frame" x="1033" y="28" width="59" height="57"/>
-                                <state key="normal" image="Back button flipped"/>
-                                <connections>
-                                    <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="Tuv-aW-ka3"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RESULT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAF-9U-Uwd">
                                 <rect key="frame" x="255" y="0.0" width="603" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -127,6 +120,13 @@
                                 <color key="textColor" red="0.090196078431372548" green="0.14117647058823529" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-V6-sZw">
+                                <rect key="frame" x="1053" y="20" width="59" height="57"/>
+                                <state key="normal" image="Back button flipped"/>
+                                <connections>
+                                    <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="Tuv-aW-ka3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -155,11 +155,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yt-zH-Dgr" customClass="PassthroughView" customModule="CommunAphasia" customModuleProvider="target">
-                                <rect key="frame" x="234" y="200" width="645" height="440"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <gestureRecognizers/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah4-Sd-apP">
                                 <rect key="frame" x="949" y="20" width="163" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -182,7 +177,6 @@
                         <connections>
                             <outlet property="exitButton" destination="Ah4-Sd-apP" id="S4U-W0-ra6"/>
                             <outlet property="messageLabel" destination="vFQ-EC-4bx" id="9hM-Pz-LHx"/>
-                            <outlet property="passThrough" destination="6yt-zH-Dgr" id="HH8-7F-pAB"/>
                         </connections>
                     </view>
                 </viewController>
@@ -680,6 +674,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fnj-Hs-7g7" customClass="windowInTense" customModule="CommunAphasia" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Presente Tense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U13-rA-WsR">
+                                        <rect key="frame" x="321" y="308" width="470" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -687,11 +696,12 @@
                         <outlet property="FutureImageView" destination="4tG-CZ-VYn" id="anY-W5-1pr"/>
                         <outlet property="PastImageView" destination="Bw8-x6-All" id="4LY-XM-gnV"/>
                         <outlet property="PresentImageView" destination="h3V-BQ-GXt" id="WFT-c2-dbd"/>
+                        <outlet property="windowInTense" destination="Fnj-Hs-7g7" id="wSI-LI-dCs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEG-9j-Pki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1406.1151079136691" y="1112.9496402877699"/>
+            <point key="canvasLocation" x="-1620" y="1152"/>
         </scene>
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
@@ -745,6 +755,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-Nc-ebu" customClass="windowInPlural" customModule="CommunAphasia" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Singular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNO-jN-sDm">
+                                        <rect key="frame" x="394" y="303" width="325" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -752,11 +777,12 @@
                         <outlet property="backPluralImageView" destination="4Ap-tC-eBa" id="cDa-QB-jrU"/>
                         <outlet property="pluralImageView" destination="Wd3-b5-wLJ" id="g5h-WM-voq"/>
                         <outlet property="singleImageView" destination="gOK-Le-IUu" id="1Ue-bs-Cv3"/>
+                        <outlet property="windowInPlural" destination="Idb-Nc-ebu" id="Ebw-8Z-ihx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffN-i2-Fa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-704" y="1113"/>
+            <point key="canvasLocation" x="-397" y="1152"/>
         </scene>
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
@@ -976,6 +1002,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="1ob-KH-uom"/>
         <segue reference="uwa-KC-LKm"/>
-        <segue reference="eGt-h5-h01"/>
+        <segue reference="Vq3-nG-FAk"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -24,11 +24,13 @@ class SinglePlural_ViewController: UIViewController {
     weak var delegate: SinglePluralDelegate?
     var cell: ImageCell?
     var indexPath: IndexPath?
+    var tuteNum:Int?
     
     @IBOutlet weak var singleImageView: UIImageView!
     @IBOutlet weak var pluralImageView: UIImageView!
     @IBOutlet weak var backPluralImageView: UIImageView!
     
+    @IBOutlet weak var windowInPlural: windowInPlural!
     
     /**
         Called after the controller's view is loaded into memory.
@@ -65,6 +67,11 @@ class SinglePlural_ViewController: UIViewController {
         pluralImageView.image = image
         backPluralImageView.image = image
         self.indexPath = indexPath
+        
+        if tuteNum == 1{
+            //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+            windowInPlural.isHidden = false
+        }
     }
     
     
@@ -99,6 +106,39 @@ class SinglePlural_ViewController: UIViewController {
         self.view.removeFromSuperview()
         
     }
+}
+
+class windowInPlural: UIView {
     
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if CGRect(x: 394+39-5, y: 333+45-5, width: 78+10, height: 79+10).contains(point){
+            let view = super.hitTest(point, with: event)
+            return view == self ? nil : view
+        }
+        return self
+    }
     
+    func drawRect() {
+        // Ensures to use the current background color to set the filling color
+        //self.backgroundColor?.setFill()
+        //UIRectFill(newRect)
+        
+        let layer = CAShapeLayer()
+        let path = CGMutablePath()
+        
+        
+        // Make hole in view's overlay
+        // NOTE: Here, instead of using the transparentHoleView UIView we could use a specific CFRect location instead...
+        path.addRect(CGRect(x: 394+39-5, y: 333+45-5, width: 78+10, height: 79+10))
+        
+        path.addRect(bounds)
+        
+        layer.path = path
+        layer.fillRule = kCAFillRuleEvenOdd
+        self.layer.mask = layer
+    }
+    //initial draw
+    override func draw(_ rect: CGRect) {
+        drawRect()
+    }
 }

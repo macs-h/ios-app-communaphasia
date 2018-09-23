@@ -49,13 +49,12 @@ class MakeTransparentHoleOnOverlayView: UIView {
     var currentStep:TutorialStep
     
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var passThrough: PassthroughView!
     @IBOutlet weak var exitButton: UIButton!
     //    //allow presses below UIView
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if currentStep.clickRect.contains(point){
             //this means there was a tap inside the highlighted area
-            //do the next tute step NOTE: this happens twice.
+            //do the next tute step NOTE: this happens twice (for unknown reasons)
             tapCount += 1
             if tapCount%2 == 0 {
                 print("tapped \(tapCount)")
@@ -68,6 +67,7 @@ class MakeTransparentHoleOnOverlayView: UIView {
                 }
             }
             if currentStep.message != "Cycle through Categories"{
+                
                 let view = super.hitTest(point, with: event)
                 return view == self ? nil : view
             }
@@ -130,10 +130,10 @@ class MakeTransparentHoleOnOverlayView: UIView {
     
 }
 
-class PassthroughView: UIView {
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        let view = super.hitTest(point, with: event)
-        return view == self ? nil : view
-    }
-    
-}
+//class PassthroughView: UIView {
+//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//        let view = super.hitTest(point, with: event)
+//        return view == self ? nil : view
+//    }
+//
+//}

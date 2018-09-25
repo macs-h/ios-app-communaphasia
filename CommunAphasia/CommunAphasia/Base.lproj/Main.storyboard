@@ -1009,12 +1009,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1ob-KH-uom"/>
-<<<<<<< HEAD
         <segue reference="u7j-X1-Uq6"/>
-        <segue reference="eGt-h5-h01"/>
-=======
-        <segue reference="uwa-KC-LKm"/>
         <segue reference="Vq3-nG-FAk"/>
->>>>>>> ui_elements
     </inferredMetricsTieBreakers>
 </document>

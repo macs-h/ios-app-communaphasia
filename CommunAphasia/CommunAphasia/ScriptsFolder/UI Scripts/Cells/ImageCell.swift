@@ -23,6 +23,8 @@ class ImageCell: UICollectionViewCell {
     var category: String = "Other"
     var tense: String = "current"
     
+    var frequency:Int = 0
+    
     // Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
     let colourDict: [String: CGColor] = ["noun":UIColor.red.cgColor,

@@ -112,7 +112,6 @@ class Tense_ViewController: UIViewController {
 class windowInTense: UIView {
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        print("hit test")
         if CGRect(x: 321+196-5, y: 338+40-5, width: 78+10, height: 111+10).contains(point){
             let view = super.hitTest(point, with: event)
             return view == self ? nil : view

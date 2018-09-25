@@ -43,7 +43,7 @@ class MakeTransparentHoleOnOverlayView: UIView {
         TutorialStep(window: CGRect(x: 472-5, y: 145-5, width: 99+10, height: 96+10), message: "Now select a verb", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 472, y: 149, width: 99, height: 96)),
         TutorialStep(window: CGRect(x: 41-5, y: 145-5, width: 99+10, height: 96+10), message: "Nice, now select a noun", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 41, y: 149, width: 99, height: 96)),
         TutorialStep(window: CGRect(x: 150-5, y: 145-5, width: 99+10, height: 96+10), message: "Select another noun", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 150, y: 149, width: 99, height: 96)),
-        TutorialStep(window: CGRect(x: 935, y: 762, width: 48, height: 32), message: "If you dont want a picture any more try deleting it", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 935, y: 762, width: 48, height: 32)),
+        TutorialStep(window: CGRect(x: 923-5, y: 762-5, width: 58+10, height: 32+10), message: "If you dont want a picture any more try deleting it", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 923, y: 762, width: 58, height: 32)),
         TutorialStep(window: CGRect(x: 1016-5, y: 759-5, width: 85+10, height: 39+10), message: "Great! Hit the done button to finish your sentence", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 1016, y: 759, width: 85, height: 39))
     ]
     var currentStep:TutorialStep

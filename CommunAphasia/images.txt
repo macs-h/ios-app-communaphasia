@@ -58,7 +58,6 @@ pencil,pencil,noun,draw,r,objects,t
 small,small,adj,size,r,objects,t
 woman,woman_silhouette,noun,people,women,objects,t
 
-
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
 wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
@@ -108,4 +107,16 @@ in front,inFront,prep,nil,r,other,t
 next to,nextTo,prep,nil,r,other,t
 in,in,prep,nil,r,other,t
 on top,onTop,prep,nil,r,other,t
+
+one,one,number,nil,r,other,t
+two,two,number,nil,r,other,t
+three,three,number,nil,r,other,t
+four,four,number,nil,r,other,t
+five,five,number,nil,r,other,t
+six,six,number,nil,r,other,t
+seven,seven,number,nil,r,other,t
+eight,eight,number,nil,r,other,t
+nine,nine,number,nil,r,other,t
+ten,ten,number,nil,r,other,t
+
 

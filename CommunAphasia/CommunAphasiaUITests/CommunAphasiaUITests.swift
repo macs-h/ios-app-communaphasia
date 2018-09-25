@@ -1,5 +1,5 @@
 //
-//  Aphasia_comUITests.swift
+//  CommunAphasiaUITests.swift
 //  CommunAphasia
 //
 //  Created by RedSQ on 17/05/18.

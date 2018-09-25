@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 /**
     Controls everything on the image input screen.

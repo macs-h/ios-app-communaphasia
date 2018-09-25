@@ -1,5 +1,5 @@
 //
-//  Aphasia_comTests.swift
+//  CommunAphasiaTests.swift
 //  CommunAphasia
 //
 //  Created by RedSQ on 17/05/18.
@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Aphasia_com
+@testable import CommunAphasia
 
 class Aphasia_comTests: XCTestCase {
     

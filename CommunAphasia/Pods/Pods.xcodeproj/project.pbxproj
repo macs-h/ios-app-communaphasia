@@ -1,0 +1,1237 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0608D8A32F9ABF22BDB60360D7A95719 /* PopupDialogContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B5BEF3E1D6BCDDE017FC972DE067A /* PopupDialogContainerView.swift */; };
+		0CF8E855B88828ED1DDA60B96D8FAE37 /* PopupDialog+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2727D52DA85263C8F1D60D5FECE7A3 /* PopupDialog+Keyboard.swift */; };
+		1324620946822ECEA6CB1EF5FC5F6CF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */; };
+		14F2CAA524714B362596E6BBBC8F3945 /* PopupDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8382AE7DD38CEB764DBE38DA2A2F09C6 /* PopupDialog-dummy.m */; };
+		18577F03B69B2FA6853145AB8B4DBA6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */; };
+		322B88DBFE8D4EA0DB3C6EF8D71AE976 /* PopupDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C720A7161FCAE8014CC756C73DDEA9B6 /* PopupDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32438A19A5AB04AFAE267B8E7ACBFC95 /* DynamicBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3D80892FE659E2AE9D707E623BCA4DD /* DynamicBlurView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376BD4848EBAD969F843265195B853B6 /* Pods-CommunAphasia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9220F173565DBF6D677EAC7D8B59EE3B /* Pods-CommunAphasia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4577BA630038FC861C59DE942588D44E /* UIImageView+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6464F2D32F84C6E28F6612272DE007 /* UIImageView+Calculations.swift */; };
+		473890E28EFD83405BE110848930F6A6 /* DynamicBlurView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95E3EF76AF62AD668DFBC080E49067 /* DynamicBlurView-dummy.m */; };
+		4C39C8C05FBDD3D30BF5ACF2D74DB5CD /* DynamicBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D8E8479424098392A1179D6BD1761 /* DynamicBlurView.swift */; };
+		588E324C1D61609489642E1111B4B036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */; };
+		5B8437965913274A42B48AC0423028DA /* CGImage+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E970E0E869D254B6095C7E8538698A /* CGImage+Accelerate.swift */; };
+		6D55BC3FA411C007E752EFC1E657E886 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E4BD269887AE401F76D7DA6AA6CC4 /* UIImage+Blur.swift */; };
+		6EFBA9B6033A84A330E9740B3BDD473E /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428FAF3F3D6006E3BED08A78D74904F7 /* PopupDialogOverlayView.swift */; };
+		70FE0806A2A93C7CEE28CEBBA7A37831 /* DynamicBlurView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C08474D52BCBB2E550CBDD75332B6D4 /* DynamicBlurView.framework */; };
+		75CE84F96B4C1885A6300E76B4780814 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A972F9D2706C4D19A2CF826579D8F9 /* InteractiveTransition.swift */; };
+		7E9758A7ADD849692E569A2C5BBDCE94 /* CaptureQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B5831B9528532EB46D3F98D4915F2 /* CaptureQuality.swift */; };
+		83AFEDFD32C36B4713AD6E274AD62D05 /* Pods-CommunAphasia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41929C82F89737B0D3A228E2227B61BE /* Pods-CommunAphasia-dummy.m */; };
+		A12D3857FC0377424997C60AD0B45457 /* UIViewController+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A447B5C363EFDCDECA263551C3C439 /* UIViewController+Visibility.swift */; };
+		AA0703CE4DE019A0004B103E9732ECF4 /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C552089294A3EA60553E80366D514A93 /* PopupDialogButton.swift */; };
+		AFE3BF4500304769C6644D1484D2FDEF /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6E160BC214827F1D74DFE36139978 /* PopupDialogDefaultButtons.swift */; };
+		B07262FFD644281B352391D1E7CEF397 /* PopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7E347DD8D1678FEA71E53C644F5944 /* PopupDialog.swift */; };
+		B36239A507CBC115E19D3A7BEF8C8E87 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26C88A39D49A87014DA0F3F401606DA /* PresentationController.swift */; };
+		BC491E80AC366E657E2DB7A3C0507251 /* Pods-CommunAphasiaTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FDA5306DAA77F5918506915085957F /* Pods-CommunAphasiaTests-dummy.m */; };
+		C7F20677D9BFCDD09D1C8425F01872BE /* BlurLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084D8C6E9844DC4881AB06E8F92A0421 /* BlurLayer.swift */; };
+		CA71239D0912745F73D1BD6E0D6159B1 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5667AECCDDD06BD988E3BACDC7DC86 /* UIView+Animations.swift */; };
+		CA71C8FEE6D92A1DF5D28A638BA2F5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */; };
+		CA77FF0FFAEE74AF517DBC2F2440546C /* CGContext+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88C742AA5915762C45278BBDB53FCE /* CGContext+CGImage.swift */; };
+		CAAA0A0093091B13BF27E82EBC3884E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */; };
+		CF9B86DA4D0E199A218A82EC36B2EC33 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C545C1929F9F9EF696B9713A97B00289 /* PresentationManager.swift */; };
+		D1C5C1338B8B6B87FB2FFC4C2DD203A6 /* Pods-CommunAphasiaUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE231373BF4B1FAED89D10B72D98392B /* Pods-CommunAphasiaUITests-dummy.m */; };
+		D2D969B5A85573AF0ACDFE202EFC5B8F /* DynamicBlurView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A4EB8372423D2DEE8808EEA90A9BEA /* DynamicBlurView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAD4DC7F7653C93DA8248EA2B37F3B23 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D8E4BC2BB5800426DE9C3209A277F /* TransitionAnimator.swift */; };
+		DD556AF4ECA3A982BA052E696FB0AF00 /* PopupDialogDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A5633B15DAC596847AA686EA78638 /* PopupDialogDefaultViewController.swift */; };
+		DFE49B474F5BC0AA925D13B9D5D9DDCC /* PopupDialogDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4CEC2611651FA818FAB458AEED682 /* PopupDialogDefaultView.swift */; };
+		E5EDF56F24BC532E64B2B6C805119970 /* TrackingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA3A6B7B7CE99FB422C27BD9F59D98 /* TrackingMode.swift */; };
+		F19A72828F5D1277C15EDAD6E3A38152 /* Pods-CommunAphasiaUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9EA2E42C12164F3E1642B149A5A0110 /* Pods-CommunAphasiaUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F21178ACC5DB7903F298F1F4D2A99BE0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B6A5F7A9E264C828380141A699804C /* Accelerate.framework */; };
+		F31C1A68CE23734098427CACC38CE0BF /* Pods-CommunAphasiaTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B4F967409DC881CEE8E8CE486F540C /* Pods-CommunAphasiaTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCCF3E33F015C61146B835EFC7FE4333 /* TransitionAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC936CE1F821CFB88835C30F534F706 /* TransitionAnimations.swift */; };
+		FF623DF6F230A815C1F9B1960C2A6418 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFBD54C4DB09453B652EB140DE6D006 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B3578F2E736D6451A7960B1027F4317 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CCBA02C2ECB7065A0D4330D5EA7A41E;
+			remoteInfo = "Pods-CommunAphasia";
+		};
+		6602A661B1DE04B8D4CFF857EDAB96FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CCBA02C2ECB7065A0D4330D5EA7A41E;
+			remoteInfo = "Pods-CommunAphasia";
+		};
+		8616639E6D67F46B480012FE6C714338 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04F07DCE9BDBC7623792C12E1991198B;
+			remoteInfo = DynamicBlurView;
+		};
+		94349733095E268592C3FC0E03082D34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2617E6B733FE068C36840072E3F8D834;
+			remoteInfo = PopupDialog;
+		};
+		FBC2BBCFD68E040F01AF5DD9D8B618A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04F07DCE9BDBC7623792C12E1991198B;
+			remoteInfo = DynamicBlurView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		044AB85B7FF891F3C5F1EA9CB75F0CFA /* Pods-CommunAphasiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CommunAphasiaTests.release.xcconfig"; sourceTree = "<group>"; };
+		084D8C6E9844DC4881AB06E8F92A0421 /* BlurLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurLayer.swift; path = DynamicBlurView/BlurLayer.swift; sourceTree = "<group>"; };
+		113D8E8479424098392A1179D6BD1761 /* DynamicBlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicBlurView.swift; path = DynamicBlurView/DynamicBlurView.swift; sourceTree = "<group>"; };
+		149B4181F311D5CCBF9894C0F18E61D2 /* Pods_CommunAphasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18B92BF4645E66BE9F1086DEC4E6A28A /* Pods-CommunAphasia-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CommunAphasia-acknowledgements.plist"; sourceTree = "<group>"; };
+		1953BDEE7143CBFA7E04778F1A9EAEED /* Pods-CommunAphasiaTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommunAphasiaTests-resources.sh"; sourceTree = "<group>"; };
+		19FDA5306DAA77F5918506915085957F /* Pods-CommunAphasiaTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CommunAphasiaTests-dummy.m"; sourceTree = "<group>"; };
+		1C7E4BD269887AE401F76D7DA6AA6CC4 /* UIImage+Blur.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Blur.swift"; path = "DynamicBlurView/UIImage+Blur.swift"; sourceTree = "<group>"; };
+		1D3C05FF7EFBF3F62986B924B2CD6388 /* PopupDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopupDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E2B0F4B9AD885D3049D17AE0BA382C3 /* Pods-CommunAphasiaUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CommunAphasiaUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1E7E347DD8D1678FEA71E53C644F5944 /* PopupDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialog.swift; path = PopupDialog/Classes/PopupDialog.swift; sourceTree = "<group>"; };
+		3626B334981409080B7FC7686654B28D /* Pods-CommunAphasiaUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommunAphasiaUITests-frameworks.sh"; sourceTree = "<group>"; };
+		3A4B5BEF3E1D6BCDDE017FC972DE067A /* PopupDialogContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogContainerView.swift; path = PopupDialog/Classes/PopupDialogContainerView.swift; sourceTree = "<group>"; };
+		3B8C1AB1266235F72D05726D535A8652 /* Pods-CommunAphasiaTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CommunAphasiaTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3EFE3E15ADA42092AAE318EB773376D2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41929C82F89737B0D3A228E2227B61BE /* Pods-CommunAphasia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CommunAphasia-dummy.m"; sourceTree = "<group>"; };
+		428FAF3F3D6006E3BED08A78D74904F7 /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogOverlayView.swift; path = PopupDialog/Classes/PopupDialogOverlayView.swift; sourceTree = "<group>"; };
+		42C05DD6F2B720B53125563BA9F77045 /* Pods-CommunAphasia-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CommunAphasia-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4AEC05CDC2BFA65D2BB161C68A628315 /* Pods-CommunAphasiaUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommunAphasiaUITests-resources.sh"; sourceTree = "<group>"; };
+		4CC936CE1F821CFB88835C30F534F706 /* TransitionAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionAnimations.swift; path = PopupDialog/Classes/TransitionAnimations.swift; sourceTree = "<group>"; };
+		56058DE293C87910A2D73CFEE53CA35A /* Pods-CommunAphasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CommunAphasia.release.xcconfig"; sourceTree = "<group>"; };
+		58B6A5F7A9E264C828380141A699804C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		689E487669B4B0896B95BC819EE7E88B /* DynamicBlurView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DynamicBlurView-prefix.pch"; sourceTree = "<group>"; };
+		68A972F9D2706C4D19A2CF826579D8F9 /* InteractiveTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InteractiveTransition.swift; path = PopupDialog/Classes/InteractiveTransition.swift; sourceTree = "<group>"; };
+		698C0EB356B44E8AEEF7C486DAE2036E /* Pods-CommunAphasia-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommunAphasia-frameworks.sh"; sourceTree = "<group>"; };
+		6A5E58C1FE59C9619B65E7D58A75A8CA /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D3D8E4BC2BB5800426DE9C3209A277F /* TransitionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = PopupDialog/Classes/TransitionAnimator.swift; sourceTree = "<group>"; };
+		74F810DECD1CC5924E327218A9BE433A /* Pods-CommunAphasiaTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommunAphasiaTests-frameworks.sh"; sourceTree = "<group>"; };
+		7679651ECDCBCEC34190137D97638F65 /* PopupDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PopupDialog-prefix.pch"; sourceTree = "<group>"; };
+		7C08474D52BCBB2E550CBDD75332B6D4 /* DynamicBlurView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicBlurView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D4CA91BA34406F3BC542CC98ED6CEFD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E1D24414AED20256ABAFCAD62A4E303 /* Pods-CommunAphasiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CommunAphasiaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		80B4F967409DC881CEE8E8CE486F540C /* Pods-CommunAphasiaTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CommunAphasiaTests-umbrella.h"; sourceTree = "<group>"; };
+		8347928B23F82CED2DBC9848CDB6B80B /* Pods-CommunAphasiaTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CommunAphasiaTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8382AE7DD38CEB764DBE38DA2A2F09C6 /* PopupDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PopupDialog-dummy.m"; sourceTree = "<group>"; };
+		85391066ED497D0623AD02502769E550 /* Pods-CommunAphasiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CommunAphasiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B5667AECCDDD06BD988E3BACDC7DC86 /* UIView+Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Animations.swift"; path = "PopupDialog/Classes/UIView+Animations.swift"; sourceTree = "<group>"; };
+		8F88C742AA5915762C45278BBDB53FCE /* CGContext+CGImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGContext+CGImage.swift"; path = "DynamicBlurView/CGContext+CGImage.swift"; sourceTree = "<group>"; };
+		8FFA3A6B7B7CE99FB422C27BD9F59D98 /* TrackingMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TrackingMode.swift; path = DynamicBlurView/TrackingMode.swift; sourceTree = "<group>"; };
+		9220F173565DBF6D677EAC7D8B59EE3B /* Pods-CommunAphasia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CommunAphasia-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9A1A5633B15DAC596847AA686EA78638 /* PopupDialogDefaultViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogDefaultViewController.swift; path = PopupDialog/Classes/PopupDialogDefaultViewController.swift; sourceTree = "<group>"; };
+		9AF51D1356C17E73B14D33126DC2D3BA /* Pods-CommunAphasiaUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CommunAphasiaUITests.modulemap"; sourceTree = "<group>"; };
+		9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9CF9C56863F8A6B9A613F14E468290BA /* Pods-CommunAphasia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CommunAphasia.modulemap"; sourceTree = "<group>"; };
+		9F2727D52DA85263C8F1D60D5FECE7A3 /* PopupDialog+Keyboard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PopupDialog+Keyboard.swift"; path = "PopupDialog/Classes/PopupDialog+Keyboard.swift"; sourceTree = "<group>"; };
+		AB34A540AB5521B1E70D54E3F3050690 /* Pods-CommunAphasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CommunAphasia.debug.xcconfig"; sourceTree = "<group>"; };
+		AD38852595906501884D88368A4EBAF2 /* Pods-CommunAphasiaUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CommunAphasiaUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B04B5831B9528532EB46D3F98D4915F2 /* CaptureQuality.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CaptureQuality.swift; path = DynamicBlurView/CaptureQuality.swift; sourceTree = "<group>"; };
+		B15B374CD721F3C3EE219ED0C261F685 /* Pods-CommunAphasia-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CommunAphasia-resources.sh"; sourceTree = "<group>"; };
+		B9A4EB8372423D2DEE8808EEA90A9BEA /* DynamicBlurView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DynamicBlurView-umbrella.h"; sourceTree = "<group>"; };
+		BCE4CEC2611651FA818FAB458AEED682 /* PopupDialogDefaultView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogDefaultView.swift; path = PopupDialog/Classes/PopupDialogDefaultView.swift; sourceTree = "<group>"; };
+		BF95E3EF76AF62AD668DFBC080E49067 /* DynamicBlurView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DynamicBlurView-dummy.m"; sourceTree = "<group>"; };
+		BFE64D993E63DA31EC3BB8EA2E4CBF52 /* DynamicBlurView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DynamicBlurView.modulemap; sourceTree = "<group>"; };
+		BFFBD54C4DB09453B652EB140DE6D006 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C545C1929F9F9EF696B9713A97B00289 /* PresentationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationManager.swift; path = PopupDialog/Classes/PresentationManager.swift; sourceTree = "<group>"; };
+		C552089294A3EA60553E80366D514A93 /* PopupDialogButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogButton.swift; path = PopupDialog/Classes/PopupDialogButton.swift; sourceTree = "<group>"; };
+		C5F6E160BC214827F1D74DFE36139978 /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopupDialogDefaultButtons.swift; path = PopupDialog/Classes/PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
+		C720A7161FCAE8014CC756C73DDEA9B6 /* PopupDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PopupDialog-umbrella.h"; sourceTree = "<group>"; };
+		CAAF307A0C12610350D7289D467AFB4B /* PopupDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PopupDialog.xcconfig; sourceTree = "<group>"; };
+		CB6464F2D32F84C6E28F6612272DE007 /* UIImageView+Calculations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+Calculations.swift"; path = "PopupDialog/Classes/UIImageView+Calculations.swift"; sourceTree = "<group>"; };
+		CE231373BF4B1FAED89D10B72D98392B /* Pods-CommunAphasiaUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CommunAphasiaUITests-dummy.m"; sourceTree = "<group>"; };
+		CEBA807DA940FFD9BDF857B9922094EE /* Pods_CommunAphasiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A447B5C363EFDCDECA263551C3C439 /* UIViewController+Visibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Visibility.swift"; path = "PopupDialog/Classes/UIViewController+Visibility.swift"; sourceTree = "<group>"; };
+		D1888598FD69560840252D4B2CF523C1 /* DynamicBlurView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DynamicBlurView.xcconfig; sourceTree = "<group>"; };
+		D26C88A39D49A87014DA0F3F401606DA /* PresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresentationController.swift; path = PopupDialog/Classes/PresentationController.swift; sourceTree = "<group>"; };
+		D2E970E0E869D254B6095C7E8538698A /* CGImage+Accelerate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGImage+Accelerate.swift"; path = "DynamicBlurView/CGImage+Accelerate.swift"; sourceTree = "<group>"; };
+		D3D80892FE659E2AE9D707E623BCA4DD /* DynamicBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DynamicBlurView.h; path = DynamicBlurView/DynamicBlurView.h; sourceTree = "<group>"; };
+		DACF0F036C051487CD90E45DD464761C /* PopupDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PopupDialog.modulemap; sourceTree = "<group>"; };
+		DF60D2D022D3096F022291FBD7CF7B7C /* Pods-CommunAphasiaTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CommunAphasiaTests.modulemap"; sourceTree = "<group>"; };
+		E3A486277A93E215EF3B83F04E63AAB6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD692CD088A654B9DD36B5CF1C04CF8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F57CCC9E6F3AF086FB4D9C7B79A292E8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9EA2E42C12164F3E1642B149A5A0110 /* Pods-CommunAphasiaUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CommunAphasiaUITests-umbrella.h"; sourceTree = "<group>"; };
+		FBD3F4FA087F0E4F5C51872ED7FCFEFC /* Pods_CommunAphasiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEC034299A051B57F21D5D6BB9009BAD /* Pods-CommunAphasiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CommunAphasiaTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1229258684B27132B34F7DCD1F2CD722 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA71C8FEE6D92A1DF5D28A638BA2F5B5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FAEA6BB83753042F3E6899D1B86092C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				588E324C1D61609489642E1111B4B036 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C678B65FE238C2389DD2CB24E76D565 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70FE0806A2A93C7CEE28CEBBA7A37831 /* DynamicBlurView.framework in Frameworks */,
+				18577F03B69B2FA6853145AB8B4DBA6E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3D5235CAA31A647248AD26D7E047ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F21178ACC5DB7903F298F1F4D2A99BE0 /* Accelerate.framework in Frameworks */,
+				CAAA0A0093091B13BF27E82EBC3884E9 /* Foundation.framework in Frameworks */,
+				FF623DF6F230A815C1F9B1960C2A6418 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD597BF23A8233994867854B00038ED0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1324620946822ECEA6CB1EF5FC5F6CF7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1182CA4AD17453D2C7824605528F970A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EFE3E15ADA42092AAE318EB773376D2 /* Info.plist */,
+				DACF0F036C051487CD90E45DD464761C /* PopupDialog.modulemap */,
+				CAAF307A0C12610350D7289D467AFB4B /* PopupDialog.xcconfig */,
+				8382AE7DD38CEB764DBE38DA2A2F09C6 /* PopupDialog-dummy.m */,
+				7679651ECDCBCEC34190137D97638F65 /* PopupDialog-prefix.pch */,
+				C720A7161FCAE8014CC756C73DDEA9B6 /* PopupDialog-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PopupDialog";
+			sourceTree = "<group>";
+		};
+		1453253E1E7427E37A30E71E128A8316 /* PopupDialog */ = {
+			isa = PBXGroup;
+			children = (
+				68A972F9D2706C4D19A2CF826579D8F9 /* InteractiveTransition.swift */,
+				1E7E347DD8D1678FEA71E53C644F5944 /* PopupDialog.swift */,
+				9F2727D52DA85263C8F1D60D5FECE7A3 /* PopupDialog+Keyboard.swift */,
+				C552089294A3EA60553E80366D514A93 /* PopupDialogButton.swift */,
+				3A4B5BEF3E1D6BCDDE017FC972DE067A /* PopupDialogContainerView.swift */,
+				C5F6E160BC214827F1D74DFE36139978 /* PopupDialogDefaultButtons.swift */,
+				BCE4CEC2611651FA818FAB458AEED682 /* PopupDialogDefaultView.swift */,
+				9A1A5633B15DAC596847AA686EA78638 /* PopupDialogDefaultViewController.swift */,
+				428FAF3F3D6006E3BED08A78D74904F7 /* PopupDialogOverlayView.swift */,
+				D26C88A39D49A87014DA0F3F401606DA /* PresentationController.swift */,
+				C545C1929F9F9EF696B9713A97B00289 /* PresentationManager.swift */,
+				4CC936CE1F821CFB88835C30F534F706 /* TransitionAnimations.swift */,
+				6D3D8E4BC2BB5800426DE9C3209A277F /* TransitionAnimator.swift */,
+				CB6464F2D32F84C6E28F6612272DE007 /* UIImageView+Calculations.swift */,
+				8B5667AECCDDD06BD988E3BACDC7DC86 /* UIView+Animations.swift */,
+				D0A447B5C363EFDCDECA263551C3C439 /* UIViewController+Visibility.swift */,
+				1182CA4AD17453D2C7824605528F970A /* Support Files */,
+			);
+			path = PopupDialog;
+			sourceTree = "<group>";
+		};
+		2400C8B183517D43E54D248FE811F5E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51B02D8B429C7B42C1072560AE744E4A /* DynamicBlurView */,
+				1453253E1E7427E37A30E71E128A8316 /* PopupDialog */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		51B02D8B429C7B42C1072560AE744E4A /* DynamicBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				084D8C6E9844DC4881AB06E8F92A0421 /* BlurLayer.swift */,
+				B04B5831B9528532EB46D3F98D4915F2 /* CaptureQuality.swift */,
+				8F88C742AA5915762C45278BBDB53FCE /* CGContext+CGImage.swift */,
+				D2E970E0E869D254B6095C7E8538698A /* CGImage+Accelerate.swift */,
+				D3D80892FE659E2AE9D707E623BCA4DD /* DynamicBlurView.h */,
+				113D8E8479424098392A1179D6BD1761 /* DynamicBlurView.swift */,
+				8FFA3A6B7B7CE99FB422C27BD9F59D98 /* TrackingMode.swift */,
+				1C7E4BD269887AE401F76D7DA6AA6CC4 /* UIImage+Blur.swift */,
+				DC755DECA6A8D33CD5A6C3E32D128454 /* Support Files */,
+			);
+			path = DynamicBlurView;
+			sourceTree = "<group>";
+		};
+		55EC9F81B8CEC49E633A4042FCAB2707 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				58B6A5F7A9E264C828380141A699804C /* Accelerate.framework */,
+				9BD69CD25D24B82DB0E1E5847CC59CBA /* Foundation.framework */,
+				BFFBD54C4DB09453B652EB140DE6D006 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6EAC2DF8DF68B253270EC5EFF31B6BD1 /* Pods-CommunAphasiaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F57CCC9E6F3AF086FB4D9C7B79A292E8 /* Info.plist */,
+				9AF51D1356C17E73B14D33126DC2D3BA /* Pods-CommunAphasiaUITests.modulemap */,
+				AD38852595906501884D88368A4EBAF2 /* Pods-CommunAphasiaUITests-acknowledgements.markdown */,
+				1E2B0F4B9AD885D3049D17AE0BA382C3 /* Pods-CommunAphasiaUITests-acknowledgements.plist */,
+				CE231373BF4B1FAED89D10B72D98392B /* Pods-CommunAphasiaUITests-dummy.m */,
+				3626B334981409080B7FC7686654B28D /* Pods-CommunAphasiaUITests-frameworks.sh */,
+				4AEC05CDC2BFA65D2BB161C68A628315 /* Pods-CommunAphasiaUITests-resources.sh */,
+				F9EA2E42C12164F3E1642B149A5A0110 /* Pods-CommunAphasiaUITests-umbrella.h */,
+				85391066ED497D0623AD02502769E550 /* Pods-CommunAphasiaUITests.debug.xcconfig */,
+				7E1D24414AED20256ABAFCAD62A4E303 /* Pods-CommunAphasiaUITests.release.xcconfig */,
+			);
+			name = "Pods-CommunAphasiaUITests";
+			path = "Target Support Files/Pods-CommunAphasiaUITests";
+			sourceTree = "<group>";
+		};
+		737893BBE4CA1979D9570D902F703558 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				97EC453C6BA338BA267AC6827C213210 /* Pods-CommunAphasia */,
+				CCF85DA751EAE9EF26A65719FDA5AE8C /* Pods-CommunAphasiaTests */,
+				6EAC2DF8DF68B253270EC5EFF31B6BD1 /* Pods-CommunAphasiaUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				B4CCC7FF42736397EBF9D7E98A71C928 /* Frameworks */,
+				2400C8B183517D43E54D248FE811F5E7 /* Pods */,
+				82B439E40B4B159A295D893C179BFADB /* Products */,
+				737893BBE4CA1979D9570D902F703558 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		82B439E40B4B159A295D893C179BFADB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A5E58C1FE59C9619B65E7D58A75A8CA /* DynamicBlurView.framework */,
+				149B4181F311D5CCBF9894C0F18E61D2 /* Pods_CommunAphasia.framework */,
+				CEBA807DA940FFD9BDF857B9922094EE /* Pods_CommunAphasiaTests.framework */,
+				FBD3F4FA087F0E4F5C51872ED7FCFEFC /* Pods_CommunAphasiaUITests.framework */,
+				1D3C05FF7EFBF3F62986B924B2CD6388 /* PopupDialog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97EC453C6BA338BA267AC6827C213210 /* Pods-CommunAphasia */ = {
+			isa = PBXGroup;
+			children = (
+				EDD692CD088A654B9DD36B5CF1C04CF8 /* Info.plist */,
+				9CF9C56863F8A6B9A613F14E468290BA /* Pods-CommunAphasia.modulemap */,
+				42C05DD6F2B720B53125563BA9F77045 /* Pods-CommunAphasia-acknowledgements.markdown */,
+				18B92BF4645E66BE9F1086DEC4E6A28A /* Pods-CommunAphasia-acknowledgements.plist */,
+				41929C82F89737B0D3A228E2227B61BE /* Pods-CommunAphasia-dummy.m */,
+				698C0EB356B44E8AEEF7C486DAE2036E /* Pods-CommunAphasia-frameworks.sh */,
+				B15B374CD721F3C3EE219ED0C261F685 /* Pods-CommunAphasia-resources.sh */,
+				9220F173565DBF6D677EAC7D8B59EE3B /* Pods-CommunAphasia-umbrella.h */,
+				AB34A540AB5521B1E70D54E3F3050690 /* Pods-CommunAphasia.debug.xcconfig */,
+				56058DE293C87910A2D73CFEE53CA35A /* Pods-CommunAphasia.release.xcconfig */,
+			);
+			name = "Pods-CommunAphasia";
+			path = "Target Support Files/Pods-CommunAphasia";
+			sourceTree = "<group>";
+		};
+		B4CCC7FF42736397EBF9D7E98A71C928 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C08474D52BCBB2E550CBDD75332B6D4 /* DynamicBlurView.framework */,
+				55EC9F81B8CEC49E633A4042FCAB2707 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCF85DA751EAE9EF26A65719FDA5AE8C /* Pods-CommunAphasiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3A486277A93E215EF3B83F04E63AAB6 /* Info.plist */,
+				DF60D2D022D3096F022291FBD7CF7B7C /* Pods-CommunAphasiaTests.modulemap */,
+				8347928B23F82CED2DBC9848CDB6B80B /* Pods-CommunAphasiaTests-acknowledgements.markdown */,
+				3B8C1AB1266235F72D05726D535A8652 /* Pods-CommunAphasiaTests-acknowledgements.plist */,
+				19FDA5306DAA77F5918506915085957F /* Pods-CommunAphasiaTests-dummy.m */,
+				74F810DECD1CC5924E327218A9BE433A /* Pods-CommunAphasiaTests-frameworks.sh */,
+				1953BDEE7143CBFA7E04778F1A9EAEED /* Pods-CommunAphasiaTests-resources.sh */,
+				80B4F967409DC881CEE8E8CE486F540C /* Pods-CommunAphasiaTests-umbrella.h */,
+				FEC034299A051B57F21D5D6BB9009BAD /* Pods-CommunAphasiaTests.debug.xcconfig */,
+				044AB85B7FF891F3C5F1EA9CB75F0CFA /* Pods-CommunAphasiaTests.release.xcconfig */,
+			);
+			name = "Pods-CommunAphasiaTests";
+			path = "Target Support Files/Pods-CommunAphasiaTests";
+			sourceTree = "<group>";
+		};
+		DC755DECA6A8D33CD5A6C3E32D128454 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFE64D993E63DA31EC3BB8EA2E4CBF52 /* DynamicBlurView.modulemap */,
+				D1888598FD69560840252D4B2CF523C1 /* DynamicBlurView.xcconfig */,
+				BF95E3EF76AF62AD668DFBC080E49067 /* DynamicBlurView-dummy.m */,
+				689E487669B4B0896B95BC819EE7E88B /* DynamicBlurView-prefix.pch */,
+				B9A4EB8372423D2DEE8808EEA90A9BEA /* DynamicBlurView-umbrella.h */,
+				7D4CA91BA34406F3BC542CC98ED6CEFD /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DynamicBlurView";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3ED54AAFDF05904F19E8AA5F479E1725 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19A72828F5D1277C15EDAD6E3A38152 /* Pods-CommunAphasiaUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FBB615ACE46CA85AD02FB9084DAAE77 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31C1A68CE23734098427CACC38CE0BF /* Pods-CommunAphasiaTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DBC885C9E2E09BF97361D7C5E8B5BB0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322B88DBFE8D4EA0DB3C6EF8D71AE976 /* PopupDialog-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7307D77BB3DFEB9B4DD534240EAA4D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2D969B5A85573AF0ACDFE202EFC5B8F /* DynamicBlurView-umbrella.h in Headers */,
+				32438A19A5AB04AFAE267B8E7ACBFC95 /* DynamicBlurView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BB06C31EE9643FE33582678812CC2D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				376BD4848EBAD969F843265195B853B6 /* Pods-CommunAphasia-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		04F07DCE9BDBC7623792C12E1991198B /* DynamicBlurView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6987B290EE72F17FE19618243298F9EB /* Build configuration list for PBXNativeTarget "DynamicBlurView" */;
+			buildPhases = (
+				B7307D77BB3DFEB9B4DD534240EAA4D0 /* Headers */,
+				B27D1933BEBEA9B8D7E6FD168F5CED68 /* Sources */,
+				C3D5235CAA31A647248AD26D7E047ABE /* Frameworks */,
+				78CDAACAA52FB43B0DD3D3BD0E4EE412 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamicBlurView;
+			productName = DynamicBlurView;
+			productReference = 6A5E58C1FE59C9619B65E7D58A75A8CA /* DynamicBlurView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2617E6B733FE068C36840072E3F8D834 /* PopupDialog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37D9F5D83553CA48A86FC2EFC3E13779 /* Build configuration list for PBXNativeTarget "PopupDialog" */;
+			buildPhases = (
+				9DBC885C9E2E09BF97361D7C5E8B5BB0 /* Headers */,
+				737CF17925B0E4E0FAA71390EE94F24C /* Sources */,
+				9C678B65FE238C2389DD2CB24E76D565 /* Frameworks */,
+				8F8BF0CA39FDE747791E6BFD6F7B6ABA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E53F6BFE8C6EEA03A434EC0FCA6EBCC /* PBXTargetDependency */,
+			);
+			name = PopupDialog;
+			productName = PopupDialog;
+			productReference = 1D3C05FF7EFBF3F62986B924B2CD6388 /* PopupDialog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		60B1DDED14FFAB21C88D97D7B7220D88 /* Pods-CommunAphasiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC8CA1B1FB5BAD56157F506DE0B5870B /* Build configuration list for PBXNativeTarget "Pods-CommunAphasiaTests" */;
+			buildPhases = (
+				3FBB615ACE46CA85AD02FB9084DAAE77 /* Headers */,
+				2AF34CE3C0ED8EF007A9B93F2494BFF1 /* Sources */,
+				2FAEA6BB83753042F3E6899D1B86092C /* Frameworks */,
+				495B3096186060A5015CAE01266AAA60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C0BFB01C375A1A45505C2E8A67D71F5 /* PBXTargetDependency */,
+			);
+			name = "Pods-CommunAphasiaTests";
+			productName = "Pods-CommunAphasiaTests";
+			productReference = CEBA807DA940FFD9BDF857B9922094EE /* Pods_CommunAphasiaTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6CCBA02C2ECB7065A0D4330D5EA7A41E /* Pods-CommunAphasia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DE4FCAA3F0F8B7F68ECA3E889652721 /* Build configuration list for PBXNativeTarget "Pods-CommunAphasia" */;
+			buildPhases = (
+				F3BB06C31EE9643FE33582678812CC2D /* Headers */,
+				6B138F9B544A6BB96B12EA73AF6C85B8 /* Sources */,
+				DD597BF23A8233994867854B00038ED0 /* Frameworks */,
+				7EE53F93A828C5CBFAB49CA33869D599 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55E9A0FF39B44D0E44C0C5A38C437CCE /* PBXTargetDependency */,
+				27F7CA07E800E810DC3BED605A4CCCB5 /* PBXTargetDependency */,
+			);
+			name = "Pods-CommunAphasia";
+			productName = "Pods-CommunAphasia";
+			productReference = 149B4181F311D5CCBF9894C0F18E61D2 /* Pods_CommunAphasia.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		84220700B5BEE9135D4A508674946812 /* Pods-CommunAphasiaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 884D06C9DD4C733796EDBFA13583B1E7 /* Build configuration list for PBXNativeTarget "Pods-CommunAphasiaUITests" */;
+			buildPhases = (
+				3ED54AAFDF05904F19E8AA5F479E1725 /* Headers */,
+				F83C4FD94C3C489846E7D2D7DDEFA242 /* Sources */,
+				1229258684B27132B34F7DCD1F2CD722 /* Frameworks */,
+				3CC768E3E242E65BEAA6C36B0CB806B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC2F03A8D3C7C9BE97AC8C5A1366F2DF /* PBXTargetDependency */,
+			);
+			name = "Pods-CommunAphasiaUITests";
+			productName = "Pods-CommunAphasiaUITests";
+			productReference = FBD3F4FA087F0E4F5C51872ED7FCFEFC /* Pods_CommunAphasiaUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 1000;
+				TargetAttributes = {
+					04F07DCE9BDBC7623792C12E1991198B = {
+						LastSwiftMigration = 1000;
+					};
+					2617E6B733FE068C36840072E3F8D834 = {
+						LastSwiftMigration = 1000;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 82B439E40B4B159A295D893C179BFADB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04F07DCE9BDBC7623792C12E1991198B /* DynamicBlurView */,
+				6CCBA02C2ECB7065A0D4330D5EA7A41E /* Pods-CommunAphasia */,
+				60B1DDED14FFAB21C88D97D7B7220D88 /* Pods-CommunAphasiaTests */,
+				84220700B5BEE9135D4A508674946812 /* Pods-CommunAphasiaUITests */,
+				2617E6B733FE068C36840072E3F8D834 /* PopupDialog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3CC768E3E242E65BEAA6C36B0CB806B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B3096186060A5015CAE01266AAA60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78CDAACAA52FB43B0DD3D3BD0E4EE412 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EE53F93A828C5CBFAB49CA33869D599 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F8BF0CA39FDE747791E6BFD6F7B6ABA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AF34CE3C0ED8EF007A9B93F2494BFF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC491E80AC366E657E2DB7A3C0507251 /* Pods-CommunAphasiaTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B138F9B544A6BB96B12EA73AF6C85B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83AFEDFD32C36B4713AD6E274AD62D05 /* Pods-CommunAphasia-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		737CF17925B0E4E0FAA71390EE94F24C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75CE84F96B4C1885A6300E76B4780814 /* InteractiveTransition.swift in Sources */,
+				0CF8E855B88828ED1DDA60B96D8FAE37 /* PopupDialog+Keyboard.swift in Sources */,
+				14F2CAA524714B362596E6BBBC8F3945 /* PopupDialog-dummy.m in Sources */,
+				B07262FFD644281B352391D1E7CEF397 /* PopupDialog.swift in Sources */,
+				AA0703CE4DE019A0004B103E9732ECF4 /* PopupDialogButton.swift in Sources */,
+				0608D8A32F9ABF22BDB60360D7A95719 /* PopupDialogContainerView.swift in Sources */,
+				AFE3BF4500304769C6644D1484D2FDEF /* PopupDialogDefaultButtons.swift in Sources */,
+				DFE49B474F5BC0AA925D13B9D5D9DDCC /* PopupDialogDefaultView.swift in Sources */,
+				DD556AF4ECA3A982BA052E696FB0AF00 /* PopupDialogDefaultViewController.swift in Sources */,
+				6EFBA9B6033A84A330E9740B3BDD473E /* PopupDialogOverlayView.swift in Sources */,
+				B36239A507CBC115E19D3A7BEF8C8E87 /* PresentationController.swift in Sources */,
+				CF9B86DA4D0E199A218A82EC36B2EC33 /* PresentationManager.swift in Sources */,
+				FCCF3E33F015C61146B835EFC7FE4333 /* TransitionAnimations.swift in Sources */,
+				DAD4DC7F7653C93DA8248EA2B37F3B23 /* TransitionAnimator.swift in Sources */,
+				4577BA630038FC861C59DE942588D44E /* UIImageView+Calculations.swift in Sources */,
+				CA71239D0912745F73D1BD6E0D6159B1 /* UIView+Animations.swift in Sources */,
+				A12D3857FC0377424997C60AD0B45457 /* UIViewController+Visibility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B27D1933BEBEA9B8D7E6FD168F5CED68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7F20677D9BFCDD09D1C8425F01872BE /* BlurLayer.swift in Sources */,
+				7E9758A7ADD849692E569A2C5BBDCE94 /* CaptureQuality.swift in Sources */,
+				CA77FF0FFAEE74AF517DBC2F2440546C /* CGContext+CGImage.swift in Sources */,
+				5B8437965913274A42B48AC0423028DA /* CGImage+Accelerate.swift in Sources */,
+				473890E28EFD83405BE110848930F6A6 /* DynamicBlurView-dummy.m in Sources */,
+				4C39C8C05FBDD3D30BF5ACF2D74DB5CD /* DynamicBlurView.swift in Sources */,
+				E5EDF56F24BC532E64B2B6C805119970 /* TrackingMode.swift in Sources */,
+				6D55BC3FA411C007E752EFC1E657E886 /* UIImage+Blur.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F83C4FD94C3C489846E7D2D7DDEFA242 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1C5C1338B8B6B87FB2FFC4C2DD203A6 /* Pods-CommunAphasiaUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27F7CA07E800E810DC3BED605A4CCCB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PopupDialog;
+			target = 2617E6B733FE068C36840072E3F8D834 /* PopupDialog */;
+			targetProxy = 94349733095E268592C3FC0E03082D34 /* PBXContainerItemProxy */;
+		};
+		3C0BFB01C375A1A45505C2E8A67D71F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-CommunAphasia";
+			target = 6CCBA02C2ECB7065A0D4330D5EA7A41E /* Pods-CommunAphasia */;
+			targetProxy = 6602A661B1DE04B8D4CFF857EDAB96FB /* PBXContainerItemProxy */;
+		};
+		55E9A0FF39B44D0E44C0C5A38C437CCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DynamicBlurView;
+			target = 04F07DCE9BDBC7623792C12E1991198B /* DynamicBlurView */;
+			targetProxy = FBC2BBCFD68E040F01AF5DD9D8B618A0 /* PBXContainerItemProxy */;
+		};
+		8E53F6BFE8C6EEA03A434EC0FCA6EBCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DynamicBlurView;
+			target = 04F07DCE9BDBC7623792C12E1991198B /* DynamicBlurView */;
+			targetProxy = 8616639E6D67F46B480012FE6C714338 /* PBXContainerItemProxy */;
+		};
+		FC2F03A8D3C7C9BE97AC8C5A1366F2DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-CommunAphasia";
+			target = 6CCBA02C2ECB7065A0D4330D5EA7A41E /* Pods-CommunAphasia */;
+			targetProxy = 2B3578F2E736D6451A7960B1027F4317 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00FAD318D79E9CB148C3032B0E4B3440 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAAF307A0C12610350D7289D467AFB4B /* PopupDialog.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PopupDialog/PopupDialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PopupDialog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PopupDialog/PopupDialog.modulemap";
+				PRODUCT_MODULE_NAME = PopupDialog;
+				PRODUCT_NAME = PopupDialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2E4307CA4FCFA37EC448E8E8A2FEF974 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E1D24414AED20256ABAFCAD62A4E303 /* Pods-CommunAphasiaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CommunAphasiaUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		60DAF49CA7A9F362148D49C3C3123B2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		781F1EAD809C58DED3A372BBBE195BB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAAF307A0C12610350D7289D467AFB4B /* PopupDialog.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PopupDialog/PopupDialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PopupDialog/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PopupDialog/PopupDialog.modulemap";
+				PRODUCT_MODULE_NAME = PopupDialog;
+				PRODUCT_NAME = PopupDialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7DD4DF76A74C0A2A34621F658E34465C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB34A540AB5521B1E70D54E3F3050690 /* Pods-CommunAphasia.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CommunAphasia/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		868631BCA8E55449052FB82166B7FDB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1888598FD69560840252D4B2CF523C1 /* DynamicBlurView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DynamicBlurView/DynamicBlurView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DynamicBlurView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DynamicBlurView/DynamicBlurView.modulemap";
+				PRODUCT_MODULE_NAME = DynamicBlurView;
+				PRODUCT_NAME = DynamicBlurView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8A81719805E372DC5C58B1F2D77D5470 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1888598FD69560840252D4B2CF523C1 /* DynamicBlurView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DynamicBlurView/DynamicBlurView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DynamicBlurView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DynamicBlurView/DynamicBlurView.modulemap";
+				PRODUCT_MODULE_NAME = DynamicBlurView;
+				PRODUCT_NAME = DynamicBlurView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9CF83AA39639A105663BF16C75821B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEC034299A051B57F21D5D6BB9009BAD /* Pods-CommunAphasiaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CommunAphasiaTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C4EAA84F44D044E108500A81C635F21E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		EA2CCCD11DD6E6017689893CB8D12389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85391066ED497D0623AD02502769E550 /* Pods-CommunAphasiaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CommunAphasiaUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F26076B9DB008BE06AD0569FA69EB3BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56058DE293C87910A2D73CFEE53CA35A /* Pods-CommunAphasia.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CommunAphasia/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F8A06C4FEA41A8F227B83991E8AFF849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 044AB85B7FF891F3C5F1EA9CB75F0CFA /* Pods-CommunAphasiaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CommunAphasiaTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60DAF49CA7A9F362148D49C3C3123B2A /* Debug */,
+				C4EAA84F44D044E108500A81C635F21E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37D9F5D83553CA48A86FC2EFC3E13779 /* Build configuration list for PBXNativeTarget "PopupDialog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				781F1EAD809C58DED3A372BBBE195BB2 /* Debug */,
+				00FAD318D79E9CB148C3032B0E4B3440 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DE4FCAA3F0F8B7F68ECA3E889652721 /* Build configuration list for PBXNativeTarget "Pods-CommunAphasia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DD4DF76A74C0A2A34621F658E34465C /* Debug */,
+				F26076B9DB008BE06AD0569FA69EB3BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6987B290EE72F17FE19618243298F9EB /* Build configuration list for PBXNativeTarget "DynamicBlurView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				868631BCA8E55449052FB82166B7FDB0 /* Debug */,
+				8A81719805E372DC5C58B1F2D77D5470 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		884D06C9DD4C733796EDBFA13583B1E7 /* Build configuration list for PBXNativeTarget "Pods-CommunAphasiaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA2CCCD11DD6E6017689893CB8D12389 /* Debug */,
+				2E4307CA4FCFA37EC448E8E8A2FEF974 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC8CA1B1FB5BAD56157F506DE0B5870B /* Build configuration list for PBXNativeTarget "Pods-CommunAphasiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CF83AA39639A105663BF16C75821B3D /* Debug */,
+				F8A06C4FEA41A8F227B83991E8AFF849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

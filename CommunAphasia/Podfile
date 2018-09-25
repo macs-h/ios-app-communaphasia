@@ -1,0 +1,21 @@
+platform :ios, '9.0'
+
+target 'CommunAphasia' do
+  
+  use_frameworks!
+
+  pod 'PopupDialog', '~> 0.8'
+
+  # Pods for CommunAphasia
+
+  target 'CommunAphasiaTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CommunAphasiaUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

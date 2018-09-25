@@ -21,16 +21,19 @@
 		19EE0309211FF79E008AEC64 /* they.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0302211FF79D008AEC64 /* they.png */; };
 		19EE030B211FF79E008AEC64 /* you.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0304211FF79E008AEC64 /* you.png */; };
 		19EE030C211FF79E008AEC64 /* he.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0305211FF79E008AEC64 /* he.png */; };
+		20D86F32036538C22CC77701 /* Pods_CommunAphasiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83BC4D80531B6638A555996 /* Pods_CommunAphasiaTests.framework */; };
+		2ACF54F861B0B8F210C2A79C /* Pods_CommunAphasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8298B8D72719108090BF4CCB /* Pods_CommunAphasia.framework */; };
 		44856EE920BBD0600035C01A /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE020BBD0600035C01A /* sleep.png */; };
 		44856EEA20BBD0600035C01A /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE720BBD0600035C01A /* call.png */; };
 		44856EEB20BBD0600035C01A /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE820BBD0600035C01A /* eat.png */; };
 		44856EF820BBE8890035C01A /* big.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EF420BBE8890035C01A /* big.png */; };
 		44856EFC20BBF90D0035C01A /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44856EFB20BBF90D0035C01A /* i.jpg */; };
-		524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; };
+		45AEE2E48E503A6ECE2B0A67 /* Pods_CommunAphasiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD5437C6FBF9296408C4F75 /* Pods_CommunAphasiaUITests.framework */; };
 		524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601DEB6220BA7A7E00FF2778 /* ImageToText.swift */; };
 		60249A1F20B91CC100BBC5FC /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
+		605D2F0F2159D9F30067BA36 /* CommunAphasiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605D2F0E2159D9F20067BA36 /* CommunAphasiaTests.swift */; };
 		C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBC0E2115557300A66995 /* ImageCell.swift */; };
 		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
 		ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976120B7C7C0001AF14C /* deer_silhouette.png */; };
@@ -84,8 +87,7 @@
 		EDF7206E20AD3FA700675140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7206D20AD3FA700675140 /* AppDelegate.swift */; };
 		EDF7207320AD3FA700675140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207120AD3FA700675140 /* Main.storyboard */; };
 		EDF7207820AD3FA700675140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7207620AD3FA700675140 /* LaunchScreen.storyboard */; };
-		EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */; };
-		EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */; };
+		EDF7208E20AD3FA700675140 /* CommunAphasiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7208D20AD3FA700675140 /* CommunAphasiaUITests.swift */; };
 		EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA3AE120B8ED6800F6DBBD /* Enums.swift */; };
 		EDFA3AEA20B8ED9100F6DBBD /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
 		EDFA3AED20B8EF7700F6DBBD /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AEC20B8EF7600F6DBBD /* apple.png */; };
@@ -185,6 +187,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02EF7B0E8C1799AEAB46AF32 /* Pods-CommunAphasiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1951CB3C2121918A005D7892 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
 		195AEB66211D070600E5AA04 /* fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fast.png; sourceTree = "<group>"; };
 		195AEB67211D070600E5AA04 /* waiting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waiting.jpg; sourceTree = "<group>"; };
@@ -206,6 +209,14 @@
 		44856EFB20BBF90D0035C01A /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i.jpg; sourceTree = "<group>"; };
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		601DEB6220BA7A7E00FF2778 /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
+		605D2F0E2159D9F20067BA36 /* CommunAphasiaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunAphasiaTests.swift; sourceTree = "<group>"; };
+		734FE16198D86338C8786E62 /* Pods-CommunAphasiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.release.xcconfig"; sourceTree = "<group>"; };
+		77B2BD9C5E8BC7C9122142F8 /* Pods-CommunAphasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.release.xcconfig"; sourceTree = "<group>"; };
+		7A72CFF557E495D569A557BC /* Pods-CommunAphasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.debug.xcconfig"; sourceTree = "<group>"; };
+		8298B8D72719108090BF4CCB /* Pods_CommunAphasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD5437C6FBF9296408C4F75 /* Pods_CommunAphasiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14DCC08530CA70FA9E870BB /* Pods-CommunAphasiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A83BC4D80531B6638A555996 /* Pods_CommunAphasiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10CBC0E2115557300A66995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
@@ -262,10 +273,9 @@
 		EDF7207720AD3FA700675140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDF7207920AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF7207E20AD3FA700675140 /* CommunAphasiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunAphasiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comTests.swift; sourceTree = "<group>"; };
 		EDF7208420AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF7208920AD3FA700675140 /* CommunAphasiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunAphasiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aphasia_comUITests.swift; sourceTree = "<group>"; };
+		EDF7208D20AD3FA700675140 /* CommunAphasiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunAphasiaUITests.swift; sourceTree = "<group>"; };
 		EDF7208F20AD3FA700675140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFA3AE120B8ED6800F6DBBD /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		EDFA3AE920B8ED9100F6DBBD /* images.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = images.txt; sourceTree = SOURCE_ROOT; };
@@ -276,6 +286,7 @@
 		EDFA3AF420B8EF9D00F6DBBD /* food_lunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_lunch.png; sourceTree = "<group>"; };
 		EDFA3AF620B8EFB500F6DBBD /* man_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_silhouette.png; sourceTree = "<group>"; };
 		EDFA3AF820B8EFB900F6DBBD /* woman_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_silhouette.png; sourceTree = "<group>"; };
+		F05E42456BD12E5F17F19B18 /* Pods-CommunAphasiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
-				524D0BBD20B1009200EC19E7 /* SQLite.framework in Frameworks */,
+				2ACF54F861B0B8F210C2A79C /* Pods_CommunAphasia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +303,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D86F32036538C22CC77701 /* Pods_CommunAphasiaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,12 +311,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45AEE2E48E503A6ECE2B0A67 /* Pods_CommunAphasiaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D7296B2AB5A509449AB64D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A72CFF557E495D569A557BC /* Pods-CommunAphasia.debug.xcconfig */,
+				77B2BD9C5E8BC7C9122142F8 /* Pods-CommunAphasia.release.xcconfig */,
+				A14DCC08530CA70FA9E870BB /* Pods-CommunAphasiaTests.debug.xcconfig */,
+				734FE16198D86338C8786E62 /* Pods-CommunAphasiaTests.release.xcconfig */,
+				F05E42456BD12E5F17F19B18 /* Pods-CommunAphasiaUITests.debug.xcconfig */,
+				02EF7B0E8C1799AEAB46AF32 /* Pods-CommunAphasiaUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		524D0BA320B0FFB700EC19E7 /* SQLite Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +356,9 @@
 		524D0BBC20B1009100EC19E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8298B8D72719108090BF4CCB /* Pods_CommunAphasia.framework */,
+				A83BC4D80531B6638A555996 /* Pods_CommunAphasiaTests.framework */,
+				9CD5437C6FBF9296408C4F75 /* Pods_CommunAphasiaUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -475,6 +504,7 @@
 				EDF7206B20AD3FA700675140 /* Products */,
 				524D0BA320B0FFB700EC19E7 /* SQLite Resources */,
 				524D0BBC20B1009100EC19E7 /* Frameworks */,
+				3D7296B2AB5A509449AB64D4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -505,7 +535,7 @@
 		EDF7208120AD3FA700675140 /* CommunAphasiaTests */ = {
 			isa = PBXGroup;
 			children = (
-				EDF7208220AD3FA700675140 /* Aphasia_comTests.swift */,
+				605D2F0E2159D9F20067BA36 /* CommunAphasiaTests.swift */,
 				EDF7208420AD3FA700675140 /* Info.plist */,
 			);
 			path = CommunAphasiaTests;
@@ -514,7 +544,7 @@
 		EDF7208C20AD3FA700675140 /* CommunAphasiaUITests */ = {
 			isa = PBXGroup;
 			children = (
-				EDF7208D20AD3FA700675140 /* Aphasia_comUITests.swift */,
+				EDF7208D20AD3FA700675140 /* CommunAphasiaUITests.swift */,
 				EDF7208F20AD3FA700675140 /* Info.plist */,
 			);
 			path = CommunAphasiaUITests;
@@ -527,10 +557,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasia" */;
 			buildPhases = (
+				BFBA2C20DF3F813F8D3BE3A4 /* [CP] Check Pods Manifest.lock */,
 				EDF7206620AD3FA700675140 /* Sources */,
 				EDF7206720AD3FA700675140 /* Frameworks */,
 				EDF7206820AD3FA700675140 /* Resources */,
 				524D0BC220B100A100EC19E7 /* Embed Frameworks */,
+				B1C2C6C448CCB5274C16FD7F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -546,6 +578,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDF7209520AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasiaTests" */;
 			buildPhases = (
+				2F44A584A852D22733A81923 /* [CP] Check Pods Manifest.lock */,
 				EDF7207A20AD3FA700675140 /* Sources */,
 				EDF7207B20AD3FA700675140 /* Frameworks */,
 				EDF7207C20AD3FA700675140 /* Resources */,
@@ -564,6 +597,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDF7209820AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasiaUITests" */;
 			buildPhases = (
+				512A539F095DC4B1C1E6BBE2 /* [CP] Check Pods Manifest.lock */,
 				EDF7208520AD3FA700675140 /* Sources */,
 				EDF7208620AD3FA700675140 /* Frameworks */,
 				EDF7208720AD3FA700675140 /* Resources */,
@@ -585,24 +619,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Cosc345;
 				TargetAttributes = {
 					EDF7206920AD3FA700675140 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 5GYA7CS533;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					EDF7207D20AD3FA700675140 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EDF7206920AD3FA700675140;
 					};
 					EDF7208820AD3FA700675140 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EDF7206920AD3FA700675140;
 					};
@@ -780,6 +814,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F44A584A852D22733A81923 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CommunAphasiaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		512A539F095DC4B1C1E6BBE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CommunAphasiaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1C2C6C448CCB5274C16FD7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFBA2C20DF3F813F8D3BE3A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CommunAphasia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EDF7206620AD3FA700675140 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -805,7 +932,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF7208320AD3FA700675140 /* Aphasia_comTests.swift in Sources */,
+				605D2F0F2159D9F30067BA36 /* CommunAphasiaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,7 +940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF7208E20AD3FA700675140 /* Aphasia_comUITests.swift in Sources */,
+				EDF7208E20AD3FA700675140 /* CommunAphasiaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,6 +1101,7 @@
 		};
 		EDF7209320AD3FA700675140 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A72CFF557E495D569A557BC /* Pods-CommunAphasia.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -994,6 +1122,7 @@
 		};
 		EDF7209420AD3FA700675140 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77B2BD9C5E8BC7C9122142F8 /* Pods-CommunAphasia.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1014,13 +1143,17 @@
 		};
 		EDF7209620AD3FA700675140 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14DCC08530CA70FA9E870BB /* Pods-CommunAphasiaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Aphasia_comTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CommunAphasiaTests/CommunAphasiaTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommunAphasia.app/CommunAphasia";
@@ -1029,13 +1162,16 @@
 		};
 		EDF7209720AD3FA700675140 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 734FE16198D86338C8786E62 /* Pods-CommunAphasiaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Aphasia_comTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Cosc345.Aphasia-comTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CommunAphasiaTests/CommunAphasiaTests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CommunAphasia.app/CommunAphasia";
@@ -1044,6 +1180,7 @@
 		};
 		EDF7209920AD3FA700675140 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F05E42456BD12E5F17F19B18 /* Pods-CommunAphasiaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Aphasia_comUITests/Info.plist;
@@ -1058,6 +1195,7 @@
 		};
 		EDF7209A20AD3FA700675140 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02EF7B0E8C1799AEAB46AF32 /* Pods-CommunAphasiaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Aphasia_comUITests/Info.plist;

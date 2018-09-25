@@ -238,14 +238,50 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             - indexPath:    The index path of the cell that was selected.
      */
     func showSinglePluralVC(cell: ImageCell, indexPath: IndexPath) {
-        let singlePluralVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePluralVC") as! SinglePlural_ViewController
         
-        self.addChildViewController(singlePluralVC)
-        singlePluralVC.view.frame = self.view.frame
-        self.view.addSubview(singlePluralVC.view)
-        singlePluralVC.didMove(toParentViewController: self)
+        // Prepare the popup assets
+        let title = "THIS IS THE DIALOG TITLE"
+        let message = "This is the message section of the popup dialog default view"
+        let image = UIImage(named: "pexels-photo-103290")
         
-        singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+        // Create the dialog
+//        let popup = PopupDialog(title: title, message: message, image: image)
+//        let popup = PopupDialog(title: nil, message: nil)
+        let popup = PopupDialog(title: nil, message: nil, image: nil, buttonAlignment: .horizontal, transitionStyle: .bounceUp, preferredWidth: 340, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: true)
+//        let popup = PopupDialog(viewController: SinglePlural_ViewController)
+        
+        // Create buttons
+        let buttonOne = CancelButton(title: "CANCEL") {
+            print("You canceled the car dialog.")
+        }
+        
+        // This button will not the dismiss the dialog
+        let buttonTwo = DefaultButton(title: "ADMIRE CAR", dismissOnTap: false) {
+            print("What a beauty!")
+        }
+        
+        let buttonThree = DefaultButton(title: "BUY CAR", height: 60) {
+            print("Ah, maybe next time :)")
+        }
+        
+        // Add buttons to dialog
+        // Alternatively, you can use popup.addButton(buttonOne)
+        // to add a single button
+        popup.addButtons([buttonOne, buttonTwo])
+        popup.buttonAlignment = .horizontal
+
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
+        
+        
+//        let singlePluralVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SinglePluralVC") as! SinglePlural_ViewController
+//
+//        self.addChildViewController(singlePluralVC)
+//        singlePluralVC.view.frame = self.view.frame
+//        self.view.addSubview(singlePluralVC.view)
+//        singlePluralVC.didMove(toParentViewController: self)
+//
+//        singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
     

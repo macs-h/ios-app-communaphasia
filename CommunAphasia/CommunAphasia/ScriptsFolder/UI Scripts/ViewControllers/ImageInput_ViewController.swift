@@ -58,14 +58,15 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         ChangeCategory(tabButtons[0])
         // Do any additional setup after loading the view.
         
-        if currentTute == 1 {
-            showTute()
+        if currentTute != 0 {
+            showTute(num: currentTute)
         }
     }
     
-    func showTute() {
+    func showTute(num: Int) {
         let tuteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tuteVC") as! ImageInputTutorial
         
+        tuteVC.tuteNum = num
         self.addChildViewController(tuteVC)
         tuteVC.view.frame = self.view.frame
         self.view.addSubview(tuteVC.view)

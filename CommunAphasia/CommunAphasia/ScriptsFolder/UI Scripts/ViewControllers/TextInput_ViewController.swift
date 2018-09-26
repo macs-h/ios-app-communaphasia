@@ -16,7 +16,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
     // References the user input text field.
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var synonymLabel: UILabel!
     //let loadingSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var stringArray = [String]()
@@ -37,11 +36,12 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var pickerData:[String] = []
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
+    @IBOutlet weak var synonymLabel: UILabel!
     
-//<<<<<<< HEAD
+
 //    //var activityIndicator = UIActivityIndicatorView()
-//    @IBOutlet weak var tempLoadingLabel: UILabel!
-//=======
+    @IBOutlet weak var tempLoadingLabel: UILabel!
+
     var suggestedWordsArray = [Int]()
     
     /**

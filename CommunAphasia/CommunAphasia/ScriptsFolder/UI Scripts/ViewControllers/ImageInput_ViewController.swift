@@ -66,6 +66,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     @IBAction func DoneButton(_ sender: Any) {
         if selectedWords.count > 0 {
+            for cell in selectedCells {
+                cell.setFreq(f: cell.freq + 1)
+                print("freq \(cell.getFreq())")
+            }
             // At least one image is selected
             ImageToText.instance.reset()
             performSegue(withIdentifier: "IIToResult_segue", sender: self)

@@ -132,7 +132,7 @@ class Utility {
     func printRecentSentences() {
         for sentence in recentSentences {
             for image in sentence {
-                print(image.word + " ", terminator: "")
+                print(image.word, terminator: " ")
             }
             print()
         }

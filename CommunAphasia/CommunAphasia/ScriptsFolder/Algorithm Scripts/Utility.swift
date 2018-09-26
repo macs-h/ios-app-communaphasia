@@ -49,6 +49,7 @@ class Utility {
     let GR_NUM = Expression<String>("grNum")
     let CATEGORY = Expression<String>("category")
     let TENSE = Expression<String>("tense")
+    let FREQ = Expression<Int>("freq")
     
     
     /**
@@ -209,6 +210,26 @@ class Utility {
             print(error)
         }
         return cells
+    }
+    
+    func getFreq(word: String) -> Int{
+        let query = CELL_TABLE.select(FREQ).filter(KEYWORD.like(word))
+        do {
+            for cell in try database.prepare(query) {
+                return cell[FREQ]
+            }
+        } catch {
+            print(error)
+        }
+        return 0
+    }
+    func setFreq(word: String,freq: Int) {
+        let cell = CELL_TABLE.filter(KEYWORD.like(word))
+        do {
+            try self.database.run(cell.update(FREQ <- freq))
+        } catch {
+            print(error)
+        }
     }
 
     
@@ -428,6 +449,8 @@ class Utility {
             table.column(self.GR_NUM)
             table.column(self.CATEGORY)
             table.column(self.TENSE)
+            table.column(self.FREQ)
+            
         }
         do {
             try self.database.run(makeTable)
@@ -471,7 +494,8 @@ class Utility {
                         self.RELATIONSHIPS <- values[3],
                         self.GR_NUM <- values[4],
                         self.CATEGORY <- values[5],
-                        self.TENSE <- values[6]
+                        self.TENSE <- values[6],
+                        self.FREQ <- 0
                     )
                     do {
                         try self.database.run(insertImage)

@@ -143,11 +143,31 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         for collection in inputCollectionViews{
             collection.reloadData()
         }
+        sortCellsByfreq()
 //        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
     
-    
+    func sortCellsByfreq(){
+        var tempCells: [[(String, String, UIImage, [String], String, String, String)]] = [[]]
+        for cellArray in cellsInCategory {
+            //images of a specific type
+            var wordfreqs:[String:Int] = [:]
+            for cell in cellArray {
+                wordfreqs[cell.0] = Utility.instance.getFreq(word: cell.0)
+            }
+            let sortedWords:[String] = Array(wordfreqs.keys).sorted(by: { (word1, word2) -> Bool in
+                return wordfreqs[word1]! > wordfreqs[word2]!
+            })
+            tempCells.append(cellArray.sorted(by: { (cell1, cell2) -> Bool in
+                return sortedWords.index(of: cell1.0)! < sortedWords.index(of: cell2.0)!
+            }))
+        }
+        for cell in tempCells {
+            print(cell.first?.0)
+        }
+        cellsInCategory = tempCells
+    }
     
     // ----------------------------------------------------------------------
     // Collection view stuff.

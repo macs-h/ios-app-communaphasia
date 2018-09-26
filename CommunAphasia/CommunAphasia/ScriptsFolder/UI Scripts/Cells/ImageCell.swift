@@ -22,6 +22,7 @@ class ImageCell: UICollectionViewCell {
     var grNum: String = gNum.singlular.rawValue
     var category: String = "Other"
     var tense: String = "current"
+    var freq: Int = 0
     
     var frequency:Int = 0
     
@@ -53,6 +54,7 @@ class ImageCell: UICollectionViewCell {
         self.grNum = cell.grNum
         self.category = cell.category
         self.tense = cell.tense
+        self.getFreq()
     }
     
     
@@ -69,6 +71,17 @@ class ImageCell: UICollectionViewCell {
         return (self.word, self.type, self.imageView.image!, self.suggestedWords, self.grNum, self.category, self.tense)
     }
     
+    func setFreq(f:Int) {
+        self.freq = f
+        //maybe
+        Utility.instance.setFreq(word: self.word, freq: f)
+    }
+    func getFreq() -> Int{
+        //maybe
+        self.freq = Utility.instance.getFreq(word: self.word)
+        
+        return self.freq
+    }
     
     /**
         Shows a duplicate of the image to show plurality.

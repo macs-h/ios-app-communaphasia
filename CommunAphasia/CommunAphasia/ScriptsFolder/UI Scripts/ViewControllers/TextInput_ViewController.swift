@@ -38,8 +38,11 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
     //var cells = [ImageCell]() - intending to change this later to hold cells instead of tuples
     
-    //var activityIndicator = UIActivityIndicatorView()
-    @IBOutlet weak var tempLoadingLabel: UILabel!
+//<<<<<<< HEAD
+//    //var activityIndicator = UIActivityIndicatorView()
+//    @IBOutlet weak var tempLoadingLabel: UILabel!
+//=======
+    var suggestedWordsArray = [Int]()
     
     /**
         Called after the controller's view is loaded into memory.
@@ -99,6 +102,60 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     /**
+        Sets the colour of the text in the text input field depending on if the input is
+        valid or not, and also which word is currently selected to be changed.
+     */
+    fileprivate func setTextLabelColour() {
+        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
+        }else{
+            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
+        }
+    }
+    
+    
+    /**
+        Updates the error message displayed on screen if there are invalid words.
+     */
+    fileprivate func updateSynonymLabel(word: String) {
+        if Utility.instance.isInDatabase(word: word) {
+            synonymLabel.text = "\"" + word + "\" is valid!"
+        } else {
+            synonymLabel.text = "Can't find \"" + word + "\", try one of these:"
+        }
+    }
+    
+    
+    /**
+        Selects the current word to be changed and sets the colour to `blue`.
+     */
+    fileprivate func suggestionValidator() {
+        currentIndex = errorIndices[errorIndex]
+        updateSynonymLabel(word: stringArray[currentIndex])
+        
+        pickerData = synonyms[errorIndex]
+        pickerView.reloadAllComponents()
+        
+        attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
+        setTextFromArray()
+    }
+    
+    
+    /**
+        Updates the visibility of the picker view depending on whether there are
+        suggestions to show or not.
+     */
+    fileprivate func updatePickerViewVisibility() {
+        if suggestedWordsArray[currentIndex] == 0 {
+            pickerView.isHidden = true
+            synonymLabel.text = "Unable to find alternatives for \"" + stringArray[currentIndex] + "\".\nPlease rephrase"
+        } else {
+            pickerView.isHidden = false
+        }
+    }
+    
+    
+    /**
         When the user selects the next button the selected error (unfound word)
         in the text field moves to the right. The previous selection will turn
         green if it is in the database and red if not.
@@ -108,28 +165,12 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     */
     @IBAction func nextButtonPressed(_ sender: Any) {
         
-        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
-            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
-        }else{
-            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
-        }
+        setTextLabelColour()
         
         if currentIndex < errorIndices[errorIndices.count-1] {
-            
             errorIndex += 1
-            currentIndex = errorIndices[errorIndex]
-            
-            if Utility.instance.isInDatabase(word: stringArray[currentIndex]){
-                synonymLabel.text = "'" + stringArray[currentIndex] + "' is valid!"
-            }else{
-                synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
-            }
-            pickerData = synonyms[errorIndex]
-            pickerData.append(String(errorIndex))
-            pickerView.reloadAllComponents()
-            
-            attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
-            setTextFromArray()
+            suggestionValidator()
+            updatePickerViewVisibility()
         }
         
     }
@@ -145,27 +186,12 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
      */
     @IBAction func prevButtonPressed(_ sender: Any) {
         
-        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
-            attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
-        }else{
-            attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
-        }
+        setTextLabelColour()
+        
         if currentIndex > errorIndices[0] {
-            
             errorIndex -= 1
-            currentIndex = errorIndices[errorIndex]
-            
-            if Utility.instance.isInDatabase(word: stringArray[currentIndex]){
-                synonymLabel.text = "'" + stringArray[currentIndex] + "' is valid!"
-            }else{
-                synonymLabel.text = "Cant find '" + stringArray[currentIndex] + "', try one of these:"
-            }
-            pickerData = synonyms[errorIndex]
-            pickerData.append(String(errorIndex))
-            pickerView.reloadAllComponents()
-            
-            attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
-            setTextFromArray()
+            suggestionValidator()
+            updatePickerViewVisibility()
         }
     }
     
@@ -286,14 +312,20 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         if textField.text != ""{
             let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
+            print(inputArray)
             let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
             
             
             let errorArray = makeCells(using: wordArray, from: inputArray)
             
+            for word in errorArray{
+                print("\(word) \(inputArray[word])")
+            }
+            
             if errorArray.count > 0 {
-                //showErrors(inputArray, errorArray, inputArray)
                 cells.removeAll()
+                
+                suggestedWordsArray = [Int](repeating: 0, count: inputArray.count)
                 
                 for index in errorArray{
                     var availableSynonyms: [String] = []
@@ -302,36 +334,59 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         print("Internet Connection Available!")
                         
                         if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
-                            print("SYN:", synonyms)
-                            availableSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
-                            //availableSynonyms.append("test")
+                            print("> Word: \(inputArray[index]) --> SYN: \(synonyms)")
                             
-                            print("available sysnonyms:",availableSynonyms)
+                            let matchedSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
+                            if !matchedSynonyms.isEmpty {
+                                suggestedWordsArray.insert(synonyms.count, at: index)
+                                availableSynonyms += matchedSynonyms
+                            }
+                            
                         } else {
-                            print("No synonyms found") // handle this?
+                            print("> No synonyms found from API for \"\(inputArray[index])\"") // handle this?
+                            
+                            // Check if the word is a contraction if it cannot be sent to the WordsAPI
+                            // to search for synonyms. If it is, break the contraction down to two words
+                            // and add it to the suggested words.
+                            var apostropheCount: Int = 0
+                            for character in inputArray[index] {
+                                // Using unicode to check for apostrophe because tried all other methods
+                                // and can't figure out a way to check if an apostrophe exists in a String.
+                                //
+                                // The issue is that normal apostrophe is 39 (Unicode) but for whatever
+                                // reason, the apostrophe contained in the inputArray is 8217 (Unicode).
+                                if character.unicode() == 8217 || character.unicode() == 39 {
+                                    apostropheCount += 1
+                                }
+                            }
+                            
+                            if apostropheCount == 1 {
+                                let contraction = Utility.instance.lemmaTag(inputString: inputArray[index])
+                                availableSynonyms.append(contraction.joined(separator: " "))
+                                suggestedWordsArray.insert(1, at: index)
+                            }
                         }
-                        availableSynonyms.append(contentsOf: ["man","eat","cat"])
+                        
                         synonyms.append(availableSynonyms)
                     } else {
                         print("Internet Connection not Available!")
                     }
 
                 }
-                //do things with sysnonyms
-                if Utility.instance.isInDatabase(word: errors[errorIndex]){
-                    synonymLabel.text = "'" + errors[errorIndex] + "' is valid!"
-                }else{
-                    synonymLabel.text = "Cant find '" + errors[errorIndex] + "', try one of these:"
-                }
-                synonymLabel.isHidden = false
                 
+                print("--- \(suggestedWordsArray)")
+                
+                //do things with sysnonyms
+                updateSynonymLabel(word: errors[errorIndex])
+                synonymLabel.isHidden = false
+            
+            
                 pickerData = synonyms[errorIndex]
-                pickerData.append(String(errorIndex))
                 currentIndex = errorArray[0]
                 errorIndices = errorArray
-               print("------- currentIndex", currentIndex)
+                print("------- currentIndex", currentIndex)
                 pickerView.reloadAllComponents()
-                pickerView.isHidden = false
+                updatePickerViewVisibility()
                 
                 nextButton.isHidden = false
                 prevButton.isHidden = false
@@ -344,7 +399,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
                 attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
                 setTextFromArray()
-                stopActivityIndicator() //--------
                 print("------- error array end", errorArray)
             } else {
                 var inputString: String = textField.text!
@@ -430,6 +484,14 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 } // End of TextInput_ViewController class!
 
 
+extension Character {
+    func unicode() -> UInt32 {
+        let characterString = String(self)
+        let scalars = characterString.unicodeScalars
+        
+        return scalars[scalars.startIndex].value
+    }
+}
 
 
 

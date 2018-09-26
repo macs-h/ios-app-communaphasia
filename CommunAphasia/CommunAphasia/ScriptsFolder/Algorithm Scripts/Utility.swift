@@ -215,7 +215,11 @@ class Utility {
         }
         return cells
     }
-    
+    /**
+        gets the value of frequency for a specific word from the database.
+     
+        - Parameter word: the word from which to get the frequency that it has been used
+    */
     func getFreq(word: String) -> Int{
         let query = CELL_TABLE.select(FREQ).filter(KEYWORD.like(word))
         do {
@@ -227,6 +231,13 @@ class Utility {
         }
         return 0
     }
+    
+    /**
+        Sets the frequency of a specific word in the database.
+     
+     - Parameter word: the word to which the parameter will be set.
+     - Parameter freq: the frequenct which will be given to the word.
+    */
     func setFreq(word: String,freq: Int) {
         let cell = CELL_TABLE.filter(KEYWORD.like(word))
         do {

@@ -62,7 +62,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             showTute(num: currentTute)
         }
     }
-    
+    /**
+        calls the tutorial view controler to allow the user to learn
+        how to use the app.
+     
+     - parameter num: which tutoral the user is undergoing
+     */
     func showTute(num: Int) {
         let tuteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tuteVC") as! ImageInputTutorial
         
@@ -148,6 +153,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         currentCategoyIndex = sender.tag
     }
     
+    /**
+     Sorts the 2d array that consists of arrays of cells (cellsInCategory). the cells are sorted
+     in their array by the frequency of their word.
+     
+     */
     func sortCellsByfreq(){
         //this has to make a small call to the database for every image but was easier than changing every tuple to type ImageCell
         var tempCells: [[(String, String, UIImage, [String], String, String, String)]] = [[]]
@@ -165,12 +175,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             }))
         }
         tempCells.removeFirst()
-        for cell in tempCells {
-            print("tempCell-",cell.first?.0)
-        }
-        for cell in cellsInCategory {
-            print("origional-",cell.first?.0)
-        }
+//        for cell in tempCells {
+//            print("tempCell-",cell.first?.0)
+//        }
+//        for cell in cellsInCategory {
+//            print("origional-",cell.first?.0)
+//        }
         cellsInCategory = tempCells
     }
     

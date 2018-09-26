@@ -149,6 +149,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func sortCellsByfreq(){
+        //this has to make a small call to the database for every image but was easier than changing every tuple to type ImageCell
         var tempCells: [[(String, String, UIImage, [String], String, String, String)]] = [[]]
         for cellArray in cellsInCategory {
             //images of a specific type
@@ -163,8 +164,12 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 return sortedWords.index(of: cell1.0)! < sortedWords.index(of: cell2.0)!
             }))
         }
+        tempCells.removeFirst()
         for cell in tempCells {
-            print(cell.first?.0)
+            print("tempCell-",cell.first?.0)
+        }
+        for cell in cellsInCategory {
+            print("origional-",cell.first?.0)
         }
         cellsInCategory = tempCells
     }

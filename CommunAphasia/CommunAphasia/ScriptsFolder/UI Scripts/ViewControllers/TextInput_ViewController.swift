@@ -206,12 +206,13 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             - component:    the component which is selected.
      */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row != 0 {
         attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
         attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
         setTextFromArray()
-        stringArray[currentIndex] = pickerData[row]
         //need to display attributed array in the text field
         //textField.text = stringArray.joined(separator: " ")
+        }
     }
     
     
@@ -306,6 +307,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerView.endEditing(true)
         pickerView.isHidden = true
         synonymLabel.isHidden = true
+        synonyms = [[String]]()
         attributedString = NSMutableAttributedString()
         attributedArray.removeAll()
         errorIndex = 0
@@ -382,6 +384,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
             
                 pickerData = synonyms[errorIndex]
+                pickerData.insert("", at: 0)
                 currentIndex = errorArray[0]
                 errorIndices = errorArray
                 print("------- currentIndex", currentIndex)

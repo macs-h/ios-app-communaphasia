@@ -106,7 +106,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             imageResultsVC.selectedCellsResult = selectedCells
             
             imageResultsVC.hero.isEnabled = true
-            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
+             imageResultsVC.hero.modalAnimationType =  .fade
+//            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
             self.hero.replaceViewController(with: imageResultsVC)
             
         } else {
@@ -114,6 +115,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
+    @IBAction func backButtonAction(_ sender: Any) {
+        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+        mainVC.hero.isEnabled = true
+        mainVC.hero.modalAnimationType = .pageOut(direction: HeroDefaultAnimationType.Direction.right)
+        self.hero.replaceViewController(with: mainVC)
+        
+    }
     
 //    /**
 //        Notifies the view controller that a segue is about to be performed.

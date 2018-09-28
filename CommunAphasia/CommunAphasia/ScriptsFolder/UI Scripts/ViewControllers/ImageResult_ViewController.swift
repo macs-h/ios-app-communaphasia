@@ -88,7 +88,9 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     @IBAction func backAction(_ sender: Any) {
         let imageInputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageInputVC")
         imageInputVC.hero.isEnabled = true
-        imageInputVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.right)
+        imageInputVC.hero.modalAnimationType =  .fade
+
+//        imageInputVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.right)
         self.hero.replaceViewController(with: imageInputVC)
 
     }

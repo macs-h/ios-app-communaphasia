@@ -61,7 +61,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func BackButtonAction(_ sender: Any) {
         let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
         mainVC.hero.isEnabled = true
-        mainVC.hero.modalAnimationType = .pageIn(direction: HeroDefaultAnimationType.Direction.right)
+        mainVC.hero.modalAnimationType = .pageOut(direction: HeroDefaultAnimationType.Direction.right)
         self.hero.replaceViewController(with: mainVC)
         
     }
@@ -149,7 +149,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 textToImageResultVC.cellsToBeShown = cells
                 
                 textToImageResultVC.hero.isEnabled = true
-                textToImageResultVC.hero.modalAnimationType = .push(direction: HeroDefaultAnimationType.Direction.left)
+                textToImageResultVC.hero.modalAnimationType = .fade
+//                textToImageResultVC.hero.modalAnimationType = .push(direction: HeroDefaultAnimationType.Direction.left)
                 self.hero.replaceViewController(with: textToImageResultVC)
             }
         }

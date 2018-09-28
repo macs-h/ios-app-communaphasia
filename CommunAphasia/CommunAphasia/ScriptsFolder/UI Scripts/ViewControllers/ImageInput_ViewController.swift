@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 /**
     Controls everything on the image input screen.
@@ -100,27 +101,42 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             // At least one image is selected
             ImageToText.instance.reset()
-            performSegue(withIdentifier: "IIToResult_segue", sender: self)
+//            performSegue(withIdentifier: "IIToResult_segue", sender: self)
+            let imageResultsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageResultVC") as! ImageResult_ViewController
+            imageResultsVC.selectedCellsResult = selectedCells
+            
+            imageResultsVC.hero.isEnabled = true
+             imageResultsVC.hero.modalAnimationType =  .fade
+//            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
+            self.hero.replaceViewController(with: imageResultsVC)
+            
         } else {
             // No picture selectect so show warning?
         }
     }
     
-    
-    /**
-        Notifies the view controller that a segue is about to be performed.
-     
-        - Parameters:
-            - segue:    The segue object containing information about the view
-                        controllers involved in the segue.
-            - sender:   The object that initiated the segue.
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "IIToResult_segue") {
-            let resultController = segue.destination as! ImageResult_ViewController
-            resultController.selectedCellsResult = selectedCells
-        }
+    @IBAction func backButtonAction(_ sender: Any) {
+        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+        mainVC.hero.isEnabled = true
+        mainVC.hero.modalAnimationType = .pageOut(direction: HeroDefaultAnimationType.Direction.right)
+        self.hero.replaceViewController(with: mainVC)
+        
     }
+    
+//    /**
+//        Notifies the view controller that a segue is about to be performed.
+//
+//        - Parameters:
+//            - segue:    The segue object containing information about the view
+//                        controllers involved in the segue.
+//            - sender:   The object that initiated the segue.
+//     */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "IIToResult_segue") {
+//            let resultController = segue.destination as! ImageResult_ViewController
+//            resultController.selectedCellsResult = selectedCells
+//        }
+//    }
     
     
     /**

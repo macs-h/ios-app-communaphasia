@@ -21,6 +21,7 @@
 		19EE0309211FF79E008AEC64 /* they.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0302211FF79D008AEC64 /* they.png */; };
 		19EE030B211FF79E008AEC64 /* you.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0304211FF79E008AEC64 /* you.png */; };
 		19EE030C211FF79E008AEC64 /* he.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0305211FF79E008AEC64 /* he.png */; };
+		350128F3A295C53A1CAFF245 /* Pods_CommunAphasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */; };
 		44856EE920BBD0600035C01A /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE020BBD0600035C01A /* sleep.png */; };
 		44856EEA20BBD0600035C01A /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE720BBD0600035C01A /* call.png */; };
 		44856EEB20BBD0600035C01A /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE820BBD0600035C01A /* eat.png */; };
@@ -30,7 +31,7 @@
 		524D0BBF20B100A000EC19E7 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 524D0BAF20B1004500EC19E7 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601DEB6220BA7A7E00FF2778 /* ImageToText.swift */; };
 		60249A1F20B91CC100BBC5FC /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
-		81364F5A215D8E9100AF2728 /* CommunAphasiaUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81364F59215D8E9100AF2728 /* CommunAphasiaUnitTests.swift */; };
+		81674225215DCE3300467C7F /* CommunAphasiaUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81674224215DCE3300467C7F /* CommunAphasiaUnitTests.swift */; };
 		C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBC0E2115557300A66995 /* ImageCell.swift */; };
 		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
 		C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */; };
@@ -153,7 +154,7 @@
 			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
 			remoteInfo = "SQLite iOS";
 		};
-		81364F5C215D8E9100AF2728 /* PBXContainerItemProxy */ = {
+		81674227215DCE3300467C7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EDF7206220AD3FA700675140 /* Project object */;
 			proxyType = 1;
@@ -177,6 +178,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E90579254723A11B7A36217 /* Pods-CommunAphasiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0FD059D3126CBF970DAE1D24 /* Pods-CommunAphasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.release.xcconfig"; sourceTree = "<group>"; };
+		1637827B45069A98D7E57C1E /* Pods-CommunAphasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.debug.xcconfig"; sourceTree = "<group>"; };
 		1951CB3C2121918A005D7892 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
 		195AEB66211D070600E5AA04 /* fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fast.png; sourceTree = "<group>"; };
 		195AEB67211D070600E5AA04 /* waiting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waiting.jpg; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 		19EE0302211FF79D008AEC64 /* they.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = they.png; sourceTree = "<group>"; };
 		19EE0304211FF79E008AEC64 /* you.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you.png; sourceTree = "<group>"; };
 		19EE0305211FF79E008AEC64 /* he.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = he.png; sourceTree = "<group>"; };
+		2F0F6888C2892AD920636A30 /* Pods-CommunAphasiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44856EE020BBD0600035C01A /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
 		44856EE720BBD0600035C01A /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		44856EE820BBD0600035C01A /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
@@ -198,12 +203,16 @@
 		44856EFB20BBF90D0035C01A /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i.jpg; sourceTree = "<group>"; };
 		524D0BA420B1004400EC19E7 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		601DEB6220BA7A7E00FF2778 /* ImageToText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
-		81364F57215D8E9100AF2728 /* CommunAphasiaUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunAphasiaUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		81364F59215D8E9100AF2728 /* CommunAphasiaUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunAphasiaUnitTests.swift; sourceTree = "<group>"; };
-		81364F5B215D8E9100AF2728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		744461CEF0C69985D168A3FD /* Pods-CommunAphasiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.release.xcconfig"; sourceTree = "<group>"; };
+		7EB385D32A9FEAE503364359 /* Pods-CommunAphasiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		81674222215DCE3300467C7F /* CommunAphasiaUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunAphasiaUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81674224215DCE3300467C7F /* CommunAphasiaUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunAphasiaUnitTests.swift; sourceTree = "<group>"; };
+		81674226215DCE3300467C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A79D07EB33DC05DE37E7F40C /* Pods_CommunAphasiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10CBC0E2115557300A66995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
 		C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputTutorial.swift; sourceTree = "<group>"; };
+		E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
 		ED27976220B7C7C0001AF14C /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
 		ED27976320B7C7C0001AF14C /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
@@ -267,10 +276,11 @@
 		EDFA3AF420B8EF9D00F6DBBD /* food_lunch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food_lunch.png; sourceTree = "<group>"; };
 		EDFA3AF620B8EFB500F6DBBD /* man_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man_silhouette.png; sourceTree = "<group>"; };
 		EDFA3AF820B8EFB900F6DBBD /* woman_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman_silhouette.png; sourceTree = "<group>"; };
+		EFC3CF3A076B9B9ECBF5E986 /* Pods_CommunAphasiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		81364F54215D8E9100AF2728 /* Frameworks */ = {
+		8167421F215DCE3300467C7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524D0BBE20B100A000EC19E7 /* SQLite.framework in Frameworks */,
+				350128F3A295C53A1CAFF245 /* Pods_CommunAphasia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,15 +324,18 @@
 		524D0BBC20B1009100EC19E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */,
+				EFC3CF3A076B9B9ECBF5E986 /* Pods_CommunAphasiaTests.framework */,
+				A79D07EB33DC05DE37E7F40C /* Pods_CommunAphasiaUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		81364F58215D8E9100AF2728 /* CommunAphasiaUnitTests */ = {
+		81674223215DCE3300467C7F /* CommunAphasiaUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				81364F59215D8E9100AF2728 /* CommunAphasiaUnitTests.swift */,
-				81364F5B215D8E9100AF2728 /* Info.plist */,
+				81674224215DCE3300467C7F /* CommunAphasiaUnitTests.swift */,
+				81674226215DCE3300467C7F /* Info.plist */,
 			);
 			path = CommunAphasiaUnitTests;
 			sourceTree = "<group>";
@@ -332,6 +346,19 @@
 				C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */,
 			);
 			path = TutorialScripts;
+			sourceTree = "<group>";
+		};
+		D289DEFA8D97519CF5B9D1C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1637827B45069A98D7E57C1E /* Pods-CommunAphasia.debug.xcconfig */,
+				0FD059D3126CBF970DAE1D24 /* Pods-CommunAphasia.release.xcconfig */,
+				2F0F6888C2892AD920636A30 /* Pods-CommunAphasiaTests.debug.xcconfig */,
+				744461CEF0C69985D168A3FD /* Pods-CommunAphasiaTests.release.xcconfig */,
+				0E90579254723A11B7A36217 /* Pods-CommunAphasiaUITests.debug.xcconfig */,
+				7EB385D32A9FEAE503364359 /* Pods-CommunAphasiaUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		ED27975F20B7C7C0001AF14C /* Images */ = {
@@ -471,10 +498,11 @@
 			children = (
 				EDFA3AE920B8ED9100F6DBBD /* images.txt */,
 				EDF7206C20AD3FA700675140 /* CommunAphasia */,
-				81364F58215D8E9100AF2728 /* CommunAphasiaUnitTests */,
+				81674223215DCE3300467C7F /* CommunAphasiaUnitTests */,
 				EDF7206B20AD3FA700675140 /* Products */,
 				524D0BA320B0FFB700EC19E7 /* SQLite Resources */,
 				524D0BBC20B1009100EC19E7 /* Frameworks */,
+				D289DEFA8D97519CF5B9D1C5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -482,7 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF7206A20AD3FA700675140 /* CommunAphasia.app */,
-				81364F57215D8E9100AF2728 /* CommunAphasiaUnitTests.xctest */,
+				81674222215DCE3300467C7F /* CommunAphasiaUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -505,32 +533,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81364F56215D8E9100AF2728 /* CommunAphasiaUnitTests */ = {
+		81674221215DCE3300467C7F /* CommunAphasiaUnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81364F5E215D8E9100AF2728 /* Build configuration list for PBXNativeTarget "CommunAphasiaUnitTests" */;
+			buildConfigurationList = 81674229215DCE3300467C7F /* Build configuration list for PBXNativeTarget "CommunAphasiaUnitTests" */;
 			buildPhases = (
-				81364F53215D8E9100AF2728 /* Sources */,
-				81364F54215D8E9100AF2728 /* Frameworks */,
-				81364F55215D8E9100AF2728 /* Resources */,
+				8167421E215DCE3300467C7F /* Sources */,
+				8167421F215DCE3300467C7F /* Frameworks */,
+				81674220215DCE3300467C7F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				81364F5D215D8E9100AF2728 /* PBXTargetDependency */,
+				81674228215DCE3300467C7F /* PBXTargetDependency */,
 			);
 			name = CommunAphasiaUnitTests;
 			productName = CommunAphasiaUnitTests;
-			productReference = 81364F57215D8E9100AF2728 /* CommunAphasiaUnitTests.xctest */;
+			productReference = 81674222215DCE3300467C7F /* CommunAphasiaUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		EDF7206920AD3FA700675140 /* CommunAphasia */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDF7209220AD3FA700675140 /* Build configuration list for PBXNativeTarget "CommunAphasia" */;
 			buildPhases = (
+				9FCFA85B6DF19E09E6E7EF4F /* [CP] Check Pods Manifest.lock */,
 				EDF7206620AD3FA700675140 /* Sources */,
 				EDF7206720AD3FA700675140 /* Frameworks */,
 				EDF7206820AD3FA700675140 /* Resources */,
 				524D0BC220B100A100EC19E7 /* Embed Frameworks */,
+				62E09BE7B38FC6574D3D5904 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -552,7 +582,7 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Cosc345;
 				TargetAttributes = {
-					81364F56215D8E9100AF2728 = {
+					81674221215DCE3300467C7F = {
 						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EDF7206920AD3FA700675140;
@@ -585,7 +615,7 @@
 			projectRoot = "";
 			targets = (
 				EDF7206920AD3FA700675140 /* CommunAphasia */,
-				81364F56215D8E9100AF2728 /* CommunAphasiaUnitTests */,
+				81674221215DCE3300467C7F /* CommunAphasiaUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -643,7 +673,7 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		81364F55215D8E9100AF2728 /* Resources */ = {
+		81674220215DCE3300467C7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -729,12 +759,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		62E09BE7B38FC6574D3D5904 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FCFA85B6DF19E09E6E7EF4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CommunAphasia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		81364F53215D8E9100AF2728 /* Sources */ = {
+		8167421E215DCE3300467C7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81364F5A215D8E9100AF2728 /* CommunAphasiaUnitTests.swift in Sources */,
+				81674225215DCE3300467C7F /* CommunAphasiaUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,10 +836,10 @@
 			name = "SQLite iOS";
 			targetProxy = 524D0BC020B100A000EC19E7 /* PBXContainerItemProxy */;
 		};
-		81364F5D215D8E9100AF2728 /* PBXTargetDependency */ = {
+		81674228215DCE3300467C7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EDF7206920AD3FA700675140 /* CommunAphasia */;
-			targetProxy = 81364F5C215D8E9100AF2728 /* PBXContainerItemProxy */;
+			targetProxy = 81674227215DCE3300467C7F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -802,7 +871,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		81364F5F215D8E9100AF2728 /* Debug */ = {
+		8167422A215DCE3300467C7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -823,7 +892,7 @@
 			};
 			name = Debug;
 		};
-		81364F60215D8E9100AF2728 /* Release */ = {
+		8167422B215DCE3300467C7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -961,6 +1030,7 @@
 		};
 		EDF7209320AD3FA700675140 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1637827B45069A98D7E57C1E /* Pods-CommunAphasia.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -981,6 +1051,7 @@
 		};
 		EDF7209420AD3FA700675140 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FD059D3126CBF970DAE1D24 /* Pods-CommunAphasia.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1002,11 +1073,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81364F5E215D8E9100AF2728 /* Build configuration list for PBXNativeTarget "CommunAphasiaUnitTests" */ = {
+		81674229215DCE3300467C7F /* Build configuration list for PBXNativeTarget "CommunAphasiaUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				81364F5F215D8E9100AF2728 /* Debug */,
-				81364F60215D8E9100AF2728 /* Release */,
+				8167422A215DCE3300467C7F /* Debug */,
+				8167422B215DCE3300467C7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

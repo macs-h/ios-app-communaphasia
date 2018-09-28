@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main menu controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Main menu controller" customClass="MainMenu_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" userLabel="Main menu controller" customClass="MainMenu_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -29,7 +28,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.5601342429577465" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="F8O-mK-ZoV" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="1ob-KH-uom"/>
+                                    <action selector="TextToImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d10-tx-dfh"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-NZ-nbS">
@@ -43,7 +42,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.56013424300000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="Si4-Fs-9gl"/>
+                                    <action selector="ImageToTextAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rif-BR-fuv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-3Z-HM8">
@@ -67,7 +66,7 @@
         <!--Image Result View Controller-->
         <scene sceneID="UL0-fO-TSC">
             <objects>
-                <viewController id="jrt-i2-IQI" customClass="ImageResult_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageResultVC" id="jrt-i2-IQI" customClass="ImageResult_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ddw-SN-M9f"/>
                         <viewControllerLayoutGuide type="bottom" id="hLA-Yl-R4R"/>
@@ -120,19 +119,16 @@
                                 <color key="textColor" red="0.090196078431372548" green="0.14117647058823529" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-V6-sZw">
-                                <rect key="frame" x="1053" y="20" width="59" height="57"/>
-                                <state key="normal" image="Back button flipped"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-V6-sZw">
+                                <rect key="frame" x="20" y="20" width="59" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Back button"/>
                                 <connections>
-                                    <segue destination="IVG-Ho-Scw" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="Tuv-aW-ka3"/>
+                                    <action selector="backAction:" destination="jrt-i2-IQI" eventType="touchUpInside" id="qhw-Vo-CUK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="XwQ-V6-sZw" firstAttribute="top" secondItem="ddw-SN-M9f" secondAttribute="bottom" constant="10" id="Dza-gw-VX6"/>
-                            <constraint firstItem="XwQ-V6-sZw" firstAttribute="trailing" secondItem="iGr-uT-mtI" secondAttribute="trailingMargin" constant="10" id="zZY-ny-9my"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="InputImagesCollectionView" destination="uZX-5L-KPk" id="Q1o-Z9-Wlb"/>
@@ -141,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7g-bj-NVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2245.1438848920866" y="122.30215827338131"/>
+            <point key="canvasLocation" x="1624" y="978"/>
         </scene>
         <!--Image Input Tutorial-->
         <scene sceneID="Ylz-Mo-jeC">
@@ -190,7 +186,7 @@
         <!--Image Input View Controller-->
         <scene sceneID="J8f-Ve-7Lo">
             <objects>
-                <viewController id="IVG-Ho-Scw" customClass="ImageInput_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageInputVC" id="IVG-Ho-Scw" customClass="ImageInput_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="icy-rQ-6Gb"/>
                         <viewControllerLayoutGuide type="bottom" id="gLa-2R-bAz"/>
@@ -206,18 +202,6 @@
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="385-dj-3ZL" userLabel="Back button">
-                                <rect key="frame" x="1051" y="20" width="59" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Back button flipped"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="Vq3-nG-FAk"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
-                                <rect key="frame" x="42" y="149" width="946" height="486"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jFU-Z1-RvD">
                                 <rect key="frame" x="62" y="740" width="946" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
@@ -575,6 +559,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="385-dj-3ZL" userLabel="Back button">
+                                <rect key="frame" x="20" y="20" width="59" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Back button"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="5IO-PP-aBo"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
+                                <rect key="frame" x="42" y="149" width="946" height="486"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
@@ -600,12 +596,11 @@
                         <outletCollection property="inputCollectionViews" destination="49e-3z-UAo" collectionClass="NSMutableArray" id="ltL-ge-5Ge"/>
                         <outletCollection property="inputCollectionViews" destination="D7p-fV-TeZ" collectionClass="NSMutableArray" id="S2M-eg-tXi"/>
                         <outletCollection property="inputCollectionViews" destination="tnf-4Q-VRt" collectionClass="NSMutableArray" id="G40-dQ-IxD"/>
-                        <segue destination="jrt-i2-IQI" kind="custom" identifier="IIToResult_segue" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="1qB-hy-XeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1081" y="65"/>
+            <point key="canvasLocation" x="930" y="978"/>
         </scene>
         <!--Tense View Controller-->
         <scene sceneID="ntY-PR-Ppj">
@@ -709,7 +704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEG-9j-Pki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1620" y="1152"/>
+            <point key="canvasLocation" x="673" y="1783"/>
         </scene>
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
@@ -790,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffN-i2-Fa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-397" y="1152"/>
+            <point key="canvasLocation" x="1413" y="1783"/>
         </scene>
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
@@ -824,7 +819,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Back button"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="aWA-95-zEq"/>
+                                    <action selector="BackButtonAction:" destination="F8O-mK-ZoV" eventType="touchUpInside" id="duI-lS-Y7x"/>
                                 </connections>
                             </button>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-j1-6lR">
@@ -854,13 +849,6 @@
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeF-06-7oE">
-                                <rect key="frame" x="490" y="224" width="143" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can't find &quot; &quot;, try one of these:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxG-Vz-OLB" userLabel="synonymLabel">
                                 <rect key="frame" x="351" y="451" width="410" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -868,27 +856,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-fC-DLF">
+                                <rect key="frame" x="538" y="399" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="u9J-fC-DLF" id="Bsl-Ij-Rj8"/>
                         <outlet property="nextButton" destination="lO7-a2-zzF" id="c5e-ZD-riF"/>
                         <outlet property="pickerView" destination="CNl-j1-6lR" id="egf-MA-Jnb"/>
                         <outlet property="prevButton" destination="RFF-Cj-VHj" id="9b1-k7-Whg"/>
                         <outlet property="synonymLabel" destination="BxG-Vz-OLB" id="Bdl-gW-Mhg"/>
-                        <outlet property="tempLoadingLabel" destination="DeF-06-7oE" id="3Sz-sY-TsN"/>
                         <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
-                        <segue destination="QFY-px-uCe" kind="custom" identifier="TIToResult_segue" customClass="SegueFromRight" customModule="CommunAphasia" customModuleProvider="target" id="9fL-cx-gPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSV-ca-hx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366.7266187050361" y="133.81294964028777"/>
+            <point key="canvasLocation" x="875" y="147"/>
         </scene>
         <!--Text result controller-->
         <scene sceneID="iNj-Ia-tMN">
             <objects>
-                <viewController id="QFY-px-uCe" userLabel="Text result controller" customClass="TextResult_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="textToImageResultVC" id="QFY-px-uCe" userLabel="Text result controller" customClass="TextResult_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sLV-cP-z7H"/>
                         <viewControllerLayoutGuide type="bottom" id="7VH-4d-QoI"/>
@@ -958,7 +949,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Back button"/>
                                 <connections>
-                                    <segue destination="F8O-mK-ZoV" kind="custom" customClass="SegueFromLeft" customModule="CommunAphasia" customModuleProvider="target" id="gQP-Iw-auM"/>
+                                    <action selector="backButtonAction:" destination="QFY-px-uCe" eventType="touchUpInside" id="8Xx-JZ-jda"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -977,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEs-97-Vni" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2659" y="147"/>
+            <point key="canvasLocation" x="1624" y="147"/>
         </scene>
     </scenes>
     <resources>
@@ -1007,9 +998,4 @@
         <image name="pastTense" width="512" height="512"/>
         <image name="presentTense" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="1ob-KH-uom"/>
-        <segue reference="u7j-X1-Uq6"/>
-        <segue reference="aWA-95-zEq"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -35,8 +35,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var synonymLabel: UILabel!
      var suggestedWordsArray = [Int]()
     @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var tempLoadingLabel: UILabel!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var pickerData:[String] = []
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
@@ -184,12 +184,12 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func startActivityIndicator(){
-        tempLoadingLabel.isHidden = false
+        activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
     func stopActivityIndicator(){
-        tempLoadingLabel.isHidden = true
+        activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
 
     }
@@ -227,81 +227,87 @@ extension TextInput_ViewController{
             cells.removeAll()
             
             suggestedWordsArray = [Int](repeating: 0, count: inputArray.count)
-            
-            for index in errorArray{
-                var availableSynonyms: [String] = []
-                // Check internet connection availability.
-                if Utility.instance.isConnectedToNetwork(){
-                    print("Internet Connection Available!")
-                    
-                    if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
-                        print("> Word: \(inputArray[index]) --> SYN: \(synonyms)")
+            //start async
+            startActivityIndicator()
+            DispatchQueue.global(qos: .userInitiated).async {
+                for index in errorArray{
+                    var availableSynonyms: [String] = []
+                    // Check internet connection availability.
+                    if Utility.instance.isConnectedToNetwork(){
+                        print("Internet Connection Available!")
                         
-                        let matchedSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
-                        if !matchedSynonyms.isEmpty {
-                            suggestedWordsArray.insert(synonyms.count, at: index)
-                            availableSynonyms += matchedSynonyms
-                        }
-                        
-                    } else {
-                        print("> No synonyms found from API for \"\(inputArray[index])\"") // handle this?
-                        
-                        // Check if the word is a contraction if it cannot be sent to the WordsAPI
-                        // to search for synonyms. If it is, break the contraction down to two words
-                        // and add it to the suggested words.
-                        var apostropheCount: Int = 0
-                        for character in inputArray[index] {
-                            // Using unicode to check for apostrophe because tried all other methods
-                            // and can't figure out a way to check if an apostrophe exists in a String.
-                            //
-                            // The issue is that normal apostrophe is 39 (Unicode) but for whatever
-                            // reason, the apostrophe contained in the inputArray is 8217 (Unicode).
-                            if character.unicode() == 8217 || character.unicode() == 39 {
-                                apostropheCount += 1
+                        if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
+                            print("> Word: \(inputArray[index]) --> SYN: \(synonyms)")
+                            
+                            let matchedSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
+                            if !matchedSynonyms.isEmpty {
+                                self.suggestedWordsArray.insert(synonyms.count, at: index)
+                                availableSynonyms += matchedSynonyms
+                            }
+                            
+                        } else {
+                            print("> No synonyms found from API for \"\(inputArray[index])\"") // handle this?
+                            
+                            // Check if the word is a contraction if it cannot be sent to the WordsAPI
+                            // to search for synonyms. If it is, break the contraction down to two words
+                            // and add it to the suggested words.
+                            var apostropheCount: Int = 0
+                            for character in inputArray[index] {
+                                // Using unicode to check for apostrophe because tried all other methods
+                                // and can't figure out a way to check if an apostrophe exists in a String.
+                                //
+                                // The issue is that normal apostrophe is 39 (Unicode) but for whatever
+                                // reason, the apostrophe contained in the inputArray is 8217 (Unicode).
+                                if character.unicode() == 8217 || character.unicode() == 39 {
+                                    apostropheCount += 1
+                                }
+                            }
+                            
+                            if apostropheCount == 1 {
+                                let contraction = Utility.instance.lemmaTag(inputString: inputArray[index])
+                                availableSynonyms.append(contraction.joined(separator: " "))
+                                self.suggestedWordsArray.insert(1, at: index)
                             }
                         }
                         
-                        if apostropheCount == 1 {
-                            let contraction = Utility.instance.lemmaTag(inputString: inputArray[index])
-                            availableSynonyms.append(contraction.joined(separator: " "))
-                            suggestedWordsArray.insert(1, at: index)
-                        }
+                        self.synonyms.append(availableSynonyms)
+                    } else {
+                        print("Internet Connection not Available!")
                     }
+                }
                     
-                    synonyms.append(availableSynonyms)
-                } else {
-                    print("Internet Connection not Available!")
+            
+                DispatchQueue.main.async {
+                    print("--- \(self.suggestedWordsArray)")
+                    
+                    //do things with sysnonyms
+                    self.updateSynonymLabel(word: self.errors[self.errorIndex])
+                    self.synonymLabel.isHidden = false
+                    
+                    
+                    self.pickerData = self.synonyms[self.errorIndex]
+                    self.pickerData.insert("", at: 0)
+                    self.currentIndex = errorArray[0]
+                    self.errorIndices = errorArray
+                    print("------- currentIndex", self.currentIndex)
+                    self.pickerView.reloadAllComponents()
+                    self.updatePickerViewVisibility()
+                    
+                    self.nextButton.isHidden = false
+                    self.prevButton.isHidden = false
+                    for word in self.stringArray {
+                        let atWord = NSMutableAttributedString(string: word)
+                        if self.errors.contains(word){
+                            atWord.setColor(color: UIColor.red, forText: atWord.string)
+                        }
+                        self.attributedArray.append(atWord)
+                    }
+                    self.attributedArray[self.errorIndices[0]].setColor(color: UIColor.blue, forText: self.attributedArray[self.errorIndices[0]].string)
+                    self.setTextFromArray()
+                    print("------- error array end", errorArray)
+                    self.stopActivityIndicator()
                 }
-                
             }
-            
-            print("--- \(suggestedWordsArray)")
-            
-            //do things with sysnonyms
-            updateSynonymLabel(word: errors[errorIndex])
-            synonymLabel.isHidden = false
-            
-            
-            pickerData = synonyms[errorIndex]
-            pickerData.insert("", at: 0)
-            currentIndex = errorArray[0]
-            errorIndices = errorArray
-            print("------- currentIndex", currentIndex)
-            pickerView.reloadAllComponents()
-            updatePickerViewVisibility()
-            
-            nextButton.isHidden = false
-            prevButton.isHidden = false
-            for word in stringArray {
-                let atWord = NSMutableAttributedString(string: word)
-                if errors.contains(word){
-                    atWord.setColor(color: UIColor.red, forText: atWord.string)
-                }
-                attributedArray.append(atWord)
-            }
-            attributedArray[errorIndices[0]].setColor(color: UIColor.blue, forText: attributedArray[errorIndices[0]].string)
-            setTextFromArray()
-            print("------- error array end", errorArray)
         } else {
             var inputString: String = textField.text!
             var NSCount: Int = 0

@@ -849,13 +849,6 @@
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeF-06-7oE">
-                                <rect key="frame" x="490" y="224" width="143" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can't find &quot; &quot;, try one of these:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxG-Vz-OLB" userLabel="synonymLabel">
                                 <rect key="frame" x="351" y="451" width="410" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -863,15 +856,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-fC-DLF">
+                                <rect key="frame" x="538" y="399" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="u9J-fC-DLF" id="Bsl-Ij-Rj8"/>
                         <outlet property="nextButton" destination="lO7-a2-zzF" id="c5e-ZD-riF"/>
                         <outlet property="pickerView" destination="CNl-j1-6lR" id="egf-MA-Jnb"/>
                         <outlet property="prevButton" destination="RFF-Cj-VHj" id="9b1-k7-Whg"/>
                         <outlet property="synonymLabel" destination="BxG-Vz-OLB" id="Bdl-gW-Mhg"/>
-                        <outlet property="tempLoadingLabel" destination="DeF-06-7oE" id="3Sz-sY-TsN"/>
                         <outlet property="textField" destination="ZUY-G7-5JJ" id="4n6-I6-vI1"/>
                     </connections>
                 </viewController>

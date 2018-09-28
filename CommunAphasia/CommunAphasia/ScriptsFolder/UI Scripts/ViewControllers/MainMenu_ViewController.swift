@@ -8,6 +8,7 @@
 
 import UIKit
 import SQLite
+import Hero
 
 /**
     Main class for controlling the `mainMenu`.
@@ -41,4 +42,17 @@ class MainMenu_ViewController: UIViewController {
         }
     }
 
+    @IBAction func TextToImageAction(_ sender: Any) {
+        let textToImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC")
+        textToImageVC.hero.isEnabled = true
+        textToImageVC.hero.modalAnimationType = .pageIn(direction: HeroDefaultAnimationType.Direction.left)
+        self.hero.replaceViewController(with: textToImageVC)
+        
+    }
+    @IBAction func ImageToTextAction(_ sender: Any) {
+        let imageInputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageInputVC")
+        imageInputVC.hero.isEnabled = true
+        imageInputVC.hero.modalAnimationType =  .pageIn(direction: HeroDefaultAnimationType.Direction.left)
+        self.hero.replaceViewController(with: imageInputVC)
+    }
 }

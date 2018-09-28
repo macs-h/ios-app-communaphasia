@@ -57,7 +57,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
         }
         ChangeCategory(tabButtons[0])
-        // Do any additional setup after loading the view.
+        
         
         if currentTute != 0 {
             showTute(num: currentTute)

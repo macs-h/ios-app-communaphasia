@@ -795,7 +795,7 @@
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
             <objects>
-                <viewController id="F8O-mK-ZoV" userLabel="Text input Controller" customClass="TextInput_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextInputVC" id="F8O-mK-ZoV" userLabel="Text input Controller" customClass="TextInput_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iLX-ad-w1E"/>
                         <viewControllerLayoutGuide type="bottom" id="QjT-ye-DJX"/>

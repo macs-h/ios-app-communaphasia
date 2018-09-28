@@ -47,24 +47,23 @@ class CommunAphasiaUnitTests: XCTestCase {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC") as! TextInput_ViewController
         vc.loadView()
         
-        for _ in 0...15 {
-            
-            var testString: String = ""
+        
+        self.measure {
+            for _ in 0...10 {
+                var testString: String = ""
 
-            let upper: Int = Int(arc4random_uniform(9))
-            for _ in 0...upper {
-                testString += randomString(length: Int(arc4random_uniform(9))+1)
-                testString += " "
+                let upper: Int = Int(arc4random_uniform(9))
+                for _ in 0...upper {
+                    testString += randomString(length: Int(arc4random_uniform(9))+1)
+                    testString += " "
+                }
+                
+                vc.textField.text = testString
+                print(">>>", vc.textField.text!)
+                
+                vc.done(self)
             }
-            
-            vc.textField.text = testString
-            print(">>>", vc.textField.text!)
-            
-            vc.done(self)
         }
-        
-        
-        print(randomString(length: 5))
 
 
         

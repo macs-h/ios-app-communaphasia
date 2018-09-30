@@ -55,4 +55,13 @@ class MainMenu_ViewController: UIViewController {
         imageInputVC.hero.modalAnimationType =  .pageIn(direction: HeroDefaultAnimationType.Direction.left)
         self.hero.replaceViewController(with: imageInputVC)
     }
+    @IBAction func TutePopupAction(_ sender: Any) {
+        let tutePopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TutorialPopup") as! TutorialPopup
+        
+        self.addChildViewController(tutePopup)
+        tutePopup.view.frame = self.view.frame
+        self.view.addSubview(tutePopup.view)
+        tutePopup.didMove(toParentViewController: self)
+    }
+    
 }

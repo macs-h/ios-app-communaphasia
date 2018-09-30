@@ -33,6 +33,7 @@
 		601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601DEB6220BA7A7E00FF2778 /* ImageToText.swift */; };
 		60249A1F20B91CC100BBC5FC /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
 		C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBC0E2115557300A66995 /* ImageCell.swift */; };
+		C1206F2121616CDB000D6411 /* TutorialPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1206F2021616CDB000D6411 /* TutorialPopup.swift */; };
 		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
 		C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */; };
 		C6A703F1BCD7433A51648374 /* Pods_CommunAphasiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79D07EB33DC05DE37E7F40C /* Pods_CommunAphasiaUITests.framework */; };
@@ -218,6 +219,7 @@
 		7EB385D32A9FEAE503364359 /* Pods-CommunAphasiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A79D07EB33DC05DE37E7F40C /* Pods_CommunAphasiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10CBC0E2115557300A66995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		C1206F2021616CDB000D6411 /* TutorialPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPopup.swift; sourceTree = "<group>"; };
 		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
 		C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputTutorial.swift; sourceTree = "<group>"; };
 		E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */,
+				C1206F2021616CDB000D6411 /* TutorialPopup.swift */,
 			);
 			path = TutorialScripts;
 			sourceTree = "<group>";
@@ -835,15 +838,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 			);
@@ -857,15 +856,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-CommunAphasia-checkManifestLockResult.txt",
 			);
@@ -879,15 +874,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-CommunAphasiaTests-checkManifestLockResult.txt",
 			);
@@ -901,15 +892,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-CommunAphasiaUITests-checkManifestLockResult.txt",
 			);
@@ -935,6 +922,7 @@
 				ED720AC52121859F004A3BA4 /* Animations.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
+				C1206F2121616CDB000D6411 /* TutorialPopup.swift in Sources */,
 				C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */,
 				601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */,
 				C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */,

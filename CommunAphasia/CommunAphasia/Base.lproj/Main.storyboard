@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tutorial Popup-->
+        <scene sceneID="ukG-79-LpH">
+            <objects>
+                <viewController storyboardIdentifier="TutorialPopup" id="wlW-Sb-nYV" customClass="TutorialPopup" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bpN-bS-rBb"/>
+                        <viewControllerLayoutGuide type="bottom" id="3AT-xc-y3Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l2C-gr-DgY">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7S5-zG-16t" userLabel="CloseButton">
+                                <rect key="frame" x="0.0" y="-9" width="1112" height="851"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="closePopup" destination="Con-qa-cZR" eventType="touchUpInside" id="bVZ-7Z-nFq"/>
+                                    <action selector="closePopup:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="LtH-Cs-iie"/>
+                                    <action selector="closePopup:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="avX-Ua-34y"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klY-bq-yHz">
+                                <rect key="frame" x="321" y="337" width="470" height="159"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutorials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-8q-7xU">
+                                        <rect key="frame" x="214" y="8" width="66" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okf-ip-Ght">
+                                        <rect key="frame" x="314" y="64" width="148" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Convert text to image"/>
+                                        <connections>
+                                            <action selector="tute2pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="fQJ-z0-tBh"/>
+                                            <segue destination="F8O-mK-ZoV" kind="show" identifier="2nd Tutorial" id="8Df-aJ-9W8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmO-Oy-216">
+                                        <rect key="frame" x="8" y="64" width="159" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Create image sentence"/>
+                                        <connections>
+                                            <action selector="tute1pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="gF7-dn-LCw"/>
+                                            <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="cTL-ek-78M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCD-lI-ODu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="-695"/>
+        </scene>
         <!--Main menu controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -50,8 +111,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tutorial"/>
                                 <connections>
-                                    <action selector="tuteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YQv-1h-UAp"/>
-                                    <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="u7j-X1-Uq6"/>
+                                    <action selector="TutePopupAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90u-91-PgP"/>
                                 </connections>
                             </button>
                         </subviews>

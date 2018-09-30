@@ -41,6 +41,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
    
+    var currentTute = 0
     
     /**
         Called after the controller's view is loaded into memory.

@@ -10,6 +10,7 @@ import UIKit
 
 class TutorialPopup: UIViewController {
     
+    @IBOutlet weak var tutePopupLabel: UILabel!
     /**
      Called after the controller's view is loaded into memory.
      */
@@ -34,7 +35,9 @@ class TutorialPopup: UIViewController {
     @IBAction func closePopup(_ sender: Any) {
         self.view.removeFromSuperview()
     }
-    
+    func setLabel(text: String){
+        tutePopupLabel.text = text
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "1st Tutorial") {

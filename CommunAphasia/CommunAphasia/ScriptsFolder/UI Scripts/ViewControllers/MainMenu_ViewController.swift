@@ -20,6 +20,16 @@ class MainMenu_ViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore == false {
+            let tutePopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TutorialPopup") as! TutorialPopup
+            
+            self.addChildViewController(tutePopup)
+            tutePopup.view.frame = self.view.frame
+            self.view.addSubview(tutePopup.view)
+            tutePopup.didMove(toParentViewController: self)
+            tutePopup.setLabel(text: "looks like this is your first time opening the app, would you like a tutorial?")
+        }
     }
 
     
@@ -57,7 +67,7 @@ class MainMenu_ViewController: UIViewController {
     }
     @IBAction func TutePopupAction(_ sender: Any) {
         let tutePopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TutorialPopup") as! TutorialPopup
-        
+
         self.addChildViewController(tutePopup)
         tutePopup.view.frame = self.view.frame
         self.view.addSubview(tutePopup.view)

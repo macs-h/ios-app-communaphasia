@@ -40,6 +40,17 @@ need,need,verb,nil,r,activity,needed+needing+will need
 can,can,modal,nil,r,activity,could have+can+will be able to
 may,may.jpg,modal,nil,r,activity,might have+might+might be able to
 should,should,modal,nil,r,activity,should have+should+should
+ask,ask,verb,nil,r,activity,asked+asking+will ask
+come,come,verb,nil,r,activity,came+coming+will come
+cook,cook.jpg,verb,nil,r,activity,cooked+cooking+will cook
+feel,feel,verb,nil,r,activity,felt+feeling+will feel
+find,find.jpg,verb,nil,r,activity,found+finding+will find
+give,give.jpg,verb,nil,r,activity,gave+giving+will give
+ask,ask,verb,nil,r,activity,asked+asking+will ask
+say,say,verb,nil,r,activity,said+saying+will say
+see,see.gif,verb,nil,r,activity,saw+seeing+will see
+take,take,verb,nil,r,activity,took+taking+will take
+think,think.jpg,verb,nil,r,activity,thought+thinking+will think
 
 car,car_sedan,noun,travel,r,travel,t
 car,car_sedan,noun,travel,r,travel,t

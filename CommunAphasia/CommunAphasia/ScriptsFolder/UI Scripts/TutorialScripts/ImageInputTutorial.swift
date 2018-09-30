@@ -27,23 +27,22 @@ class TutorialStep {
     var message:String
     var messagePos:CGPoint
     var clickRect:CGRect
+    var extraWindow:CGRect
     //should really add a 'state' field
     
-    init(window: CGRect,message:String,messagePos:CGPoint,clickRect:CGRect) {
+    init(window: CGRect,message:String,messagePos:CGPoint,clickRect:CGRect,extraWindow: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)) {
         self.window = window
         self.message = message
         self.messagePos = messagePos
         self.clickRect = clickRect
+        self.extraWindow = extraWindow
     }
 
 }
 class Tutorials {
     
     func genTute(num:Int) -> [TutorialStep] {
-        if num == 2 {
-            return [TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap Screen to begin 2nd tutorial", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))]
-        }else {
-        //default tute
+        if num == 1 {
             return [
                 TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap Screen to begin tutorial", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
                 TutorialStep(window: CGRect(x: 1006-5, y: 145-5, width: 66+10, height: 486+10), message: "Cycle through Categories", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 1006+6, y: 145+9, width: 55, height: 52)),
@@ -54,6 +53,15 @@ class Tutorials {
                 TutorialStep(window: CGRect(x: 923-5, y: 762-5, width: 58+10, height: 32+10), message: "If you dont want a picture any more try deleting it", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 923, y: 762, width: 58, height: 32)),
                 TutorialStep(window: CGRect(x: 1016-5, y: 759-5, width: 85+10, height: 39+10), message: "Great! Hit the done button to finish your sentence", messagePos: CGPoint(x: 216, y: 90), clickRect:CGRect(x: 1016, y: 759, width: 85, height: 39))
             ]
+        }else if num == 2 {
+            return [
+                TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap Screen to begin tutorial", messagePos: CGPoint(x: 216, y: 220),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
+                TutorialStep(window: CGRect(x: 166-5, y: 163-10, width: 806+115+10, height: 33+20), message: "enter the phrase: 'the large tree is green' and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45)),
+                TutorialStep(window: CGRect(x: 406-5, y: 504-5, width: 300+10, height: 200+10), message: "use the scroll wheel to change large to big and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45),extraWindow: CGRect(x: 988-5, y: 157-5, width: 97+10, height: 45+10))
+            ]
+        }else {
+        //default tute
+            return [TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "sorry an error occured, tap screen to exit tutorial", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))]
         }
     }
 }
@@ -128,6 +136,19 @@ class MakeTransparentHoleOnOverlayView: UIView {
         layer.path = path
         layer.fillRule = kCAFillRuleEvenOdd
         self.layer.mask = layer
+        //if an extra window is needed idk how even odd rule works so i just added an extra rect.
+        if step.extraWindow.width != 0{
+            path.addRect(step.extraWindow)
+            path.addRect(bounds)
+            layer.path = path
+            layer.fillRule = kCAFillRuleEvenOdd
+            self.layer.mask = layer
+            path.addRect(CGRect(x: 0, y: 0, width: 0, height: 0))
+            path.addRect(bounds)
+            layer.path = path
+            layer.fillRule = kCAFillRuleEvenOdd
+            self.layer.mask = layer
+        }
     }
     //initial draw
     override func draw(_ rect: CGRect) {

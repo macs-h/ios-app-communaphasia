@@ -76,7 +76,7 @@ class SinglePlural_ViewController: UIViewController {
         }
         
         self.hero.isEnabled = true
-        popUpView.hero.id = "PopupView"
+        //popUpView.hero.id = "PopupView"
     }
     
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,6 +34,10 @@
                                 <rect key="frame" x="321" y="337" width="470" height="159"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popup background" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-2a-KYp">
+                                        <rect key="frame" x="-13" y="-13" width="499" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutorials" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-8q-7xU">
                                         <rect key="frame" x="8" y="0.0" width="462" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,10 +64,8 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="tutePopupLabel" destination="2hs-8q-7xU" id="AtM-YL-A9j"/>
@@ -686,9 +688,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Q6-1fD">
-                                <rect key="frame" x="321" y="338" width="470" height="159"/>
+                                <rect key="frame" x="321" y="322" width="470" height="195"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popup background" translatesAutoresizingMaskIntoConstraints="NO" id="FYX-LV-bqI">
+                                        <rect key="frame" x="-23" y="-15" width="517" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-x6-All" userLabel="PastView">
                                         <rect key="frame" x="40" y="40" width="78" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -738,7 +744,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fnj-Hs-7g7" customClass="windowInTense" customModule="CommunAphasia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
@@ -767,7 +772,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEG-9j-Pki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="673" y="1783"/>
+            <point key="canvasLocation" x="672.84172661870502" y="1782.7338129496404"/>
         </scene>
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
@@ -792,6 +797,10 @@
                                 <rect key="frame" x="394" y="333" width="325" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popup background" translatesAutoresizingMaskIntoConstraints="NO" id="qIJ-3G-O71">
+                                        <rect key="frame" x="-14" y="-14" width="356" height="199"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-Le-IUu" userLabel="single image">
                                         <rect key="frame" x="39" y="45" width="78" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -819,7 +828,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-Nc-ebu" customClass="windowInPlural" customModule="CommunAphasia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
@@ -848,7 +856,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffN-i2-Fa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1413" y="1783"/>
+            <point key="canvasLocation" x="1412.5899280575541" y="1782.7338129496404"/>
         </scene>
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
@@ -1054,6 +1062,7 @@
         <image name="Objects Icon" width="512" height="512"/>
         <image name="Other Icon" width="1600" height="1600"/>
         <image name="Pic selection background" width="920" height="539"/>
+        <image name="Popup background" width="510" height="257"/>
         <image name="Text to image arrow" width="475" height="259"/>
         <image name="Travel Icon" width="128" height="128"/>
         <image name="futureTense" width="512" height="512"/>

@@ -383,7 +383,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if currentTute == 1 {
             singlePluralVC.tuteNum = 1
         }
-        popupView.hero.id = "PopupView"
+        //popupView.hero.id = "PopupView"
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -400,17 +400,17 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
         selectedCell = cell
         selectedIndexPath = indexPath
-        performSegue(withIdentifier: "TenseSegue", sender: self)
-//        self.addChildViewController(tenseVC)
-//        tenseVC.view.frame = self.view.frame
-//        self.view.addSubview(tenseVC.view)
-//        tenseVC.didMove(toParentViewController: self)
-//
+        //performSegue(withIdentifier: "TenseSegue", sender: self)
+        self.addChildViewController(tenseVC)
+        tenseVC.view.frame = self.view.frame
+        self.view.addSubview(tenseVC.view)
+        tenseVC.didMove(toParentViewController: self)
+
         //need to add tute for these popups
-//        if currentTute == 1 {
-//            tenseVC.tuteNum = 1
-//        }
-//        tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+        if currentTute == 1 {
+            tenseVC.tuteNum = 1
+        }
+        tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

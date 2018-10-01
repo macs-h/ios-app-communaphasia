@@ -149,9 +149,6 @@ class ImageCell: UICollectionViewCell {
         }
         let size = CGSize(width: imageView.frame.width, height: imageView.frame.height)
         UIGraphicsBeginImageContext(size)
-        // For tense superimposed on image
-        //let finalSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        //let tenseSize = CGRect(x: (size.width - (size.width*0.4))/2, y: size.height-(size.height*0.4), width: (size.width*0.4), height: (size.height*0.4))
         
         // For tense sitting below image
         let finalSize = CGRect(x: (size.width - (size.width*0.6))/2, y: 0, width: size.width*0.6, height: size.height*0.6)

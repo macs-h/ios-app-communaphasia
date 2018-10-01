@@ -367,6 +367,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
+    /**
+     Used to send data across view controllers
+     
+     - Parameters:
+         - segue:   Where to go
+         - sender:  Who called the perform
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "TenseSegue") {
             let destinationVC = segue.destination as! Tense_ViewController
@@ -391,7 +398,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
         }
     }
-    
+    /**
+     Shows the popover
+     
+     - Parameters:
+         - word:      Word to show
+         - position:  Where the popover goes
+     */
     func showPopover(word: String, position: CGPoint){
         let pos = CGPoint(x: position.x, y: position.y-40)
         
@@ -399,7 +412,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         popover.center = pos
         popoverWord.text = word
     }
-    
+    /**
+     Hides the popover
+     */
     func hidePopover(){
         self.popover.removeFromSuperview()
     }

@@ -40,18 +40,27 @@ class MainMenu_ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+////    /**
+////     Used by tute button to go back to input screen
+////
+////     - Parameter word: Who called the action
+////     */
+////    @IBAction func tuteButtonPressed(_ sender: Any) {
+////        performSegue(withIdentifier: "1st Tutorial", sender: self)
+////    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "1st Tutorial") {
+//            let destinationVC = segue.destination as! ImageInput_ViewController
+//            destinationVC.currentTute = 1
+//        }
+//    }
     
-    @IBAction func tuteButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "1st Tutorial", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "1st Tutorial") {
-            let destinationVC = segue.destination as! ImageInput_ViewController
-            destinationVC.currentTute = 1
-        }
-    }
-
+    /**
+     Used by text to image button to go back to input screen
+     
+     - Parameter word: Who called the action
+     */
     @IBAction func TextToImageAction(_ sender: Any) {
         let textToImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC")
         textToImageVC.hero.isEnabled = true
@@ -59,12 +68,24 @@ class MainMenu_ViewController: UIViewController {
         self.hero.replaceViewController(with: textToImageVC)
         
     }
+    
+    /**
+     Used by image to text button to go back to input screen
+     
+     - Parameter word: Who called the action
+     */
     @IBAction func ImageToTextAction(_ sender: Any) {
         let imageInputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageInputVC")
         imageInputVC.hero.isEnabled = true
         imageInputVC.hero.modalAnimationType =  .pageIn(direction: HeroDefaultAnimationType.Direction.left)
         self.hero.replaceViewController(with: imageInputVC)
     }
+    
+    /**
+     Used by tute button to go back to input screen
+     
+     - Parameter word: Who called the action
+     */
     @IBAction func TutePopupAction(_ sender: Any) {
         let tutePopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TutorialPopup") as! TutorialPopup
 

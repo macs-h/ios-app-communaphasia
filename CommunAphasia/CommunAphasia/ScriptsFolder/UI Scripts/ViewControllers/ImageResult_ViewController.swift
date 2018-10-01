@@ -95,7 +95,11 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         cell.showType()
         return cell
     }
-
+    /**
+     Used by back button to go back to input screen
+     
+     - Parameter word: Who called the action
+     */
     @IBAction func backAction(_ sender: Any) {
         let imageInputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageInputVC")
         imageInputVC.hero.isEnabled = true

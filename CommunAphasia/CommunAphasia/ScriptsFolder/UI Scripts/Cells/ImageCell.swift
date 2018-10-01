@@ -36,6 +36,33 @@ class ImageCell: UICollectionViewCell {
                                          "modal":UIColor.magenta.cgColor]
     var tenseType: String = "present"
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
+//        tapGesture.numberOfTapsRequired = 1
+//        imageView.addGestureRecognizer(tapGesture)
+//        
+//        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+//        imageView.addGestureRecognizer(longGesture)
+//        print("setting up cell----")
+//    }
+//    
+//    
+//    @objc func normalTap(_ sender: UIGestureRecognizer){
+//        print("Normal tap")
+//    }
+//    
+//    @objc func longTap(_ sender: UIGestureRecognizer){
+//        print("Long tap")
+//        if sender.state == .ended {
+//            print("UIGestureRecognizerStateEnded")
+//            //Do Whatever You want on End of Gesture
+//        }
+//        else if sender.state == .began {
+//            print("UIGestureRecognizerStateBegan.")
+//            //Do Whatever You want on Began of Gesture
+//        }
+//    }
     
     /**
         Takes in a tuple and assigns it to class properties.

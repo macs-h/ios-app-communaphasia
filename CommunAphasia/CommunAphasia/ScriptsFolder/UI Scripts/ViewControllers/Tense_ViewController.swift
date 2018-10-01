@@ -110,7 +110,7 @@ class Tense_ViewController: UIViewController {
 class windowInTense: UIView {
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if CGRect(x: 321+196-5, y: 338+40-5, width: 78+10, height: 111+10).contains(point){
+        if CGRect(x: 321+196-5, y: 322+40-5, width: 78+10, height: 111+10).contains(point){
             let view = super.hitTest(point, with: event)
             return view == self ? nil : view
         }
@@ -125,7 +125,7 @@ class windowInTense: UIView {
         
         // Make hole in view's overlay
         // NOTE: Here, instead of using the transparentHoleView UIView we could use a specific CFRect location instead...
-        path.addRect(CGRect(x: 321+196-5, y: 338+40-5, width: 78+10, height: 111+10))
+        path.addRect(CGRect(x: 321+196-5, y: 322+40-5, width: 78+10, height: 111+10))
         
         path.addRect(bounds)
         

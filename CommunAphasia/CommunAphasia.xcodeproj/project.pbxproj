@@ -217,6 +217,8 @@
 		ED83F7082121320D0043251E /* sandwich.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F7012121320D0043251E /* sandwich.png */; };
 		ED83F7092121320D0043251E /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = ED83F7022121320D0043251E /* water.png */; };
 		EDA393DF2155EE43000E18F5 /* IPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA393DD2155EE42000E18F5 /* IPhoneStoryboard.storyboard */; };
+		EDAC51102162437E0019F975 /* david.png in Resources */ = {isa = PBXBuildFile; fileRef = EDAC51082162437D0019F975 /* david.png */; };
+		EDAC51112162437E0019F975 /* andrew.png in Resources */ = {isa = PBXBuildFile; fileRef = EDAC510F2162437E0019F975 /* andrew.png */; };
 		EDEBE6102162280500882AFC /* sweets.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEBE5F92162280400882AFC /* sweets.png */; };
 		EDEBE6112162280500882AFC /* chips.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEBE6002162280400882AFC /* chips.png */; };
 		EDEBE6122162280500882AFC /* mcdonald's.png in Resources */ = {isa = PBXBuildFile; fileRef = EDEBE6012162280400882AFC /* mcdonald's.png */; };
@@ -557,6 +559,8 @@
 		ED83F7012121320D0043251E /* sandwich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sandwich.png; sourceTree = "<group>"; };
 		ED83F7022121320D0043251E /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		EDA393DE2155EE42000E18F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		EDAC51082162437D0019F975 /* david.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = david.png; sourceTree = "<group>"; };
+		EDAC510F2162437E0019F975 /* andrew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = andrew.png; sourceTree = "<group>"; };
 		EDEBE5F92162280400882AFC /* sweets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sweets.png; sourceTree = "<group>"; };
 		EDEBE6002162280400882AFC /* chips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chips.png; sourceTree = "<group>"; };
 		EDEBE6012162280400882AFC /* mcdonald's.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mcdonald's.png"; sourceTree = "<group>"; };
@@ -697,6 +701,8 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
+				EDAC510F2162437E0019F975 /* andrew.png */,
+				EDAC51082162437D0019F975 /* david.png */,
 				EDEBE67721623BC200882AFC /* grass.png */,
 				EDEBE67521623B7800882AFC /* flower.png */,
 				EDEBE65F21623AD900882AFC /* bird.png */,
@@ -1210,6 +1216,7 @@
 				1902F446216227D2006E8D34 /* knife.png in Resources */,
 				EDEBE67221623AD900882AFC /* pig.png in Resources */,
 				19780B492161DA1A00D972C3 /* open.png in Resources */,
+				EDAC51102162437E0019F975 /* david.png in Resources */,
 				EDEBE6182162280500882AFC /* dominos.png in Resources */,
 				19780B402161DA1A00D972C3 /* understand.png in Resources */,
 				ED45833B2162192F005CCD73 /* helicopter.png in Resources */,
@@ -1388,6 +1395,7 @@
 				44432A7021619B8B00FE8C6A /* come.png in Resources */,
 				19780B302161DA1A00D972C3 /* go.png in Resources */,
 				19B5288621546B46002E4B50 /* underneath.png in Resources */,
+				EDAC51112162437E0019F975 /* andrew.png in Resources */,
 				19780B5C2161DA1A00D972C3 /* play.png in Resources */,
 				19780B442161DA1A00D972C3 /* sell.png in Resources */,
 				44432A7121619B8B00FE8C6A /* howAreYou.png in Resources */,

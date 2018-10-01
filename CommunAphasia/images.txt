@@ -17,7 +17,7 @@ deer,deer_silhouette,noun,hunting,deer,animals,t
 fish,fish,noun,water,fish,animals,t
 tree,tree_silhouette,noun,nature,r,animals,t
 flower,flower,noun,nature,r,animals,t
-grass,grass,noun,nature,r,animals,t
+grass,grass,noun,nature,grass,animals,t
 bush,bush,noun,nature,bushes,animals,t
 plant,plant,noun,nature,r,animals,t
 puppy,puppy,noun,nature,puppies,animals,t
@@ -234,4 +234,6 @@ eight,eight,prep,nil,r,number,t
 nine,nine,prep,nil,r,number,t
 ten,ten,prep,nil,r,number,t
 
+Andrew,andrew,noun,nil,Trotmans,other,t
+David,david,noun,nil,Eyers,other,t
 

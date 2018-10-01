@@ -447,11 +447,7 @@
                                             <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="bgL-1N-Ehw"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Other Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Jr-f8-0qB">
-                                        <rect key="frame" x="6" y="417" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQs-Jr-iJB" userLabel="8">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQs-Jr-iJB" userLabel="8">
                                         <rect key="frame" x="0.0" y="472" width="66" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -462,6 +458,10 @@
                                             <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="nM1-qS-Po3"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Other Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Jr-f8-0qB">
+                                        <rect key="frame" x="6" y="477" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
@@ -668,6 +668,7 @@
                         <outletCollection property="inputCollectionViews" destination="49e-3z-UAo" collectionClass="NSMutableArray" id="ltL-ge-5Ge"/>
                         <outletCollection property="inputCollectionViews" destination="D7p-fV-TeZ" collectionClass="NSMutableArray" id="S2M-eg-tXi"/>
                         <outletCollection property="inputCollectionViews" destination="tnf-4Q-VRt" collectionClass="NSMutableArray" id="G40-dQ-IxD"/>
+                        <outletCollection property="tabButtons" destination="IQs-Jr-iJB" collectionClass="NSMutableArray" id="fpo-MD-r2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -32,8 +32,18 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         resultLabel.text = inputString // Shows at bottom what was typed.
         resultCollectionView.dataSource = self
         resultCollectionView.delegate = self
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
     }
-
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            print("Swipe right")
+            self.backButtonAction(AnyObject.self)
+        }
+    }
     
     /**
         Sent to the view controller when the app receives a memory warning.

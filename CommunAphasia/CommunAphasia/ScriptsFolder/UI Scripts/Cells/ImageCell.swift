@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 /**
     The class for the cell in the `ImageResultCollectionView`.
  
@@ -25,7 +26,7 @@ class ImageCell: UICollectionViewCell {
     var freq: Int = 0
     
     var frequency:Int = 0
-    var imageInputVC = ImageInput_ViewController()
+    var imageInputVC: ImageInput_ViewController?
     
     // Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
@@ -49,12 +50,12 @@ class ImageCell: UICollectionViewCell {
         if sender.state == .ended {
             print("UIGestureRecognizerStateEnded")
             //Do Whatever You want on End of Gesture
-            imageInputVC.closePopover()
+            imageInputVC?.hidePopover()
         }
         else if sender.state == .began {
             print("UIGestureRecognizerStateBegan.")
             //Do Whatever You want on Began of Gesture
-            imageInputVC.openPopover(word: word, position: sender.location(in: imageInputVC.view))
+            imageInputVC?.showPopover(word: word, position: sender.location(in: imageInputVC?.view))
         }
     }
     

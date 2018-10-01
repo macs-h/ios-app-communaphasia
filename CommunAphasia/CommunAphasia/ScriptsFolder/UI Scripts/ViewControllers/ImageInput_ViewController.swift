@@ -453,7 +453,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
-    func openPopover(word: String, position: CGPoint){
+    func showPopover(word: String, position: CGPoint){
         let pos = CGPoint(x: position.x, y: position.y-40)
         
         self.view.addSubview(popover)
@@ -461,7 +461,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         popoverWord.text = word
     }
     
-    func closePopover(){
+    func hidePopover(){
         self.popover.removeFromSuperview()
     }
 

@@ -462,6 +462,10 @@
                                         <rect key="frame" x="6" y="477" width="54" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Number Icon" translatesAutoresizingMaskIntoConstraints="NO" id="iek-4i-MZT">
+                                        <rect key="frame" x="8" y="420" width="47" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
@@ -1067,6 +1071,7 @@
         <image name="Input bar" width="817" height="61"/>
         <image name="Logo" width="699" height="309"/>
         <image name="Nature Icon" width="512" height="512"/>
+        <image name="Number Icon" width="39" height="33"/>
         <image name="Objects Icon" width="512" height="512"/>
         <image name="Other Icon" width="1600" height="1600"/>
         <image name="Pic selection background" width="920" height="539"/>

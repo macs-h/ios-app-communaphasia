@@ -9,6 +9,59 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--VC-->
+        <scene sceneID="ZqK-lg-ww3">
+            <objects>
+                <viewController id="pZS-MO-fj8" customClass="VC" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2dg-Lt-SBN"/>
+                        <viewControllerLayoutGuide type="bottom" id="jU4-vc-2Ba"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Ws-Iw-0ih">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H4n-bb-0VX" userLabel="WhiteView">
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wX-Hc-Ikl" userLabel="RedView">
+                                        <rect key="frame" x="282" y="336" width="548" height="350"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.04677283753" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sw3-89-o8Z" userLabel="BlackView">
+                                        <rect key="frame" x="329" y="124" width="454" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-9n-dzW">
+                                        <rect key="frame" x="927" y="555" width="123" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="pZS-MO-fj8" eventType="touchUpInside" id="u49-E5-UlY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="blackView" destination="sw3-89-o8Z" id="x9u-me-Sfv"/>
+                        <outlet property="redView" destination="1wX-Hc-Ikl" id="Y6P-s2-2vs"/>
+                        <outlet property="whiteView" destination="H4n-bb-0VX" id="7mx-GJ-22F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HoA-6i-Gie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-828.23741007194246" y="928.77697841726626"/>
+        </scene>
         <!--Main menu controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -62,6 +115,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.08633093525181" y="123.74100719424462"/>
+        </scene>
+        <!--VC2-->
+        <scene sceneID="h9z-e4-0j4">
+            <objects>
+                <viewController storyboardIdentifier="VC2" id="x9k-17-dxV" customClass="VC2" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q5M-nc-m22"/>
+                        <viewControllerLayoutGuide type="bottom" id="zRC-Zm-kay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QEe-Oq-Y4c">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o30-dn-jbm" userLabel="RedView">
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ot-YO-hmI" userLabel="BlackView">
+                                        <rect key="frame" x="279" y="164" width="553" height="115"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-Mq-yee" userLabel="WhiteView">
+                                        <rect key="frame" x="280" y="321" width="553" height="505"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.04677283753" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="blackView" destination="5ot-YO-hmI" id="EWZ-8F-4ph"/>
+                        <outlet property="redView" destination="o30-dn-jbm" id="9xQ-JV-xEp"/>
+                        <outlet property="whiteView" destination="lw0-Mq-yee" id="uKg-x7-ntU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Go-ba-BfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-117.08633093525181" y="952.51798561151088"/>
         </scene>
         <!--Image Result View Controller-->
         <scene sceneID="UL0-fO-TSC">
@@ -596,11 +691,13 @@
                         <outletCollection property="inputCollectionViews" destination="49e-3z-UAo" collectionClass="NSMutableArray" id="ltL-ge-5Ge"/>
                         <outletCollection property="inputCollectionViews" destination="D7p-fV-TeZ" collectionClass="NSMutableArray" id="S2M-eg-tXi"/>
                         <outletCollection property="inputCollectionViews" destination="tnf-4Q-VRt" collectionClass="NSMutableArray" id="G40-dQ-IxD"/>
+                        <segue destination="CJH-kp-KQ3" kind="show" identifier="TenseSegue" id="vKf-ox-vVd"/>
+                        <segue destination="Con-qa-cZR" kind="show" identifier="PluralSegue" id="UXq-s8-T8U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="978"/>
+            <point key="canvasLocation" x="929.67625899280574" y="977.69784172661878"/>
         </scene>
         <!--Tense View Controller-->
         <scene sceneID="ntY-PR-Ppj">
@@ -709,7 +806,7 @@
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
             <objects>
-                <viewController storyboardIdentifier="SinglePluralVC" id="Con-qa-cZR" customClass="SinglePlural_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SinglePluralVC" modalPresentationStyle="overCurrentContext" id="Con-qa-cZR" customClass="SinglePlural_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fO-6X-hdB"/>
                         <viewControllerLayoutGuide type="bottom" id="XXn-KV-U9s"/>
@@ -779,6 +876,7 @@
                     <connections>
                         <outlet property="backPluralImageView" destination="4Ap-tC-eBa" id="cDa-QB-jrU"/>
                         <outlet property="pluralImageView" destination="Wd3-b5-wLJ" id="g5h-WM-voq"/>
+                        <outlet property="popUpView" destination="sNd-Ws-tPL" id="y5N-NS-jSR"/>
                         <outlet property="singleImageView" destination="gOK-Le-IUu" id="1Ue-bs-Cv3"/>
                         <outlet property="windowInPlural" destination="Idb-Nc-ebu" id="Ebw-8Z-ihx"/>
                     </connections>

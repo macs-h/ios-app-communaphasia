@@ -19,6 +19,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet var inputCollectionViews: [UICollectionView]!
     
+    @IBOutlet weak var popupView: UIView!
+    
     var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","I","fast","quickly","waiting",
@@ -34,7 +36,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
     
     var currentTute:Int = 0
-    
+    private var selectedCell: ImageCell? //for tense controllers
+    private var selectedIndexPath: IndexPath? //for tense controllers
     /**
         Called after the controller's view is loaded into memory.
      */
@@ -104,7 +107,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 //            performSegue(withIdentifier: "IIToResult_segue", sender: self)
             let imageResultsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageResultVC") as! ImageResult_ViewController
             imageResultsVC.selectedCellsResult = selectedCells
-            
+            self.hero.isEnabled = true
             imageResultsVC.hero.isEnabled = true
              imageResultsVC.hero.modalAnimationType =  .fade
 //            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
@@ -337,7 +340,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if currentTute == 1 {
             singlePluralVC.tuteNum = 1
         }
-        
+        popupView.hero.id = "PopupView"
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -352,18 +355,29 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     func showTenseVC(cell: ImageCell, indexPath: IndexPath) {
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
-        
-        self.addChildViewController(tenseVC)
-        tenseVC.view.frame = self.view.frame
-        self.view.addSubview(tenseVC.view)
-        tenseVC.didMove(toParentViewController: self)
-        
+        selectedCell = cell
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: "TenseSegue", sender: self)
+//        self.addChildViewController(tenseVC)
+//        tenseVC.view.frame = self.view.frame
+//        self.view.addSubview(tenseVC.view)
+//        tenseVC.didMove(toParentViewController: self)
+//
         //need to add tute for these popups
-        if currentTute == 1 {
-            tenseVC.tuteNum = 1
+//        if currentTute == 1 {
+//            tenseVC.tuteNum = 1
+//        }
+//        tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "TenseSegue") {
+            let destinationVC = segue.destination as! Tense_ViewController
+            if currentTute == 1 {
+                destinationVC.tuteNum = 1
+            }
+            destinationVC.setUp(delegate: self, cell: selectedCell!, indexPath: selectedIndexPath!)
         }
-        
-        tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
     

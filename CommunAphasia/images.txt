@@ -4,7 +4,7 @@ laugh,laughing,verb,nil,r,emotions,laughed+laughing+will laugh
 funny,laughing,adj,nil,r,emotions,t
 love,love,verb,nil,r,emotions,loved+loving+will love
 sad,sad.jpg,adj,nil,r,emotions,t
-sleepy,sleepy.jpg,adj,nil,r,emotions,t
+sleepy,sleepy,adj,nil,r,emotions,t
 think,thinking,adj,nil,r,emotions,thought+thinking+will think
 happy,happy,adj,nil,r,emotions,t
 surprise,surprised,adj,nil,r,emotions,surprised+surprising+surprising
@@ -16,6 +16,19 @@ cow,cow,noun,farm,r,animals,t
 deer,deer_silhouette,noun,hunting,deer,animals,t
 fish,fish,noun,water,fish,animals,t
 tree,tree_silhouette,noun,nature,r,animals,t
+flower,flower,noun,nature,r,animals,t
+grass,grass,noun,nature,r,animals,t
+bush,bush,noun,nature,r,animals,t
+plant,plant,noun,nature,r,animals,t
+puppy,puppy,noun,nature,r,animals,t
+dog,dog,noun,nature,r,animals,t
+rabbit,rabbit,noun,nature,r,animals,t
+bird,bird,noun,nature,r,animals,t
+chicken,chicken,noun,nature,r,animals,t
+pig,pig,noun,nature,r,animals,t
+horse,horse,noun,nature,r,animals,t
+frog,frog,noun,nature,r,animals,t
+lizard,lizard,noun,nature,r,animals,t
 
 apple,apple,noun,food+fruit,r,food,t
 lunch,lunch,noun,food,lunches,food,t
@@ -37,13 +50,13 @@ candy,sweets,noun,nil,r,food,t
 nachos,nachos,noun,nil,r,food,t
 spaghetti and meatballs,spagbol,noun,nil,r,food,t
 burger,burger,noun,nil,r,food,t
-fries,fries,noun,nil,r,food,t
-chips,chips,noun,nil,r,food,t
+fry,fries,noun,nil,r,food,t
+chip,chips,noun,nil,r,food,t
 salad,salad,noun,nil,r,food,t
 KFC,kfc,noun,nil,r,food,t
-McDonald's,mcdonald's,noun,nil,r,food,t
-Burger King,burgerking,noun,nil,r,food,t
-Domino's,dominos,noun,nil,r,food,t
+McDonald's,mcdonald's,noun,nil,McDonald's,food,t
+Burger King,burgerking,noun,nil,Burger King,food,t
+Domino's,dominos,noun,nil,Domino's,food,t
 pizza,pizza,noun,nil,r,food,t
 pie,pie,noun,nil,r,food,t
 

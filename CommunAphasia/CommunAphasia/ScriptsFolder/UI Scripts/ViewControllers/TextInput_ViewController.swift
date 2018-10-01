@@ -455,6 +455,7 @@ extension TextInput_ViewController{
         updateSynonymLabel(word: stringArray[currentIndex])
         
         pickerData = synonyms[errorIndex]
+        pickerData.insert("", at: 0)
         pickerView.reloadAllComponents()
         
         attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)

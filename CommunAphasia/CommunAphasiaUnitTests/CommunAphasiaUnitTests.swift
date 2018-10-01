@@ -40,10 +40,6 @@ class CommunAphasiaUnitTests: XCTestCase {
         
         func randomString(strLength: Int) -> String {
             let letters: NSMutableString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'"
-//            let specialChar: NSString = "-/–:;()$&@\".,?!'[]{}#%^*+=_\\|~<>£º•"
-            
-//            letters.append(specialChar as String)
-//            print("-- Letters:\n", letters)
             
             let len = UInt32(letters.length)
             var randomString = ""
@@ -60,22 +56,8 @@ class CommunAphasiaUnitTests: XCTestCase {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC") as! TextInput_ViewController
         vc.loadView()
         
-        // ----------------------------------
-
-//        let testString: String = "mO7£ }7 ECP^ \'- !–[ (;OB; Kb=,£wSs"
-////        let testString: String = "Trees don't like to feel"
-//
-//        vc.textField.text = testString
-//        print(">>>", vc.textField.text!)
-//
-//        vc.done(self)
-
-
-//        // ----------------------------------
-        
-        
         // Test 100 sentences
-        for _ in 0..<100 {
+        for _ in 0..<1000 {
             var testString: String = ""
 
             let upper: Int = Int(arc4random_uniform(9))

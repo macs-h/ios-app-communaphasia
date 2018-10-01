@@ -69,14 +69,12 @@ class SinglePlural_ViewController: UIViewController {
         self.indexPath = indexPath
         
         if tuteNum == 1{
-            //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
             windowInPlural.isHidden = false
         }else{
             windowInPlural.removeFromSuperview()
         }
         
         self.hero.isEnabled = true
-        //popUpView.hero.id = "PopupView"
     }
     
     
@@ -124,9 +122,6 @@ class windowInPlural: UIView {
     }
     
     func drawRect() {
-        // Ensures to use the current background color to set the filling color
-        //self.backgroundColor?.setFill()
-        //UIRectFill(newRect)
         
         let layer = CAShapeLayer()
         let path = CGMutablePath()

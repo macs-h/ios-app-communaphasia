@@ -56,9 +56,9 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
 
-    // ----------------------------------------------------------------------
+    //----------------------------------------------------------------------------------90
     // Shows input images on screen.
-    // ----------------------------------------------------------------------
+    //----------------------------------------------------------------------------------90
     
     /**
         Asks the `collectionView` object for the number of items in the
@@ -101,7 +101,6 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         imageInputVC.hero.isEnabled = true
         imageInputVC.hero.modalAnimationType =  .fade
 
-//        imageInputVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.right)
         self.hero.replaceViewController(with: imageInputVC)
 
     }

@@ -36,33 +36,37 @@ class ImageCell: UICollectionViewCell {
                                          "modal":UIColor.magenta.cgColor]
     var tenseType: String = "present"
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
-//        tapGesture.numberOfTapsRequired = 1
-//        imageView.addGestureRecognizer(tapGesture)
-//        
-//        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
-//        imageView.addGestureRecognizer(longGesture)
-//        print("setting up cell----")
-//    }
-//    
-//    
-//    @objc func normalTap(_ sender: UIGestureRecognizer){
-//        print("Normal tap")
-//    }
-//    
-//    @objc func longTap(_ sender: UIGestureRecognizer){
-//        print("Long tap")
-//        if sender.state == .ended {
-//            print("UIGestureRecognizerStateEnded")
-//            //Do Whatever You want on End of Gesture
-//        }
-//        else if sender.state == .began {
-//            print("UIGestureRecognizerStateBegan.")
-//            //Do Whatever You want on Began of Gesture
-//        }
-//    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        imageView.addGestureRecognizer(longGesture)
+    }
+    
+    
+    @objc func longTap(_ sender: UIGestureRecognizer){
+        print("Long tap")
+        if sender.state == .ended {
+            print("UIGestureRecognizerStateEnded")
+            //Do Whatever You want on End of Gesture
+        }
+        else if sender.state == .began {
+            print("UIGestureRecognizerStateBegan.")
+            //Do Whatever You want on Began of Gesture
+        }
+    }
+    
+    
+    @IBAction func tapped(sender: UITapGestureRecognizer)
+    {
+        print("tapped")
+        //Your animation code.
+    }
+    
+    @IBAction func longPressed(sender: UILongPressGestureRecognizer)
+    {
+        print("longpressed")
+        //Different code
+    }
     
     /**
         Takes in a tuple and assigns it to class properties.

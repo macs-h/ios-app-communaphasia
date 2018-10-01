@@ -25,14 +25,18 @@ class Tense_ViewController: UIViewController {
     var cell: ImageCell?
     var indexPath: IndexPath?
     var tenses: String?
+    var tuteNum:Int?
     
     @IBOutlet weak var PastImageView: UIImageView!
     @IBOutlet weak var PresentImageView: UIImageView!
     @IBOutlet weak var FutureImageView: UIImageView!
     
+    @IBOutlet weak var windowInTense: windowInTense!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +64,14 @@ class Tense_ViewController: UIViewController {
         self.indexPath = indexPath
         //self.tenses = cell.tense.components(separatedBy: "+")
         self.tenses = cell.tense
+        
+        
+        if tuteNum == 1{
+            //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+            windowInTense.isHidden = false            
+        }else{
+            windowInTense.removeFromSuperview()
+        }
     }
     
     
@@ -95,5 +107,39 @@ class Tense_ViewController: UIViewController {
      */
     @IBAction func closePopup(_ sender: Any) {
         self.view.removeFromSuperview()
+    }
+}
+class windowInTense: UIView {
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if CGRect(x: 321+196-5, y: 338+40-5, width: 78+10, height: 111+10).contains(point){
+            let view = super.hitTest(point, with: event)
+            return view == self ? nil : view
+        }
+        return self
+    }
+    
+    func drawRect() {
+        // Ensures to use the current background color to set the filling color
+        //self.backgroundColor?.setFill()
+        //UIRectFill(newRect)
+        
+        let layer = CAShapeLayer()
+        let path = CGMutablePath()
+        
+        
+        // Make hole in view's overlay
+        // NOTE: Here, instead of using the transparentHoleView UIView we could use a specific CFRect location instead...
+        path.addRect(CGRect(x: 321+196-5, y: 338+40-5, width: 78+10, height: 111+10))
+        
+        path.addRect(bounds)
+        
+        layer.path = path
+        layer.fillRule = kCAFillRuleEvenOdd
+        self.layer.mask = layer
+    }
+    //initial draw
+    override func draw(_ rect: CGRect) {
+        drawRect()
     }
 }

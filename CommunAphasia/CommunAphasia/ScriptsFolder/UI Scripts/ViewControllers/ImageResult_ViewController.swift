@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 /**
     Class that controls the Image result screen.
@@ -84,4 +85,13 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
 
+    @IBAction func backAction(_ sender: Any) {
+        let imageInputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageInputVC")
+        imageInputVC.hero.isEnabled = true
+        imageInputVC.hero.modalAnimationType =  .fade
+
+//        imageInputVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.right)
+        self.hero.replaceViewController(with: imageInputVC)
+
+    }
 }

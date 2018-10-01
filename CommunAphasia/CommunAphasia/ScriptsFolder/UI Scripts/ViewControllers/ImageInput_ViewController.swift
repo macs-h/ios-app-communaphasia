@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 /**
     Controls everything on the image input screen.
@@ -15,6 +16,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var selectedCollectionView: UICollectionView!
     @IBOutlet weak var InputCollectionView: UICollectionView!
+    
+    @IBOutlet var inputCollectionViews: [UICollectionView]!
+    
+    @IBOutlet weak var popupView: UIView!
     
     var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
@@ -25,18 +30,27 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // Category UI things.
     @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
-    let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab"]
+    let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab", "99afae"]
     var currentCategoyIndex = 0
-    private var cellsInCategory: [(String, String, UIImage, [String], String, String, String)]! //temp storage to be used by collection view cells
-    let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
+    private var cellsInCategory: [[(String, String, UIImage, [String], String, String, String)]]! //temp storage to be used by collection view cells
+    let categories = ["common","emotions","animals","food","activity","travel","objects","number", "other"]
     
+    var currentTute:Int = 0
+    private var selectedCell: ImageCell? //for tense controllers
+    private var selectedIndexPath: IndexPath? //for tense controllers
     /**
         Called after the controller's view is loaded into memory.
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        InputCollectionView.dataSource = self
-        InputCollectionView.delegate = self
+//        InputCollectionView.dataSource = self
+//        InputCollectionView.delegate = self
+        for collection in inputCollectionViews{
+            collection.dataSource = self
+            collection.delegate = self
+            print("collection \(collection.tag) is x of \(collection.frame.minX) and y\(collection.frame.minY)")
+            
+        }
         selectedCollectionView.dataSource = self
         selectedCollectionView.delegate = self
         
@@ -46,9 +60,27 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
         }
         ChangeCategory(tabButtons[0])
-        // Do any additional setup after loading the view.
+        
+        
+        if currentTute != 0 {
+            showTute(num: currentTute)
+        }
     }
-
+    /**
+        calls the tutorial view controler to allow the user to learn
+        how to use the app.
+     
+     - parameter num: which tutoral the user is undergoing
+     */
+    func showTute(num: Int) {
+        let tuteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tuteVC") as! ImageInputTutorial
+        
+        tuteVC.tuteNum = num
+        self.addChildViewController(tuteVC)
+        tuteVC.view.frame = self.view.frame
+        self.view.addSubview(tuteVC.view)
+        tuteVC.didMove(toParentViewController: self)
+    }
     
     /**
         Sent to the view controller when the app receives a memory warning.
@@ -66,29 +98,48 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     @IBAction func DoneButton(_ sender: Any) {
         if selectedWords.count > 0 {
+            for cell in selectedCells {
+                cell.setFreq(f: cell.freq + 1)
+                print("freq \(cell.getFreq())")
+            }
             // At least one image is selected
             ImageToText.instance.reset()
-            performSegue(withIdentifier: "IIToResult_segue", sender: self)
+//            performSegue(withIdentifier: "IIToResult_segue", sender: self)
+            let imageResultsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageResultVC") as! ImageResult_ViewController
+            imageResultsVC.selectedCellsResult = selectedCells
+            self.hero.isEnabled = true
+            imageResultsVC.hero.isEnabled = true
+             imageResultsVC.hero.modalAnimationType =  .fade
+//            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
+            self.hero.replaceViewController(with: imageResultsVC)
+            
         } else {
             // No picture selectect so show warning?
         }
     }
     
-    
-    /**
-        Notifies the view controller that a segue is about to be performed.
-     
-        - Parameters:
-            - segue:    The segue object containing information about the view
-                        controllers involved in the segue.
-            - sender:   The object that initiated the segue.
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "IIToResult_segue") {
-            let resultController = segue.destination as! ImageResult_ViewController
-            resultController.selectedCellsResult = selectedCells
-        }
+    @IBAction func backButtonAction(_ sender: Any) {
+        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+        mainVC.hero.isEnabled = true
+        mainVC.hero.modalAnimationType = .pageOut(direction: HeroDefaultAnimationType.Direction.right)
+        self.hero.replaceViewController(with: mainVC)
+        
     }
+    
+//    /**
+//        Notifies the view controller that a segue is about to be performed.
+//
+//        - Parameters:
+//            - segue:    The segue object containing information about the view
+//                        controllers involved in the segue.
+//            - sender:   The object that initiated the segue.
+//     */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "IIToResult_segue") {
+//            let resultController = segue.destination as! ImageResult_ViewController
+//            resultController.selectedCellsResult = selectedCells
+//        }
+//    }
     
     
     /**
@@ -112,11 +163,88 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         } else {
             cellsInCategory = Utility.instance.getCellsByCategory(category: categories[sender.tag])
         }
-        InputCollectionView?.reloadData()
+        for collection in inputCollectionViews{
+            collection.reloadData()
+        }
+        sortCellsByfreq()
+        fillSpaceWithCollectionViews()
+//        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
     
+    /**
+     Sorts the 2d array that consists of arrays of cells (cellsInCategory). the cells are sorted
+     in their array by the frequency of their word.
+     
+     */
+    func sortCellsByfreq(){
+        //this has to make a small call to the database for every image but was easier than changing every tuple to type ImageCell
+        var tempCells: [[(String, String, UIImage, [String], String, String, String)]] = [[]]
+        for cellArray in cellsInCategory {
+            //images of a specific type
+            var wordfreqs:[String:Int] = [:]
+            for cell in cellArray {
+                wordfreqs[cell.0] = Utility.instance.getFreq(word: cell.0)
+            }
+            let sortedWords:[String] = Array(wordfreqs.keys).sorted(by: { (word1, word2) -> Bool in
+                return wordfreqs[word1]! > wordfreqs[word2]!
+            })
+            tempCells.append(cellArray.sorted(by: { (cell1, cell2) -> Bool in
+                return sortedWords.index(of: cell1.0)! < sortedWords.index(of: cell2.0)!
+            }))
+        }
+        tempCells.removeFirst()
+//        for cell in tempCells {
+//            print("tempCell-",cell.first?.0)
+//        }
+//        for cell in cellsInCategory {
+//            print("origional-",cell.first?.0)
+//        }
+        cellsInCategory = tempCells
+    }
     
+    /**
+     Dynamically changes the size of image cell collections so that they always expand to fill the whole
+     view while trying to make the user have to scroll as little as possible.
+     
+     */
+    func fillSpaceWithCollectionViews() {
+        var iterator:[Int] = [3,2,0,1,4,5] // beacue the order of collections is on the piss
+        let totalColumns: Int = 9 //width of the image to text view (in images)
+        
+        for item in iterator {
+            let numCells = inputCollectionViews[item].numberOfItems(inSection: 0)
+            if numCells == 0 {
+                iterator.remove(at: iterator.index(of: item)!)
+                inputCollectionViews[item].frame = CGRect(x: -100, y: -100, width: 0, height: 0)//get rid of empty collections
+            }
+        }
+        //decides how many columns each collection should take up
+        var numCols = iterator.count;
+        var collsPerItem:[Int] = Array(repeatElement(1, count: 10))//10 magic number should change(or not)
+        while numCols < totalColumns {
+            var maxCellsIndex = 5;
+            for item in iterator {
+                if inputCollectionViews[item].numberOfItems(inSection: 0)/collsPerItem[item]
+                    > inputCollectionViews[maxCellsIndex].numberOfItems(inSection: 0)/collsPerItem[maxCellsIndex] {
+                    maxCellsIndex = item
+                }
+            }
+            collsPerItem[maxCellsIndex] += 1
+            numCols += 1
+        }
+        //moves each collection to its position based on above.
+        var currentX = 30//changed from 43
+        for item in iterator {
+            let origin = CGPoint(x: currentX, y: 121)
+            let size = CGSize(width: 109*collsPerItem[item], height: 532)//was 486
+            
+            inputCollectionViews[item].frame = CGRect(origin: origin, size: size)
+            currentX += 109*collsPerItem[item]
+            
+        }
+
+    }
     
     // ----------------------------------------------------------------------
     // Collection view stuff.
@@ -133,12 +261,18 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Returns:  The size of the given `collectionView`.
      */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.InputCollectionView {
-            return cellsInCategory.count
-        } else {
-            // Input collection View
+        if( collectionView == self.selectedCollectionView){
             return selectedWords.count
+        }else{
+            
+            return cellsInCategory[collectionView.tag].count
         }
+//        if collectionView == self.InputCollectionView {
+//            return cellsInCategory[0].count
+//        } else {
+//            // Input collection View
+//            return selectedWords.count
+//        }
     }
     
     
@@ -154,44 +288,46 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Returns:  A configured cell object. Must not return nil.
      */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.InputCollectionView {
+        if collectionView == self.selectedCollectionView {
+            //SelectedCollectionView
             // Gives the type of the custom class that was made for the cell.
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
-            
-            // Call a function the the cell which assigns each variable with
-            // data from a function which returns a tuple with data like:
-            // image, word, suggestions etc
-            
-            cell.addData(cell: cellsInCategory[indexPath.item])
-            cell.showType()
-            return cell
-        } else {
-            // SelectedCollectionView
-            // Gives the type of the custom class that was made for the cell.
-            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
             //cell.addData(cell: selectedCells[indexPath.count])
             //cell.showType()
             return cell
+            
+        }else{
+            //input collection views
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
+            cell.addData(cell: cellsInCategory[collectionView.tag][indexPath.item])
+            cell.showType()
+            return cell
         }
-    }
-    
-    
-    /**
-        Called when the `want` button is pressed
-     
-        - Parameter sender: The object which called this function.
-     */
-    @IBAction func wantButtonPress(_ sender: Any) {
-        selectedWords.append("want")
         
-        let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
-        selectedCollectionView?.insertItems(at: [insertedIndexPath]) // Add a new cell to bottom table view using the tuple.
-        let newCell = selectedCollectionView?.cellForItem(at: insertedIndexPath) as! ImageCell
-        newCell.addData(cell: (word: "want", type: wordType.modal.rawValue, image: UIImage(named: "image placeholder")!, suggestions: [""], grNum: "",category: "",tense: ""))
-        selectedCells.append(newCell)
+        
+//        if collectionView == self.InputCollectionView {
+//            // Gives the type of the custom class that was made for the cell.
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
+//
+//            // Call a function the the cell which assigns each variable with
+//            // data from a function which returns a tuple with data like:
+//            // image, word, suggestions etc
+//
+//            //SAM MAKE EXTRA COLLECTION VIEWS FOR TYPES (cellsInCategory is a 2-D array)
+//            cell.addData(cell: cellsInCategory[0][indexPath.item])
+//            cell.showType()
+//            return cell
+//        } else {
+//            // SelectedCollectionView
+//            // Gives the type of the custom class that was made for the cell.
+//
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
+//            //cell.addData(cell: selectedCells[indexPath.count])
+//            //cell.showType()
+//            return cell
+//        }
     }
-    
+       
     
     /**
         Controls what happens if an item is selected within a `collectionView`.
@@ -204,14 +340,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             - indexPath:        The index path of the cell that was selected.
      */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.InputCollectionView {
+        if collectionView != self.selectedCollectionView {
             let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
             // Do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
             }else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue || cell.type == wordType.adjective.rawValue || cell.type == "prep" {
                 showTenseVC(cell: cell, indexPath: indexPath)
-
             } else {
                 selectedWords.append(cell.word)
                 let insertedIndexPath = IndexPath(item: selectedWords.count-1, section: 0)
@@ -223,7 +358,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 // Using previous cell as a suggestion
             }
         } else {
-            //InputCollectionView
+            //selectedCollectionView
             //show option to discard/ change
         }
     }
@@ -244,6 +379,11 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         self.view.addSubview(singlePluralVC.view)
         singlePluralVC.didMove(toParentViewController: self)
         
+        //need to add tute for these popups
+        if currentTute == 1 {
+            singlePluralVC.tuteNum = 1
+        }
+        //popupView.hero.id = "PopupView"
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -258,12 +398,29 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     func showTenseVC(cell: ImageCell, indexPath: IndexPath) {
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
-        
+        selectedCell = cell
+        selectedIndexPath = indexPath
+        //performSegue(withIdentifier: "TenseSegue", sender: self)
         self.addChildViewController(tenseVC)
         tenseVC.view.frame = self.view.frame
         self.view.addSubview(tenseVC.view)
         tenseVC.didMove(toParentViewController: self)
+
+        //need to add tute for these popups
+        if currentTute == 1 {
+            tenseVC.tuteNum = 1
+        }
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "TenseSegue") {
+            let destinationVC = segue.destination as! Tense_ViewController
+            if currentTute == 1 {
+                destinationVC.tuteNum = 1
+            }
+            destinationVC.setUp(delegate: self, cell: selectedCell!, indexPath: selectedIndexPath!)
+        }
     }
     
     

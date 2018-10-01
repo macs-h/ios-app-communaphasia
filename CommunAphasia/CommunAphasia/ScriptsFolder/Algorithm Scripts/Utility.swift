@@ -39,6 +39,9 @@ class Utility {
     // The categories our images may represent.
     let categories = ["emotions","animals","food","activity","travel","objects","other"]
     
+    //for creating a 2D array of types
+    let typeDict:[String:Int] = ["noun":0, "adj":1, "verb":2, "pronoun":3, "adverb":4, "modal":4, "preposition":5]
+    
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
     let ID = Expression<Int>("id")
@@ -49,6 +52,7 @@ class Utility {
     let GR_NUM = Expression<String>("grNum")
     let CATEGORY = Expression<String>("category")
     let TENSE = Expression<String>("tense")
+    let FREQ = Expression<Int>("freq")
     
     
     /**
@@ -131,7 +135,7 @@ class Utility {
     func printRecentSentences() {
         for sentence in recentSentences {
             for image in sentence {
-                print(image.word + " ", terminator: "")
+                print(image.word, terminator: " ")
             }
             print()
         }
@@ -190,14 +194,15 @@ class Utility {
      
         - Returns:  An array of `cells` which were retrieved from the database.
      */
-    func getWordsInDatabase(words: [String]) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)] {
+    func getWordsInDatabase(words: [String]) -> [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String, tense: String)]] {
         
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+        var cells = [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]](repeating: [], count: 6)
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(words.contains(KEYWORD))
         
         do {
             for cell in try database.prepare(query) {
-                cells.append((cell[KEYWORD],
+                cells[typeDict[cell[TYPE]]!].append((
+                              cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
                               getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false),
@@ -209,6 +214,37 @@ class Utility {
             print(error)
         }
         return cells
+    }
+    /**
+        gets the value of frequency for a specific word from the database.
+     
+        - Parameter word: the word from which to get the frequency that it has been used
+    */
+    func getFreq(word: String) -> Int{
+        let query = CELL_TABLE.select(FREQ).filter(KEYWORD.like(word))
+        do {
+            for cell in try database.prepare(query) {
+                return cell[FREQ]
+            }
+        } catch {
+            print(error)
+        }
+        return 0
+    }
+    
+    /**
+        Sets the frequency of a specific word in the database.
+     
+     - Parameter word: the word to which the parameter will be set.
+     - Parameter freq: the frequenct which will be given to the word.
+    */
+    func setFreq(word: String,freq: Int) {
+        let cell = CELL_TABLE.filter(KEYWORD.like(word))
+        do {
+            try self.database.run(cell.update(FREQ <- freq))
+        } catch {
+            print(error)
+        }
     }
 
     
@@ -240,12 +276,14 @@ class Utility {
      
         - Returns:  An array of `cells` which matched the category.
      */
-    func getCellsByCategory(category: String) -> [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)] {
-        var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
+    func getCellsByCategory(category: String) -> [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]] {
+
+        var cells = [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]](repeating: [], count: 6)
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
         do {
             for cell in try database.prepare(query) {
-                cells.append((cell[KEYWORD],
+                cells[typeDict[cell[TYPE]]!].append((
+                              cell[KEYWORD],
                               cell[TYPE],
                               UIImage(named: cell[self.IMAGE_LINK])!,
                               getSentenceToWords(from: cell[self.RELATIONSHIPS], separatedBy: .init(charactersIn: "+"),removeSelectWords: false),
@@ -276,13 +314,15 @@ class Utility {
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
         var returnArray:[String] = []
+        let inputStringArray: [String] = inputString.components(separatedBy: " ")
         var count: Int = 0
+        
         let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
         tagger.string = inputString
         tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
                              unit: .word,
                              scheme: .lemma,
-                             options: [.omitPunctuation, .omitWhitespace])
+                             options: [.omitPunctuation, .omitWhitespace, .omitOther])
         { tag, tokenRange, _ in
             if let tag = tag {
                 let word = (inputString as NSString).substring(with: tokenRange)
@@ -290,8 +330,12 @@ class Utility {
                 print("\(word): \(tag.rawValue)")
                 count += 1
             } else {
-                returnArray.append((inputString.components(separatedBy: " "))[count])
-                count += 1
+                if let item = inputStringArray[safe: count] {
+                    returnArray.append(item)
+                    count += 1
+                } else {
+                    return
+                }
             }
         }
         return returnArray
@@ -330,31 +374,35 @@ class Utility {
      
         - Returns:  An array of synonymous words, else `nil`.
      */
+    @available(iOS 11.0, *)
     func getSynonym(_ word: String) -> [String]? {
         let baseUrl = "https://wordsapiv1.p.mashape.com/words/"
         let type = "synonyms"
-        let url = NSURL(string: baseUrl + word + "/" + type)
-        let request = NSMutableURLRequest(url: url! as URL)
-        request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
-        request.setValue("wordsapiv1.p.mashape.com", forHTTPHeaderField: "X-Mashape-Host")
-        request.httpMethod = "GET"
         
-        let delegateObj = MyDelegate()
-        let session = URLSession(configuration: URLSessionConfiguration.default,
-                                 delegate: delegateObj,
-                                 delegateQueue: nil)
-        let task = session.dataTask(with: request as URLRequest)
-        task.resume()
-        var timeOut = 0
-        while (delegateObj.synonyms.isEmpty) {
-            if timeOut >= 3000 {  // `timeOut` set to 3 seconds
-                print("API timed out")
-                return nil
+        if let url = NSURL(string: baseUrl + word + "/" + type) {
+            let request = NSMutableURLRequest(url: url as URL)
+            request.setValue("yTv8TIqHmimshZvfKLil4h6A2zT2p11GQe5jsnr4XhZtyt69bm", forHTTPHeaderField: "X-Mashape-Key")
+            request.setValue("wordsapiv1.p.mashape.com", forHTTPHeaderField: "X-Mashape-Host")
+            request.httpMethod = "GET"
+            
+            let delegateObj = MyDelegate()
+            let session = URLSession(configuration: URLSessionConfiguration.default,
+                                     delegate: delegateObj,
+                                     delegateQueue: nil)
+            let task = session.dataTask(with: request as URLRequest)
+            task.resume()
+            var timeOut = 0
+            while (delegateObj.synonyms.isEmpty) {
+                if timeOut >= 3000 {  // `timeOut` set to 3 seconds
+                    print("API timed out")
+                    return nil
+                }
+                usleep(20 * 1000)  // sleep for 20 milliseconds
+                timeOut += 20
             }
-            usleep(20 * 1000)  // sleep for 20 milliseconds
-            timeOut += 20
+            return delegateObj.synonyms
         }
-        return delegateObj.synonyms
+        return nil
     }
     
     
@@ -424,6 +472,8 @@ class Utility {
             table.column(self.GR_NUM)
             table.column(self.CATEGORY)
             table.column(self.TENSE)
+            table.column(self.FREQ)
+            
         }
         do {
             try self.database.run(makeTable)
@@ -467,7 +517,8 @@ class Utility {
                         self.RELATIONSHIPS <- values[3],
                         self.GR_NUM <- values[4],
                         self.CATEGORY <- values[5],
-                        self.TENSE <- values[6]
+                        self.TENSE <- values[6],
+                        self.FREQ <- 0
                     )
                     do {
                         try self.database.run(insertImage)
@@ -482,6 +533,11 @@ class Utility {
 } // End of Utility class!
 // ----------------------------------------------------------------------
 
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
 
 /**
     Used to colourise specific text in a UILabel.

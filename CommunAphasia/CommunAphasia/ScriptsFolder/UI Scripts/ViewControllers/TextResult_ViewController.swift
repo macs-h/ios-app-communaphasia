@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 /**
     Class that controls the Text result screen.
@@ -78,6 +79,13 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         cell.addData(cell: cellsToBeShown[indexPath.item])
         cell.showType()
         return cell
+    }
+    @IBAction func backButtonAction(_ sender: Any) {
+        let textToImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC")
+        textToImageVC.hero.isEnabled = true
+        textToImageVC.hero.modalAnimationType = .fade
+//        textToImageVC.hero.modalAnimationType = .push(direction: HeroDefaultAnimationType.Direction.right)
+        self.hero.replaceViewController(with: textToImageVC)
     }
     
 } // End of TextResult_ViewController class!

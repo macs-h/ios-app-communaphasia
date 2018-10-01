@@ -48,6 +48,16 @@
                ReferencedContainer = "container:CommunAphasia.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "81364F56215D8E9100AF2728"
+               BuildableName = "CommunAphasiaUnitTests.xctest"
+               BlueprintName = "CommunAphasiaUnitTests"
+               ReferencedContainer = "container:CommunAphasia.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

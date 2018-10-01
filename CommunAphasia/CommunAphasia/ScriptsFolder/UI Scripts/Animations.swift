@@ -2,8 +2,8 @@
 //  Animations.swift
 //  CommunAphasia
 //
-//  Created by Sam Paterson on 13/08/18.
-//  Copyright © 2018 Cosc345. All rights reserved.
+//  Created by RedSQ on 13/08/18.
+//  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import Foundation
@@ -50,3 +50,4 @@ class SegueFromRight: UIStoryboardSegue {
         )
     }
 }
+

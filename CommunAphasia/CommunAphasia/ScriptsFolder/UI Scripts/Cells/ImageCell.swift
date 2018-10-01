@@ -22,6 +22,9 @@ class ImageCell: UICollectionViewCell {
     var grNum: String = gNum.singlular.rawValue
     var category: String = "Other"
     var tense: String = "current"
+    var freq: Int = 0
+    
+    var frequency:Int = 0
     
     // Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
@@ -29,9 +32,37 @@ class ImageCell: UICollectionViewCell {
                                          "adj":UIColor.green.cgColor,
                                          "verb":UIColor.blue.cgColor,
                                          "pronoun":UIColor.orange.cgColor,
-                                         "adverb":UIColor.purple.cgColor]
+                                         "adverb":UIColor.purple.cgColor,
+                                         "modal":UIColor.magenta.cgColor]
     var tenseType: String = "present"
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
+//        tapGesture.numberOfTapsRequired = 1
+//        imageView.addGestureRecognizer(tapGesture)
+//        
+//        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+//        imageView.addGestureRecognizer(longGesture)
+//        print("setting up cell----")
+//    }
+//    
+//    
+//    @objc func normalTap(_ sender: UIGestureRecognizer){
+//        print("Normal tap")
+//    }
+//    
+//    @objc func longTap(_ sender: UIGestureRecognizer){
+//        print("Long tap")
+//        if sender.state == .ended {
+//            print("UIGestureRecognizerStateEnded")
+//            //Do Whatever You want on End of Gesture
+//        }
+//        else if sender.state == .began {
+//            print("UIGestureRecognizerStateBegan.")
+//            //Do Whatever You want on Began of Gesture
+//        }
+//    }
     
     /**
         Takes in a tuple and assigns it to class properties.
@@ -50,6 +81,7 @@ class ImageCell: UICollectionViewCell {
         self.grNum = cell.grNum
         self.category = cell.category
         self.tense = cell.tense
+        self.getFreq()
     }
     
     
@@ -66,6 +98,17 @@ class ImageCell: UICollectionViewCell {
         return (self.word, self.type, self.imageView.image!, self.suggestedWords, self.grNum, self.category, self.tense)
     }
     
+    func setFreq(f:Int) {
+        self.freq = f
+        //maybe
+        Utility.instance.setFreq(word: self.word, freq: f)
+    }
+    func getFreq() -> Int{
+        //maybe
+        self.freq = Utility.instance.getFreq(word: self.word)
+        
+        return self.freq
+    }
     
     /**
         Shows a duplicate of the image to show plurality.
@@ -130,7 +173,7 @@ class ImageCell: UICollectionViewCell {
         Shrinks image to accommodate for border width.
      */
     func showType(thisType: String? = nil){
-        print(">>",type)
+        //print(">>",type)
         let borderWidth: CGFloat = 5
         imageView.layer.borderWidth = borderWidth
         if thisType == nil{

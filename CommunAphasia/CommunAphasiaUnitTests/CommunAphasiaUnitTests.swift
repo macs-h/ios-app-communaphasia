@@ -38,15 +38,17 @@ class CommunAphasiaUnitTests: XCTestCase {
     func testTextInputViewControllerDoesNotCrash() {
         print("--- START testTextInputViewControllerDoesNotCrash() ---\n")
         
-        func randomString(length: Int) -> String {
-            let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        func randomString(strLength: Int) -> String {
+            let letters: NSMutableString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'"
 //            let specialChar: NSString = "-/–:;()$&@\".,?!'[]{}#%^*+=_\\|~<>£º•"
             
+//            letters.append(specialChar as String)
+//            print("-- Letters:\n", letters)
             
             let len = UInt32(letters.length)
             var randomString = ""
             
-            for _ in 0 ..< length {
+            for _ in 0 ..< strLength {
                 let rand = arc4random_uniform(len)
                 var nextChar = letters.character(at: Int(rand))
                 randomString += NSString(characters: &nextChar, length: 1) as String
@@ -58,23 +60,36 @@ class CommunAphasiaUnitTests: XCTestCase {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC") as! TextInput_ViewController
         vc.loadView()
         
+        // ----------------------------------
+
+//        let testString: String = "mO7£ }7 ECP^ \'- !–[ (;OB; Kb=,£wSs"
+////        let testString: String = "Trees don't like to feel"
+//
+//        vc.textField.text = testString
+//        print(">>>", vc.textField.text!)
+//
+//        vc.done(self)
+
+
+//        // ----------------------------------
+        
         
         // Test 100 sentences
-        for _ in 0..<1000 {
+        for _ in 0..<100 {
             var testString: String = ""
-            
+
             let upper: Int = Int(arc4random_uniform(9))
             for _ in 0...upper {
-                testString += randomString(length: Int(arc4random_uniform(9))+1)
+                testString += randomString(strLength: Int(arc4random_uniform(9))+1)
                 testString += " "
             }
-            
+
             vc.textField.text = testString
             print(">>>", vc.textField.text!)
-            
+
             vc.done(self)
         }
-
+        
         print("\n--- END testTextInputViewControllerDoesNotCrash() ---")
     }
     

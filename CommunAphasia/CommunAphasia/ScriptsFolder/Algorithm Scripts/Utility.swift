@@ -314,13 +314,15 @@ class Utility {
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
         var returnArray:[String] = []
+        let inputStringArray: [String] = inputString.components(separatedBy: " ")
         var count: Int = 0
+        
         let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
         tagger.string = inputString
         tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
                              unit: .word,
                              scheme: .lemma,
-                             options: [.omitPunctuation, .omitWhitespace])
+                             options: [.omitPunctuation, .omitWhitespace, .omitOther])
         { tag, tokenRange, _ in
             if let tag = tag {
                 let word = (inputString as NSString).substring(with: tokenRange)
@@ -328,8 +330,12 @@ class Utility {
                 print("\(word): \(tag.rawValue)")
                 count += 1
             } else {
-                returnArray.append((inputString.components(separatedBy: " "))[count])
-                count += 1
+                if let item = inputStringArray[safe: count] {
+                    returnArray.append(item)
+                    count += 1
+                } else {
+                    return
+                }
             }
         }
         return returnArray
@@ -527,6 +533,11 @@ class Utility {
 } // End of Utility class!
 // ----------------------------------------------------------------------
 
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
 
 /**
     Used to colourise specific text in a UILabel.

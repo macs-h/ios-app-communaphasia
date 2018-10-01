@@ -30,6 +30,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var errorIndex: Int = 0
     var synonyms = [[String]]()
     
+    var invalidSentenceEntered: Bool = false
+    
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var synonymLabel: UILabel!
@@ -96,7 +98,14 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 invalidSentence()
                 return []
             } else {
-                let lemmaWord = originalLemmaTagged[ originalArray.index(of: word.lowercased())! ]
+                var lemmaWord = ""
+                if let word = originalLemmaTagged[safe: originalArray.index(of: word.lowercased())! ] {
+                    lemmaWord = word
+                } else {
+                    invalidSentenceEntered = true
+                    print("--- INVALID at: makeCells forLoop")
+                    return errorArray
+                }
                 
                 if Utility.instance.isInDatabase(word: lemmaWord) == false{
                     errorArray.append(originalArray.index(of: word)!)
@@ -141,6 +150,8 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
      */
     @available(iOS 11.0, *)
     @IBAction func done(_ sender: Any) {
+        invalidSentenceEntered = false
+        
         if textField.text != ""{
             if processTextResults(){
                 //performSegue(withIdentifier: "TIToResult_segue", sender: self)
@@ -265,8 +276,13 @@ extension TextInput_ViewController{
                             
                             if apostropheCount == 1 {
                                 let contraction = Utility.instance.lemmaTag(inputString: inputArray[index])
-                                availableSynonyms.append(contraction.joined(separator: " "))
-                                self.suggestedWordsArray.insert(1, at: index)
+                                if !contraction.isEmpty {
+                                    availableSynonyms.append(contraction.joined(separator: " "))
+                                    self.suggestedWordsArray.insert(1, at: index)
+                                } else {
+                                    print("--- INVALID at: apostrophe")
+                                    self.invalidSentenceEntered = true
+                                }
                             }
                         }
                         
@@ -280,31 +296,35 @@ extension TextInput_ViewController{
                 DispatchQueue.main.async {
                     print("--- \(self.suggestedWordsArray)")
                     
-                    //do things with sysnonyms
-                    self.updateSynonymLabel(word: self.errors[self.errorIndex])
-                    self.synonymLabel.isHidden = false
-                    
-                    
-                    self.pickerData = self.synonyms[self.errorIndex]
-                    self.pickerData.insert("", at: 0)
-                    self.currentIndex = errorArray[0]
-                    self.errorIndices = errorArray
-                    print("------- currentIndex", self.currentIndex)
-                    self.pickerView.reloadAllComponents()
-                    self.updatePickerViewVisibility()
-                    
-                    self.nextButton.isHidden = false
-                    self.prevButton.isHidden = false
-                    for word in self.stringArray {
-                        let atWord = NSMutableAttributedString(string: word)
-                        if self.errors.contains(word){
-                            atWord.setColor(color: UIColor.red, forText: atWord.string)
+                    if self.invalidSentenceEntered {
+                        self.invalidInputSentence()
+                    } else {
+                        //do things with sysnonyms
+                        self.updateSynonymLabel(word: self.errors[self.errorIndex])
+                        self.synonymLabel.isHidden = false
+                        
+                        
+                        self.pickerData = self.synonyms[self.errorIndex]
+                        self.pickerData.insert("", at: 0)
+                        self.currentIndex = errorArray[0]
+                        self.errorIndices = errorArray
+                        print("------- currentIndex", self.currentIndex)
+                        self.pickerView.reloadAllComponents()
+                        self.updatePickerViewVisibility()
+                        
+                        self.nextButton.isHidden = false
+                        self.prevButton.isHidden = false
+                        for word in self.stringArray {
+                            let atWord = NSMutableAttributedString(string: word)
+                            if self.errors.contains(word){
+                                atWord.setColor(color: UIColor.red, forText: atWord.string)
+                            }
+                            self.attributedArray.append(atWord)
                         }
-                        self.attributedArray.append(atWord)
+                        self.attributedArray[self.errorIndices[0]].setColor(color: UIColor.blue, forText: self.attributedArray[self.errorIndices[0]].string)
+                        self.setTextFromArray()
+                        print("------- error array end", errorArray)
                     }
-                    self.attributedArray[self.errorIndices[0]].setColor(color: UIColor.blue, forText: self.attributedArray[self.errorIndices[0]].string)
-                    self.setTextFromArray()
-                    print("------- error array end", errorArray)
                     self.stopActivityIndicator()
                 }
             }
@@ -399,13 +419,30 @@ extension TextInput_ViewController{
     
     
     /**
+     If there are invalid characters in the input, the user is presented
+     with an error message asking them to rephrase.
+     */
+    fileprivate func invalidInputSentence() {
+        synonymLabel.isHidden = false
+        pickerView.isHidden = true
+        nextButton.isHidden = true
+        prevButton.isHidden = true
+        synonymLabel.text = "Invalid sentence. Please try again."
+    }
+    
+    
+    /**
      Updates the error message displayed on screen if there are invalid words.
      */
     fileprivate func updateSynonymLabel(word: String) {
-        if Utility.instance.isInDatabase(word: word) {
-            synonymLabel.text = "\"" + word + "\" is valid!"
+        if invalidSentenceEntered {
+            invalidInputSentence()
         } else {
-            synonymLabel.text = "Can't find \"" + word + "\", try one of these:"
+            if Utility.instance.isInDatabase(word: word) {
+                synonymLabel.text = "\"" + word + "\" is valid!"
+            } else {
+                synonymLabel.text = "Can't find \"" + word + "\", try one of these:"
+            }
         }
     }
     
@@ -430,11 +467,15 @@ extension TextInput_ViewController{
      suggestions to show or not.
      */
     fileprivate func updatePickerViewVisibility() {
-        if suggestedWordsArray[currentIndex] == 0 {
-            pickerView.isHidden = true
-            synonymLabel.text = "Unable to find alternatives for \"" + stringArray[currentIndex] + "\".\nPlease rephrase"
+        if invalidSentenceEntered {
+            invalidInputSentence()
         } else {
-            pickerView.isHidden = false
+            if suggestedWordsArray[currentIndex] == 0 {
+                pickerView.isHidden = true
+                synonymLabel.text = "Unable to find alternatives for \"" + stringArray[currentIndex] + "\".\nPlease rephrase"
+            } else {
+                pickerView.isHidden = false
+            }
         }
     }
     

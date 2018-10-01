@@ -171,7 +171,6 @@ class ImageToText {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
             temp = prevWord.suggestedWords[1] + " the"
-//            temp = prevWord.tense
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == "number" {

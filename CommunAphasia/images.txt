@@ -111,6 +111,7 @@ write,write,verb,nil,r,activity,wrote+writing+will write
 don't,don't,modal,nil,r,activity,didn't+don't+won't
 
 car,car_sedan,noun,travel,r,travel,t
+airport,airport,noun,travel,r,travel,t
 
 basketball,basketball,noun,sport,r,object,t
 big,big,adj,size,r,objects,t
@@ -125,6 +126,25 @@ man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t
 small,small,adj,size,r,objects,t
 woman,woman_silhouette,noun,people,women,objects,t
+post office,postOffice,noun,object,r,object,t
+hospital,hospital,noun,object,r,object,t
+pan,pan,noun,object,r,object,t
+pot,pot,noun,object,r,object,t
+spoon,spoon,noun,object,r,object,t
+knife,knife,noun,object,r,object,t
+fork,fork,noun,object,r,object,t
+gun,gun,noun,object,r,object,t
+hose,hose,noun,object,r,object,t
+bicycle,bicycle,noun,object,r,object,t
+vase,vase,noun,object,r,object,t
+bed,bed,noun,object,r,object,t
+chair,chair,noun,object,r,object,t
+table,table,noun,object,r,object,t
+soon,soon,noun,object,r,other,t
+later,later,noun,object,r,other,t
+afternoon,afternoon,noun,object,r,other,t
+night,night,noun,object,r,other,t
+morning,morning,noun,object,r,other,t
 
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t

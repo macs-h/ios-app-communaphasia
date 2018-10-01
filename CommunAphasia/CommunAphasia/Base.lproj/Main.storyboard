@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,15 +40,16 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutorials" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-8q-7xU">
-                                        <rect key="frame" x="8" y="0.0" width="462" height="56"/>
+                                        <rect key="frame" x="8" y="8" width="454" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okf-ip-Ght">
-                                        <rect key="frame" x="322" y="83" width="148" height="30"/>
+                                        <rect key="frame" x="251" y="90" width="211" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Convert text to image"/>
                                         <connections>
                                             <action selector="tute2pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="fQJ-z0-tBh"/>
@@ -56,8 +57,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmO-Oy-216">
-                                        <rect key="frame" x="0.0" y="83" width="159" height="30"/>
+                                        <rect key="frame" x="8" y="90" width="211" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Create image sentence"/>
                                         <connections>
                                             <action selector="tute1pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="gF7-dn-LCw"/>
@@ -780,11 +782,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Presente Tense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U13-rA-WsR">
-                                        <rect key="frame" x="321" y="308" width="470" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select present tense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U13-rA-WsR">
+                                        <rect key="frame" x="321" y="316" width="470" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -864,11 +866,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Singular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNO-jN-sDm">
-                                        <rect key="frame" x="394" y="324" width="325" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select singular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNO-jN-sDm">
+                                        <rect key="frame" x="321" y="327" width="470" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1074,31 +1076,31 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Activity Icon" width="256" height="256"/>
-        <image name="Back button" width="59" height="57"/>
-        <image name="Back button flipped" width="59" height="57"/>
-        <image name="Backwards arrow" width="59" height="39"/>
-        <image name="Black seperator" width="1112" height="7"/>
+        <image name="Activity Icon" width="14.769230842590332" height="14.769230842590332"/>
+        <image name="Back button" width="177" height="172"/>
+        <image name="Back button flipped" width="177" height="172"/>
+        <image name="Backwards arrow" width="177" height="117"/>
+        <image name="Black seperator" width="3338" height="23"/>
         <image name="Common Icon" width="512" height="512"/>
-        <image name="Current tab" width="66" height="93"/>
-        <image name="Delete button" width="80" height="45"/>
-        <image name="Done button" width="116" height="54"/>
-        <image name="Emotion Icon" width="1600" height="1600"/>
+        <image name="Current tab" width="199" height="281"/>
+        <image name="Delete button" width="242" height="135"/>
+        <image name="Done button" width="350" height="164"/>
+        <image name="Emotion Icon" width="1200" height="1200"/>
         <image name="Food Icon" width="980" height="980"/>
-        <image name="Forward arrow" width="59" height="39"/>
-        <image name="Image to text button" width="404" height="136"/>
-        <image name="Input bar" width="817" height="61"/>
-        <image name="Logo" width="699" height="309"/>
+        <image name="Forward arrow" width="177" height="117"/>
+        <image name="Image to text button" width="1212" height="410"/>
+        <image name="Input bar" width="2452" height="183"/>
+        <image name="Logo" width="2097" height="929"/>
         <image name="Nature Icon" width="512" height="512"/>
-        <image name="Number Icon" width="39" height="33"/>
+        <image name="Number Icon" width="118" height="101"/>
         <image name="Objects Icon" width="512" height="512"/>
-        <image name="Other Icon" width="1600" height="1600"/>
-        <image name="Pic selection background" width="920" height="539"/>
-        <image name="Popover" width="104" height="70"/>
-        <image name="Popup background" width="510" height="257"/>
-        <image name="Text to image button" width="404" height="136"/>
-        <image name="Travel Icon" width="128" height="128"/>
-        <image name="Tutorial Button" width="404" height="88"/>
+        <image name="Other Icon" width="1200" height="1200"/>
+        <image name="Pic selection background" width="2760" height="1617"/>
+        <image name="Popover" width="312" height="212"/>
+        <image name="Popup background" width="1532" height="772"/>
+        <image name="Text to image button" width="1212" height="410"/>
+        <image name="Travel Icon" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="Tutorial Button" width="1212" height="265"/>
         <image name="futureTense" width="512" height="512"/>
         <image name="image placeholder.png" width="150" height="150"/>
         <image name="pastTense" width="512" height="512"/>

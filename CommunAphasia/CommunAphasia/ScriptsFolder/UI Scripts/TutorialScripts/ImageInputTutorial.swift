@@ -44,22 +44,22 @@ class Tutorials {
     func genTute(num:Int) -> [TutorialStep] {
         if num == 1 {
             return [
-                TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap Screen to begin tutorial", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
-                TutorialStep(window: CGRect(x: 1015-5, y: 121-5, width: 66+10, height: 532+10), message: "Cycle through Categories", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 1015+6, y: 121+9, width: 66, height: 532)),
-                TutorialStep(window: CGRect(x: 1015-5, y: 121-5, width: 66+10, height: 532+10), message: "Keep it up! check out another category", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 1015+6, y: 121+9, width: 66, height: 532)),
+                TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap screen to begin tutorial", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
+                TutorialStep(window: CGRect(x: 1015-5, y: 121-5, width: 66+10, height: 532+10), message: "Cycle through categories", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 1015+6, y: 121+9, width: 66, height: 532)),
+                TutorialStep(window: CGRect(x: 1015-5, y: 121-5, width: 66+10, height: 532+10), message: "Keep it up! Check out another category", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 1015+6, y: 121+9, width: 66, height: 532)),
                 TutorialStep(window: CGRect(x: 1015-5, y: 121-5, width: 66+10, height: 62+10), message: "Choose the common images category", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 1015+6, y: 121+9, width: 55, height: 52)),
                 TutorialStep(window: CGRect(x: 30, y: 121, width: 99+10, height: 96+10), message: "Select a pronoun", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 30, y: 121, width: 99, height: 96)),
                 TutorialStep(window: CGRect(x: 30+(109*2), y: 121, width: 99+10, height: 96+10), message: "Now select a verb", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 30+(109*2)+6, y: 121+9, width: 99, height: 96)),
-                TutorialStep(window: CGRect(x: 30+(109*3), y: 121, width: 99+10, height: 96+10), message: "Nice, now select a noun", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 30+(109*3)+6, y: 121+9, width: 99, height: 96)),
-                TutorialStep(window: CGRect(x: 30+(109*4), y: 121, width: 99+10, height: 96+10), message: "Select another noun", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 30+(109*4)+6, y: 121+9, width: 99, height: 96)),
-                TutorialStep(window: CGRect(x: 923-5, y: 762-5, width: 58+10, height: 32+10), message: "If you dont want a picture any more try deleting it", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 923, y: 762, width: 58, height: 32)),
-                TutorialStep(window: CGRect(x: 1016-5, y: 759-5, width: 85+10, height: 39+10), message: "Great! Hit the done button to finish your sentence", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 1016, y: 759, width: 85, height: 39))
+                TutorialStep(window: CGRect(x: 30+(109*3), y: 121, width: 99+10, height: 96+10), message: "Nice! Now select a noun", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 30+(109*3)+6, y: 121+9, width: 99, height: 96)),
+                TutorialStep(window: CGRect(x: 30+(109*4), y: 121, width: 99+10, height: 96+10), message: "Select another word", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 30+(109*4)+6, y: 121+9, width: 99, height: 96)),
+                TutorialStep(window: CGRect(x: 923-5, y: 762-5, width: 58+10, height: 32+10), message: "If you don't want a picture anymore, try deleting it", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 923, y: 762, width: 58, height: 32)),
+                TutorialStep(window: CGRect(x: 1016-5, y: 759-5, width: 85+10, height: 39+10), message: "Great! Hit the 'Done' button to finish your sentence", messagePos: CGPoint(x: 216, y: 68), clickRect:CGRect(x: 1016, y: 759, width: 85, height: 39))
             ]
         }else if num == 2 {
             return [
-                TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap Screen to begin tutorial", messagePos: CGPoint(x: 216, y: 220),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
-                TutorialStep(window: CGRect(x: 166-5, y: 163-10, width: 806+115+10, height: 33+20), message: "Enter the phrase: 'the large tree is green' and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45)),
-                TutorialStep(window: CGRect(x: 406-5, y: 504-5, width: 300+10, height: 200+10), message: "Use the scroll wheel to change large to big and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45),extraWindow: CGRect(x: 988-5, y: 157-5, width: 97+10, height: 45+10))
+                TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap screen to begin tutorial", messagePos: CGPoint(x: 216, y: 220),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
+                TutorialStep(window: CGRect(x: 166-5, y: 163-10, width: 806+115+10, height: 33+20), message: "Enter the phrase: \"The large tree is green\" and press 'Done'", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45)),
+                TutorialStep(window: CGRect(x: 406-5, y: 504-5, width: 300+10, height: 200+10), message: "Use the scroll wheel to change \"large\" to \"big\" and press 'Done'", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45),extraWindow: CGRect(x: 988-5, y: 157-5, width: 97+10, height: 45+10))
             ]
         }else {
         //default tute
@@ -74,8 +74,8 @@ class MakeTransparentHoleOnOverlayView: UIView {
     var tuteNum: Int = 0
     var tutes:Tutorials = Tutorials()//class to generate tutorials
     var eventQueue:[TutorialStep] = []
-    var currentStep:TutorialStep = TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "this is a placeholdeer", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 0, height: 0))
-    var exitStep:TutorialStep = TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "tap screen to exit tutorial", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))
+    var currentStep:TutorialStep = TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "This is a placeholdeer", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 0, height: 0))
+    var exitStep:TutorialStep = TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap screen to exit tutorial", messagePos: CGPoint(x: 216, y: 68),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var exitButton: UIButton!
@@ -100,7 +100,7 @@ class MakeTransparentHoleOnOverlayView: UIView {
                     }
                 }
             }
-            if currentStep.message != "Cycle through Categories"{
+            if currentStep.message != "Cycle through categories"{
                 
                 let view = super.hitTest(point, with: event)
                 return view == self ? nil : view

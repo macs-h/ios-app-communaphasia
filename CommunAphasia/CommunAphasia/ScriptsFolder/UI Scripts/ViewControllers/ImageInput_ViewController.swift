@@ -146,7 +146,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Parameter sender: Tab button pressed
      */
     @IBAction func ChangeCategory(_ sender: UIButton) {
-        print("category changed")
         for button in tabButtons {
             if button.tag == currentCategoyIndex {
                 button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
@@ -165,6 +164,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             collection.reloadData()
         }
         sortCellsByfreq()
+        fillSpaceWithCollectionViews()
 //        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
@@ -198,6 +198,67 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 //            print("origional-",cell.first?.0)
 //        }
         cellsInCategory = tempCells
+    }
+    
+    func fillSpaceWithCollectionViews() {
+//        let spaceToFill: CGRect = CGRect(x: 43, y: 145, width: 1010, height: 486)
+//        let colSize: CGSize = CGSize(width: 109, height: 486)
+        var iterator:[Int] = [3,2,0,1,4,5] // beacue the order of collections is on the piss
+        let totalColumns: Int = 9
+        
+        var totalCols: Int = 0
+        
+        for item in iterator {
+            //print(inputCollectionViews[item].numberOfItems(inSection: 0), inputCollectionViews[item].tag)
+            //inputCollectionViews[item].frame = CGRect(origin: inputCollectionViews[item].frame.origin, size: colSize)
+            let numCells = inputCollectionViews[item].numberOfItems(inSection: 0)
+            totalCols += Int(ceil(Double(numCells)/5))
+            if numCells == 0 {
+                iterator.remove(at: iterator.index(of: item)!)
+                inputCollectionViews[item].frame = CGRect(x: -100, y: -100, width: 0, height: 0)//get rid of empty collections
+            }
+        }
+//        if totalCols <= totalColumns{//we can fit all cells on screen
+//            var currentX = 43
+//            for item in iterator {
+//                let cols = Int(ceil(Double(inputCollectionViews[item].numberOfItems(inSection: 0))/5))
+//                let origin = CGPoint(x: currentX, y: 145)
+//                let size = CGSize(width: 109*cols, height: 486)
+//
+//                inputCollectionViews[item].frame = CGRect(origin: origin, size: size)
+//                currentX += 109*cols
+//
+//            }
+//        /*}else*/ if totalCols > totalColumns{
+            var numCols = iterator.count;
+            var collsPerItem:[Int] = Array(repeatElement(1, count: 10))//10 magic number should change
+            while numCols < totalColumns {
+                var maxCellsIndex = 5;
+                for item in iterator {
+                    if inputCollectionViews[item].numberOfItems(inSection: 0)/collsPerItem[item]
+                        > inputCollectionViews[maxCellsIndex].numberOfItems(inSection: 0)/collsPerItem[maxCellsIndex] {
+                        maxCellsIndex = item
+                    }
+                }
+                collsPerItem[maxCellsIndex] += 1
+                numCols += 1
+            }
+            var currentX = 25//changed from 43
+            for item in iterator {
+                let origin = CGPoint(x: currentX, y: 145)
+                let size = CGSize(width: 109*collsPerItem[item], height: 510)//was 486
+                
+                inputCollectionViews[item].frame = CGRect(origin: origin, size: size)
+                currentX += 109*collsPerItem[item]
+                
+            }
+//        }else {
+//            var currentX = 43
+//            for item in iterator {
+//                inputCollectionViews[item].frame = CGRect(x: currentX, y: 145, width: 109, height: 486)
+//                currentX += 109
+//            }
+//        }
     }
     
     // ----------------------------------------------------------------------

@@ -43,6 +43,17 @@
 		19EE0309211FF79E008AEC64 /* they.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0302211FF79D008AEC64 /* they.png */; };
 		19EE030B211FF79E008AEC64 /* you.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0304211FF79E008AEC64 /* you.png */; };
 		19EE030C211FF79E008AEC64 /* he.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0305211FF79E008AEC64 /* he.png */; };
+		44432A6821619B8B00FE8C6A /* ask.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A5721619B8900FE8C6A /* ask.png */; };
+		44432A6921619B8B00FE8C6A /* cook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44432A5E21619B8A00FE8C6A /* cook.jpg */; };
+		44432A6A21619B8B00FE8C6A /* say.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A5F21619B8A00FE8C6A /* say.png */; };
+		44432A6B21619B8B00FE8C6A /* feel.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6021619B8A00FE8C6A /* feel.png */; };
+		44432A6C21619B8B00FE8C6A /* take.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6121619B8A00FE8C6A /* take.png */; };
+		44432A6D21619B8B00FE8C6A /* think.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6221619B8A00FE8C6A /* think.jpg */; };
+		44432A6E21619B8B00FE8C6A /* find.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6321619B8A00FE8C6A /* find.jpg */; };
+		44432A6F21619B8B00FE8C6A /* give.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6421619B8B00FE8C6A /* give.jpg */; };
+		44432A7021619B8B00FE8C6A /* come.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6521619B8B00FE8C6A /* come.png */; };
+		44432A7121619B8B00FE8C6A /* howAreYou.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6621619B8B00FE8C6A /* howAreYou.png */; };
+		44432A7221619B8B00FE8C6A /* see.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6721619B8B00FE8C6A /* see.gif */; };
 		44856EE920BBD0600035C01A /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE020BBD0600035C01A /* sleep.png */; };
 		44856EEA20BBD0600035C01A /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE720BBD0600035C01A /* call.png */; };
 		44856EEB20BBD0600035C01A /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE820BBD0600035C01A /* eat.png */; };
@@ -243,6 +254,17 @@
 		19EE0302211FF79D008AEC64 /* they.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = they.png; sourceTree = "<group>"; };
 		19EE0304211FF79E008AEC64 /* you.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you.png; sourceTree = "<group>"; };
 		19EE0305211FF79E008AEC64 /* he.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = he.png; sourceTree = "<group>"; };
+		44432A5721619B8900FE8C6A /* ask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask.png; sourceTree = "<group>"; };
+		44432A5E21619B8A00FE8C6A /* cook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cook.jpg; sourceTree = "<group>"; };
+		44432A5F21619B8A00FE8C6A /* say.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = say.png; sourceTree = "<group>"; };
+		44432A6021619B8A00FE8C6A /* feel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feel.png; sourceTree = "<group>"; };
+		44432A6121619B8A00FE8C6A /* take.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = take.png; sourceTree = "<group>"; };
+		44432A6221619B8A00FE8C6A /* think.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = think.jpg; sourceTree = "<group>"; };
+		44432A6321619B8A00FE8C6A /* find.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = find.jpg; sourceTree = "<group>"; };
+		44432A6421619B8B00FE8C6A /* give.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = give.jpg; sourceTree = "<group>"; };
+		44432A6521619B8B00FE8C6A /* come.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = come.png; sourceTree = "<group>"; };
+		44432A6621619B8B00FE8C6A /* howAreYou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howAreYou.png; sourceTree = "<group>"; };
+		44432A6721619B8B00FE8C6A /* see.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = see.gif; sourceTree = "<group>"; };
 		44856EE020BBD0600035C01A /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
 		44856EE720BBD0600035C01A /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		44856EE820BBD0600035C01A /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
@@ -389,6 +411,17 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
+				44432A5721619B8900FE8C6A /* ask.png */,
+				44432A6521619B8B00FE8C6A /* come.png */,
+				44432A5E21619B8A00FE8C6A /* cook.jpg */,
+				44432A6021619B8A00FE8C6A /* feel.png */,
+				44432A6321619B8A00FE8C6A /* find.jpg */,
+				44432A6421619B8B00FE8C6A /* give.jpg */,
+				44432A6621619B8B00FE8C6A /* howAreYou.png */,
+				44432A5F21619B8A00FE8C6A /* say.png */,
+				44432A6721619B8B00FE8C6A /* see.gif */,
+				44432A6121619B8A00FE8C6A /* take.png */,
+				44432A6221619B8A00FE8C6A /* think.jpg */,
 				1909A2552159E0FE00C0B712 /* eight.png */,
 				1909A25C2159E0FE00C0B712 /* five.png */,
 				1909A25D2159E0FE00C0B712 /* four.png */,
@@ -775,6 +808,7 @@
 				19EE02F1211FDF52008AEC64 /* need.png in Resources */,
 				ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */,
 				19B5288B21546B46002E4B50 /* onTop.png in Resources */,
+				44432A6921619B8B00FE8C6A /* cook.jpg in Resources */,
 				ED83F7072121320D0043251E /* donut.png in Resources */,
 				ED83F6D5212110180043251E /* scared.png in Resources */,
 				1909A26B2159E10000C0B712 /* three.png in Resources */,
@@ -782,9 +816,13 @@
 				44856EE920BBD0600035C01A /* sleep.png in Resources */,
 				1909A2682159E10000C0B712 /* nine.png in Resources */,
 				ED83F6F121211C5C0043251E /* purple.png in Resources */,
+				44432A6A21619B8B00FE8C6A /* say.png in Resources */,
 				ED83F6DD2121103B0043251E /* sleepy.jpg in Resources */,
 				ED83F7082121320D0043251E /* sandwich.png in Resources */,
 				ED83F7062121320D0043251E /* pancake.png in Resources */,
+				44432A6D21619B8B00FE8C6A /* think.jpg in Resources */,
+				44432A6B21619B8B00FE8C6A /* feel.png in Resources */,
+				44432A6C21619B8B00FE8C6A /* take.png in Resources */,
 				ED83F6EB21211C5C0043251E /* orange.png in Resources */,
 				ED83F6E921211C5C0043251E /* red.png in Resources */,
 				ED83F6D6212110180043251E /* happy.png in Resources */,
@@ -809,6 +847,7 @@
 				19EE0306211FF79E008AEC64 /* she.png in Resources */,
 				19EE030B211FF79E008AEC64 /* you.png in Resources */,
 				1909A2672159E10000C0B712 /* four.png in Resources */,
+				44432A6F21619B8B00FE8C6A /* give.jpg in Resources */,
 				19B5288821546B46002E4B50 /* nextTo.png in Resources */,
 				ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */,
 				ED83F6EC21211C5C0043251E /* pink.png in Resources */,
@@ -835,13 +874,18 @@
 				ED83F6EE21211C5C0043251E /* gray.png in Resources */,
 				1909A2652159E10000C0B712 /* eight.png in Resources */,
 				ED27976D20B7C7C0001AF14C /* cow.png in Resources */,
+				44432A6E21619B8B00FE8C6A /* find.jpg in Resources */,
 				19EE02F0211FDF52008AEC64 /* may.jpg in Resources */,
 				ED83F7042121320D0043251E /* egg.png in Resources */,
+				44432A6821619B8B00FE8C6A /* ask.png in Resources */,
 				19B5288F21546B46002E4B50 /* over.png in Resources */,
 				EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */,
+				44432A7021619B8B00FE8C6A /* come.png in Resources */,
 				19B5288621546B46002E4B50 /* underneath.png in Resources */,
+				44432A7121619B8B00FE8C6A /* howAreYou.png in Resources */,
 				ED83F6DB212110180043251E /* sad.jpg in Resources */,
 				ED83F6F021211C5C0043251E /* white.png in Resources */,
+				44432A7221619B8B00FE8C6A /* see.gif in Resources */,
 				EDF7207320AD3FA700675140 /* Main.storyboard in Resources */,
 				1909A2662159E10000C0B712 /* five.png in Resources */,
 				ED83F6D7212110180043251E /* surprised.png in Resources */,

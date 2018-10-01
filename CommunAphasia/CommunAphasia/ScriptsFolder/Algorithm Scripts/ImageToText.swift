@@ -69,7 +69,6 @@ class ImageToText {
                 
                 if thisPic.type == wordType.noun.rawValue {
                     temp = isNoun(prevWord: prevPic)
-//                    wordToAppend = (thisPic.grNum == "singular") ? thisPic.word : pluralize(pic: thisPic)
                     if (thisPic.grNum == "singular") {
                         wordToAppend = thisPic.word
                     } else {
@@ -77,16 +76,22 @@ class ImageToText {
                     }
                     if (prevPic.type == "number") {
                         if (prevPic.word == "one") {
-                            wordToAppend = thisPic.word //make singular
+                            wordToAppend = thisPic.word // make singular
                         }
                     }
                     
                     returnString.append(temp)
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
+                    if prevPic.type == wordType.verb.rawValue {
+                        if prevPic.suggestedWords[0] != "nil" {
+                            returnString.append(prevPic.suggestedWords[0])
+                        }
+                    }
                     if haveSubject == true {
                         returnString.append(thisPic.grNum)
                     }
+                    
                 }else if thisPic.type == wordType.modal.rawValue {
                     temp = isModal(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)
@@ -167,7 +172,7 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
-            temp = "the"
+            temp = prevWord.suggestedWords[1] + " the"
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == "number" {

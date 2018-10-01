@@ -25,6 +25,7 @@ class ImageCell: UICollectionViewCell {
     var freq: Int = 0
     
     var frequency:Int = 0
+    var imageInputVC = ImageInput_ViewController()
     
     // Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
@@ -48,24 +49,17 @@ class ImageCell: UICollectionViewCell {
         if sender.state == .ended {
             print("UIGestureRecognizerStateEnded")
             //Do Whatever You want on End of Gesture
+            imageInputVC.closePopover()
         }
         else if sender.state == .began {
             print("UIGestureRecognizerStateBegan.")
             //Do Whatever You want on Began of Gesture
+            imageInputVC.openPopover(word: word, position: sender.location(in: imageInputVC.view))
         }
     }
     
-    
-    @IBAction func tapped(sender: UITapGestureRecognizer)
-    {
-        print("tapped")
-        //Your animation code.
-    }
-    
-    @IBAction func longPressed(sender: UILongPressGestureRecognizer)
-    {
-        print("longpressed")
-        //Different code
+    func addImageInputVC(parent: ImageInput_ViewController){
+        imageInputVC = parent
     }
     
     /**

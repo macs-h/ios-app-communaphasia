@@ -657,6 +657,8 @@
                     </view>
                     <connections>
                         <outlet property="InputCollectionView" destination="a3s-UV-nZ1" id="Odv-18-PhQ"/>
+                        <outlet property="popover" destination="XXd-Q8-WjN" id="Tcl-19-HvG"/>
+                        <outlet property="popoverWord" destination="GkK-bM-Jyr" id="w1a-5v-NdI"/>
                         <outlet property="selectedCollectionView" destination="jFU-Z1-RvD" id="tyd-KO-AP3"/>
                         <outletCollection property="tabButtons" destination="6sh-yw-1Te" collectionClass="NSMutableArray" id="4aV-ce-KDm"/>
                         <outletCollection property="tabButtons" destination="y1U-dv-t0S" collectionClass="NSMutableArray" id="lj8-hX-Iit"/>
@@ -676,6 +678,23 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="XXd-Q8-WjN">
+                    <rect key="frame" x="0.0" y="0.0" width="182" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popover" translatesAutoresizingMaskIntoConstraints="NO" id="PAb-XR-MuV">
+                            <rect key="frame" x="0.0" y="0.0" width="182" height="84"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkK-bM-Jyr">
+                            <rect key="frame" x="0.0" y="0.0" width="182" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </view>
             </objects>
             <point key="canvasLocation" x="929.67625899280574" y="977.69784172661878"/>
         </scene>
@@ -1075,6 +1094,7 @@
         <image name="Objects Icon" width="512" height="512"/>
         <image name="Other Icon" width="1600" height="1600"/>
         <image name="Pic selection background" width="920" height="539"/>
+        <image name="Popover" width="104" height="70"/>
         <image name="Popup background" width="510" height="257"/>
         <image name="Text to image button" width="404" height="136"/>
         <image name="Travel Icon" width="128" height="128"/>

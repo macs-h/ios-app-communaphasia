@@ -141,7 +141,6 @@ woman,woman_silhouette,noun,people,women,objects,t
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
 how are you?,howAreYou,adverb,nil,r,other,t
-how are you?,howAreYou,adverb,nil,r,other,t
 good morning,goodMorning,adverb,nil,r,other,t
 good night,goodNight,adverb,nil,r,other,t
 hello,hello.jpeg,adverb,nil,r,other,t

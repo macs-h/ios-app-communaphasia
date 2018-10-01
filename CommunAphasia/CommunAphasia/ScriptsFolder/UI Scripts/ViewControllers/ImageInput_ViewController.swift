@@ -49,7 +49,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         Called after the controller's view is loaded into memory.
      */
     override func viewDidLoad() {
-        super.viewDidLoad()\
+        super.viewDidLoad()
         for collection in inputCollectionViews{
             collection.dataSource = self
             collection.delegate = self

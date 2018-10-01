@@ -71,7 +71,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right && currentTute == 0{
             print("Swipe right")
             self.backButtonAction(AnyObject.self)
         }

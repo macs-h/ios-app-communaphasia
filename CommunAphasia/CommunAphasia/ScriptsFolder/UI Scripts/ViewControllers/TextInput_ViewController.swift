@@ -64,7 +64,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right && currentTute == 0{
             print("Swipe right")
             self.BackButtonAction(AnyObject.self)
         }

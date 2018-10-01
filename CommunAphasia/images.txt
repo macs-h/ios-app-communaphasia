@@ -30,7 +30,7 @@ sandwich,sandwich,noun,nil,r,food,t
 toast,toast,noun,nil,r,food,t
 water,water,noun,nil,r,food,t
 
-call,call,verb,nil,r,activity,called+calling+will call
+phone,call,verb,nil,r,activity,phoned+phoning+will phone
 eat,eat,verb,nil,r,activity,ate+eating+will eat
 sleep,sleep,verb,on,r,activity,slept+sleeping+will sleep
 wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
@@ -45,7 +45,6 @@ cook,cook.jpg,verb,nil,r,activity,cooked+cooking+will cook
 feel,feel,verb,nil,r,activity,felt+feeling+will feel
 find,find.jpg,verb,nil,r,activity,found+finding+will find
 give,give.jpg,verb,nil,r,activity,gave+giving+will give
-ask,ask,verb,nil,r,activity,asked+asking+will ask
 say,say,verb,nil,r,activity,said+saying+will say
 see,see.gif,verb,nil,r,activity,saw+seeing+will see
 take,take,verb,nil,r,activity,took+taking+will take
@@ -109,6 +108,7 @@ watch,watch,verb,nil,r,activity,watched+watching+will watch
 win,win,verb,nil,r,activity,won+winning+will win
 work,work,verb,nil,r,activity,worked+working+will work
 write,write,verb,nil,r,activity,wrote+writing+will write
+don't,don't,modal,nil,r,activity,didn't+don't+won't
 
 car,car_sedan,noun,travel,r,travel,t
 bus,bus,noun,travel,r,travel,t
@@ -140,14 +140,13 @@ woman,woman_silhouette,noun,people,women,objects,t
 
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
-talk,talk,verb,to,r,activity,talked+talking+will talk
 how are you?,howAreYou,adverb,nil,r,other,t
 how are you?,howAreYou,adverb,nil,r,other,t
 good morning,goodMorning,adverb,nil,r,other,t
 good night,goodNight,adverb,nil,r,other,t
 hello,hello.jpeg,adverb,nil,r,other,t
 pleased to meet you,pleasedToMeetYou,adverb,nil,r,other,t
-my name is ,myNameIs,adverb,nil,r,other,t
+my name is,myNameIs,adverb,nil,r,other,t
 what is your name?,whatIsYourName,adverb,nil,r,other,t
 
 blue,blue,adj,nil,r,other,t

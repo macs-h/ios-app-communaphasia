@@ -234,10 +234,10 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             numCols += 1
         }
         //moves each collection to its position based on above.
-        var currentX = 25//changed from 43
+        var currentX = 30//changed from 43
         for item in iterator {
-            let origin = CGPoint(x: currentX, y: 145)
-            let size = CGSize(width: 109*collsPerItem[item], height: 510)//was 486
+            let origin = CGPoint(x: currentX, y: 121)
+            let size = CGSize(width: 109*collsPerItem[item], height: 532)//was 486
             
             inputCollectionViews[item].frame = CGRect(origin: origin, size: size)
             currentX += 109*collsPerItem[item]

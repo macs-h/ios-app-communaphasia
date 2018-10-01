@@ -95,7 +95,6 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         let textToImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TextInputVC")
         textToImageVC.hero.isEnabled = true
         textToImageVC.hero.modalAnimationType = .fade
-//        textToImageVC.hero.modalAnimationType = .push(direction: HeroDefaultAnimationType.Direction.right)
         self.hero.replaceViewController(with: textToImageVC)
     }
     

@@ -77,7 +77,7 @@ class ImageToText {
                     }
                     if (prevPic.type == "number") {
                         if (prevPic.word == "one") {
-                            wordToAppend = thisPic.word//makensungular
+                            wordToAppend = thisPic.word //make singular
                         }
                     }
                     

@@ -29,7 +29,6 @@ pancake,pancake,noun,nil,r,food,t
 sandwich,sandwich,noun,nil,r,food,t
 toast,toast,noun,nil,r,food,t
 water,water,noun,nil,r,food,t
-lunch,food_lunch,noun,food,lunches,food,t
 
 call,call,verb,nil,r,activity,called+calling+will call
 eat,eat,verb,nil,r,activity,ate+eating+will eat
@@ -51,8 +50,66 @@ say,say,verb,nil,r,activity,said+saying+will say
 see,see.gif,verb,nil,r,activity,saw+seeing+will see
 take,take,verb,nil,r,activity,took+taking+will take
 think,think.jpg,verb,nil,r,activity,thought+thinking+will think
+attempt,attempt,verb,nil,r,activity,attempted+attempting+will attempt
+become,become,verb,nil,r,activity,became+becoming+will become
+believe,believe,verb,nil,r,activity,believed+believing+will believe
+build,build,verb,nil,r,activity,built+building+will build
+buy,buy,verb,nil,r,activity,bought+buying+will buy
+call,callOut,verb,nil,r,activity,called+calling+will call
+cut,cut,verb,nil,r,activity,cut+cutting+will cut
+die,die,verb,nil,r,activity,died+dieing+will die
+fall,fall,verb,nil,r,activity,fell+falling+will fall
+follow,follow,verb,nil,r,activity,followed+following+will follow
+go,go,verb,nil,r,activity,went+going+will go
+grow,grow,verb,nil,r,activity,grew+growing+will grow
+have,have,verb,nil,r,activity,had+having+will have
+hear,hear,verb,nil,r,activity,heard+hearing+will hear
+help,help,verb,nil,r,activity,helped+helping+will help
+hold,hold,verb,nil,r,activity,held+holding+will hold
+keep,keep,verb,nil,r,activity,kept+keeping+will keep
+kill,kill,verb,nil,r,activity,killed+killing+will kill
+lead,lead,verb,nil,r,activity,led+leading+will lead
+learn,learn,verb,nil,r,activity,learnt+learning+will learn
+leave,leave,verb,nil,r,activity,left+leaving+will leave
+let,let,verb,nil,r,activity,let+letting+will let
+lift,lift,verb,nil,r,activity,lifted+lifting+will lift
+like,like,verb,nil,r,activity,liked+liking+will like
+listen,listen,verb,nil,r,activity,listened+listening+will listen
+lose,lose,verb,nil,r,activity,lost+losing+will lose
+love,love,verb,nil,r,activity,loved+loving+will love
+make,make,verb,nil,r,activity,made+making+will make
+mean,mean,verb,nil,r,activity,meant+meaning+will mean
+meet,meet,verb,nil,r,activity,met+meeting+will meet
+move,move,verb,nil,r,activity,moved+moving+will move
+open,open,verb,nil,r,activity,opened+opening+will open
+pay,pay,verb,nil,r,activity,paid+paying+will pay
+play,play,verb,nil,r,activity,played+playing+will play
+pull,pull,verb,nil,r,activity,pulled+pulling+will pull
+push,push,verb,nil,r,activity,pushed+pushing+will push
+put,put,verb,nil,r,activity,put+putting+will put
+reach,reach,verb,nil,r,activity,reached+reaching+will reach
+read,read,verb,nil,r,activity,read+reading+will read
+remember,remember,verb,nil,r,activity,remembered+remembering+will remember
+run,run,verb,nil,r,activity,ran+running+will run
+sell,sell,verb,nil,r,activity,sold+selling+will sell
+send,send,verb,nil,r,activity,sent+sending+will send
+serve,serve,verb,nil,r,activity,served+serving+will serve
+show,show,verb,nil,r,activity,showed+showing+will show
+sit,sit,verb,nil,r,activity,sat+sitting+will sit
+speak,speak,verb,nil,r,activity,spoke+speaking+will speak
+stand,stand,verb,nil,r,activity,stood+standing+will stand
+start,start,verb,nil,r,activity,started+starting+will start
+stop,stop,verb,nil,r,activity,stopped+stopping+will stop
+talk,talk,verb,nil,r,activity,talked+talking+will talk
+turn,turn,verb,nil,r,activity,turned+turning+will turn
+understand,understand,verb,nil,r,activity,understood+understanding+will understand
+use,use,verb,nil,r,activity,used+using+will use
+walk,walk,verb,nil,r,activity,walked+walking+will walk
+watch,watch,verb,nil,r,activity,watched+watching+will watch
+win,win,verb,nil,r,activity,won+winning+will win
+work,work,verb,nil,r,activity,worked+working+will work
+write,write,verb,nil,r,activity,wrote+writing+will write
 
-car,car_sedan,noun,travel,r,travel,t
 car,car_sedan,noun,travel,r,travel,t
 
 basketball,basketball,noun,sport,r,object,t
@@ -71,26 +128,15 @@ woman,woman_silhouette,noun,people,women,objects,t
 
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
-wait,waiting.jpg,verb,for,r,activity,waited+waiting+will wait
-want,want,verb,nil,r,activity,wanted+wanting+will want
-need,need,verb,nil,r,activity,needed+needing+will need
-can,can,modal,nil,r,activity,could have+can+will be able to
-may,may.jpg,modal,nil,r,activity,might have+might+might be able to
-should,should,modal,nil,r,activity,should have+should+should
 talk,talk,verb,to,r,activity,talked+talking+will talk
-
-angry,angry,adj,nil,r,emotions,t
-cool,cool,adj,nil,r,emotions,t
-laugh,laughing,verb,nil,r,emotions,laughed+laughing+will laugh
-funny,laughing,adj,nil,r,emotions,t
-love,love,verb,nil,r,emotions,loved+love+will love
-sad,sad.jpg,adj,nil,r,emotions,t
-sleepy,sleepy.jpg,adj,nil,r,emotions,t
-think,thinking,adj,nil,r,emotions,thought+thinking+will think
-happy,happy,adj,nil,r,emotions,t
-surprise,surprised,adj,nil,r,emotions,surprised+surprising+surprising
-scared,scared,adj,nil,r,emotions,t
-sick,sick,adj,nil,r,emotions,t
+how are you?,howAreYou,adverb,nil,r,other,t
+how are you?,howAreYou,adverb,nil,r,other,t
+good morning,goodMorning,adverb,nil,r,other,t
+good night,goodNight,adverb,nil,r,other,t
+hello,hello.jpeg,adverb,nil,r,other,t
+pleased to meet you,pleasedToMeetYou,adverb,nil,r,other,t
+my name is ,myNameIs,adverb,nil,r,other,t
+what is your name?,whatIsYourName,adverb,nil,r,other,t
 
 blue,blue,adj,nil,r,other,t
 black,black,adj,nil,r,other,t
@@ -103,8 +149,6 @@ purple,purple,adj,nil,r,other,t
 red,red,adj,nil,r,other,t
 white,white,adj,nil,r,other,t
 yellow,yellow,adj,nil,r,other,t
-fast,fast,adj,faster+fastest,r,other,t
-quickly,fast,adverb,quick,r,other,t
 
 underneath,underneath,prep,nil,r,other,t
 over,over,prep,nil,r,other,t

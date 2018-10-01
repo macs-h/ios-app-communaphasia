@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1902F41F21620FBA006E8D34 /* don't.png in Resources */ = {isa = PBXBuildFile; fileRef = 1902F41821620FB9006E8D34 /* don't.png */; };
 		1909A2652159E10000C0B712 /* eight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1909A2552159E0FE00C0B712 /* eight.png */; };
 		1909A2662159E10000C0B712 /* five.png in Resources */ = {isa = PBXBuildFile; fileRef = 1909A25C2159E0FE00C0B712 /* five.png */; };
 		1909A2672159E10000C0B712 /* four.png in Resources */ = {isa = PBXBuildFile; fileRef = 1909A25D2159E0FE00C0B712 /* four.png */; };
@@ -106,6 +107,7 @@
 		19EE0309211FF79E008AEC64 /* they.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0302211FF79D008AEC64 /* they.png */; };
 		19EE030B211FF79E008AEC64 /* you.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0304211FF79E008AEC64 /* you.png */; };
 		19EE030C211FF79E008AEC64 /* he.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE0305211FF79E008AEC64 /* he.png */; };
+		350128F3A295C53A1CAFF245 /* Pods_CommunAphasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */; };
 		44432A6821619B8B00FE8C6A /* ask.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A5721619B8900FE8C6A /* ask.png */; };
 		44432A6921619B8B00FE8C6A /* cook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44432A5E21619B8A00FE8C6A /* cook.jpg */; };
 		44432A6A21619B8B00FE8C6A /* say.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A5F21619B8A00FE8C6A /* say.png */; };
@@ -117,7 +119,6 @@
 		44432A7021619B8B00FE8C6A /* come.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6521619B8B00FE8C6A /* come.png */; };
 		44432A7121619B8B00FE8C6A /* howAreYou.png in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6621619B8B00FE8C6A /* howAreYou.png */; };
 		44432A7221619B8B00FE8C6A /* see.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44432A6721619B8B00FE8C6A /* see.gif */; };
-		350128F3A295C53A1CAFF245 /* Pods_CommunAphasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */; };
 		44856EE920BBD0600035C01A /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE020BBD0600035C01A /* sleep.png */; };
 		44856EEA20BBD0600035C01A /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE720BBD0600035C01A /* call.png */; };
 		44856EEB20BBD0600035C01A /* eat.png in Resources */ = {isa = PBXBuildFile; fileRef = 44856EE820BBD0600035C01A /* eat.png */; };
@@ -277,6 +278,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E90579254723A11B7A36217 /* Pods-CommunAphasiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0FD059D3126CBF970DAE1D24 /* Pods-CommunAphasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.release.xcconfig"; sourceTree = "<group>"; };
+		1637827B45069A98D7E57C1E /* Pods-CommunAphasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.debug.xcconfig"; sourceTree = "<group>"; };
+		1902F41821620FB9006E8D34 /* don't.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "don't.png"; sourceTree = "<group>"; };
 		1909A2552159E0FE00C0B712 /* eight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eight.png; sourceTree = "<group>"; };
 		1909A25C2159E0FE00C0B712 /* five.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = five.png; sourceTree = "<group>"; };
 		1909A25D2159E0FE00C0B712 /* four.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = four.png; sourceTree = "<group>"; };
@@ -287,9 +292,6 @@
 		1909A2622159E10000C0B712 /* one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = one.png; sourceTree = "<group>"; };
 		1909A2632159E10000C0B712 /* six.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = six.png; sourceTree = "<group>"; };
 		1909A2642159E10000C0B712 /* ten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ten.png; sourceTree = "<group>"; };
-		0E90579254723A11B7A36217 /* Pods-CommunAphasiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaUITests/Pods-CommunAphasiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		0FD059D3126CBF970DAE1D24 /* Pods-CommunAphasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.release.xcconfig"; sourceTree = "<group>"; };
-		1637827B45069A98D7E57C1E /* Pods-CommunAphasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasia/Pods-CommunAphasia.debug.xcconfig"; sourceTree = "<group>"; };
 		1951CB3C2121918A005D7892 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
 		195AEB66211D070600E5AA04 /* fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fast.png; sourceTree = "<group>"; };
 		195AEB67211D070600E5AA04 /* waiting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waiting.jpg; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		19EE0302211FF79D008AEC64 /* they.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = they.png; sourceTree = "<group>"; };
 		19EE0304211FF79E008AEC64 /* you.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = you.png; sourceTree = "<group>"; };
 		19EE0305211FF79E008AEC64 /* he.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = he.png; sourceTree = "<group>"; };
+		2F0F6888C2892AD920636A30 /* Pods-CommunAphasiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44432A5721619B8900FE8C6A /* ask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask.png; sourceTree = "<group>"; };
 		44432A5E21619B8A00FE8C6A /* cook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cook.jpg; sourceTree = "<group>"; };
 		44432A5F21619B8A00FE8C6A /* say.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = say.png; sourceTree = "<group>"; };
@@ -390,7 +393,6 @@
 		44432A6521619B8B00FE8C6A /* come.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = come.png; sourceTree = "<group>"; };
 		44432A6621619B8B00FE8C6A /* howAreYou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howAreYou.png; sourceTree = "<group>"; };
 		44432A6721619B8B00FE8C6A /* see.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = see.gif; sourceTree = "<group>"; };
-		2F0F6888C2892AD920636A30 /* Pods-CommunAphasiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunAphasiaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommunAphasiaTests/Pods-CommunAphasiaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44856EE020BBD0600035C01A /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
 		44856EE720BBD0600035C01A /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		44856EE820BBD0600035C01A /* eat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eat.png; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
+				1902F41821620FB9006E8D34 /* don't.png */,
 				19780B002161DA1400D972C3 /* attempt.png */,
 				19780ADD2161DA0E00D972C3 /* become.png */,
 				19780AE52161DA0F00D972C3 /* believe.png */,
@@ -1138,6 +1141,7 @@
 				19780B3E2161DA1A00D972C3 /* turn.png in Resources */,
 				EDFA3AF720B8EFB500F6DBBD /* man_silhouette.png in Resources */,
 				19780B5F2161DA1A00D972C3 /* move.png in Resources */,
+				1902F41F21620FBA006E8D34 /* don't.png in Resources */,
 				44432A7021619B8B00FE8C6A /* come.png in Resources */,
 				19780B302161DA1A00D972C3 /* go.png in Resources */,
 				19B5288621546B46002E4B50 /* underneath.png in Resources */,

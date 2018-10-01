@@ -19,6 +19,8 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet var inputCollectionViews: [UICollectionView]!
     
+    @IBOutlet weak var popupView: UIView!
+    
     var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
                         "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
                         "calling","big","small","red","blue","I","fast","quickly","waiting",
@@ -28,13 +30,14 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     // Category UI things.
     @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
-    let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab"]
+    let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab", "99afae"]
     var currentCategoyIndex = 0
     private var cellsInCategory: [[(String, String, UIImage, [String], String, String, String)]]! //temp storage to be used by collection view cells
-    let categories = ["common","emotions","animals","food","activity","travel","objects","other"]
+    let categories = ["common","emotions","animals","food","activity","travel","objects","number", "other"]
     
     var currentTute:Int = 0
-    
+    private var selectedCell: ImageCell? //for tense controllers
+    private var selectedIndexPath: IndexPath? //for tense controllers
     /**
         Called after the controller's view is loaded into memory.
      */
@@ -104,7 +107,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 //            performSegue(withIdentifier: "IIToResult_segue", sender: self)
             let imageResultsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageResultVC") as! ImageResult_ViewController
             imageResultsVC.selectedCellsResult = selectedCells
-            
+            self.hero.isEnabled = true
             imageResultsVC.hero.isEnabled = true
              imageResultsVC.hero.modalAnimationType =  .fade
 //            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
@@ -146,7 +149,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Parameter sender: Tab button pressed
      */
     @IBAction func ChangeCategory(_ sender: UIButton) {
-        print("category changed")
         for button in tabButtons {
             if button.tag == currentCategoyIndex {
                 button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
@@ -165,6 +167,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             collection.reloadData()
         }
         sortCellsByfreq()
+        fillSpaceWithCollectionViews()
 //        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
@@ -198,6 +201,49 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 //            print("origional-",cell.first?.0)
 //        }
         cellsInCategory = tempCells
+    }
+    
+    /**
+     Dynamically changes the size of image cell collections so that they always expand to fill the whole
+     view while trying to make the user have to scroll as little as possible.
+     
+     */
+    func fillSpaceWithCollectionViews() {
+        var iterator:[Int] = [3,2,0,1,4,5] // beacue the order of collections is on the piss
+        let totalColumns: Int = 9 //width of the image to text view (in images)
+        
+        for item in iterator {
+            let numCells = inputCollectionViews[item].numberOfItems(inSection: 0)
+            if numCells == 0 {
+                iterator.remove(at: iterator.index(of: item)!)
+                inputCollectionViews[item].frame = CGRect(x: -100, y: -100, width: 0, height: 0)//get rid of empty collections
+            }
+        }
+        //decides how many columns each collection should take up
+        var numCols = iterator.count;
+        var collsPerItem:[Int] = Array(repeatElement(1, count: 10))//10 magic number should change(or not)
+        while numCols < totalColumns {
+            var maxCellsIndex = 5;
+            for item in iterator {
+                if inputCollectionViews[item].numberOfItems(inSection: 0)/collsPerItem[item]
+                    > inputCollectionViews[maxCellsIndex].numberOfItems(inSection: 0)/collsPerItem[maxCellsIndex] {
+                    maxCellsIndex = item
+                }
+            }
+            collsPerItem[maxCellsIndex] += 1
+            numCols += 1
+        }
+        //moves each collection to its position based on above.
+        var currentX = 30//changed from 43
+        for item in iterator {
+            let origin = CGPoint(x: currentX, y: 121)
+            let size = CGSize(width: 109*collsPerItem[item], height: 532)//was 486
+            
+            inputCollectionViews[item].frame = CGRect(origin: origin, size: size)
+            currentX += 109*collsPerItem[item]
+            
+        }
+
     }
     
     // ----------------------------------------------------------------------
@@ -337,7 +383,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if currentTute == 1 {
             singlePluralVC.tuteNum = 1
         }
-        
+        //popupView.hero.id = "PopupView"
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -352,18 +398,29 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
      */
     func showTenseVC(cell: ImageCell, indexPath: IndexPath) {
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
-        
+        selectedCell = cell
+        selectedIndexPath = indexPath
+        //performSegue(withIdentifier: "TenseSegue", sender: self)
         self.addChildViewController(tenseVC)
         tenseVC.view.frame = self.view.frame
         self.view.addSubview(tenseVC.view)
         tenseVC.didMove(toParentViewController: self)
-        
+
         //need to add tute for these popups
         if currentTute == 1 {
             tenseVC.tuteNum = 1
         }
-        
         tenseVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "TenseSegue") {
+            let destinationVC = segue.destination as! Tense_ViewController
+            if currentTute == 1 {
+                destinationVC.tuteNum = 1
+            }
+            destinationVC.setUp(delegate: self, cell: selectedCell!, indexPath: selectedIndexPath!)
+        }
     }
     
     

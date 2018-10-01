@@ -33,6 +33,7 @@
 		60249A1F20B91CC100BBC5FC /* images.txt in Resources */ = {isa = PBXBuildFile; fileRef = EDFA3AE920B8ED9100F6DBBD /* images.txt */; };
 		81674225215DCE3300467C7F /* CommunAphasiaUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81674224215DCE3300467C7F /* CommunAphasiaUnitTests.swift */; };
 		C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBC0E2115557300A66995 /* ImageCell.swift */; };
+		C1206F2121616CDB000D6411 /* TutorialPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1206F2021616CDB000D6411 /* TutorialPopup.swift */; };
 		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
 		C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */; };
 		ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976120B7C7C0001AF14C /* deer_silhouette.png */; };
@@ -50,6 +51,8 @@
 		ED4168DE20B7BEAD003B449A /* TextResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */; };
 		ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */; };
 		ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */; };
+		ED52CBFA215DDD8D00BFA147 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52CBF9215DDD8D00BFA147 /* VC.swift */; };
+		ED52CBFC215DDDB100BFA147 /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52CBFB215DDDB100BFA147 /* VC2.swift */; };
 		ED61067320BA4995003C4904 /* SinglePlural_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */; };
 		ED720AC52121859F004A3BA4 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED720AC42121859F004A3BA4 /* Animations.swift */; };
 		ED74CAB521194B5100850E9F /* small.png in Resources */ = {isa = PBXBuildFile; fileRef = ED74CAB421194B5100850E9F /* small.png */; };
@@ -210,6 +213,7 @@
 		81674226215DCE3300467C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79D07EB33DC05DE37E7F40C /* Pods_CommunAphasiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10CBC0E2115557300A66995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		C1206F2021616CDB000D6411 /* TutorialPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPopup.swift; sourceTree = "<group>"; };
 		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
 		C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputTutorial.swift; sourceTree = "<group>"; };
 		E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +232,8 @@
 		ED4168D620B7BEAC003B449A /* TextResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResult_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D720B7BEAC003B449A /* ImageResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResult_ViewController.swift; sourceTree = "<group>"; };
 		ED4168D820B7BEAC003B449A /* ImageInput_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInput_ViewController.swift; sourceTree = "<group>"; };
+		ED52CBF9215DDD8D00BFA147 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
+		ED52CBFB215DDDB100BFA147 /* VC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
 		ED61067220BA4995003C4904 /* SinglePlural_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlural_ViewController.swift; sourceTree = "<group>"; };
 		ED720AC42121859F004A3BA4 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = "CommunAphasia/ScriptsFolder/UI Scripts/Animations.swift"; sourceTree = SOURCE_ROOT; };
 		ED74CAB421194B5100850E9F /* small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small.png; sourceTree = "<group>"; };
@@ -344,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */,
+				C1206F2021616CDB000D6411 /* TutorialPopup.swift */,
 			);
 			path = TutorialScripts;
 			sourceTree = "<group>";
@@ -463,12 +470,22 @@
 		ED4168D220B7BEAC003B449A /* UI Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				ED52CBF2215DDD6C00BFA147 /* heroTests */,
 				C17B6AF12150996A004E0544 /* TutorialScripts */,
 				ED720AC42121859F004A3BA4 /* Animations.swift */,
 				ED61065F20BA38C1003C4904 /* Cells */,
 				ED61065820BA389A003C4904 /* ViewControllers */,
 			);
 			path = "UI Scripts";
+			sourceTree = "<group>";
+		};
+		ED52CBF2215DDD6C00BFA147 /* heroTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED52CBF9215DDD8D00BFA147 /* VC.swift */,
+				ED52CBFB215DDDB100BFA147 /* VC2.swift */,
+			);
+			path = heroTests;
 			sourceTree = "<group>";
 		};
 		ED61065820BA389A003C4904 /* ViewControllers */ = {
@@ -819,12 +836,15 @@
 				EDFA3AE820B8ED6900F6DBBD /* Enums.swift in Sources */,
 				C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */,
 				ED720AC52121859F004A3BA4 /* Animations.swift in Sources */,
+				ED52CBFA215DDD8D00BFA147 /* VC.swift in Sources */,
 				ED4168DF20B7BEAD003B449A /* ImageResult_ViewController.swift in Sources */,
 				ED4168E020B7BEAD003B449A /* ImageInput_ViewController.swift in Sources */,
+				C1206F2121616CDB000D6411 /* TutorialPopup.swift in Sources */,
 				C10CBC0F2115557300A66995 /* ImageCell.swift in Sources */,
 				601DEB6920BA7A7E00FF2778 /* ImageToText.swift in Sources */,
 				C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */,
 				ED4168DA20B7BEAD003B449A /* Utility.swift in Sources */,
+				ED52CBFC215DDDB100BFA147 /* VC2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

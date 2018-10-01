@@ -9,6 +9,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tutorial Popup-->
+        <scene sceneID="ukG-79-LpH">
+            <objects>
+                <viewController storyboardIdentifier="TutorialPopup" id="wlW-Sb-nYV" customClass="TutorialPopup" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bpN-bS-rBb"/>
+                        <viewControllerLayoutGuide type="bottom" id="3AT-xc-y3Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l2C-gr-DgY">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7S5-zG-16t" userLabel="CloseButton">
+                                <rect key="frame" x="0.0" y="-9" width="1112" height="851"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="closePopup" destination="Con-qa-cZR" eventType="touchUpInside" id="bVZ-7Z-nFq"/>
+                                    <action selector="closePopup:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="LtH-Cs-iie"/>
+                                    <action selector="closePopup:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="avX-Ua-34y"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klY-bq-yHz">
+                                <rect key="frame" x="321" y="337" width="470" height="159"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popup background" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-2a-KYp">
+                                        <rect key="frame" x="-13" y="-13" width="499" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutorials" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-8q-7xU">
+                                        <rect key="frame" x="8" y="0.0" width="462" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okf-ip-Ght">
+                                        <rect key="frame" x="322" y="83" width="148" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Convert text to image"/>
+                                        <connections>
+                                            <action selector="tute2pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="fQJ-z0-tBh"/>
+                                            <segue destination="F8O-mK-ZoV" kind="show" identifier="2nd Tutorial" id="8Df-aJ-9W8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmO-Oy-216">
+                                        <rect key="frame" x="0.0" y="83" width="159" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Create image sentence"/>
+                                        <connections>
+                                            <action selector="tute1pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="gF7-dn-LCw"/>
+                                            <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="cTL-ek-78M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="tutePopupLabel" destination="2hs-8q-7xU" id="AtM-YL-A9j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCD-lI-ODu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.75539568345324" y="-695.68345323741016"/>
+        </scene>
         <!--Main menu controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,9 +89,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLw-cK-aI2">
-                                <rect key="frame" x="637" y="440" width="475" height="259"/>
+                                <rect key="frame" x="354" y="358" width="404" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Text to image arrow">
+                                <state key="normal" image="Text to image button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.5601342429577465" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -36,22 +103,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te8-Or-Rk4">
-                                <rect key="frame" x="0.0" y="440" width="475" height="259"/>
+                                <rect key="frame" x="354" y="534" width="404" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="Image to text arrow">
+                                <state key="normal" image="Image to text button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.56013424300000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="ImageToTextAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rif-BR-fuv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-3Z-HM8">
-                                <rect key="frame" x="20" y="20" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-3Z-HM8">
+                                <rect key="frame" x="354" y="714" width="404" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tutorial"/>
+                                <state key="normal" image="Tutorial Button"/>
                                 <connections>
-                                    <action selector="tuteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YQv-1h-UAp"/>
-                                    <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="u7j-X1-Uq6"/>
+                                    <action selector="TutePopupAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90u-91-PgP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -253,8 +319,161 @@
                                     <action selector="deleteSelectedCell:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="AZ1-9f-uuv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="385-dj-3ZL" userLabel="Back button">
+                                <rect key="frame" x="20" y="20" width="59" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Back button"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="5IO-PP-aBo"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vul-Ct-5FO">
+                                <rect key="frame" x="1015" y="121" width="66" height="532"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sh-yw-1Te" userLabel="0">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="lEp-wR-bRO"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Common Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DRP-ku-jGd">
+                                        <rect key="frame" x="4" y="4" width="55" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ine-zE-h8W" userLabel="1">
+                                        <rect key="frame" x="0.0" y="58" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="5ra-JJ-w5p"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Emotion Icon" translatesAutoresizingMaskIntoConstraints="NO" id="WbF-jD-grY">
+                                        <rect key="frame" x="8" y="63" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1U-dv-t0S" userLabel="2">
+                                        <rect key="frame" x="0.0" y="116" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="kmC-MX-Ws5"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Nature Icon" translatesAutoresizingMaskIntoConstraints="NO" id="vep-jO-jB5">
+                                        <rect key="frame" x="6" y="121" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uX-yh-4xF" userLabel="3">
+                                        <rect key="frame" x="0.0" y="174" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="9ic-lx-sEQ"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Food Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bRX-Vq-qHC">
+                                        <rect key="frame" x="6" y="179" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-kp-jbu" userLabel="4">
+                                        <rect key="frame" x="0.0" y="233" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="1fd-Fr-iE6"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Activity Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Cxe-1a-njc">
+                                        <rect key="frame" x="6" y="238" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-jI-3eO" userLabel="5">
+                                        <rect key="frame" x="0.0" y="293" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="Zhe-oz-Q5A"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Travel Icon" translatesAutoresizingMaskIntoConstraints="NO" id="QXn-cg-rfX">
+                                        <rect key="frame" x="5" y="298" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bF-oU-u2P" userLabel="6">
+                                        <rect key="frame" x="0.0" y="352" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="32o-kY-AfV"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Objects Icon" translatesAutoresizingMaskIntoConstraints="NO" id="M9K-ck-yDw">
+                                        <rect key="frame" x="6" y="357" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2V-EJ-sao" userLabel="7">
+                                        <rect key="frame" x="0.0" y="412" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="bgL-1N-Ehw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQs-Jr-iJB" userLabel="8">
+                                        <rect key="frame" x="0.0" y="472" width="66" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" backgroundImage="Current tab">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="nM1-qS-Po3"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Other Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Jr-f8-0qB">
+                                        <rect key="frame" x="6" y="477" width="54" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Number Icon" translatesAutoresizingMaskIntoConstraints="NO" id="iek-4i-MZT">
+                                        <rect key="frame" x="8" y="420" width="47" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
+                                <rect key="frame" x="35" y="121" width="981" height="532"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-Wh-eNo" userLabel="Verb Collection View">
-                                <rect key="frame" x="150" y="145" width="216" height="486"/>
+                                <rect key="frame" x="156" y="121" width="216" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="YMu-H5-Kda">
@@ -284,7 +503,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-fV-TeZ" userLabel="Adverb Collection View">
-                                <rect key="frame" x="794" y="145" width="109" height="486"/>
+                                <rect key="frame" x="800" y="121" width="109" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="Tp2-YB-9XW">
@@ -313,134 +532,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vul-Ct-5FO">
-                                <rect key="frame" x="1006" y="145" width="66" height="486"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sh-yw-1Te" userLabel="0">
-                                        <rect key="frame" x="0.0" y="0.0" width="66" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="lEp-wR-bRO"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Common Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DRP-ku-jGd">
-                                        <rect key="frame" x="6" y="9" width="55" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ine-zE-h8W" userLabel="1">
-                                        <rect key="frame" x="0.0" y="69" width="66" height="73"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="5ra-JJ-w5p"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Emotion Icon" translatesAutoresizingMaskIntoConstraints="NO" id="WbF-jD-grY">
-                                        <rect key="frame" x="8" y="79" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1U-dv-t0S" userLabel="2">
-                                        <rect key="frame" x="0.0" y="138" width="66" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="kmC-MX-Ws5"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Nature Icon" translatesAutoresizingMaskIntoConstraints="NO" id="vep-jO-jB5">
-                                        <rect key="frame" x="4" y="150" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uX-yh-4xF" userLabel="3">
-                                        <rect key="frame" x="0.0" y="204" width="66" height="63"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="9ic-lx-sEQ"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Food Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bRX-Vq-qHC">
-                                        <rect key="frame" x="6" y="210" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-kp-jbu" userLabel="4">
-                                        <rect key="frame" x="0.0" y="264" width="66" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="1fd-Fr-iE6"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Activity Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Cxe-1a-njc">
-                                        <rect key="frame" x="6" y="269" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-jI-3eO" userLabel="5">
-                                        <rect key="frame" x="0.0" y="325" width="66" height="57"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="Zhe-oz-Q5A"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Travel Icon" translatesAutoresizingMaskIntoConstraints="NO" id="QXn-cg-rfX">
-                                        <rect key="frame" x="8" y="331" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bF-oU-u2P" userLabel="6">
-                                        <rect key="frame" x="0.0" y="381" width="66" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="32o-kY-AfV"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Objects Icon" translatesAutoresizingMaskIntoConstraints="NO" id="M9K-ck-yDw">
-                                        <rect key="frame" x="8" y="381" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2V-EJ-sao" userLabel="7">
-                                        <rect key="frame" x="0.0" y="433" width="66" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" backgroundImage="Current tab">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ChangeCategory:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="bgL-1N-Ehw"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Other Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4Jr-f8-0qB">
-                                        <rect key="frame" x="8" y="433" width="54" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tnf-4Q-VRt" userLabel="Modal Collection View">
-                                <rect key="frame" x="901" y="145" width="109" height="486"/>
+                                <rect key="frame" x="907" y="121" width="109" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="2hn-wf-bzH">
@@ -470,7 +563,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a3s-UV-nZ1" userLabel="Noun Collection View">
-                                <rect key="frame" x="366" y="145" width="216" height="486"/>
+                                <rect key="frame" x="372" y="121" width="216" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="F76-4D-y2k">
@@ -500,7 +593,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="49e-3z-UAo" userLabel="Pronoun Collection View">
-                                <rect key="frame" x="43" y="145" width="109" height="486"/>
+                                <rect key="frame" x="49" y="121" width="109" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="0mb-sU-FuR">
@@ -530,7 +623,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TOi-Tm-8DS" userLabel="Adj Collection View">
-                                <rect key="frame" x="581" y="145" width="216" height="486"/>
+                                <rect key="frame" x="587" y="121" width="216" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="OeK-uR-vuQ">
@@ -559,25 +652,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="385-dj-3ZL" userLabel="Back button">
-                                <rect key="frame" x="20" y="20" width="59" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Back button"/>
-                                <connections>
-                                    <action selector="backButtonAction:" destination="IVG-Ho-Scw" eventType="touchUpInside" id="5IO-PP-aBo"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pic selection background" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-sT-Krk">
-                                <rect key="frame" x="42" y="149" width="946" height="486"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.68627450980000004" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="aIh-sT-Krk"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="InputCollectionView" destination="a3s-UV-nZ1" id="Odv-18-PhQ"/>
@@ -596,11 +672,12 @@
                         <outletCollection property="inputCollectionViews" destination="49e-3z-UAo" collectionClass="NSMutableArray" id="ltL-ge-5Ge"/>
                         <outletCollection property="inputCollectionViews" destination="D7p-fV-TeZ" collectionClass="NSMutableArray" id="S2M-eg-tXi"/>
                         <outletCollection property="inputCollectionViews" destination="tnf-4Q-VRt" collectionClass="NSMutableArray" id="G40-dQ-IxD"/>
+                        <outletCollection property="tabButtons" destination="IQs-Jr-iJB" collectionClass="NSMutableArray" id="fpo-MD-r2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="978"/>
+            <point key="canvasLocation" x="929.67625899280574" y="977.69784172661878"/>
         </scene>
         <!--Tense View Controller-->
         <scene sceneID="ntY-PR-Ppj">
@@ -623,9 +700,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Q6-1fD">
-                                <rect key="frame" x="321" y="338" width="470" height="159"/>
+                                <rect key="frame" x="321" y="322" width="470" height="195"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popup background" translatesAutoresizingMaskIntoConstraints="NO" id="FYX-LV-bqI">
+                                        <rect key="frame" x="-23" y="-15" width="517" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-x6-All" userLabel="PastView">
                                         <rect key="frame" x="40" y="40" width="78" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -675,7 +756,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fnj-Hs-7g7" customClass="windowInTense" customModule="CommunAphasia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
@@ -704,7 +784,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEG-9j-Pki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="673" y="1783"/>
+            <point key="canvasLocation" x="672.84172661870502" y="1782.7338129496404"/>
         </scene>
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
@@ -729,6 +809,10 @@
                                 <rect key="frame" x="394" y="333" width="325" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Popup background" translatesAutoresizingMaskIntoConstraints="NO" id="qIJ-3G-O71">
+                                        <rect key="frame" x="-14" y="-14" width="356" height="199"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOK-Le-IUu" userLabel="single image">
                                         <rect key="frame" x="39" y="45" width="78" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -756,7 +840,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-Nc-ebu" customClass="windowInPlural" customModule="CommunAphasia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
@@ -785,7 +868,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffN-i2-Fa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1413" y="1783"/>
+            <point key="canvasLocation" x="1412.5899280575541" y="1782.7338129496404"/>
         </scene>
         <!--Text input Controller-->
         <scene sceneID="U0d-gc-NK8">
@@ -984,15 +1067,18 @@
         <image name="Emotion Icon" width="1600" height="1600"/>
         <image name="Food Icon" width="980" height="980"/>
         <image name="Forward arrow" width="59" height="39"/>
-        <image name="Image to text arrow" width="475" height="259"/>
+        <image name="Image to text button" width="404" height="136"/>
         <image name="Input bar" width="817" height="61"/>
         <image name="Logo" width="699" height="309"/>
         <image name="Nature Icon" width="512" height="512"/>
+        <image name="Number Icon" width="39" height="33"/>
         <image name="Objects Icon" width="512" height="512"/>
         <image name="Other Icon" width="1600" height="1600"/>
         <image name="Pic selection background" width="920" height="539"/>
-        <image name="Text to image arrow" width="475" height="259"/>
+        <image name="Popup background" width="510" height="257"/>
+        <image name="Text to image button" width="404" height="136"/>
         <image name="Travel Icon" width="128" height="128"/>
+        <image name="Tutorial Button" width="404" height="88"/>
         <image name="futureTense" width="512" height="512"/>
         <image name="image placeholder.png" width="150" height="150"/>
         <image name="pastTense" width="512" height="512"/>

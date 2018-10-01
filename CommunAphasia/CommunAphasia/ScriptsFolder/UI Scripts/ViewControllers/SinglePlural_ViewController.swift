@@ -29,7 +29,7 @@ class SinglePlural_ViewController: UIViewController {
     @IBOutlet weak var singleImageView: UIImageView!
     @IBOutlet weak var pluralImageView: UIImageView!
     @IBOutlet weak var backPluralImageView: UIImageView!
-    
+    @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var windowInPlural: windowInPlural!
     
     /**
@@ -74,6 +74,9 @@ class SinglePlural_ViewController: UIViewController {
         }else{
             windowInPlural.removeFromSuperview()
         }
+        
+        self.hero.isEnabled = true
+        //popUpView.hero.id = "PopupView"
     }
     
     

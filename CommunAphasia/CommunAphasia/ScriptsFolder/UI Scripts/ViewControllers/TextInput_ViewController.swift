@@ -43,6 +43,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     var cells = [(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]()
    
+    var currentTute = 0
     
     /**
         Called after the controller's view is loaded into memory.
@@ -55,6 +56,9 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         //loadingSpinner.hidesWhenStopped = true
         //loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         //view.addSubview(loadingSpinner)
+        if currentTute != 0 {
+            showTute(num: currentTute)
+        }
     }
     
     /**
@@ -66,6 +70,15 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         mainVC.hero.modalAnimationType = .pageOut(direction: HeroDefaultAnimationType.Direction.right)
         self.hero.replaceViewController(with: mainVC)
         
+    }
+    func showTute(num: Int) {
+        let tuteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tuteVC") as! ImageInputTutorial
+        
+        tuteVC.tuteNum = num
+        self.addChildViewController(tuteVC)
+        tuteVC.view.frame = self.view.frame
+        self.view.addSubview(tuteVC.view)
+        tuteVC.didMove(toParentViewController: self)
     }
     
     

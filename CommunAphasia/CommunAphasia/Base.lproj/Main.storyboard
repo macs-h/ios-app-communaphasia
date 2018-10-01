@@ -89,9 +89,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLw-cK-aI2">
-                                <rect key="frame" x="637" y="440" width="475" height="259"/>
+                                <rect key="frame" x="354" y="358" width="404" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Text to image arrow">
+                                <state key="normal" image="Text to image button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.5601342429577465" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -103,19 +103,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te8-Or-Rk4">
-                                <rect key="frame" x="0.0" y="440" width="475" height="259"/>
+                                <rect key="frame" x="354" y="534" width="404" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="Image to text arrow">
+                                <state key="normal" image="Image to text button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.56013424300000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="ImageToTextAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rif-BR-fuv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-3Z-HM8">
-                                <rect key="frame" x="20" y="20" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-3Z-HM8">
+                                <rect key="frame" x="354" y="714" width="404" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tutorial"/>
+                                <state key="normal" image="Tutorial Button"/>
                                 <connections>
                                     <action selector="TutePopupAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90u-91-PgP"/>
                                 </connections>
@@ -1067,7 +1067,7 @@
         <image name="Emotion Icon" width="1600" height="1600"/>
         <image name="Food Icon" width="980" height="980"/>
         <image name="Forward arrow" width="59" height="39"/>
-        <image name="Image to text arrow" width="475" height="259"/>
+        <image name="Image to text button" width="404" height="136"/>
         <image name="Input bar" width="817" height="61"/>
         <image name="Logo" width="699" height="309"/>
         <image name="Nature Icon" width="512" height="512"/>
@@ -1076,8 +1076,9 @@
         <image name="Other Icon" width="1600" height="1600"/>
         <image name="Pic selection background" width="920" height="539"/>
         <image name="Popup background" width="510" height="257"/>
-        <image name="Text to image arrow" width="475" height="259"/>
+        <image name="Text to image button" width="404" height="136"/>
         <image name="Travel Icon" width="128" height="128"/>
+        <image name="Tutorial Button" width="404" height="88"/>
         <image name="futureTense" width="512" height="512"/>
         <image name="image placeholder.png" width="150" height="150"/>
         <image name="pastTense" width="512" height="512"/>

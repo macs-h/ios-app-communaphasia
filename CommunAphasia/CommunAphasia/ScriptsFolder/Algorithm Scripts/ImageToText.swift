@@ -77,11 +77,14 @@ class ImageToText {
                     }
                     if (prevPic.type == "number") {
                         if (prevPic.word == "one") {
-                            wordToAppend = thisPic.word //make singular
+                            wordToAppend = thisPic.word // make singular
                         }
                     }
                     
                     returnString.append(temp)
+//                    if (prevPic.type == "pronoun") {
+//                        wordToAppend = ""
+//                    }
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
                     if haveSubject == true {
@@ -167,7 +170,8 @@ class ImageToText {
         }else if prevWord.type == wordType.adjective.rawValue {
             temp = ""
         }else if prevWord.type == wordType.pronoun.rawValue {
-            temp = "the"
+            temp = prevWord.suggestedWords[1] + " the"
+//            temp = prevWord.tense
         }else if prevWord.type == wordType.modal.rawValue {
             temp = "the"
         }else if prevWord.type == "number" {

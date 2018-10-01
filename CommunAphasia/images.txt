@@ -114,13 +114,13 @@ car,car_sedan,noun,travel,r,travel,t
 
 basketball,basketball,noun,sport,r,object,t
 big,big,adj,size,r,objects,t
-I,i.jpg,pronoun,was+am+will be,me,objects,t
-you,you,pronoun,were+are+will be,you,objects,t
-he,he,pronoun,was+is+will be,him,objects,t
-she,she,pronoun,was+is+will be,her,objects,t
-we,we,pronoun,were+are+will be,us,objects,t
-they,they,pronoun,were+are+will be,them,objects,t
-it,it,pronoun,was+is+will be,it,objects,t
+I,i.jpg,pronoun,was+am+will be,me,objects,my
+you,you,pronoun,were+are+will be,you,objects,your
+he,he,pronoun,was+is+will be,him,objects,his
+she,she,pronoun,was+is+will be,her,objects,her
+we,we,pronoun,were+are+will be,us,objects,our
+they,they,pronoun,were+are+will be,them,objects,their
+it,it,pronoun,was+is+will be,it,objects,its
 man,man_silhouette,noun,people,men,objects,t
 pencil,pencil,noun,draw,r,objects,t
 small,small,adj,size,r,objects,t

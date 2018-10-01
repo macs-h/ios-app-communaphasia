@@ -68,6 +68,16 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if currentTute != 0 {
             showTute(num: currentTute)
         }
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right && currentTute == 0{
+            print("Swipe right")
+            self.backButtonAction(AnyObject.self)
+        }
     }
     /**
         calls the tutorial view controler to allow the user to learn

@@ -149,7 +149,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         - Parameter sender: Tab button pressed
      */
     @IBAction func ChangeCategory(_ sender: UIButton) {
-        print("category changed")
         for button in tabButtons {
             if button.tag == currentCategoyIndex {
                 button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
@@ -168,6 +167,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             collection.reloadData()
         }
         sortCellsByfreq()
+        fillSpaceWithCollectionViews()
 //        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
@@ -201,6 +201,49 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 //            print("origional-",cell.first?.0)
 //        }
         cellsInCategory = tempCells
+    }
+    
+    /**
+     Dynamically changes the size of image cell collections so that they always expand to fill the whole
+     view while trying to make the user have to scroll as little as possible.
+     
+     */
+    func fillSpaceWithCollectionViews() {
+        var iterator:[Int] = [3,2,0,1,4,5] // beacue the order of collections is on the piss
+        let totalColumns: Int = 9 //width of the image to text view (in images)
+        
+        for item in iterator {
+            let numCells = inputCollectionViews[item].numberOfItems(inSection: 0)
+            if numCells == 0 {
+                iterator.remove(at: iterator.index(of: item)!)
+                inputCollectionViews[item].frame = CGRect(x: -100, y: -100, width: 0, height: 0)//get rid of empty collections
+            }
+        }
+        //decides how many columns each collection should take up
+        var numCols = iterator.count;
+        var collsPerItem:[Int] = Array(repeatElement(1, count: 10))//10 magic number should change(or not)
+        while numCols < totalColumns {
+            var maxCellsIndex = 5;
+            for item in iterator {
+                if inputCollectionViews[item].numberOfItems(inSection: 0)/collsPerItem[item]
+                    > inputCollectionViews[maxCellsIndex].numberOfItems(inSection: 0)/collsPerItem[maxCellsIndex] {
+                    maxCellsIndex = item
+                }
+            }
+            collsPerItem[maxCellsIndex] += 1
+            numCols += 1
+        }
+        //moves each collection to its position based on above.
+        var currentX = 25//changed from 43
+        for item in iterator {
+            let origin = CGPoint(x: currentX, y: 145)
+            let size = CGSize(width: 109*collsPerItem[item], height: 510)//was 486
+            
+            inputCollectionViews[item].frame = CGRect(origin: origin, size: size)
+            currentX += 109*collsPerItem[item]
+            
+        }
+
     }
     
     // ----------------------------------------------------------------------

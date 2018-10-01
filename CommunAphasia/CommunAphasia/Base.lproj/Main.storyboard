@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--VC-->
-        <scene sceneID="ZqK-lg-ww3">
+        <!--Tutorial Popup-->
+        <scene sceneID="ukG-79-LpH">
             <objects>
-                <viewController id="pZS-MO-fj8" customClass="VC" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TutorialPopup" id="wlW-Sb-nYV" customClass="TutorialPopup" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2dg-Lt-SBN"/>
-                        <viewControllerLayoutGuide type="bottom" id="jU4-vc-2Ba"/>
+                        <viewControllerLayoutGuide type="top" id="bpN-bS-rBb"/>
+                        <viewControllerLayoutGuide type="bottom" id="3AT-xc-y3Q"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0Ws-Iw-0ih">
+                    <view key="view" contentMode="scaleToFill" id="l2C-gr-DgY">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H4n-bb-0VX" userLabel="WhiteView">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7S5-zG-16t" userLabel="CloseButton">
+                                <rect key="frame" x="0.0" y="-9" width="1112" height="851"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="closePopup" destination="Con-qa-cZR" eventType="touchUpInside" id="bVZ-7Z-nFq"/>
+                                    <action selector="closePopup:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="LtH-Cs-iie"/>
+                                    <action selector="closePopup:" destination="CJH-kp-KQ3" eventType="touchUpInside" id="avX-Ua-34y"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klY-bq-yHz">
+                                <rect key="frame" x="321" y="337" width="470" height="159"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wX-Hc-Ikl" userLabel="RedView">
-                                        <rect key="frame" x="282" y="336" width="548" height="350"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutorials" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hs-8q-7xU">
+                                        <rect key="frame" x="8" y="0.0" width="462" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.04677283753" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sw3-89-o8Z" userLabel="BlackView">
-                                        <rect key="frame" x="329" y="124" width="454" height="130"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okf-ip-Ght">
+                                        <rect key="frame" x="322" y="83" width="148" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-9n-dzW">
-                                        <rect key="frame" x="927" y="555" width="123" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Convert text to image"/>
                                         <connections>
-                                            <action selector="buttonPressed:" destination="pZS-MO-fj8" eventType="touchUpInside" id="u49-E5-UlY"/>
+                                            <action selector="tute2pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="fQJ-z0-tBh"/>
+                                            <segue destination="F8O-mK-ZoV" kind="show" identifier="2nd Tutorial" id="8Df-aJ-9W8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmO-Oy-216">
+                                        <rect key="frame" x="0.0" y="83" width="159" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Create image sentence"/>
+                                        <connections>
+                                            <action selector="tute1pressed:" destination="wlW-Sb-nYV" eventType="touchUpInside" id="gF7-dn-LCw"/>
+                                            <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="cTL-ek-78M"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -49,18 +65,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="blackView" destination="sw3-89-o8Z" id="x9u-me-Sfv"/>
-                        <outlet property="redView" destination="1wX-Hc-Ikl" id="Y6P-s2-2vs"/>
-                        <outlet property="whiteView" destination="H4n-bb-0VX" id="7mx-GJ-22F"/>
+                        <outlet property="tutePopupLabel" destination="2hs-8q-7xU" id="AtM-YL-A9j"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HoA-6i-Gie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCD-lI-ODu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-828.23741007194246" y="928.77697841726626"/>
+            <point key="canvasLocation" x="105.75539568345324" y="-695.68345323741016"/>
         </scene>
         <!--Main menu controller-->
         <scene sceneID="tne-QT-ifu">
@@ -103,8 +114,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tutorial"/>
                                 <connections>
-                                    <action selector="tuteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YQv-1h-UAp"/>
-                                    <segue destination="IVG-Ho-Scw" kind="show" identifier="1st Tutorial" id="u7j-X1-Uq6"/>
+                                    <action selector="TutePopupAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="90u-91-PgP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -115,48 +125,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.08633093525181" y="123.74100719424462"/>
-        </scene>
-        <!--VC2-->
-        <scene sceneID="h9z-e4-0j4">
-            <objects>
-                <viewController storyboardIdentifier="VC2" id="x9k-17-dxV" customClass="VC2" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q5M-nc-m22"/>
-                        <viewControllerLayoutGuide type="bottom" id="zRC-Zm-kay"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QEe-Oq-Y4c">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o30-dn-jbm" userLabel="RedView">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ot-YO-hmI" userLabel="BlackView">
-                                        <rect key="frame" x="279" y="164" width="553" height="115"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-Mq-yee" userLabel="WhiteView">
-                                        <rect key="frame" x="280" y="321" width="553" height="505"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.04677283753" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <connections>
-                        <outlet property="blackView" destination="5ot-YO-hmI" id="EWZ-8F-4ph"/>
-                        <outlet property="redView" destination="o30-dn-jbm" id="9xQ-JV-xEp"/>
-                        <outlet property="whiteView" destination="lw0-Mq-yee" id="uKg-x7-ntU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Go-ba-BfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-117.08633093525181" y="952.51798561151088"/>
         </scene>
         <!--Image Result View Controller-->
         <scene sceneID="UL0-fO-TSC">
@@ -691,13 +659,11 @@
                         <outletCollection property="inputCollectionViews" destination="49e-3z-UAo" collectionClass="NSMutableArray" id="ltL-ge-5Ge"/>
                         <outletCollection property="inputCollectionViews" destination="D7p-fV-TeZ" collectionClass="NSMutableArray" id="S2M-eg-tXi"/>
                         <outletCollection property="inputCollectionViews" destination="tnf-4Q-VRt" collectionClass="NSMutableArray" id="G40-dQ-IxD"/>
-                        <segue destination="CJH-kp-KQ3" kind="show" identifier="TenseSegue" id="vKf-ox-vVd"/>
-                        <segue destination="Con-qa-cZR" kind="show" identifier="PluralSegue" id="UXq-s8-T8U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FB7-SR-JMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929.67625899280574" y="977.69784172661878"/>
+            <point key="canvasLocation" x="930" y="978"/>
         </scene>
         <!--Tense View Controller-->
         <scene sceneID="ntY-PR-Ppj">
@@ -806,7 +772,7 @@
         <!--Single Plural View Controller-->
         <scene sceneID="Q9B-LQ-A0Z">
             <objects>
-                <viewController storyboardIdentifier="SinglePluralVC" modalPresentationStyle="overCurrentContext" id="Con-qa-cZR" customClass="SinglePlural_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SinglePluralVC" id="Con-qa-cZR" customClass="SinglePlural_ViewController" customModule="CommunAphasia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fO-6X-hdB"/>
                         <viewControllerLayoutGuide type="bottom" id="XXn-KV-U9s"/>
@@ -876,7 +842,6 @@
                     <connections>
                         <outlet property="backPluralImageView" destination="4Ap-tC-eBa" id="cDa-QB-jrU"/>
                         <outlet property="pluralImageView" destination="Wd3-b5-wLJ" id="g5h-WM-voq"/>
-                        <outlet property="popUpView" destination="sNd-Ws-tPL" id="y5N-NS-jSR"/>
                         <outlet property="singleImageView" destination="gOK-Le-IUu" id="1Ue-bs-Cv3"/>
                         <outlet property="windowInPlural" destination="Idb-Nc-ebu" id="Ebw-8Z-ihx"/>
                     </connections>

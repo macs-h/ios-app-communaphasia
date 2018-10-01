@@ -63,7 +63,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             button.imageView?.tintColor = UIColor(hex: tabColour[button.tag])
         }
         ChangeCategory(tabButtons[0])
-        // Do any additional setup after loading the view.
+        
         
         if currentTute != 0 {
             showTute(num: currentTute)
@@ -360,7 +360,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             // Do something with the cell
             if cell.type == wordType.noun.rawValue {
                 showSinglePluralVC(cell: cell, indexPath: indexPath)
-            }else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue || cell.type == wordType.adjective.rawValue{
+            }else if cell.type == wordType.verb.rawValue || cell.type == wordType.modal.rawValue || cell.type == wordType.adjective.rawValue || cell.type == "prep" {
                 showTenseVC(cell: cell, indexPath: indexPath)
             } else {
                 selectedWords.append(cell.word)

@@ -40,7 +40,7 @@ class Utility {
     let categories = ["emotions","animals","food","activity","travel","objects","other"]
     
     //for creating a 2D array of types
-    let typeDict:[String:Int] = ["noun":0, "adj":1, "verb":2, "pronoun":3, "adverb":4, "modal":4, "preposition":5]
+    let typeDict:[String:Int] = ["noun":0, "adj":1, "verb":2, "pronoun":3, "adverb":4, "modal":4, "prep":5, "number":6]
     
     // Fields for the database.
     let CELL_TABLE = Table("cellTable")
@@ -278,7 +278,7 @@ class Utility {
      */
     func getCellsByCategory(category: String) -> [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]] {
 
-        var cells = [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]](repeating: [], count: 6)
+        var cells = [[(word: String, type: String, image: UIImage, suggestions: [String], grNum: String,category: String,tense: String)]](repeating: [], count: typeDict.count)
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
         do {
             for cell in try database.prepare(query) {
@@ -314,13 +314,15 @@ class Utility {
     @available(iOS 11.0, *)
     func lemmaTag(inputString: String) -> [String] {
         var returnArray:[String] = []
+        let inputStringArray: [String] = inputString.components(separatedBy: " ")
         var count: Int = 0
+        
         let tagger = NSLinguisticTagger(tagSchemes: [.lemma], options: 0)
         tagger.string = inputString
         tagger.enumerateTags(in: NSRange(location: 0, length: inputString.utf16.count),
                              unit: .word,
                              scheme: .lemma,
-                             options: [.omitPunctuation, .omitWhitespace])
+                             options: [.omitPunctuation, .omitWhitespace, .omitOther])
         { tag, tokenRange, _ in
             if let tag = tag {
                 let word = (inputString as NSString).substring(with: tokenRange)
@@ -328,8 +330,12 @@ class Utility {
                 print("\(word): \(tag.rawValue)")
                 count += 1
             } else {
-                returnArray.append((inputString.components(separatedBy: " "))[count])
-                count += 1
+                if let item = inputStringArray[safe: count] {
+                    returnArray.append(item)
+                    count += 1
+                } else {
+                    return
+                }
             }
         }
         return returnArray
@@ -527,6 +533,11 @@ class Utility {
 } // End of Utility class!
 // ----------------------------------------------------------------------
 
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
 
 /**
     Used to colourise specific text in a UILabel.

@@ -27,8 +27,9 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         InputImagesCollectionView.delegate = self
         InputImagesCollectionView.dataSource = self
        
-        let convertedSentance = ImageToText.instance.createSentence(pics: selectedCellsResult)
-        resultTextLabel.text = convertedSentance
+        let convertedSentance = (ImageToText.instance.createSentence(pics: selectedCellsResult))
+        let textToDisplay = (convertedSentance.split(separator: " ")).joined(separator: " ")
+        resultTextLabel.text = textToDisplay
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
         swipeLeft.direction = .right

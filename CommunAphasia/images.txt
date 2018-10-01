@@ -18,9 +18,9 @@ fish,fish,noun,water,fish,animals,t
 tree,tree_silhouette,noun,nature,r,animals,t
 
 apple,apple,noun,food+fruit,r,food,t
-lunch,food_lunch,noun,food,lunches,food,t
-breakfast,food_breakfast,noun,food,r,food,t
-dinner,food_dinner,noun,food,r,food,t
+lunch,lunch,noun,food,lunches,food,t
+breakfast,breakfast,noun,food,r,food,t
+dinner,dinner,noun,food,r,food,t
 soda,soda_can,noun,drink,r,food,t
 bacon,bacon,noun,nil,r,food,t
 donut,donut,noun,nil,r,food,t
@@ -29,6 +29,23 @@ pancake,pancake,noun,nil,r,food,t
 sandwich,sandwich,noun,nil,r,food,t
 toast,toast,noun,nil,r,food,t
 water,water,noun,nil,r,food,t
+cereal,cereal,noun,nil,r,food,t
+fruit,fruit,noun,nil,r,food,t
+vegetable,vegetable,noun,nil,r,food,t
+chocolate,chocolate,noun,nil,r,food,t
+candy,sweets,noun,nil,r,food,t
+nachos,nachos,noun,nil,r,food,t
+spaghetti and meatballs,spagbol,noun,nil,r,food,t
+burger,burger,noun,nil,r,food,t
+fries,fries,noun,nil,r,food,t
+chips,chips,noun,nil,r,food,t
+salad,salad,noun,nil,r,food,t
+KFC,kfc,noun,nil,r,food,t
+McDonald's,mcdonald's,noun,nil,r,food,t
+Burger King,burgerking,noun,nil,r,food,t
+Domino's,dominos,noun,nil,r,food,t
+pizza,pizza,noun,nil,r,food,t
+pie,pie,noun,nil,r,food,t
 
 phone,call,verb,nil,r,activity,phoned+phoning+will phone
 eat,eat,verb,nil,r,activity,ate+eating+will eat

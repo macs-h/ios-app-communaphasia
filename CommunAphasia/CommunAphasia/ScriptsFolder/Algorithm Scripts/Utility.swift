@@ -282,6 +282,7 @@ class Utility {
         let query = CELL_TABLE.select(KEYWORD,TYPE,IMAGE_LINK,RELATIONSHIPS,GR_NUM,CATEGORY,TENSE).filter(CATEGORY.like(category))
         do {
             for cell in try database.prepare(query) {
+                print("image",cell[IMAGE_LINK])
                 cells[typeDict[cell[TYPE]]!].append((
                               cell[KEYWORD],
                               cell[TYPE],

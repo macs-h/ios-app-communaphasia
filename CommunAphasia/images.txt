@@ -111,6 +111,18 @@ work,work,verb,nil,r,activity,worked+working+will work
 write,write,verb,nil,r,activity,wrote+writing+will write
 
 car,car_sedan,noun,travel,r,travel,t
+bus,bus,noun,travel,r,travel,t
+train,train,noun,travel,r,travel,t
+truck,truck,noun,travel,r,travel,t
+ship,ship,noun,travel,r,travel,t
+boat,boat,noun,travel,r,travel,t
+plane,plane,noun,travel,r,travel,t
+helicopter,helicopter,noun,travel,r,travel,t
+jet,jet,noun,travel,r,travel,t
+bike,bike,noun,travel,r,travel,t
+skateboard,skateboard,noun,travel,r,travel,t
+scooter,scooter,noun,travel,r,travel,t
+motorbike,motorbike,noun,travel,r,travel,t
 
 basketball,basketball,noun,sport,r,object,t
 big,big,adj,size,r,objects,t

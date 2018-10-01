@@ -18,9 +18,9 @@ fish,fish,noun,water,fish,animals,t
 tree,tree_silhouette,noun,nature,r,animals,t
 flower,flower,noun,nature,r,animals,t
 grass,grass,noun,nature,r,animals,t
-bush,bush,noun,nature,r,animals,t
+bush,bush,noun,nature,bushes,animals,t
 plant,plant,noun,nature,r,animals,t
-puppy,puppy,noun,nature,r,animals,t
+puppy,puppy,noun,nature,puppies,animals,t
 dog,dog,noun,nature,r,animals,t
 rabbit,rabbit,noun,nature,r,animals,t
 bird,bird,noun,nature,r,animals,t
@@ -43,17 +43,17 @@ sandwich,sandwich,noun,nil,r,food,t
 toast,toast,noun,nil,r,food,t
 water,water,noun,nil,r,food,t
 cereal,cereal,noun,nil,r,food,t
-fruit,fruit,noun,nil,r,food,t
+fruit,fruit,noun,nil,fruit,food,t
 vegetable,vegetable,noun,nil,r,food,t
 chocolate,chocolate,noun,nil,r,food,t
-candy,sweets,noun,nil,r,food,t
-nachos,nachos,noun,nil,r,food,t
+candy,sweets,noun,nil,candies,food,t
+nachos,nachos,noun,nil,nachos,food,t
 spaghetti and meatballs,spagbol,noun,nil,r,food,t
 burger,burger,noun,nil,r,food,t
-fry,fries,noun,nil,r,food,t
+fry,fries,noun,nil,fries,food,t
 chip,chips,noun,nil,r,food,t
 salad,salad,noun,nil,r,food,t
-KFC,kfc,noun,nil,r,food,t
+KFC,kfc,noun,nil,KFC,food,t
 McDonald's,mcdonald's,noun,nil,McDonald's,food,t
 Burger King,burgerking,noun,nil,Burger King,food,t
 Domino's,dominos,noun,nil,Domino's,food,t
@@ -141,7 +141,7 @@ write,write,verb,nil,r,activity,wrote+writing+will write
 don't,don't,modal,nil,r,activity,didn't+don't+won't
 
 car,car_sedan,noun,travel,r,travel,t
-bus,bus,noun,travel,r,travel,t
+bus,bus,noun,travel,buses,travel,t
 train,train,noun,travel,r,travel,t
 truck,truck,noun,travel,r,travel,t
 ship,ship,noun,travel,r,travel,t

@@ -163,15 +163,15 @@ next to,nextTo,prep,nil,r,other,t
 in,in,prep,nil,r,other,t
 on top,onTop,prep,nil,r,other,t
 
-one,one,number,nil,r,other,t
-two,two,number,nil,r,other,t
-three,three,number,nil,r,other,t
-four,four,number,nil,r,other,t
-five,five,number,nil,r,other,t
-six,six,number,nil,r,other,t
-seven,seven,number,nil,r,other,t
-eight,eight,number,nil,r,other,t
-nine,nine,number,nil,r,other,t
-ten,ten,number,nil,r,other,t
+one,one,prep,nil,r,number,t
+two,two,prep,nil,r,number,t
+three,three,prep,nil,r,number,t
+four,four,prep,nil,r,number,t
+five,five,prep,nil,r,number,t
+six,six,prep,nil,r,number,t
+seven,seven,prep,nil,r,number,t
+eight,eight,prep,nil,r,number,t
+nine,nine,prep,nil,r,number,t
+ten,ten,prep,nil,r,number,t
 
 

@@ -62,12 +62,10 @@ class Tense_ViewController: UIViewController {
         PresentImageView.image = image
         FutureImageView.image = image
         self.indexPath = indexPath
-        //self.tenses = cell.tense.components(separatedBy: "+")
         self.tenses = cell.tense
         
         
         if tuteNum == 1{
-            //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
             windowInTense.isHidden = false            
         }else{
             windowInTense.removeFromSuperview()
@@ -120,9 +118,6 @@ class windowInTense: UIView {
     }
     
     func drawRect() {
-        // Ensures to use the current background color to set the filling color
-        //self.backgroundColor?.setFill()
-        //UIRectFill(newRect)
         
         let layer = CAShapeLayer()
         let path = CGMutablePath()

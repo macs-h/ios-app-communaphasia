@@ -21,10 +21,14 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var popupView: UIView!
     
-    var commonWords = ["cow", "cat","apple","car","deer","man","woman","pencil","breakfast",
-                        "lunch","dinner","basketball","fish","soda","tree","eating","sleeping",
-                        "calling","big","small","red","blue","I","fast","quickly","waiting",
-                        "want","need","may","can","should","he","she","it","they","we","you","talk"]
+    var commonWords = ["man","woman","breakfast",
+                        "lunch","dinner","eating","sleeping",
+                        "calling","big","small","I","fast","quickly","waiting",
+                        "want","need","may","can","should","he","she","it","they","we","you","talk",
+                        "how are you?","good morning","good night","hello","pleased to meet you","my name is",
+                        "what is your name?","on top","in","next to","in front","behind","between","around",
+                        "through","above","below","over","underneath","one","two","three","car","phone",
+                        "eat","cook","buy","walk","go","use","talk","like","take","don't"]
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
     

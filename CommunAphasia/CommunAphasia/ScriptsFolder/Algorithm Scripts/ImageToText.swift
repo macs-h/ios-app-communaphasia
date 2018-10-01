@@ -87,9 +87,15 @@ class ImageToText {
 //                    }
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
+                    if prevPic.type == wordType.verb.rawValue {
+                        if prevPic.suggestedWords[0] != "nil" {
+                            returnString.append(prevPic.suggestedWords[0])
+                        }
+                    }
                     if haveSubject == true {
                         returnString.append(thisPic.grNum)
                     }
+                    
                 }else if thisPic.type == wordType.modal.rawValue {
                     temp = isModal(prevWord: prevPic, currentWord: thisPic)
                     returnString.append(temp)

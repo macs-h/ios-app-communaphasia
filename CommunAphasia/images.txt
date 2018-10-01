@@ -99,7 +99,7 @@ speak,speak,verb,nil,r,activity,spoke+speaking+will speak
 stand,stand,verb,nil,r,activity,stood+standing+will stand
 start,start,verb,nil,r,activity,started+starting+will start
 stop,stop,verb,nil,r,activity,stopped+stopping+will stop
-talk,talk,verb,nil,r,activity,talked+talking+will talk
+talk,talk,verb,to,r,activity,talked+talking+will talk
 turn,turn,verb,nil,r,activity,turned+turning+will turn
 understand,understand,verb,nil,r,activity,understood+understanding+will understand
 use,use,verb,nil,r,activity,used+using+will use
@@ -148,7 +148,6 @@ morning,morning,noun,object,r,other,t
 
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
-how are you?,howAreYou,adverb,nil,r,other,t
 how are you?,howAreYou,adverb,nil,r,other,t
 good morning,goodMorning,adverb,nil,r,other,t
 good night,goodNight,adverb,nil,r,other,t

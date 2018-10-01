@@ -79,7 +79,7 @@ class MakeTransparentHoleOnOverlayView: UIView {
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var exitButton: UIButton!
-    //    //allow presses below UIView
+    //allow presses below UIView
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if currentStep.clickRect.contains(point){
             //this means there was a tap inside the highlighted area
@@ -89,7 +89,6 @@ class MakeTransparentHoleOnOverlayView: UIView {
                 print("tapped \(tapCount)")
                 if !eventQueue.isEmpty{
                     currentStep = eventQueue.removeFirst()
-//                    messageLabel.backgroundColor = UIColor.clear
                     drawRect(step: currentStep)
                 }else {
                     //exit
@@ -119,9 +118,6 @@ class MakeTransparentHoleOnOverlayView: UIView {
     // Drawing
     
     func drawRect(step:TutorialStep) {
-        // Ensures to use the current background color to set the filling color
-        //self.backgroundColor?.setFill()
-        //UIRectFill(newRect)
         
         let layer = CAShapeLayer()
         let path = CGMutablePath()
@@ -171,26 +167,14 @@ class MakeTransparentHoleOnOverlayView: UIView {
     // Initialization
     
     required init?(coder aDecoder: NSCoder) {
-//        self.eventQueue = tutes.genTute(num: tuteNum)
-//        self.currentStep = eventQueue.removeFirst()
         super.init(coder: aDecoder)
 
     }
 
     override init(frame: CGRect) {
-//        self.eventQueue = tutes.genTute(num: tuteNum)
-//        self.currentStep = eventQueue.removeFirst()
         super.init(frame: frame)
 
     }
     
     
 }
-
-//class PassthroughView: UIView {
-//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-//        let view = super.hitTest(point, with: event)
-//        return view == self ? nil : view
-//    }
-//
-//}

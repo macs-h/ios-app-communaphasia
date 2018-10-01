@@ -49,9 +49,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         Called after the controller's view is loaded into memory.
      */
     override func viewDidLoad() {
-        super.viewDidLoad()
-//        InputCollectionView.dataSource = self
-//        InputCollectionView.delegate = self
+        super.viewDidLoad()\
         for collection in inputCollectionViews{
             collection.dataSource = self
             collection.delegate = self
@@ -121,17 +119,13 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             // At least one image is selected
             ImageToText.instance.reset()
-//            performSegue(withIdentifier: "IIToResult_segue", sender: self)
             let imageResultsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageResultVC") as! ImageResult_ViewController
             imageResultsVC.selectedCellsResult = selectedCells
             self.hero.isEnabled = true
             imageResultsVC.hero.isEnabled = true
-             imageResultsVC.hero.modalAnimationType =  .fade
-//            imageResultsVC.hero.modalAnimationType =  .push(direction: HeroDefaultAnimationType.Direction.left)
+            imageResultsVC.hero.modalAnimationType =  .fade
             self.hero.replaceViewController(with: imageResultsVC)
             
-        } else {
-            // No picture selectect so show warning?
         }
     }
     
@@ -142,21 +136,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         self.hero.replaceViewController(with: mainVC)
         
     }
-    
-//    /**
-//        Notifies the view controller that a segue is about to be performed.
-//
-//        - Parameters:
-//            - segue:    The segue object containing information about the view
-//                        controllers involved in the segue.
-//            - sender:   The object that initiated the segue.
-//     */
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "IIToResult_segue") {
-//            let resultController = segue.destination as! ImageResult_ViewController
-//            resultController.selectedCellsResult = selectedCells
-//        }
-//    }
     
     
     /**
@@ -185,7 +164,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         sortCellsByfreq()
         fillSpaceWithCollectionViews()
-//        InputCollectionView?.reloadData()
         currentCategoyIndex = sender.tag
     }
     
@@ -211,12 +189,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             }))
         }
         tempCells.removeFirst()
-//        for cell in tempCells {
-//            print("tempCell-",cell.first?.0)
-//        }
-//        for cell in cellsInCategory {
-//            print("origional-",cell.first?.0)
-//        }
         cellsInCategory = tempCells
     }
     
@@ -263,9 +235,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
 
     }
     
-    // ----------------------------------------------------------------------
+    //----------------------------------------------------------------------------------90
     // Collection view stuff.
-    // ----------------------------------------------------------------------
+    //----------------------------------------------------------------------------------90
     
     /**
         Tells the colelction view how many cells it needs to hold.
@@ -284,12 +256,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             
             return cellsInCategory[collectionView.tag].count
         }
-//        if collectionView == self.InputCollectionView {
-//            return cellsInCategory[0].count
-//        } else {
-//            // Input collection View
-//            return selectedWords.count
-//        }
     }
     
     
@@ -309,8 +275,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             //SelectedCollectionView
             // Gives the type of the custom class that was made for the cell.
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
-            //cell.addData(cell: selectedCells[indexPath.count])
-            //cell.showType()
             cell.addImageInputVC(parent: self)
             return cell
             
@@ -322,29 +286,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             cell.addImageInputVC(parent: self)
             return cell
         }
-        
-        
-//        if collectionView == self.InputCollectionView {
-//            // Gives the type of the custom class that was made for the cell.
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
-//
-//            // Call a function the the cell which assigns each variable with
-//            // data from a function which returns a tuple with data like:
-//            // image, word, suggestions etc
-//
-//            //SAM MAKE EXTRA COLLECTION VIEWS FOR TYPES (cellsInCategory is a 2-D array)
-//            cell.addData(cell: cellsInCategory[0][indexPath.item])
-//            cell.showType()
-//            return cell
-//        } else {
-//            // SelectedCollectionView
-//            // Gives the type of the custom class that was made for the cell.
-//
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
-//            //cell.addData(cell: selectedCells[indexPath.count])
-//            //cell.showType()
-//            return cell
-//        }
     }
        
     
@@ -374,11 +315,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
                 newCell.addData(cell: cell.extractData())
                 newCell.showType()
                 selectedCells.append(newCell)
-                // Using previous cell as a suggestion
             }
-        } else {
-            //selectedCollectionView
-            //show option to discard/ change
         }
     }
     
@@ -402,7 +339,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if currentTute == 1 {
             singlePluralVC.tuteNum = 1
         }
-        //popupView.hero.id = "PopupView"
         singlePluralVC.setUp(delegate: self, cell: cell, indexPath: indexPath)
     }
     
@@ -419,7 +355,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         let tenseVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tenseVC") as! Tense_ViewController
         selectedCell = cell
         selectedIndexPath = indexPath
-        //performSegue(withIdentifier: "TenseSegue", sender: self)
         self.addChildViewController(tenseVC)
         tenseVC.view.frame = self.view.frame
         self.view.addSubview(tenseVC.view)
@@ -470,7 +405,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     }
 
 } // End of ImageInput_ViewController class!
-// ----------------------------------------------------------------------
+//--------------------------------------------------------------------------------------90
 
 
 /**

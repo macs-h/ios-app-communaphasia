@@ -69,7 +69,6 @@ class ImageToText {
                 
                 if thisPic.type == wordType.noun.rawValue {
                     temp = isNoun(prevWord: prevPic)
-//                    wordToAppend = (thisPic.grNum == "singular") ? thisPic.word : pluralize(pic: thisPic)
                     if (thisPic.grNum == "singular") {
                         wordToAppend = thisPic.word
                     } else {
@@ -82,9 +81,6 @@ class ImageToText {
                     }
                     
                     returnString.append(temp)
-//                    if (prevPic.type == "pronoun") {
-//                        wordToAppend = ""
-//                    }
                     returnString.append(wordToAppend)
                 }else if thisPic.type == wordType.pronoun.rawValue {
                     if prevPic.type == wordType.verb.rawValue {

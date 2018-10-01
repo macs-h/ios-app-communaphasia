@@ -27,8 +27,14 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         InputImagesCollectionView.delegate = self
         InputImagesCollectionView.dataSource = self
        
-        let convertedSentance = ImageToText.instance.createSentence(pics: selectedCellsResult)
-        resultTextLabel.text = convertedSentance
+        let convertedSentance = (ImageToText.instance.createSentence(pics: selectedCellsResult))
+        let textToDisplay = (convertedSentance.split(separator: " ")).joined(separator: " ")
+        resultTextLabel.text = textToDisplay
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
+
         
         Utility.instance.setRecentSentence(sentence: selectedCellsResult)
         print(Utility.instance.printRecentSentences())
@@ -43,7 +49,12 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            print("Swipe right")
+            self.backAction(AnyObject.self)
+        }
+    }
 
     // ----------------------------------------------------------------------
     // Shows input images on screen.

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 /**
     The class for the cell in the `ImageResultCollectionView`.
  
@@ -25,6 +26,7 @@ class ImageCell: UICollectionViewCell {
     var freq: Int = 0
     
     var frequency:Int = 0
+    var imageInputVC: ImageInput_ViewController?
     
     // Reference to the image on the UI which are changed to reflect the image.
     @IBOutlet weak var imageView: UIImageView!
@@ -36,33 +38,30 @@ class ImageCell: UICollectionViewCell {
                                          "modal":UIColor.magenta.cgColor]
     var tenseType: String = "present"
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
-//        tapGesture.numberOfTapsRequired = 1
-//        imageView.addGestureRecognizer(tapGesture)
-//        
-//        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
-//        imageView.addGestureRecognizer(longGesture)
-//        print("setting up cell----")
-//    }
-//    
-//    
-//    @objc func normalTap(_ sender: UIGestureRecognizer){
-//        print("Normal tap")
-//    }
-//    
-//    @objc func longTap(_ sender: UIGestureRecognizer){
-//        print("Long tap")
-//        if sender.state == .ended {
-//            print("UIGestureRecognizerStateEnded")
-//            //Do Whatever You want on End of Gesture
-//        }
-//        else if sender.state == .began {
-//            print("UIGestureRecognizerStateBegan.")
-//            //Do Whatever You want on Began of Gesture
-//        }
-//    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        imageView.addGestureRecognizer(longGesture)
+    }
+    
+    
+    @objc func longTap(_ sender: UIGestureRecognizer){
+        print("Long tap")
+        if sender.state == .ended {
+            print("UIGestureRecognizerStateEnded")
+            //Do Whatever You want on End of Gesture
+            imageInputVC?.hidePopover()
+        }
+        else if sender.state == .began {
+            print("UIGestureRecognizerStateBegan.")
+            //Do Whatever You want on Began of Gesture
+            imageInputVC?.showPopover(word: word, position: sender.location(in: imageInputVC?.view))
+        }
+    }
+    
+    func addImageInputVC(parent: ImageInput_ViewController){
+        imageInputVC = parent
+    }
     
     /**
         Takes in a tuple and assigns it to class properties.

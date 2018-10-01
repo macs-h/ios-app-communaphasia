@@ -28,6 +28,9 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     var selectedWords = [String]()
     var selectedCells = [ImageCell]()
     
+    @IBOutlet var popover: UIView!
+    @IBOutlet weak var popoverWord: UILabel!
+    
     // Category UI things.
     @IBOutlet var tabButtons: [UIButton]! // array of tab buttons
     let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab", "99afae"]
@@ -64,6 +67,16 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         
         if currentTute != 0 {
             showTute(num: currentTute)
+        }
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft.direction = .right
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right && currentTute == 0{
+            print("Swipe right")
+            self.backButtonAction(AnyObject.self)
         }
     }
     /**
@@ -294,6 +307,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as! ImageCell
             //cell.addData(cell: selectedCells[indexPath.count])
             //cell.showType()
+            cell.addImageInputVC(parent: self)
             return cell
             
         }else{
@@ -301,6 +315,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InputCell", for: indexPath) as! ImageCell
             cell.addData(cell: cellsInCategory[collectionView.tag][indexPath.item])
             cell.showType()
+            cell.addImageInputVC(parent: self)
             return cell
         }
         
@@ -436,6 +451,18 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
             selectedWords.remove(at: indexPath.item) //removes word from selected word (needs to be done before deleteing item because its the data source)
             selectedCollectionView?.deleteItems(at: [indexPath]) //removes from input collection view
         }
+    }
+    
+    func showPopover(word: String, position: CGPoint){
+        let pos = CGPoint(x: position.x, y: position.y-40)
+        
+        self.view.addSubview(popover)
+        popover.center = pos
+        popoverWord.text = word
+    }
+    
+    func hidePopover(){
+        self.popover.removeFromSuperview()
     }
 
 } // End of ImageInput_ViewController class!

@@ -37,7 +37,8 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
         swipeLeft.direction = .right
         self.view.addGestureRecognizer(swipeLeft)
     }
-    
+    /** recognises a swipe left and returns to the previous menu if so
+     */
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             print("Swipe right")

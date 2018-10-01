@@ -45,7 +45,6 @@ cook,cook.jpg,verb,nil,r,activity,cooked+cooking+will cook
 feel,feel,verb,nil,r,activity,felt+feeling+will feel
 find,find.jpg,verb,nil,r,activity,found+finding+will find
 give,give.jpg,verb,nil,r,activity,gave+giving+will give
-ask,ask,verb,nil,r,activity,asked+asking+will ask
 say,say,verb,nil,r,activity,said+saying+will say
 see,see.gif,verb,nil,r,activity,saw+seeing+will see
 take,take,verb,nil,r,activity,took+taking+will take
@@ -129,7 +128,6 @@ woman,woman_silhouette,noun,people,women,objects,t
 
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t
-talk,talk,verb,to,r,activity,talked+talking+will talk
 how are you?,howAreYou,adverb,nil,r,other,t
 how are you?,howAreYou,adverb,nil,r,other,t
 good morning,goodMorning,adverb,nil,r,other,t

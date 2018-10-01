@@ -58,12 +58,12 @@ class Tutorials {
         }else if num == 2 {
             return [
                 TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Tap Screen to begin tutorial", messagePos: CGPoint(x: 216, y: 220),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000)),
-                TutorialStep(window: CGRect(x: 166-5, y: 163-10, width: 806+115+10, height: 33+20), message: "enter the phrase: 'the large tree is green' and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45)),
-                TutorialStep(window: CGRect(x: 406-5, y: 504-5, width: 300+10, height: 200+10), message: "use the scroll wheel to change large to big and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45),extraWindow: CGRect(x: 988-5, y: 157-5, width: 97+10, height: 45+10))
+                TutorialStep(window: CGRect(x: 166-5, y: 163-10, width: 806+115+10, height: 33+20), message: "Enter the phrase: 'the large tree is green' and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45)),
+                TutorialStep(window: CGRect(x: 406-5, y: 504-5, width: 300+10, height: 200+10), message: "Use the scroll wheel to change large to big and press done", messagePos: CGPoint(x: 216, y: 220), clickRect: CGRect(x: 988, y: 157, width: 97, height: 45),extraWindow: CGRect(x: 988-5, y: 157-5, width: 97+10, height: 45+10))
             ]
         }else {
         //default tute
-            return [TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "sorry an error occured, tap screen to exit tutorial", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))]
+            return [TutorialStep(window: CGRect(x: 0, y: 0, width: 0, height: 0), message: "Sorry an error occured, tap screen to exit tutorial", messagePos: CGPoint(x: 216, y: 90),clickRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))]
         }
     }
 }
@@ -79,7 +79,7 @@ class MakeTransparentHoleOnOverlayView: UIView {
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var exitButton: UIButton!
-    //    //allow presses below UIView
+    //allow presses below UIView
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if currentStep.clickRect.contains(point){
             //this means there was a tap inside the highlighted area
@@ -89,11 +89,10 @@ class MakeTransparentHoleOnOverlayView: UIView {
                 print("tapped \(tapCount)")
                 if !eventQueue.isEmpty{
                     currentStep = eventQueue.removeFirst()
-//                    messageLabel.backgroundColor = UIColor.clear
                     drawRect(step: currentStep)
                 }else {
                     //exit
-                    if currentStep.message == "tap screen to exit tutorial" {
+                    if currentStep.message == "Tap screen to exit tutorial" {
                         exitButton.sendActions(for: .touchUpInside)
                     }else{
                         currentStep = exitStep
@@ -119,9 +118,6 @@ class MakeTransparentHoleOnOverlayView: UIView {
     // Drawing
     
     func drawRect(step:TutorialStep) {
-        // Ensures to use the current background color to set the filling color
-        //self.backgroundColor?.setFill()
-        //UIRectFill(newRect)
         
         let layer = CAShapeLayer()
         let path = CGMutablePath()
@@ -171,26 +167,14 @@ class MakeTransparentHoleOnOverlayView: UIView {
     // Initialization
     
     required init?(coder aDecoder: NSCoder) {
-//        self.eventQueue = tutes.genTute(num: tuteNum)
-//        self.currentStep = eventQueue.removeFirst()
         super.init(coder: aDecoder)
 
     }
 
     override init(frame: CGRect) {
-//        self.eventQueue = tutes.genTute(num: tuteNum)
-//        self.currentStep = eventQueue.removeFirst()
         super.init(frame: frame)
 
     }
     
     
 }
-
-//class PassthroughView: UIView {
-//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-//        let view = super.hitTest(point, with: event)
-//        return view == self ? nil : view
-//    }
-//
-//}

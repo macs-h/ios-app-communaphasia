@@ -2,8 +2,8 @@
 //  TutorialPopup.swift
 //  CommunAphasia
 //
-//  Created by Mitchel Maluschnig on 10/1/18.
-//  Copyright © 2018 Cosc345. All rights reserved.
+//  Created by RedSQ on 10/1/18.
+//  Copyright © 2018 RedSQ. All rights reserved.
 //
 
 import UIKit

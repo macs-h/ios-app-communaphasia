@@ -17,7 +17,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
     // References the user input text field.
     @IBOutlet weak var textField: UITextField!
-    //let loadingSpinner: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var stringArray = [String]()
     var currentIndex:Int = 0
@@ -31,6 +30,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var synonyms = [[String]]()
     
     var invalidSentenceEntered: Bool = false
+    var onlyOneError: Bool = false
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
@@ -52,10 +52,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
-        //loadingSpinner.center = self.view.center
-        //loadingSpinner.hidesWhenStopped = true
-        //loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        //view.addSubview(loadingSpinner)
         if currentTute != 0 {
             showTute(num: currentTute)
         }
@@ -114,8 +110,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         errors = []
         let originalArray = original.map { $0.lowercased() }
         let originalLemmaTagged = Utility.instance.lemmaTag(inputString: originalArray.joined(separator: " "))
-
-        //loadingSpinner.startAnimating()// Start loading wheel.
         
         for word in wordArray {
             if wordArray.isEmpty && errorArray.isEmpty {
@@ -138,13 +132,10 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     let tempCell = Utility.instance.getDatabaseEntry(lemmaWord)
                     cells.append(tempCell)
                 }
-            
-            // idea for +... could treat as a cell but just manually chnage the size of the cell in code for every 2nd cell
-
             }
         }
         
-        stopActivityIndicator()//loadingSpinner.stopAnimating() // End loading wheel.
+        stopActivityIndicator() // End loading wheel.
         
         return errorArray
     }
@@ -178,36 +169,16 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         if textField.text != ""{
             if processTextResults(){
-                //performSegue(withIdentifier: "TIToResult_segue", sender: self)
                 let textToImageResultVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "textToImageResultVC") as! TextResult_ViewController
                 textToImageResultVC.inputString = textField.text!
                 textToImageResultVC.cellsToBeShown = cells
                 
                 textToImageResultVC.hero.isEnabled = true
                 textToImageResultVC.hero.modalAnimationType = .fade
-//                textToImageResultVC.hero.modalAnimationType = .push(direction: HeroDefaultAnimationType.Direction.left)
                 self.hero.replaceViewController(with: textToImageResultVC)
             }
         }
     }
-    
-
-//    /**
-//        Notifies the view controller that a segue is about to be performed.
-//
-//        - Parameters:
-//            - segue:    The segue object containing information about the view
-//                        controllers involved in the segue.
-//            - sender:   The object that initiated the segue.
-//     */
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "TIToResult_segue")
-//        {
-//            let resultController = segue.destination as! TextResult_ViewController
-//            resultController.inputString = textField.text!
-//            resultController.cellsToBeShown = cells
-//        }
-//    }
     
     
     /**
@@ -218,11 +189,13 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
+    /// Start the loading wheel.
     func startActivityIndicator(){
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
+    /// Stop the loading wheel.
     func stopActivityIndicator(){
         activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
@@ -232,7 +205,9 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
 } // End of TextInput_ViewController class!
 
 
-/*all the Synonym stuff*/
+//--------------------------------------------------------------------------------------90
+// All the synonym functionality.
+//--------------------------------------------------------------------------------------90
 extension TextInput_ViewController{
     
     @available(iOS 11.0, *)
@@ -261,6 +236,10 @@ extension TextInput_ViewController{
         if errorArray.count > 0 {
             cells.removeAll()
             
+            if errorArray.count == 1 {
+                onlyOneError = true
+            }
+            
             suggestedWordsArray = [Int](repeating: 0, count: inputArray.count)
             //start async
             startActivityIndicator()
@@ -281,7 +260,7 @@ extension TextInput_ViewController{
                             }
                             
                         } else {
-                            print("> No synonyms found from API for \"\(inputArray[index])\"") // handle this?
+                            print("> No synonyms found from API for \"\(inputArray[index])\"")
                             
                             // Check if the word is a contraction if it cannot be sent to the WordsAPI
                             // to search for synonyms. If it is, break the contraction down to two words
@@ -338,6 +317,8 @@ extension TextInput_ViewController{
                         
                         self.nextButton.isHidden = false
                         self.prevButton.isHidden = false
+                        self.checkIfOnlyOneInvalidWord()
+                        
                         for word in self.stringArray {
                             let atWord = NSMutableAttributedString(string: word)
                             if self.errors.contains(word){
@@ -369,12 +350,10 @@ extension TextInput_ViewController{
                     print("\(word): \(tag.rawValue)")
                     
                     if cells.count > 0 {
-                        //                            print(">> NSCount:", NSCount)
                         if word == cells[NSCount].word {
                             cells[NSCount].type = tag.rawValue
                             print(">\(cells[NSCount].type)")
                             NSCount += 1
-                            
                         }
                     }
                 }
@@ -434,7 +413,7 @@ extension TextInput_ViewController{
      valid or not, and also which word is currently selected to be changed.
      */
     fileprivate func setTextLabelColour() {
-        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+        if Utility.instance.isInDatabase(word: attributedArray[currentIndex].string) {
             attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
         }else{
             attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
@@ -456,16 +435,34 @@ extension TextInput_ViewController{
     
     
     /**
+        If there is only one invalid word in the input sentence, then don't
+        display the left and right arrows.
+     */
+    fileprivate func checkIfOnlyOneInvalidWord() {
+        if onlyOneError {
+            nextButton.isHidden = true
+            prevButton.isHidden = true
+        }
+    }
+    
+    
+    /**
      Updates the error message displayed on screen if there are invalid words.
      */
     fileprivate func updateSynonymLabel(word: String) {
         if invalidSentenceEntered {
             invalidInputSentence()
         } else {
+            checkIfOnlyOneInvalidWord()
+            
             if Utility.instance.isInDatabase(word: word) {
-                synonymLabel.text = "\"" + word + "\" is valid!"
+                let displayText = NSMutableAttributedString(string: word + " is valid!")
+                displayText.setColor(color: UIColor.blue, forText: word)
+                synonymLabel.attributedText =  displayText
             } else {
-                synonymLabel.text = "Can't find \"" + word + "\", try one of these:"
+                let displayText = NSMutableAttributedString(string: "Can't find: " + word + "\nTry one of these:")
+                displayText.setColor(color: UIColor.blue, forText: word)
+                synonymLabel.attributedText = displayText
             }
         }
     }
@@ -495,9 +492,13 @@ extension TextInput_ViewController{
         if invalidSentenceEntered {
             invalidInputSentence()
         } else {
+            checkIfOnlyOneInvalidWord()
+            
             if suggestedWordsArray[currentIndex] == 0 {
                 pickerView.isHidden = true
-                synonymLabel.text = "Unable to find alternatives for \"" + stringArray[currentIndex] + "\".\nPlease rephrase"
+                let displayText = NSMutableAttributedString(string: "Unable to find alternatives for: " + stringArray[currentIndex] + "\nPlease try a different word")
+                displayText.setColor(color: UIColor.blue, forText: stringArray[currentIndex])
+                synonymLabel.attributedText = displayText
             } else {
                 pickerView.isHidden = false
             }
@@ -560,8 +561,6 @@ extension TextInput_ViewController{
             attributedArray[currentIndex] = NSMutableAttributedString(string: pickerData[row])
             attributedArray[currentIndex].setColor(color: UIColor.blue, forText: attributedArray[currentIndex].string)
             setTextFromArray()
-            //need to display attributed array in the text field
-            //textField.text = stringArray.joined(separator: " ")
         }
     }
     

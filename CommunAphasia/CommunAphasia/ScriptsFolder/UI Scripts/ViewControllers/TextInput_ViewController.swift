@@ -31,6 +31,7 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var synonyms = [[String]]()
     
     var invalidSentenceEntered: Bool = false
+    var onlyOneError: Bool = false
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
@@ -261,6 +262,10 @@ extension TextInput_ViewController{
         if errorArray.count > 0 {
             cells.removeAll()
             
+            if errorArray.count == 1 {
+                onlyOneError = true
+            }
+            
             suggestedWordsArray = [Int](repeating: 0, count: inputArray.count)
             //start async
             startActivityIndicator()
@@ -338,6 +343,8 @@ extension TextInput_ViewController{
                         
                         self.nextButton.isHidden = false
                         self.prevButton.isHidden = false
+                        self.checkIfOnlyOneInvalidWord()
+                        
                         for word in self.stringArray {
                             let atWord = NSMutableAttributedString(string: word)
                             if self.errors.contains(word){
@@ -434,7 +441,7 @@ extension TextInput_ViewController{
      valid or not, and also which word is currently selected to be changed.
      */
     fileprivate func setTextLabelColour() {
-        if Utility.instance.isInDatabase(word: stringArray[currentIndex]) {
+        if Utility.instance.isInDatabase(word: attributedArray[currentIndex].string) {
             attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
         }else{
             attributedArray[currentIndex].setColor(color: UIColor.red, forText: attributedArray[currentIndex].string)
@@ -454,6 +461,13 @@ extension TextInput_ViewController{
         synonymLabel.text = "Invalid sentence. Please try again."
     }
     
+    fileprivate func checkIfOnlyOneInvalidWord() {
+        if onlyOneError {
+            nextButton.isHidden = true
+            prevButton.isHidden = true
+        }
+    }
+    
     
     /**
      Updates the error message displayed on screen if there are invalid words.
@@ -462,12 +476,20 @@ extension TextInput_ViewController{
         if invalidSentenceEntered {
             invalidInputSentence()
         } else {
+            checkIfOnlyOneInvalidWord()
+            
             if Utility.instance.isInDatabase(word: word) {
-                synonymLabel.text = "\"" + word + "\" is valid!"
+                let displayText = NSMutableAttributedString(string: word + " is valid!")
+                displayText.setColor(color: UIColor.blue, forText: word)
+                synonymLabel.attributedText =  displayText
             } else {
-                synonymLabel.text = "Can't find \"" + word + "\", try one of these:"
+                let displayText = NSMutableAttributedString(string: "Can't find: " + word + "\nTry one of these:")
+                displayText.setColor(color: UIColor.blue, forText: word)
+                synonymLabel.attributedText = displayText
             }
         }
+        
+//        attributedArray[currentIndex].setColor(color: UIColor.green, forText: attributedArray[currentIndex].string)
     }
     
     
@@ -495,9 +517,13 @@ extension TextInput_ViewController{
         if invalidSentenceEntered {
             invalidInputSentence()
         } else {
+            checkIfOnlyOneInvalidWord()
+            
             if suggestedWordsArray[currentIndex] == 0 {
                 pickerView.isHidden = true
-                synonymLabel.text = "Unable to find alternatives for \"" + stringArray[currentIndex] + "\".\nPlease rephrase"
+                let displayText = NSMutableAttributedString(string: "Unable to find alternatives for: " + stringArray[currentIndex] + "\nPlease try a different word")
+                displayText.setColor(color: UIColor.blue, forText: stringArray[currentIndex])
+                synonymLabel.attributedText = displayText
             } else {
                 pickerView.isHidden = false
             }

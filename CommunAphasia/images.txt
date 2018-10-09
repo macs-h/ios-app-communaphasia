@@ -140,6 +140,7 @@ work,work,verb,nil,r,activity,worked+working+will work
 write,write,verb,nil,r,activity,wrote+writing+will write
 don't,don't,modal,nil,r,activity,didn't+don't+won't
 
+
 car,car_sedan,noun,travel,r,travel,t
 bus,bus,noun,travel,buses,travel,t
 train,train,noun,travel,r,travel,t
@@ -156,18 +157,18 @@ motorbike,motorbike,noun,travel,r,travel,t
 airport,airport,noun,travel,r,travel,t
 
 basketball,basketball,noun,sport,r,object,t
-big,big,adj,size,r,objects,t
-I,i.jpg,pronoun,was+am+will be,me,objects,my
-you,you,pronoun,were+are+will be,you,objects,your
-he,he,pronoun,was+is+will be,him,objects,his
-she,she,pronoun,was+is+will be,her,objects,her
-we,we,pronoun,were+are+will be,us,objects,our
-they,they,pronoun,were+are+will be,them,objects,their
-it,it,pronoun,was+is+will be,it,objects,its
-man,man_silhouette,noun,people,men,objects,t
-pencil,pencil,noun,draw,r,objects,t
-small,small,adj,size,r,objects,t
-woman,woman_silhouette,noun,people,women,objects,t
+big,big,adj,size,r,object,t
+I,i.jpg,pronoun,was+am+will be,me,object,my
+you,you,pronoun,were+are+will be,you,object,your
+he,he,pronoun,was+is+will be,him,object,his
+she,she,pronoun,was+is+will be,her,object,her
+we,we,pronoun,were+are+will be,us,object,our
+they,they,pronoun,were+are+will be,them,object,their
+it,it,pronoun,was+is+will be,it,object,its
+man,man_silhouette,noun,people,men,object,t
+pencil,pencil,noun,draw,r,object,t
+small,small,adj,size,r,object,t
+woman,woman_silhouette,noun,people,women,object,t
 post office,postOffice,noun,object,r,object,t
 hospital,hospital,noun,object,r,object,t
 pan,pan,noun,object,r,object,t
@@ -187,6 +188,7 @@ later,later,noun,object,r,other,t
 afternoon,afternoon,noun,object,r,other,t
 night,night,noun,object,r,other,t
 morning,morning,noun,object,r,other,t
+bathroom,bathroom,noun,nil,r,object,t
 
 fast,fast,adj,faster+fastest,r,other,t
 quickly,fast,adverb,quick,r,other,t

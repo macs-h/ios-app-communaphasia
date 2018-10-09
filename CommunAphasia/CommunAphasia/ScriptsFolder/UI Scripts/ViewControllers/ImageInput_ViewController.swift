@@ -40,7 +40,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     let tabColour: [String] = ["e0f0ea", "def2f1", "d9eceb", "cfe3e2", "bed3d2", "aec8c7", "9ab8b6", "8facab", "99afae"]
     var currentCategoyIndex = 0
     private var cellsInCategory: [[(String, String, UIImage, [String], String, String, String)]]! //temp storage to be used by collection view cells
-    let categories = ["common","emotions","animals","food","activity","travel","objects","number", "other"]
+    let categories = ["common","emotions","animals","food","activity","travel","object","number", "other"]
     
     var currentTute:Int = 0
     private var selectedCell: ImageCell? //for tense controllers

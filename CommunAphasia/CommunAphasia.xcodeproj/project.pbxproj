@@ -153,6 +153,7 @@
 		C1206F2121616CDB000D6411 /* TutorialPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1206F2021616CDB000D6411 /* TutorialPopup.swift */; };
 		C153B975211C0011008E5451 /* Tense_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B974211C0011008E5451 /* Tense_ViewController.swift */; };
 		C17B6AFB21509A53004E0544 /* ImageInputTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */; };
+		ED04BA84216C443C000404EE /* bathroom.png in Resources */ = {isa = PBXBuildFile; fileRef = ED04BA7D216C443C000404EE /* bathroom.png */; };
 		ED27976C20B7C7C0001AF14C /* deer_silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976120B7C7C0001AF14C /* deer_silhouette.png */; };
 		ED27976D20B7C7C0001AF14C /* cow.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976220B7C7C0001AF14C /* cow.png */; };
 		ED27976E20B7C7C0001AF14C /* image placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = ED27976320B7C7C0001AF14C /* image placeholder.png */; };
@@ -495,6 +496,7 @@
 		C153B974211C0011008E5451 /* Tense_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense_ViewController.swift; sourceTree = "<group>"; };
 		C17B6AFA21509A53004E0544 /* ImageInputTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputTutorial.swift; sourceTree = "<group>"; };
 		E3BC353A412C7C423E9C949C /* Pods_CommunAphasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunAphasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED04BA7D216C443C000404EE /* bathroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bathroom.png; sourceTree = "<group>"; };
 		ED27976120B7C7C0001AF14C /* deer_silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deer_silhouette.png; sourceTree = "<group>"; };
 		ED27976220B7C7C0001AF14C /* cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cow.png; sourceTree = "<group>"; };
 		ED27976320B7C7C0001AF14C /* image placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image placeholder.png"; sourceTree = "<group>"; };
@@ -701,6 +703,7 @@
 		ED27976020B7C7C0001AF14C /* Database images */ = {
 			isa = PBXGroup;
 			children = (
+				ED04BA7D216C443C000404EE /* bathroom.png */,
 				EDAC510F2162437E0019F975 /* andrew.png */,
 				EDAC51082162437D0019F975 /* david.png */,
 				EDEBE67721623BC200882AFC /* grass.png */,
@@ -1283,6 +1286,7 @@
 				19780B2D2161DA1A00D972C3 /* mean.png in Resources */,
 				19780B462161DA1A00D972C3 /* remember.png in Resources */,
 				19780B542161DA1A00D972C3 /* read.png in Resources */,
+				ED04BA84216C443C000404EE /* bathroom.png in Resources */,
 				1951CB432121918B005D7892 /* talk.png in Resources */,
 				1902F44F216227D2006E8D34 /* night.png in Resources */,
 				19780B422161DA1A00D972C3 /* keep.png in Resources */,

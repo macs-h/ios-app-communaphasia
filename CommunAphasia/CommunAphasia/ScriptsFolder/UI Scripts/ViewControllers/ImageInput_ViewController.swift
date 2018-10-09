@@ -21,7 +21,7 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var popupView: UIView!
     
-    var commonWords = ["man","woman","breakfast",
+    var commonWords = ["man","woman","breakfast","bathroom",
                         "lunch","dinner","eating","sleeping",
                         "calling","big","small","I","fast","quickly","waiting",
                         "want","need","may","can","should","he","she","it","they","we","you","talk",

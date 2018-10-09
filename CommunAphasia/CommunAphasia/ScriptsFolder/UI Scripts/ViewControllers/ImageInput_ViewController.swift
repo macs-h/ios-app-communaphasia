@@ -53,7 +53,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         for collection in inputCollectionViews{
             collection.dataSource = self
             collection.delegate = self
-            print("collection \(collection.tag) is x of \(collection.frame.minX) and y\(collection.frame.minY)")
             
         }
         selectedCollectionView.dataSource = self
@@ -77,7 +76,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right && currentTute == 0{
-            print("Swipe right")
             self.backButtonAction(AnyObject.self)
         }
     }
@@ -115,7 +113,6 @@ class ImageInput_ViewController: UIViewController, UICollectionViewDelegate, UIC
         if selectedWords.count > 0 {
             for cell in selectedCells {
                 cell.setFreq(f: cell.freq + 1)
-                print("freq \(cell.getFreq())")
             }
             // At least one image is selected
             ImageToText.instance.reset()

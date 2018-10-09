@@ -37,7 +37,6 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
 
         
         Utility.instance.setRecentSentence(sentence: selectedCellsResult)
-        print(Utility.instance.printRecentSentences())
         // Do any additional setup after loading the view.
     }
 
@@ -51,7 +50,6 @@ class ImageResult_ViewController: UIViewController, UICollectionViewDelegate, UI
     }
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
-            print("Swipe right")
             self.backAction(AnyObject.self)
         }
     }

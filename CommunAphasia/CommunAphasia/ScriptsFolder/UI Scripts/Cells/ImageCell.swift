@@ -46,14 +46,11 @@ class ImageCell: UICollectionViewCell {
     
     
     @objc func longTap(_ sender: UIGestureRecognizer){
-        print("Long tap")
         if sender.state == .ended {
-            print("UIGestureRecognizerStateEnded")
             //Do Whatever You want on End of Gesture
             imageInputVC?.hidePopover()
         }
         else if sender.state == .began {
-            print("UIGestureRecognizerStateBegan.")
             //Do Whatever You want on Began of Gesture
             imageInputVC?.showPopover(word: word, position: sender.location(in: imageInputVC?.view))
         }

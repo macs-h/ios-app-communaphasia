@@ -14,7 +14,6 @@ class ImageInputTutorial: UIViewController {
     @IBOutlet var tuteOverlay: MakeTransparentHoleOnOverlayView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("begin tutorial")
         tuteOverlay.tuteNum = self.tuteNum
         
         tuteOverlay.setUp(num: tuteNum)
@@ -86,7 +85,6 @@ class MakeTransparentHoleOnOverlayView: UIView {
             //do the next tute step NOTE: this happens twice (for unknown reasons)
             tapCount += 1
             if tapCount%2 == 0 {
-                print("tapped \(tapCount)")
                 if !eventQueue.isEmpty{
                     currentStep = eventQueue.removeFirst()
                     drawRect(step: currentStep)

@@ -63,7 +63,6 @@ class TextInput_ViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right && currentTute == 0{
-            print("Swipe right")
             self.BackButtonAction(AnyObject.self)
         }
     }
@@ -223,15 +222,12 @@ extension TextInput_ViewController{
         
         
         let inputArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces, removeSelectWords: false).filter({ $0 != ""})
-        print(inputArray)
         let wordArray = Utility.instance.getSentenceToWords(from: textField.text!, separatedBy: .whitespaces).filter({ $0 != ""})
         
         
         let errorArray = makeCells(using: wordArray, from: inputArray)
         
-        for word in errorArray{
-            print("\(word) \(inputArray[word])")
-        }
+        
         
         if errorArray.count > 0 {
             cells.removeAll()
@@ -251,7 +247,6 @@ extension TextInput_ViewController{
                         print("Internet Connection Available!")
                         
                         if let synonyms = Utility.instance.getSynonym(inputArray[index]) {
-                            print("> Word: \(inputArray[index]) --> SYN: \(synonyms)")
                             
                             let matchedSynonyms = Utility.instance.synonymsInDataBase(from: synonyms)
                             if !matchedSynonyms.isEmpty {
@@ -347,12 +342,10 @@ extension TextInput_ViewController{
                 if let tag = tag {
                     let word = (inputString as NSString).substring(with: tokenRange)
                     
-                    print("\(word): \(tag.rawValue)")
                     
                     if cells.count > 0 {
                         if word == cells[NSCount].word {
                             cells[NSCount].type = tag.rawValue
-                            print(">\(cells[NSCount].type)")
                             NSCount += 1
                         }
                     }

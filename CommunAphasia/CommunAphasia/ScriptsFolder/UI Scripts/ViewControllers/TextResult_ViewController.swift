@@ -41,7 +41,6 @@ class TextResult_ViewController: UIViewController, UICollectionViewDataSource, U
      */
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
-            print("Swipe right")
             self.backButtonAction(AnyObject.self)
         }
     }
